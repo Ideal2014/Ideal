@@ -1,0 +1,1 @@
+1.写了两个例子，一个是Login/Login.aspx，另一个是Base/UiManager.aspx，但是这两个写得很不全，只写了一个功能，见谅。
