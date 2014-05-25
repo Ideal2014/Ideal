@@ -35,11 +35,10 @@
 
                      <div class="posts-block col-lg-12 col-md-12 col-sm-12 col-xs-12" id="course1">
                         <article class="post hentry">
-                           <div class="post-image" style=" background:none; border:none; width:auto; height:auto">
-                             
-                              <img src="../img/books/cover-orange.png" alt="">
-                             
-                           </div>
+                            <div class="post-image" style="background: none; border: none; width: 100px; height: auto">
+
+                                <img src="../img/books/cover-orange.png" alt="">
+                            </div>
                            <div class="post-content-wrap">
                               <header class="post-header">
                                  <div class="post-date"></div>

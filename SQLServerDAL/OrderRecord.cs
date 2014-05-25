@@ -73,7 +73,7 @@ namespace SQLServerDAL
         DataSet IDAL.IOrderRecord.GetOrderList()
         {
             SqlConnection sqlcon = new SqlConnection(connection);
-            string sqlstr = "select Ord_ID as '订单号' ,Ord_Time as '购买时间' from tb_OrderRecord";
+            string sqlstr = "SELECT tb_OrderRecord.Ord_ID, tb_OrderRecord.Ord_Time, tb_Student.Stu_UserName, tb_OrderRecord.Ord_Plan FROM tb_OrderRecord INNER JOIN tb_Student ON tb_OrderRecord.Stu_ID = tb_Student.Stu_ID";
             SqlDataAdapter myda = new SqlDataAdapter(sqlstr, sqlcon);
             DataSet myds = new DataSet();
             sqlcon.Open();

@@ -28,7 +28,7 @@ public partial class Base_OrderList : System.Web.UI.Page
 
     private void Bind()
     {
-        GridView1.DataSource = bllOrderRecord.GetOrderList();
-        GridView1.DataBind();
+        OrderGrid.DataSource = bllOrderRecord.GetOrderList();
+        OrderGrid.DataBind();
     }
 }

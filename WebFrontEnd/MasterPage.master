@@ -38,7 +38,7 @@
       <![endif]-->
 </head>
 <body class="home">
-   <form runat="server">
+    <form runat="server">
 
         <div class="wrap">
             <!-- Header Start -->
@@ -80,9 +80,10 @@
                         <!-- Logo Start -->
                         <div class="logo pull-left">
                             <h1>
+
                                 <a href="../Home/Home.aspx">
-                                    <asp:Image runat="server" src="../img/logo.png" alt="viki" width="125" height="60"/>
-                                  
+                                    <asp:Image runat="server" src="../img/logo.png" alt="viki" Width="125" Height="60" />
+
                                 </a>
                             </h1>
                         </div>
@@ -115,9 +116,11 @@
                                 <li>
                                     <a href="../About/About.aspx" class="sf-with-ul">关于我们
                           
-                                    <span class="sf-sub-indicator">
-                                        <i class="icon-angle-down "></i>
-                                    </span>
+                                   
+
+                                        <span class="sf-sub-indicator">
+                                            <i class="icon-angle-down "></i>
+                                        </span>
                                     </a>
                                     <ul>
                                         <li><a href="../About/About.aspx" class="sf-with-ul">关于我们</a></li>
@@ -163,29 +166,35 @@
                 <!-- Footer Bottom End -->
             </footer>
         </div>
-    
-    <!-- Wrap End -->
+
+        <!-- Wrap End -->
+
+        <!-- The Scripts -->
+        <asp:ScriptManager runat="server">
+            <Scripts>
+                <asp:ScriptReference Path="js/jquery.min.js" />
+                <asp:ScriptReference Path="js/bootstrap.js" />
+                <asp:ScriptReference Path="js/jquery.parallax.js" />
+                <asp:ScriptReference Path="js/modernizr-2.6.2.min.js" />
+                <asp:ScriptReference Path="js/revolution-slider/js/jquery.themepunch.revolution.min.js" />
+                <asp:ScriptReference Path="js/jquery.nivo.slider.pack.js" />
+                <asp:ScriptReference Path="js/jquery.prettyPhoto.js" />
+                <asp:ScriptReference Path="js/superfish.js" />
+                <asp:ScriptReference Path="js/tweetMachine.js" />
+                <asp:ScriptReference Path="js/tytabs.js" />
+                <asp:ScriptReference Path="js/jquery.gmap.min.js" />
+                <asp:ScriptReference Path="js/circularnav.js" />
+                <asp:ScriptReference Path="js/jquery.sticky.js" />
+                <asp:ScriptReference Path="js/jflickrfeed.js" />
+                <asp:ScriptReference Path="js/imagesloaded.pkgd.min.js" />
+                <asp:ScriptReference Path="js/waypoints.min.js" />
+                <asp:ScriptReference Path="js/custom.js" />
+            </Scripts>
+        </asp:ScriptManager>
+
+        <asp:ContentPlaceHolder ID="js" runat="server">
+        </asp:ContentPlaceHolder>
     </form>
-    <!-- The Scripts -->
-    <script src="../js/jquery.min.js"></script>
-    <script src="../js/bootstrap.js"></script>
-    <script src="../js/jquery.parallax.js"></script>
-    <script src="../js/modernizr-2.6.2.min.js"></script>
-    <script src="../js/revolution-slider/js/jquery.themepunch.revolution.min.js"></script>
-    <script src="../js/jquery.nivo.slider.pack.js"></script>
-    <script src="../js/jquery.prettyPhoto.js"></script>
-    <script src="../js/superfish.js"></script>
-    <script src="../js/tweetMachine.js"></script>
-    <script src="../js/tytabs.js"></script>
-    <script src="../js/jquery.gmap.min.js"></script>
-    <script src="../js/circularnav.js"></script>
-    <script src="../js/jquery.sticky.js"></script>
-    <script src="../js/jflickrfeed.js"></script>
-    <script src="../js/imagesloaded.pkgd.min.js"></script>
-    <script src="../js/waypoints.min.js"></script>
-    <script src="../js/custom.js"></script>
-    <asp:ContentPlaceHolder ID="js" runat="server">
-    </asp:ContentPlaceHolder>
 </body>
 </html>
 
