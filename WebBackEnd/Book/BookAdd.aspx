@@ -10,7 +10,7 @@
 						<a href="#">主页</a> <span class="divider">/</span>
 					</li>
 					<li>
-						<a href="#">教材信息</a> <span class="divider">/</span>
+						<a href="#">教材信息改一个</a> <span class="divider">/</span>
 					</li>
                     <li>
 						<a href="#">教材信息修改</a>
