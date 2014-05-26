@@ -24,17 +24,14 @@
 
                 <asp:GridView ID="FeedbackGrid" runat="server" CssClass="table table-striped table-bordered bootstrap-datatable datatable" AutoGenerateColumns="false">
                     <Columns>
-                        <asp:BoundField DataField="Ord_ID" HeaderText="姓名" ItemStyle-CssClass="center" />
-                        <asp:BoundField DataField="Ord_Time" HeaderText="主题" ItemStyle-CssClass="center" />
-                        <asp:BoundField DataField="Stu_UserName" HeaderText="内容" ItemStyle-CssClass="center" />
-                        <asp:BoundField DataField="Stu_UserName" HeaderText="时间" ItemStyle-CssClass="center" />
-                        <asp:BoundField DataField="Stu_UserName" HeaderText="评级" ItemStyle-CssClass="center" />
-                        <asp:BoundField DataField="Stu_UserName" HeaderText="操作" ItemStyle-CssClass="center" />
-                        <asp:TemplateField HeaderText="购买套餐" ItemStyle-CssClass="center">
+                        <asp:BoundField DataField="Stu_UserName" HeaderText="姓名" ItemStyle-CssClass="center"  ItemStyle-Width="50px"/>
+                        <asp:BoundField DataField="Fee_Topic" HeaderText="主题" ItemStyle-CssClass="center" ItemStyle-Width="120px" />
+                        <asp:BoundField DataField="Fee_Detail" HeaderText="内容" ItemStyle-CssClass="center" />
+                        <asp:BoundField DataField="Fee_Time" HeaderText="时间" ItemStyle-CssClass="center" ItemStyle-Width="70px"/>
+                        <asp:BoundField DataField="Fee_Level" HeaderText="评级" ItemStyle-CssClass="center" ItemStyle-Width="30px"/>
+                        <asp:TemplateField HeaderText="操作" ItemStyle-CssClass="center" ItemStyle-Width="240px">
                             <ItemTemplate>
-                                <span class="label label-success">
-                                    <asp:Label ID="OrdPlan" runat="server" Text='<%# Bind("Ord_Plan") %>'></asp:Label>
-                                </span>
+                               
                             </ItemTemplate>
                         </asp:TemplateField>
                     </Columns>

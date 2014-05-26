@@ -34,5 +34,11 @@ namespace BLL
         {
             return dal.Get(id);
         }
+
+
+        System.Data.DataSet IBLL.IFeedback.GetFeedbackList()
+        {
+            return dal.GetFeedbackList();
+        }
     }
 }
