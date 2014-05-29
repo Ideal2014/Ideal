@@ -14,9 +14,24 @@ public partial class Base_Count : System.Web.UI.Page
     {
         if (!IsPostBack)
         {
-            IList<StudentInfo> list = bllStudent.GetAll();
-            StudentNum.Text = list.Count.ToString();
-            NewStudentNum.Text = list.Count.ToString();
+
+            if (Request.Cookies["admin"] != null)
+            {
+                string id = Request.Cookies["admin"]["id"];
+                Bind();
+
+            }
+            else
+            {
+                Response.Redirect("~/Login/Login.aspx");
+            }
         }
+    }
+
+    private void Bind()
+    {
+        IList<StudentInfo> list = bllStudent.GetAll();
+        StudentNum.Text = list.Count.ToString();
+        NewStudentNum.Text = list.Count.ToString();
     }
 }

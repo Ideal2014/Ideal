@@ -12,16 +12,22 @@ namespace BLL
 
         void IBLL.IAdmin.Add(AdminInfo admin)
         {
+            if (admin == null)
+                throw new Exception();
             dal.Add(admin);
         }
 
         void IBLL.IAdmin.Remove(AdminInfo admin)
         {
+            if (admin == null)
+                throw new Exception();
             dal.Remove(admin);
         }
 
         void IBLL.IAdmin.Modify(AdminInfo admin)
         {
+            if (admin == null)
+                throw new Exception();
             dal.Modify(admin);
         }
 
@@ -37,6 +43,8 @@ namespace BLL
 
         AdminInfo IBLL.IAdmin.FindByName(string name)
         {
+            if (name == null || name.Equals(String.Empty))
+                throw new Exception();
             return dal.FindByName(name);
         }
     }

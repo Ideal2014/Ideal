@@ -70,12 +70,18 @@ namespace SQLServerDAL
 
         AdminInfo IDAL.IAdmin.FindByName(string name)
         {
-            DataContext ctx = new DataContext(connection);
-            ITable<AdminInfo> admins = ctx.GetTable<AdminInfo>();
-            IQueryable<AdminInfo> query = from a in admins
-                                          where a.Adm_UserName == name
-                                          select a;
-            return query.FirstOrDefault<AdminInfo>();
+            try
+            {
+                DataContext ctx = new DataContext(connection);
+                ITable<AdminInfo> admins = ctx.GetTable<AdminInfo>();
+                IQueryable<AdminInfo> query = from a in admins
+                                              where a.Adm_UserName == name
+                                              select a;
+                return query.FirstOrDefault<AdminInfo>();
+            }
+            finally
+            {
+            }
         }
     }
 }
