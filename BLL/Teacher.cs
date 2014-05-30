@@ -37,5 +37,9 @@ namespace BLL
 
 
       
+ System.Data.DataSet IBLL.ITeacher.getTeacherList()
+        {
+            return dal.getTeacherList();
+        }
     }
 }

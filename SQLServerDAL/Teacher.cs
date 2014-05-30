@@ -74,5 +74,21 @@ namespace SQLServerDAL
                                             select o;
             return query.FirstOrDefault<TeacherInfo>();
         }
+
+
+
+        System.Data.DataSet IDAL.ITeacher.getTeacherList()
+        {
+      
+             SqlConnection sqlcon = new SqlConnection(connection);
+            string sqlstr = "SELECT   Tea_ID, Tea_Name FROM      tb_Teacher";
+            SqlDataAdapter myda = new SqlDataAdapter(sqlstr, sqlcon);
+            DataSet myds = new DataSet();
+            sqlcon.Open();
+            myda.Fill(myds);
+            sqlcon.Close();
+            return myds;
+           
+        }
     }
 }
