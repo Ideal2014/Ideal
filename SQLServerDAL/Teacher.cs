@@ -2,7 +2,9 @@
 using Model;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.Linq;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 
@@ -71,6 +73,22 @@ namespace SQLServerDAL
                                             where o.Tea_ID == id
                                             select o;
             return query.FirstOrDefault<TeacherInfo>();
+        }
+
+
+
+        System.Data.DataSet IDAL.ITeacher.getTeacherList()
+        {
+      
+             SqlConnection sqlcon = new SqlConnection(connection);
+            string sqlstr = "SELECT   Tea_ID, Tea_Name FROM      tb_Teacher";
+            SqlDataAdapter myda = new SqlDataAdapter(sqlstr, sqlcon);
+            DataSet myds = new DataSet();
+            sqlcon.Open();
+            myda.Fill(myds);
+            sqlcon.Close();
+            return myds;
+           
         }
     }
 }
