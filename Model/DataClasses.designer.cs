@@ -39,21 +39,21 @@ namespace Model
     partial void InsertBalanceInfo(BalanceInfo instance);
     partial void UpdateBalanceInfo(BalanceInfo instance);
     partial void DeleteBalanceInfo(BalanceInfo instance);
-    partial void InsertBookInfo(BookInfo instance);
-    partial void UpdateBookInfo(BookInfo instance);
-    partial void DeleteBookInfo(BookInfo instance);
     partial void InsertClassRecordInfo(ClassRecordInfo instance);
     partial void UpdateClassRecordInfo(ClassRecordInfo instance);
     partial void DeleteClassRecordInfo(ClassRecordInfo instance);
     partial void InsertOrderRecordInfo(OrderRecordInfo instance);
     partial void UpdateOrderRecordInfo(OrderRecordInfo instance);
     partial void DeleteOrderRecordInfo(OrderRecordInfo instance);
-    partial void InsertStudentInfo(StudentInfo instance);
-    partial void UpdateStudentInfo(StudentInfo instance);
-    partial void DeleteStudentInfo(StudentInfo instance);
     partial void InsertTeacherInfo(TeacherInfo instance);
     partial void UpdateTeacherInfo(TeacherInfo instance);
     partial void DeleteTeacherInfo(TeacherInfo instance);
+    partial void InsertBookInfo(BookInfo instance);
+    partial void UpdateBookInfo(BookInfo instance);
+    partial void DeleteBookInfo(BookInfo instance);
+    partial void InsertStudentInfo(StudentInfo instance);
+    partial void UpdateStudentInfo(StudentInfo instance);
+    partial void DeleteStudentInfo(StudentInfo instance);
     partial void InsertFeedbackInfo(FeedbackInfo instance);
     partial void UpdateFeedbackInfo(FeedbackInfo instance);
     partial void DeleteFeedbackInfo(FeedbackInfo instance);
@@ -113,14 +113,6 @@ namespace Model
 			}
 		}
 		
-		public System.Data.Linq.Table<BookInfo> BookInfo
-		{
-			get
-			{
-				return this.GetTable<BookInfo>();
-			}
-		}
-		
 		public System.Data.Linq.Table<ClassRecordInfo> ClassRecordInfo
 		{
 			get
@@ -137,19 +129,27 @@ namespace Model
 			}
 		}
 		
-		public System.Data.Linq.Table<StudentInfo> StudentInfo
-		{
-			get
-			{
-				return this.GetTable<StudentInfo>();
-			}
-		}
-		
 		public System.Data.Linq.Table<TeacherInfo> TeacherInfo
 		{
 			get
 			{
 				return this.GetTable<TeacherInfo>();
+			}
+		}
+		
+		public System.Data.Linq.Table<BookInfo> BookInfo
+		{
+			get
+			{
+				return this.GetTable<BookInfo>();
+			}
+		}
+		
+		public System.Data.Linq.Table<StudentInfo> StudentInfo
+		{
+			get
+			{
+				return this.GetTable<StudentInfo>();
 			}
 		}
 		
@@ -684,212 +684,6 @@ namespace Model
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.tb_Book")]
-	public partial class BookInfo : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _Boo_ID;
-		
-		private System.Nullable<int> _Tea_ID;
-		
-		private string _Boo_Image;
-		
-		private string _Boo_Desribe;
-		
-		private System.Nullable<System.DateTime> _Boo_RegisterDate;
-		
-		private string _Boo_Preview;
-		
-		private string _Boo_View;
-		
-    #region 可扩展性方法定义
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnBoo_IDChanging(int value);
-    partial void OnBoo_IDChanged();
-    partial void OnTea_IDChanging(System.Nullable<int> value);
-    partial void OnTea_IDChanged();
-    partial void OnBoo_ImageChanging(string value);
-    partial void OnBoo_ImageChanged();
-    partial void OnBoo_DesribeChanging(string value);
-    partial void OnBoo_DesribeChanged();
-    partial void OnBoo_RegisterDateChanging(System.Nullable<System.DateTime> value);
-    partial void OnBoo_RegisterDateChanged();
-    partial void OnBoo_PreviewChanging(string value);
-    partial void OnBoo_PreviewChanged();
-    partial void OnBoo_ViewChanging(string value);
-    partial void OnBoo_ViewChanged();
-    #endregion
-		
-		public BookInfo()
-		{
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Boo_ID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int Boo_ID
-		{
-			get
-			{
-				return this._Boo_ID;
-			}
-			set
-			{
-				if ((this._Boo_ID != value))
-				{
-					this.OnBoo_IDChanging(value);
-					this.SendPropertyChanging();
-					this._Boo_ID = value;
-					this.SendPropertyChanged("Boo_ID");
-					this.OnBoo_IDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Tea_ID", DbType="Int")]
-		public System.Nullable<int> Tea_ID
-		{
-			get
-			{
-				return this._Tea_ID;
-			}
-			set
-			{
-				if ((this._Tea_ID != value))
-				{
-					this.OnTea_IDChanging(value);
-					this.SendPropertyChanging();
-					this._Tea_ID = value;
-					this.SendPropertyChanged("Tea_ID");
-					this.OnTea_IDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Boo_Image", DbType="VarChar(50)")]
-		public string Boo_Image
-		{
-			get
-			{
-				return this._Boo_Image;
-			}
-			set
-			{
-				if ((this._Boo_Image != value))
-				{
-					this.OnBoo_ImageChanging(value);
-					this.SendPropertyChanging();
-					this._Boo_Image = value;
-					this.SendPropertyChanged("Boo_Image");
-					this.OnBoo_ImageChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Boo_Desribe", DbType="VarChar(100)")]
-		public string Boo_Desribe
-		{
-			get
-			{
-				return this._Boo_Desribe;
-			}
-			set
-			{
-				if ((this._Boo_Desribe != value))
-				{
-					this.OnBoo_DesribeChanging(value);
-					this.SendPropertyChanging();
-					this._Boo_Desribe = value;
-					this.SendPropertyChanged("Boo_Desribe");
-					this.OnBoo_DesribeChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Boo_RegisterDate", DbType="DateTime")]
-		public System.Nullable<System.DateTime> Boo_RegisterDate
-		{
-			get
-			{
-				return this._Boo_RegisterDate;
-			}
-			set
-			{
-				if ((this._Boo_RegisterDate != value))
-				{
-					this.OnBoo_RegisterDateChanging(value);
-					this.SendPropertyChanging();
-					this._Boo_RegisterDate = value;
-					this.SendPropertyChanged("Boo_RegisterDate");
-					this.OnBoo_RegisterDateChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Boo_Preview", DbType="VarChar(50)")]
-		public string Boo_Preview
-		{
-			get
-			{
-				return this._Boo_Preview;
-			}
-			set
-			{
-				if ((this._Boo_Preview != value))
-				{
-					this.OnBoo_PreviewChanging(value);
-					this.SendPropertyChanging();
-					this._Boo_Preview = value;
-					this.SendPropertyChanged("Boo_Preview");
-					this.OnBoo_PreviewChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Boo_View", DbType="VarChar(50)")]
-		public string Boo_View
-		{
-			get
-			{
-				return this._Boo_View;
-			}
-			set
-			{
-				if ((this._Boo_View != value))
-				{
-					this.OnBoo_ViewChanging(value);
-					this.SendPropertyChanging();
-					this._Boo_View = value;
-					this.SendPropertyChanged("Boo_View");
-					this.OnBoo_ViewChanged();
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.tb_ClassRecord")]
 	public partial class ClassRecordInfo : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -1181,164 +975,6 @@ namespace Model
 					this._Ord_Plan = value;
 					this.SendPropertyChanged("Ord_Plan");
 					this.OnOrd_PlanChanged();
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.tb_Student")]
-	public partial class StudentInfo : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _Stu_ID;
-		
-		private string _Stu_UserName;
-		
-		private string _Stu_Password;
-		
-		private string _Stu_Email;
-		
-		private string _Stu_Image;
-		
-    #region 可扩展性方法定义
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnStu_IDChanging(int value);
-    partial void OnStu_IDChanged();
-    partial void OnStu_UserNameChanging(string value);
-    partial void OnStu_UserNameChanged();
-    partial void OnStu_PasswordChanging(string value);
-    partial void OnStu_PasswordChanged();
-    partial void OnStu_EmailChanging(string value);
-    partial void OnStu_EmailChanged();
-    partial void OnStu_ImageChanging(string value);
-    partial void OnStu_ImageChanged();
-    #endregion
-		
-		public StudentInfo()
-		{
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Stu_ID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int Stu_ID
-		{
-			get
-			{
-				return this._Stu_ID;
-			}
-			set
-			{
-				if ((this._Stu_ID != value))
-				{
-					this.OnStu_IDChanging(value);
-					this.SendPropertyChanging();
-					this._Stu_ID = value;
-					this.SendPropertyChanged("Stu_ID");
-					this.OnStu_IDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Stu_UserName", DbType="VarChar(10)")]
-		public string Stu_UserName
-		{
-			get
-			{
-				return this._Stu_UserName;
-			}
-			set
-			{
-				if ((this._Stu_UserName != value))
-				{
-					this.OnStu_UserNameChanging(value);
-					this.SendPropertyChanging();
-					this._Stu_UserName = value;
-					this.SendPropertyChanged("Stu_UserName");
-					this.OnStu_UserNameChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Stu_Password", DbType="VarChar(10)")]
-		public string Stu_Password
-		{
-			get
-			{
-				return this._Stu_Password;
-			}
-			set
-			{
-				if ((this._Stu_Password != value))
-				{
-					this.OnStu_PasswordChanging(value);
-					this.SendPropertyChanging();
-					this._Stu_Password = value;
-					this.SendPropertyChanged("Stu_Password");
-					this.OnStu_PasswordChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Stu_Email", DbType="VarChar(20)")]
-		public string Stu_Email
-		{
-			get
-			{
-				return this._Stu_Email;
-			}
-			set
-			{
-				if ((this._Stu_Email != value))
-				{
-					this.OnStu_EmailChanging(value);
-					this.SendPropertyChanging();
-					this._Stu_Email = value;
-					this.SendPropertyChanged("Stu_Email");
-					this.OnStu_EmailChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Stu_Image", DbType="VarChar(50)")]
-		public string Stu_Image
-		{
-			get
-			{
-				return this._Stu_Image;
-			}
-			set
-			{
-				if ((this._Stu_Image != value))
-				{
-					this.OnStu_ImageChanging(value);
-					this.SendPropertyChanging();
-					this._Stu_Image = value;
-					this.SendPropertyChanged("Stu_Image");
-					this.OnStu_ImageChanged();
 				}
 			}
 		}
@@ -1666,6 +1302,442 @@ namespace Model
 		}
 	}
 	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.tb_Book")]
+	public partial class BookInfo : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _Boo_ID;
+		
+		private System.Nullable<int> _Tea_ID;
+		
+		private string _Boo_Image;
+		
+		private string _Boo_Desribe;
+		
+		private System.Nullable<System.DateTime> _Boo_RegisterDate;
+		
+		private string _Boo_Preview;
+		
+		private string _Boo_View;
+		
+		private string _Boo_Name;
+		
+    #region 可扩展性方法定义
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnBoo_IDChanging(int value);
+    partial void OnBoo_IDChanged();
+    partial void OnTea_IDChanging(System.Nullable<int> value);
+    partial void OnTea_IDChanged();
+    partial void OnBoo_ImageChanging(string value);
+    partial void OnBoo_ImageChanged();
+    partial void OnBoo_DesribeChanging(string value);
+    partial void OnBoo_DesribeChanged();
+    partial void OnBoo_RegisterDateChanging(System.Nullable<System.DateTime> value);
+    partial void OnBoo_RegisterDateChanged();
+    partial void OnBoo_PreviewChanging(string value);
+    partial void OnBoo_PreviewChanged();
+    partial void OnBoo_ViewChanging(string value);
+    partial void OnBoo_ViewChanged();
+    partial void OnBoo_NameChanging(string value);
+    partial void OnBoo_NameChanged();
+    #endregion
+		
+		public BookInfo()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Boo_ID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int Boo_ID
+		{
+			get
+			{
+				return this._Boo_ID;
+			}
+			set
+			{
+				if ((this._Boo_ID != value))
+				{
+					this.OnBoo_IDChanging(value);
+					this.SendPropertyChanging();
+					this._Boo_ID = value;
+					this.SendPropertyChanged("Boo_ID");
+					this.OnBoo_IDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Tea_ID", DbType="Int")]
+		public System.Nullable<int> Tea_ID
+		{
+			get
+			{
+				return this._Tea_ID;
+			}
+			set
+			{
+				if ((this._Tea_ID != value))
+				{
+					this.OnTea_IDChanging(value);
+					this.SendPropertyChanging();
+					this._Tea_ID = value;
+					this.SendPropertyChanged("Tea_ID");
+					this.OnTea_IDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Boo_Image", DbType="VarChar(50)")]
+		public string Boo_Image
+		{
+			get
+			{
+				return this._Boo_Image;
+			}
+			set
+			{
+				if ((this._Boo_Image != value))
+				{
+					this.OnBoo_ImageChanging(value);
+					this.SendPropertyChanging();
+					this._Boo_Image = value;
+					this.SendPropertyChanged("Boo_Image");
+					this.OnBoo_ImageChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Boo_Desribe", DbType="VarChar(100)")]
+		public string Boo_Desribe
+		{
+			get
+			{
+				return this._Boo_Desribe;
+			}
+			set
+			{
+				if ((this._Boo_Desribe != value))
+				{
+					this.OnBoo_DesribeChanging(value);
+					this.SendPropertyChanging();
+					this._Boo_Desribe = value;
+					this.SendPropertyChanged("Boo_Desribe");
+					this.OnBoo_DesribeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Boo_RegisterDate", DbType="DateTime")]
+		public System.Nullable<System.DateTime> Boo_RegisterDate
+		{
+			get
+			{
+				return this._Boo_RegisterDate;
+			}
+			set
+			{
+				if ((this._Boo_RegisterDate != value))
+				{
+					this.OnBoo_RegisterDateChanging(value);
+					this.SendPropertyChanging();
+					this._Boo_RegisterDate = value;
+					this.SendPropertyChanged("Boo_RegisterDate");
+					this.OnBoo_RegisterDateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Boo_Preview", DbType="VarChar(50)")]
+		public string Boo_Preview
+		{
+			get
+			{
+				return this._Boo_Preview;
+			}
+			set
+			{
+				if ((this._Boo_Preview != value))
+				{
+					this.OnBoo_PreviewChanging(value);
+					this.SendPropertyChanging();
+					this._Boo_Preview = value;
+					this.SendPropertyChanged("Boo_Preview");
+					this.OnBoo_PreviewChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Boo_View", DbType="VarChar(50)")]
+		public string Boo_View
+		{
+			get
+			{
+				return this._Boo_View;
+			}
+			set
+			{
+				if ((this._Boo_View != value))
+				{
+					this.OnBoo_ViewChanging(value);
+					this.SendPropertyChanging();
+					this._Boo_View = value;
+					this.SendPropertyChanged("Boo_View");
+					this.OnBoo_ViewChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Boo_Name", DbType="VarChar(20)")]
+		public string Boo_Name
+		{
+			get
+			{
+				return this._Boo_Name;
+			}
+			set
+			{
+				if ((this._Boo_Name != value))
+				{
+					this.OnBoo_NameChanging(value);
+					this.SendPropertyChanging();
+					this._Boo_Name = value;
+					this.SendPropertyChanged("Boo_Name");
+					this.OnBoo_NameChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.tb_Student")]
+	public partial class StudentInfo : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _Stu_ID;
+		
+		private string _Stu_UserName;
+		
+		private string _Stu_Password;
+		
+		private string _Stu_Email;
+		
+		private string _Stu_Image;
+		
+		private System.Nullable<System.DateTime> _Stu_LastLogin;
+		
+		private System.Nullable<System.DateTime> _Stu_RegisteTime;
+		
+    #region 可扩展性方法定义
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnStu_IDChanging(int value);
+    partial void OnStu_IDChanged();
+    partial void OnStu_UserNameChanging(string value);
+    partial void OnStu_UserNameChanged();
+    partial void OnStu_PasswordChanging(string value);
+    partial void OnStu_PasswordChanged();
+    partial void OnStu_EmailChanging(string value);
+    partial void OnStu_EmailChanged();
+    partial void OnStu_ImageChanging(string value);
+    partial void OnStu_ImageChanged();
+    partial void OnStu_LastLoginChanging(System.Nullable<System.DateTime> value);
+    partial void OnStu_LastLoginChanged();
+    partial void OnStu_RegisteTimeChanging(System.Nullable<System.DateTime> value);
+    partial void OnStu_RegisteTimeChanged();
+    #endregion
+		
+		public StudentInfo()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Stu_ID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int Stu_ID
+		{
+			get
+			{
+				return this._Stu_ID;
+			}
+			set
+			{
+				if ((this._Stu_ID != value))
+				{
+					this.OnStu_IDChanging(value);
+					this.SendPropertyChanging();
+					this._Stu_ID = value;
+					this.SendPropertyChanged("Stu_ID");
+					this.OnStu_IDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Stu_UserName", DbType="VarChar(10)")]
+		public string Stu_UserName
+		{
+			get
+			{
+				return this._Stu_UserName;
+			}
+			set
+			{
+				if ((this._Stu_UserName != value))
+				{
+					this.OnStu_UserNameChanging(value);
+					this.SendPropertyChanging();
+					this._Stu_UserName = value;
+					this.SendPropertyChanged("Stu_UserName");
+					this.OnStu_UserNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Stu_Password", DbType="VarChar(10)")]
+		public string Stu_Password
+		{
+			get
+			{
+				return this._Stu_Password;
+			}
+			set
+			{
+				if ((this._Stu_Password != value))
+				{
+					this.OnStu_PasswordChanging(value);
+					this.SendPropertyChanging();
+					this._Stu_Password = value;
+					this.SendPropertyChanged("Stu_Password");
+					this.OnStu_PasswordChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Stu_Email", DbType="VarChar(20)")]
+		public string Stu_Email
+		{
+			get
+			{
+				return this._Stu_Email;
+			}
+			set
+			{
+				if ((this._Stu_Email != value))
+				{
+					this.OnStu_EmailChanging(value);
+					this.SendPropertyChanging();
+					this._Stu_Email = value;
+					this.SendPropertyChanged("Stu_Email");
+					this.OnStu_EmailChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Stu_Image", DbType="VarChar(50)")]
+		public string Stu_Image
+		{
+			get
+			{
+				return this._Stu_Image;
+			}
+			set
+			{
+				if ((this._Stu_Image != value))
+				{
+					this.OnStu_ImageChanging(value);
+					this.SendPropertyChanging();
+					this._Stu_Image = value;
+					this.SendPropertyChanged("Stu_Image");
+					this.OnStu_ImageChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Stu_LastLogin", DbType="DateTime")]
+		public System.Nullable<System.DateTime> Stu_LastLogin
+		{
+			get
+			{
+				return this._Stu_LastLogin;
+			}
+			set
+			{
+				if ((this._Stu_LastLogin != value))
+				{
+					this.OnStu_LastLoginChanging(value);
+					this.SendPropertyChanging();
+					this._Stu_LastLogin = value;
+					this.SendPropertyChanged("Stu_LastLogin");
+					this.OnStu_LastLoginChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Stu_RegisteTime", DbType="DateTime")]
+		public System.Nullable<System.DateTime> Stu_RegisteTime
+		{
+			get
+			{
+				return this._Stu_RegisteTime;
+			}
+			set
+			{
+				if ((this._Stu_RegisteTime != value))
+				{
+					this.OnStu_RegisteTimeChanging(value);
+					this.SendPropertyChanging();
+					this._Stu_RegisteTime = value;
+					this.SendPropertyChanged("Stu_RegisteTime");
+					this.OnStu_RegisteTimeChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.tb_Feedback")]
 	public partial class FeedbackInfo : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -1682,7 +1754,7 @@ namespace Model
 		
 		private System.Nullable<System.DateTime> _Fee_Time;
 		
-		private System.Nullable<int> _Fee_Level;
+		private System.Nullable<char> _Fee_Level;
 		
     #region 可扩展性方法定义
     partial void OnLoaded();
@@ -1698,7 +1770,7 @@ namespace Model
     partial void OnFee_DetailChanged();
     partial void OnFee_TimeChanging(System.Nullable<System.DateTime> value);
     partial void OnFee_TimeChanged();
-    partial void OnFee_LevelChanging(System.Nullable<int> value);
+    partial void OnFee_LevelChanging(System.Nullable<char> value);
     partial void OnFee_LevelChanged();
     #endregion
 		
@@ -1807,8 +1879,8 @@ namespace Model
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Fee_Level", DbType="Int")]
-		public System.Nullable<int> Fee_Level
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Fee_Level", DbType="Char(1)")]
+		public System.Nullable<char> Fee_Level
 		{
 			get
 			{

@@ -5,7 +5,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="content" runat="Server">
     <!-- content starts -->
 
-
+    <asp:HiddenField ID="HiddenClassPercent" runat="server" ClientIDMode="Static" />
     <div>
         <ul class="breadcrumb">
             <li>
@@ -20,29 +20,41 @@
         <a data-rel="tooltip" title="6名新学员" class="well span3 top-block" href="user-list.html">
             <span class="icon32 icon-red icon-user"></span>
             <div>总学员数</div>
-            <div><asp:Label ID="StudentNum" runat="server"></asp:Label></div>
-            <span class="notification"><asp:Label ID="NewStudentNum" runat="server"></asp:Label></span>
+            <div>
+                <asp:Label ID="StudentNum" runat="server"></asp:Label>
+            </div>
+            <span class="notification">
+                <asp:Label ID="NewStudentNum" runat="server"></asp:Label></span>
         </a>
 
         <a data-rel="tooltip" title="4个新订单" class="well span3 top-block" href="#">
             <span class="icon32 icon-color icon-star-on"></span>
             <div>购买量</div>
-            <div>228</div>
-            <span class="notification green">4</span>
+            <div>
+                <asp:Label ID="OrderNum" runat="server" />
+            </div>
+            <span class="notification green">
+                <asp:Label ID="NewOrderNum" runat="server" /></span>
         </a>
 
         <a data-rel="tooltip" title="234新增机器人访问量" class="well span3 top-block" href="#">
             <span class="icon32 icon-color icon-web"></span>
             <div>机器人的总访问量</div>
-            <div>13320</div>
-            <span class="notification yellow">34</span>
+            <div>
+                <asp:Label ID="ClassNum" runat="server" />
+            </div>
+            <span class="notification yellow">
+                <asp:Label ID="NewClassNum" runat="server" /></span>
         </a>
 
         <a data-rel="tooltip" title="12条新的反馈信息" class="well span3 top-block" href="celebrity-list.html">
             <span class="icon32 icon-color icon-envelope-closed"></span>
             <div>反馈信息</div>
-            <div>25</div>
-            <span class="notification red">12</span>
+            <div>
+                <asp:Label ID="FeeNum" runat="server" />
+            </div>
+            <span class="notification red">
+                <asp:Label ID="NewFeeNum" runat="server" /></span>
         </a>
     </div>
 
@@ -104,5 +116,9 @@
 
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="js" runat="Server">
+    <script>
+        var str = $("#HiddenClassPercent").val();
+        var data_teacher = eval(str);
+    </script>
 </asp:Content>
 

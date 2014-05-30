@@ -34,5 +34,10 @@ namespace BLL
         {
             return dal.Get(id);
         }
+
+        System.Data.DataSet IBLL.IClassRecord.getClassPercent()
+        {
+            return dal.getClassPercent();
+        }
     }
 }

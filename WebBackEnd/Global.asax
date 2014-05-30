@@ -17,7 +17,7 @@
     void Application_Error(object sender, EventArgs e) 
     { 
         // 在出现未处理的错误时运行的代码
-        Response.Redirect("~/ErrorPage.aspx");
+        //Response.Redirect("~/ErrorPage.aspx");
     }
 
     void Session_Start(object sender, EventArgs e) 
@@ -32,7 +32,6 @@
         // 注意: 只有在 Web.config 文件中的 sessionstate 模式设置为
         // InProc 时，才会引发 Session_End 事件。如果会话模式设置为 StateServer
         // 或 SQLServer，则不引发该事件。
-
     }
        
 </script>
