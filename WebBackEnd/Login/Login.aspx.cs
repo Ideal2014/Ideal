@@ -9,7 +9,7 @@ using System.Web.UI.WebControls;
 
 public partial class Login_Default : System.Web.UI.Page
 {
-    private static readonly IBLL.IAdmin bllAdmin = BLLFactory.DataAccess.CreateAdmin();
+    private IBLL.IAdmin bllAdmin = BLLFactory.DataAccess.CreateAdmin();
 
     protected void Page_Load(object sender, EventArgs e)
     {
