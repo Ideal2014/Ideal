@@ -36,6 +36,9 @@ public partial class Book_BookAdd : System.Web.UI.Page
         book.Boo_Preview = System.IO.Path.GetFileName(BookScan.PostedFile.FileName);
         book.Boo_View = System.IO.Path.GetFileName(BookComplete.PostedFile.FileName);
         book.Boo_Desribe = BookDescribe.Text.ToString();
+
+
+        bllBook.Add(book);
     }
 
     protected void CancleButton_Click(object sender, EventArgs e)
