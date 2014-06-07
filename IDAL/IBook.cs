@@ -13,5 +13,9 @@ namespace IDAL
         void Modify(BookInfo book);
         IList<BookInfo> GetAll();
         BookInfo Get(int id);
+
+
+
+       
     }
 }

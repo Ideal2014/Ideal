@@ -11,4 +11,12 @@ public partial class User_UserAdd : System.Web.UI.Page
     {
 
     }
+    protected void Submit_Click(object sender, EventArgs e)
+    {
+
+    }
+    protected void Reset_Click(object sender, EventArgs e)
+    {
+
+    }
 }

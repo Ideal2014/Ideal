@@ -95,8 +95,10 @@ $(document).ready(function(){
 	docReady();
 });
 		
-		
-function docReady(){
+	
+function docReady() {
+   
+
 	//prevent # links from moving to top
 	$('a[href="#"][data-top!=true]').click(function(e){
 		e.preventDefault();
@@ -494,14 +496,7 @@ function docReady(){
 	}
 
 	//pie chart
-	var data = [
-	{ label: "Internet Explorer",  data: 12},
-	{ label: "Mobile",  data: 27},
-	{ label: "Safari",  data: 85},
-	{ label: "Opera",  data: 64},
-	{ label: "Firefox",  data: 90},
-	{ label: "Chrome",  data: 112}
-	];
+	var data = data_teacher;
 	
 	if($("#piechart").length)
 	{
@@ -572,7 +567,7 @@ function docReady(){
 		// zip the generated y values with the x values
 		var res = [];
 		for (var i = 0; i < data.length; ++i)
-			res.push([i, data[i]])
+		    res.push([i, data[i]])
 		return res;
 	}
 

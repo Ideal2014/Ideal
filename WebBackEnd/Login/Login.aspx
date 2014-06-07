@@ -56,20 +56,25 @@
                         <div class="alert alert-info">
                             请输入用户名和密码
 				
+                       
                         </div>
-          
+
                         <fieldset>
                             <div class="input-prepend" title="用户名" data-rel="tooltip">
                                 <span class="add-on"><i class="icon-user"></i></span>
                                 <asp:TextBox runat="server" autofocus CssClass="input-large span10" ID="UserName"></asp:TextBox>
+                                <br />
+                                <asp:RegularExpressionValidator ControlToValidate="UserName" runat="server" ValidationExpression="\d{1,5}" ErrorMessage="用户名必须为1到5位数字"></asp:RegularExpressionValidator>
                             </div>
                             <div class="clearfix"></div>
 
                             <div class="input-prepend" title="密码" data-rel="tooltip">
                                 <span class="add-on"><i class="icon-lock"></i></span>
-                            
-                                <asp:TextBox runat="server"  CssClass="input-large span10" ID="Password"  TextMode="Password"></asp:TextBox>
-                               
+
+                                <asp:TextBox runat="server" CssClass="input-large span10" ID="Password" TextMode="Password"></asp:TextBox>
+                                <br />
+                                <asp:RegularExpressionValidator ControlToValidate="Password" runat="server" ValidationExpression="\d{1,5}" ErrorMessage="密码必须为1到5位数字"></asp:RegularExpressionValidator>
+
                             </div>
                             <div class="clearfix"></div>
 
@@ -80,7 +85,7 @@
                             <div class="clearfix"></div>
                             <p class="center span5">
                                 <asp:Button runat="server" CssClass="btn btn-primary" Text="登录" ID="LoginButton" OnClick="LoginButton_Click"></asp:Button>
-                                
+
                             </p>
                         </fieldset>
 

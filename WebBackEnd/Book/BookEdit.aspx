@@ -1,9 +1,10 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="BookEdit.aspx.cs" Inherits="Book_BookEdit" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="BookEdit.aspx.cs" Inherits="Book_BookAdd"%>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="css" Runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="content" Runat="Server">
-    		<div>
+    
+			<div>
 				<ul class="breadcrumb">
 					<li>
 						<a href="#">主页</a> <span class="divider">/</span>
@@ -27,63 +28,71 @@
 						</div>
 					</div>
 					<div class="box-content">
-						<div class="form-horizontal">
+						<form class="form-horizontal">
+
 						  <fieldset>
-							<legend>编辑教材信息</legend>
+							<legend>修改教材信息</legend>
 							<div class="control-group">
-							  <label class="control-label" for="typeahead">书名 </label>
+							  <asp:label class="control-label" runat="server" for="typeahead">书名 </asp:label>
 							  <div class="controls">
-									<asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
+							<asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
+							  </div>
+							</div>
+                                <div class="control-group">
+							  <asp:Label ID="Label1" class="control-label" runat="server" for="typeahead">归属老师 </asp:Label>
+							  <div class="controls">
+                                  <asp:DropDownList ID="TeacherList" runat="server" AutoPostBack="true" DataTextField ="Tea_Name" DataValueField ="Tea_ID" OnSelectedIndexChanged="TeacherList_SelectedIndexChanged"> </asp:DropDownList>
 							  </div>
 							</div>
 
-                               <div class="control-group">
-							  <label class="control-label" for="typeahead">上架时间 </label>
+                              <div class="control-group">
+							  <asp:Label class="control-label" runat="server" for="typeahead">上架时间 </asp:Label>
 							  <div class="controls">
-									<asp:TextBox ID="TextBox2" runat="server"></asp:TextBox>
+                                  <asp:Calendar  ID="UpdataTime" runat="server"></asp:Calendar>
+								
 							  </div>
 							</div>
 
 							<div class="control-group">
-							  <label class="control-label" for="imageInput">教材图片</label>
+							  <asp:Label class="control-label" runat="server" for="imageInput">教材图片</asp:Label>
 							  <div class="controls">
-								   <asp:FileUpload ID="FileUpload1" runat="server" />
+							<asp:FileUpload ID="BookPic" runat="server" />
 							  </div>
-                               <div class = "controls">
-                              <img src="img/books/cover-green.png">
-                              </div>
+                              
 							</div>
 
 							<div class="control-group">
-							  <label class="control-label" for="fileInput">预览资源</label>
+							  <asp:Label class="control-label" runat="server" for="fileInput">预览资源</asp:Label>
 							  <div class="controls">
-								   <asp:FileUpload ID="FileUpload2" runat="server" />
+								<asp:FileUpload ID="BookScan" runat="server" />
 							  </div>
                             </div>    
                                 <div class="control-group">
-							  <label class="control-label" for="fileInput">完整资源</label>
+							  <asp:label class="control-label" runat="server" for="fileInput">完整资源</asp:label>
 							  <div class="controls">
-								   <asp:FileUpload ID="FileUpload3" runat="server" />
+								
+                                  <asp:FileUpload ID="BookComplete" runat="server" />
 							  </div>
                              
-							</div>           
+							</div>          
 							<div class="control-group">
-							  <label class="control-label" for="textarea2">教材简介</label>
+							  <asp:Label class="control-label" runat="server" for="textarea2">教材简介</asp:Label>
 							  <div class="controls">
-							<asp:TextBox ID="Context1" runat="server" TextMode="MultiLine" Text="内容涉及到商务活动的方方面面。商务英语课程不只是简单地对学员的英文水平、能力的提高，它更多地是向学员传授一种西方的观念理念，包括如何和外国人打交道，如何和他们合作、工作的方式方法，以及他们的生活习惯等。"></asp:TextBox>	
+								<asp:TextBox class="cleditor" runat="server" ID="BookDescribe" Rows="5"></asp:TextBox>
 							  </div>
 							</div>
 							<div class="form-actions">
-							  <asp:Button ID="Keep" runat="server" type="submit" class="btn btn-primary" Text="保存"></asp:Button>
-							  <asp:Button ID="Cancle" runat="server" type="reset" class="btn" Text="取消"></asp:Button>
+							  <asp:Button ID="Keep" runat="server" type="submit" class="btn btn-primary"  OnClick="KeepButton_Click" Text="保存"></asp:Button>
+							  <asp:Button ID="Cancle" runat="server" type="reset" class="btn" OnClick="CancleButton_Click" Text="取消"></asp:Button>
+                              
 							</div>
 						  </fieldset>
-						</div>   
+						</form>   
 
 					</div>
 				</div><!--/span-->
 
-			</div><!--/row-->
+			</div>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="js" Runat="Server">
 </asp:Content>

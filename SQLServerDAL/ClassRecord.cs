@@ -2,7 +2,9 @@
 using Model;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.Linq;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 
@@ -24,7 +26,7 @@ namespace SQLServerDAL
         {
 
             DataContext ctx = new DataContext(connection);
-            
+
             ITable classRecords = ctx.GetTable<ClassRecordInfo>();
             classRecords.Attach(classRecord);
             classRecords.DeleteOnSubmit(classRecord);
@@ -37,7 +39,7 @@ namespace SQLServerDAL
             ITable<ClassRecordInfo> classRecords = ctx.GetTable<ClassRecordInfo>();
             IQueryable<ClassRecordInfo> query = from o in classRecords
                                                 where o.Cla_ID == classRecord.Cla_ID
-                                            select o;
+                                                select o;
             foreach (ClassRecordInfo o in query)
             {
                 o.Stu_ID = classRecord.Stu_ID;
@@ -63,8 +65,28 @@ namespace SQLServerDAL
             ITable<ClassRecordInfo> classRecords = ctx.GetTable<ClassRecordInfo>();
             IQueryable<ClassRecordInfo> query = from o in classRecords
                                                 where o.Cla_ID == id
-                                            select o;
+                                                select o;
             return query.FirstOrDefault<ClassRecordInfo>();
+        }
+
+        System.Data.DataSet IDAL.IClassRecord.getClassPercent()
+        {
+            SqlConnection sqlcon = null;
+            try
+            {
+                sqlcon = new SqlConnection(connection);
+                string sqlstr = "SELECT   tb_Teacher.Tea_Name AS label, COUNT(tb_ClassRecord.Tea_ID) AS data FROM tb_ClassRecord INNER JOIN tb_Teacher ON tb_ClassRecord.Tea_ID = tb_Teacher.Tea_ID GROUP BY tb_Teacher.Tea_Name";
+                SqlDataAdapter myda = new SqlDataAdapter(sqlstr, sqlcon);
+                DataSet myds = new DataSet();
+                sqlcon.Open();
+                myda.Fill(myds);
+                return myds;
+            }
+            finally
+            {
+                if (sqlcon != null)
+                    sqlcon.Close();
+            }
         }
     }
 }

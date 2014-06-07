@@ -13,5 +13,9 @@ namespace IDAL
         void Modify(ClassRecordInfo classRecord);
         IList<ClassRecordInfo> GetAll();
         ClassRecordInfo Get(int id);
+
+        #region 齐宇
+        System.Data.DataSet getClassPercent();
+        #endregion
     }
 }

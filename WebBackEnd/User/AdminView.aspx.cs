@@ -11,4 +11,8 @@ public partial class User_AdminView__ : System.Web.UI.Page
     {
 
     }
+    protected void Reset_Click(object sender, EventArgs e)
+    {
+
+    }
 }

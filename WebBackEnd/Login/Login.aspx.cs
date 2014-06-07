@@ -2,22 +2,30 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.RegularExpressions;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
 public partial class Login_Default : System.Web.UI.Page
 {
-    private static readonly IBLL.IAdmin bllAdmin = BLLFactory.DataAccess.CreateAdmin();
+    private IBLL.IAdmin bllAdmin = BLLFactory.DataAccess.CreateAdmin();
 
     protected void Page_Load(object sender, EventArgs e)
     {
         if (!IsPostBack)
-        { 
+        {
         }
     }
     protected void LoginButton_Click(object sender, EventArgs e)
     {
+        string userNameRegex = @"^\d{1}$";
+        if (!Regex.IsMatch(UserName.Text.ToString(), userNameRegex))
+            throw new Exception();
+        string passwordRegex = @"^\d{1}$";
+        if (!Regex.IsMatch(UserName.Text.ToString(), passwordRegex))
+            throw new Exception();
+
         AdminInfo admin = bllAdmin.FindByName(UserName.Text.ToString());
         if (admin != null && Password.Text.ToString() == admin.Adm_Password)
         {
@@ -26,6 +34,6 @@ public partial class Login_Default : System.Web.UI.Page
             cookie.Expires = System.DateTime.Now.AddDays(1);//设置过期时间  1天
             Response.Cookies.Add(cookie);
             Response.Redirect("/Base/OrderList.aspx");
-        } 
+        }
     }
 }

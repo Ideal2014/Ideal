@@ -18,7 +18,7 @@
 			</div>
 			
 
-
+    
 			<div class="row-fluid sortable">
 				<div class="box span12">
 					<div class="box-header well" data-original-title>
@@ -87,7 +87,7 @@
 			</div><!--/row-->
 			
 
-    
+   
 					<!-- content ends -->
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="js" Runat="Server">

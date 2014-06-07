@@ -79,7 +79,9 @@ namespace SQLServerDAL
             sqlcon.Open();
             myda.Fill(myds);
             sqlcon.Close();
+            sqlcon.Close();
             return myds;
+           
         }
     }
 }

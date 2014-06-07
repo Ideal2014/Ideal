@@ -1,6 +1,7 @@
 ﻿using Model;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 
@@ -13,5 +14,7 @@ namespace IBLL
         void Modify(TeacherInfo teacher);
         IList<TeacherInfo> GetAll();
         TeacherInfo Get(int id);
+
+DataSet getTeacherList();
     }
 }

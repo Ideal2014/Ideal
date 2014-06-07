@@ -13,5 +13,8 @@ namespace IBLL
         void Modify(ClassRecordInfo classRecord);
         IList<ClassRecordInfo> GetAll();
         ClassRecordInfo Get(int id);
+
+
+        System.Data.DataSet getClassPercent();
     }
 }

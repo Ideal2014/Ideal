@@ -34,5 +34,12 @@ namespace BLL
         {
             return dal.Get(id);
         }
+
+
+      
+ System.Data.DataSet IBLL.ITeacher.getTeacherList()
+        {
+            return dal.getTeacherList();
+        }
     }
 }
