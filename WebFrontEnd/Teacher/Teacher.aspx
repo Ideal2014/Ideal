@@ -49,15 +49,14 @@
                         <div class="testimonial item">
                           
                               <p>
-                              <img src="../img/teacher/teacher-1@detail.png" /></br>
-                              也许有时你会苦恼，没有一个伙伴和你一起学习，与你一问一答，让你在枯燥的学习中收获乐趣，更学到知识。</br>
-Viki正是为此而诞生。她知晓《和外教聊天记单词-日常交流1000词》中所有的对话、例句、翻译、重点单词及解释，以及正确朗读发音。
-跟着Viki学日常会话英语，通过场景记单词，你能学得更快，记得更牢，掌握得更好！</p>
+                              <asp:Image ID="ImageP1" runat="server" /></br>
+                              <asp:Label ID="LableD1" runat="server"/>
+                              </p>
                            
                            <div class="testimonials-arrow">
                            </div>
                            <div class="author">
-                              <div class="testimonial-image "><img alt="" src="../img/teacher/teacher-1@2x.png"></div>
+                              <div class="testimonial-image "><asp:Image ID="ImageT1" alt="" runat="server"/></div>
                               <div class="testimonial-author-info">
                                  <a href="../Teacher/TeacherTeaInfo.aspx"><span class="color">Viki</span></a>
                               </div>

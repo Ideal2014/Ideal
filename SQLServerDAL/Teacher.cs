@@ -52,6 +52,7 @@ namespace SQLServerDAL
                 o.Tea_Sex = teacher.Tea_Sex;
                 o.Tea_Skill = teacher.Tea_Skill;
                 o.Tea_Suitable = teacher.Tea_Suitable;
+                o.Tea_SImage = teacher.Tea_SImage;
             }
             ctx.SubmitChanges();
         }
@@ -60,7 +61,7 @@ namespace SQLServerDAL
         {
             DataContext ctx = new DataContext(connection);
             ITable<TeacherInfo> teachers = ctx.GetTable<TeacherInfo>();
-            return teachers.ToList<TeacherInfo>(); ;
+            return teachers.ToList<TeacherInfo>(); 
         }
 
 
