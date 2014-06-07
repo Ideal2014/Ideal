@@ -17,7 +17,7 @@
             <div class="box-header well">
                 <h2>
                     <i class="icon-plus"></i>界面管理
-							</h2>
+                </h2>
                 <div class="box-icon">
                     <a href="#" class="btn btn-setting btn-round"><i
                         class="icon-cog"></i></a><a href="#"
@@ -33,10 +33,14 @@
                             <h3>首页图片1</h3>
                         </td>
                         <td>
-                            <input data-no-uniform="true" type="file"
-                                name="file_upload" /></td>
+                            <asp:FileUpload ID="ImageFile1" runat="server" data-no-uniform="true" />
+                        </td>
                         <td>
-                            <img width="200px" height="100px" src="img/index1.jpg" /></td>
+                            <asp:Image ID="Image1" runat="server" Width="200px" Height="100px" />
+                        </td>
+                        <td>
+                            <asp:Button ID="Modify1" runat="server" CssClass="button" OnClick="Modify_Click" Text="修改" />
+                        </td>
                     </tr>
                     <tr>
                         <td>
