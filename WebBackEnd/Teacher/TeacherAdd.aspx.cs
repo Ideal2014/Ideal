@@ -52,5 +52,7 @@ public partial class Teacher_TeacherAdd : System.Web.UI.Page
         teacher.Tea_Describe = TeacherDescribe.Text.ToString();
 
         bllTeacher.Add(teacher);
+
+        Response.Redirect("~/Teacher/TeacherList.aspx");
     }
 }

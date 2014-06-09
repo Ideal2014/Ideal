@@ -29,7 +29,8 @@ public partial class Teacher_TeacherEdit : System.Web.UI.Page
     }
     private void LoadInfo()
     {
-        TeacherInfo teacher =  bllTeacher.Get(Int32.Parse(TeacherNo.Value));
+        TeacherNo.Value = Request.QueryString["id"].ToString();
+        TeacherInfo teacher = bllTeacher.Get(Int32.Parse(TeacherNo.Value));
         TeacherName.Text = teacher.Tea_Name;
         TeacherNickName.Text = teacher.Tea_Nickname;
         //头像
@@ -77,5 +78,7 @@ public partial class Teacher_TeacherEdit : System.Web.UI.Page
         teacher.Tea_Describe = TeacherDescribe.Text.ToString();
 
         bllTeacher.Modify(teacher);
+
+        Response.Redirect("~/Teacher/TeacherList.aspx");
     }
 }
