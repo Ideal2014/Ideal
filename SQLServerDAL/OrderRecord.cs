@@ -83,5 +83,30 @@ namespace SQLServerDAL
             return myds;
            
         }
+
+      
+        IList<OrderRecordInfo> IDAL.IOrderRecord.GetOrdersByDate(DateTime dateTime)
+        {
+            DataContext ctx = new DataContext(connection);
+            ITable<OrderRecordInfo> orderRecords = ctx.GetTable<OrderRecordInfo>();
+            IQueryable<OrderRecordInfo> query = from o in orderRecords
+                                                where o.Ord_Time.Value.Date == dateTime.Date
+                                                select o;
+            return query.ToList<OrderRecordInfo>();   
+        }
+
+
+        DataSet IDAL.IOrderRecord.getOrderNumber()
+        {
+            SqlConnection sqlcon = new SqlConnection(connection);
+            string sqlstr = "SELECT tb_OrderRecord.Ord_ID, tb_OrderRecord.Ord_Time, tb_Student.Stu_UserName, tb_OrderRecord.Ord_Plan FROM tb_OrderRecord INNER JOIN tb_Student ON tb_OrderRecord.Stu_ID = tb_Student.Stu_ID";
+            SqlDataAdapter myda = new SqlDataAdapter(sqlstr, sqlcon);
+            DataSet myds = new DataSet();
+            sqlcon.Open();
+            myda.Fill(myds);
+            sqlcon.Close();
+            sqlcon.Close();
+            return myds;
+        }
     }
 }

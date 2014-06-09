@@ -24,7 +24,7 @@ namespace SQLServerDAL
         {
 
             DataContext ctx = new DataContext(connection);
-            
+
             ITable students = ctx.GetTable<StudentInfo>();
             students.Attach(student);
             students.DeleteOnSubmit(student);
@@ -65,6 +65,17 @@ namespace SQLServerDAL
                                             where s.Stu_ID == id
                                             select s;
             return query.FirstOrDefault<StudentInfo>();
+        }
+
+
+        IList<StudentInfo> IDAL.IStudent.GetStudentsByDate(DateTime dateTime)
+        {
+            DataContext ctx = new DataContext(connection);
+            ITable<StudentInfo> students = ctx.GetTable<StudentInfo>();
+            IQueryable<StudentInfo> query = from s in students
+                                            where s.Stu_RegisteTime.Value.Date == dateTime.Date
+                                            select s;
+            return query.ToList<StudentInfo>();
         }
     }
 }

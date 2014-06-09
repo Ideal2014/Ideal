@@ -88,5 +88,16 @@ namespace SQLServerDAL
                     sqlcon.Close();
             }
         }
+
+
+        IList<ClassRecordInfo> IDAL.IClassRecord.GetClasssByDate(DateTime dateTime)
+        {
+            DataContext ctx = new DataContext(connection);
+            ITable<ClassRecordInfo> classRecords = ctx.GetTable<ClassRecordInfo>();
+            IQueryable<ClassRecordInfo> query = from o in classRecords
+                                                where o.Cla_StartTime.Value.Date == dateTime.Date
+                                                select o;
+            return query.ToList<ClassRecordInfo>();
+        }
     }
 }

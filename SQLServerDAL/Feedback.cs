@@ -119,5 +119,16 @@ namespace SQLServerDAL
             }
 
         }
+
+
+        IList<FeedbackInfo> IDAL.IFeedback.GetFeedBackByDate(DateTime dateTime)
+        {
+            DataContext ctx = new DataContext(connection);
+            ITable<FeedbackInfo> feedbacks = ctx.GetTable<FeedbackInfo>();
+            IQueryable<FeedbackInfo> query = from o in feedbacks
+                                             where o.Fee_Time.Value.Date ==dateTime.Date
+                                             select o;
+            return query.ToList<FeedbackInfo>();
+        }
     }
 }

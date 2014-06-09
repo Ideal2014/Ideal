@@ -14,5 +14,7 @@ namespace IDAL
         void Modify(StudentInfo student);
         IList<StudentInfo> GetAll();
         StudentInfo Get(int id);
+
+        IList<StudentInfo> GetStudentsByDate(DateTime dateTime);
     }
 }
