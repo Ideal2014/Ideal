@@ -74,9 +74,6 @@ public partial class Base_Count : System.Web.UI.Page
         System.Text.StringBuilder str = new System.Text.StringBuilder("[");
         for (int o = 0; o < ds.Tables.Count; o++)
         {
-            // str.Append("{");
-            //str.Append(string.Format("\"{0}\":[", ds.Tables[o].TableName));
-
             for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
             {
                 str.Append("{");

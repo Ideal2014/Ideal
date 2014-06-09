@@ -24,6 +24,7 @@
 
                 <asp:GridView ID="FeedbackGrid" runat="server" CssClass="table table-striped table-bordered bootstrap-datatable datatable" AutoGenerateColumns="false">
                     <Columns>
+                        <asp:BoundField DataField="Fee_ID" Visible="false"/>
                         <asp:BoundField DataField="Stu_UserName" HeaderText="姓名" ItemStyle-CssClass="center" ItemStyle-Width="50px" />
                         <asp:BoundField DataField="Fee_Topic" HeaderText="主题" ItemStyle-CssClass="center" ItemStyle-Width="120px" />
                         <asp:BoundField DataField="Fee_Detail" HeaderText="内容" ItemStyle-CssClass="center" />
@@ -42,26 +43,28 @@
                                         <span class="caret"></span>
                                     </a>
                                     <ul class="dropdown-menu">
-                                        
-                                        <li><asp:LinkButton ID="LevelS" runat="server">S</asp:LinkButton></li>
-                                        <li><asp:LinkButton ID="LevelA" runat="server">A</asp:LinkButton></li>
-                                        <li><asp:LinkButton ID="LevelB" runat="server">B</asp:LinkButton></li>
-                                        <li><asp:LinkButton ID="LevelC" runat="server">C</asp:LinkButton></li>
-                                        <li><asp:LinkButton ID="LevelD" runat="server">D</asp:LinkButton></li>
+
+                                        <li>
+                                            <asp:LinkButton ID="LevelS" runat="server" OnClick="LevelS_Click">S</asp:LinkButton></li>
+                                        <li>
+                                            <asp:LinkButton ID="LevelA" runat="server" OnClick="LevelA_Click">A</asp:LinkButton></li>
+                                        <li>
+                                            <asp:LinkButton ID="LevelB" runat="server" OnClick="LevelB_Click">B</asp:LinkButton></li>
+                                        <li>
+                                            <asp:LinkButton ID="LevelC" runat="server" OnClick="LevelC_Click">C</asp:LinkButton></li>
+                                        <li>
+                                            <asp:LinkButton ID="LevelD" runat="server" OnClick="LevelD_Click">D</asp:LinkButton></li>
 
                                     </ul>
-
-                                    <a class="btn btn-danger" href="#">
-                                        <i class="icon-trash icon-white"></i>
-                                        删除
-                                    </a>
+                                    <asp:LinkButton ID="Delete" runat="server" Text="删除" CssClass="btn btn-danger" OnClick="Delete_Click"><i class="icon-trash icon-white"></i>
+                                        删除</asp:LinkButton>
                                 </div>
                             </ItemTemplate>
                         </asp:TemplateField>
                     </Columns>
 
                 </asp:GridView>
-              
+
             </div>
         </div>
         <!--/span-->

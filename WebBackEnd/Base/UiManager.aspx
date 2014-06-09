@@ -47,32 +47,45 @@
                             <h3>首页图片2</h3>
                         </td>
                         <td>
-                            <input data-no-uniform="true" type="file"
-                                name="file_upload" /></td>
+                            <asp:FileUpload ID="ImageFile2" runat="server" data-no-uniform="true" />
+                        </td>
                         <td>
-                            <img width="200px" height="100px"
-                                src="img/index2.jpg" /></td>
+                            <asp:Image ID="Image2" runat="server" Width="200px" Height="100px" />
+                        </td>
+                        <td>
+                            <asp:Button ID="Modify2" runat="server" CssClass="button" OnClick="Modify_Click" Text="修改" />
+                        </td>
                     </tr>
-                    <tr>
+                     <tr>
                         <td>
                             <h3>首页图片3</h3>
                         </td>
                         <td>
-                            <input data-no-uniform="true" type="file"
-                                name="file_upload" /></td>
-                        <td>
-                            <img width="200px" height="100px" src="img/index3.jpg" /></td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <h3>关于我们图片1</h3>
+                            <asp:FileUpload ID="ImageFile3" runat="server" data-no-uniform="true" />
                         </td>
                         <td>
-                            <input data-no-uniform="true" type="file"
-                                name="file_upload" /></td>
+                            <asp:Image ID="Image3" runat="server" Width="200px" Height="100px" />
+                        </td>
                         <td>
-                            <img width="150px" height="100px" src="img/team.jpg" /></td>
+                            <asp:Button ID="Modify3" runat="server" CssClass="button" OnClick="Modify_Click" Text="修改" />
+                        </td>
                     </tr>
+                     <tr>
+                        <td>
+                            <h3>首页图片4</h3>
+                        </td>
+                        <td>
+                            <asp:FileUpload ID="ImageFile4" runat="server" data-no-uniform="true" />
+                        </td>
+                        <td>
+                            <asp:Image ID="Image4" runat="server" Width="200px" Height="100px" />
+                        </td>
+                        <td>
+                            <asp:Button ID="Modify4" runat="server" CssClass="button" OnClick="Modify_Click" Text="修改" />
+                        </td>
+                    </tr>
+                   
+               
 
                 </table>
             </div>

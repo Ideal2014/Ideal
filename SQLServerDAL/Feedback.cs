@@ -105,7 +105,7 @@ namespace SQLServerDAL
             try
             {
                 sqlcon = new SqlConnection(connection);
-                string sqlstr = "SELECT tb_Feedback.Fee_Topic, tb_Feedback.Fee_Detail, tb_Feedback.Fee_Time, tb_Feedback.Fee_Level,tb_Student.Stu_UserName FROM tb_Feedback INNER JOIN tb_Student ON tb_Feedback.Stu_ID = tb_Student.Stu_ID";
+                string sqlstr = "SELECT tb_Feedback.Fee_ID tb_Feedback.Fee_Topic, tb_Feedback.Fee_Detail, tb_Feedback.Fee_Time, tb_Feedback.Fee_Level,tb_Student.Stu_UserName FROM tb_Feedback INNER JOIN tb_Student ON tb_Feedback.Stu_ID = tb_Student.Stu_ID";
                 SqlDataAdapter myda = new SqlDataAdapter(sqlstr, sqlcon);
                 DataSet myds = new DataSet();
                 sqlcon.Open();
