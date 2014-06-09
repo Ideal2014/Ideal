@@ -26,7 +26,7 @@ namespace SQLServerDAL
         {
 
             DataContext ctx = new DataContext(connection);
-            
+
             ITable teachers = ctx.GetTable<TeacherInfo>();
             teachers.Attach(teacher);
             teachers.DeleteOnSubmit(teacher);
@@ -79,8 +79,8 @@ namespace SQLServerDAL
 
         System.Data.DataSet IDAL.ITeacher.getTeacherList()
         {
-      
-             SqlConnection sqlcon = new SqlConnection(connection);
+
+            SqlConnection sqlcon = new SqlConnection(connection);
             string sqlstr = "SELECT   Tea_ID, Tea_Name FROM      tb_Teacher";
             SqlDataAdapter myda = new SqlDataAdapter(sqlstr, sqlcon);
             DataSet myds = new DataSet();
@@ -88,7 +88,9 @@ namespace SQLServerDAL
             myda.Fill(myds);
             sqlcon.Close();
             return myds;
-           
+
         }
+
+
     }
 }

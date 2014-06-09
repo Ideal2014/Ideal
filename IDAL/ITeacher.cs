@@ -14,6 +14,7 @@ namespace IDAL
         IList<TeacherInfo> GetAll();
         TeacherInfo Get(int id);
 
-System.Data.DataSet getTeacherList();
+        System.Data.DataSet getTeacherList();
+
     }
 }
