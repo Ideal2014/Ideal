@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="UserAdd.aspx.cs" Inherits="User_UserAdd" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="StudentEdit.aspx.cs" Inherits="User_UserEdit" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="css" Runat="Server">
 </asp:Content>
@@ -18,11 +18,11 @@
 			</div>
 			
 
-    
+
 			<div class="row-fluid sortable">
 				<div class="box span12">
 					<div class="box-header well" data-original-title>
-						<h2><i class="icon-plus-sign"></i> 增加学生</h2>
+						<h2><i class="icon-edit"></i> 修改用户</h2>
 						<div class="box-icon">
 							<a href="#" class="btn btn-setting btn-round"><i class="icon-cog"></i></a>
 							<a href="#" class="btn btn-minimize btn-round"><i class="icon-chevron-up"></i></a>
@@ -87,7 +87,7 @@
 			</div><!--/row-->
 			
 
-   
+    
 					<!-- content ends -->
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="js" Runat="Server">
