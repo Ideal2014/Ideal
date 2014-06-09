@@ -29,100 +29,103 @@
                 </div>
             </div>
             <div class="box-content">
-                <form class="form-horizontal">
-                    <fieldset>
-                        <div class="control-group">
-                            <label class="control-label" for="focusedInput">昵称 </label>
-                            <div class="controls">
-                                <asp:TextBox runat="server" ID="TeacherName" CssClass="input-xlarge focused"></asp:TextBox>
-                                <asp:RegularExpressionValidator runat="server" ControlToValidate="TeacherName" ValidationExpression="^\S{1,5}$" ErrorMessage="昵称长度应为1~5位"></asp:RegularExpressionValidator>                      
-                            </div>
-                        </div>
-                        <div class="control-group">
-                            <label class="control-label" for="focusedInput">称号 </label>
-                            <div class="controls">
-                                <asp:TextBox runat="server" ID="TeacherNickName" CssClass="input-xlarge focused"></asp:TextBox>
-                                 <asp:RegularExpressionValidator runat="server" ControlToValidate="TeacherNickName" ValidationExpression="^\S{1,}$" ErrorMessage="称号不能为空或含有空格"></asp:RegularExpressionValidator>                      
-                            </div>
-                        </div>
 
+                <fieldset>
+                    <div class="control-group">
+                        <label class="control-label" for="focusedInput">昵称 </label>
+                        <div class="controls">
+                            <asp:TextBox runat="server" ID="TeacherName" CssClass="input-xlarge focused"></asp:TextBox>
+                            <asp:RequiredFieldValidator runat="server" ControlToValidate="TeacherName" ErrorMessage="昵称不可为空" Display="Dynamic"></asp:RequiredFieldValidator>
+                            <asp:RegularExpressionValidator runat="server" ControlToValidate="TeacherName" ValidationExpression="^.{1,5}$" ErrorMessage="昵称长度应为1~5位"></asp:RegularExpressionValidator>
+                            <asp:RegularExpressionValidator runat="server" ControlToValidate="TeacherName" ValidationExpression="^\S*$" ErrorMessage="不能含有空格"></asp:RegularExpressionValidator>
+                            <asp:RegularExpressionValidator runat="server" ControlToValidate="TeacherName" ValidationExpression="^[^\^]+$" ErrorMessage="不能含有非法字符^"></asp:RegularExpressionValidator>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label" for="focusedInput">称号 </label>
+                        <div class="controls">
+                            <asp:TextBox runat="server" ID="TeacherNickName" CssClass="input-xlarge focused"></asp:TextBox>
+                            <asp:RequiredFieldValidator runat="server" ControlToValidate="TeacherNickName" ErrorMessage="称号不可为空" Display="Dynamic"></asp:RequiredFieldValidator>
+                            <asp:RegularExpressionValidator runat="server" ControlToValidate="TeacherNickName" ValidationExpression="^\S*$" ErrorMessage="不能含有空格"></asp:RegularExpressionValidator>
+                            <asp:RegularExpressionValidator runat="server" ControlToValidate="TeacherNickName" ValidationExpression="^[^\^]+$" ErrorMessage="不能含有非法字符^"></asp:RegularExpressionValidator>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label" for="focusedInput">头像 </label>
+                        <div class="controls">
+                            <asp:FileUpload runat="server" ID="TeacherImage" ToolTip="传~" />
+                            <asp:Image runat="server" ID="ShowImage" />
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label">性别</label>
+                        <div class="controls">
+                            <asp:DropDownList ID="TeacherSex" runat="server" CssClass="input-xlarge focused">
+                                <asp:ListItem Text="男" Value="m"></asp:ListItem>
+                                <asp:ListItem Text="女" Value="f"></asp:ListItem>
+                            </asp:DropDownList>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label" for="focusedInput">年龄 </label>
+                        <div class="controls">
+                            <asp:TextBox runat="server" ID="TeacherAge" CssClass="input-xlarge focused"></asp:TextBox>
+                            <asp:RequiredFieldValidator runat="server" ControlToValidate="TeacherAge" ErrorMessage="年龄不可为空" Display="Dynamic"></asp:RequiredFieldValidator>
+                            <asp:RegularExpressionValidator runat="server" ControlToValidate="TeacherAge" ValidationExpression="^\d+$" ErrorMessage="年龄应为数字" Display="Dynamic"></asp:RegularExpressionValidator>
+                            <asp:RangeValidator runat="server" MinimumValue="1" MaximumValue="100" Type="Integer" ControlToValidate="TeacherAge" ErrorMessage="年龄应在1~100之间" Display="Dynamic"></asp:RangeValidator>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label" for="focusedInput">国籍 </label>
+                        <div class="controls">
+                            <asp:DropDownList ID="TeacherNation" runat="server" CssClass="input-xlarge focused">
+                                <asp:ListItem Text="America"></asp:ListItem>
+                                <asp:ListItem Text="England"></asp:ListItem>
+                                <asp:ListItem Text="Australia"></asp:ListItem>
+                            </asp:DropDownList>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label" for="focusedInput">专长 </label>
+                        <div class="controls">
+                            <asp:DropDownList ID="TeacherSkill" runat="server" CssClass="input-xlarge focused">
+                                <asp:ListItem Text="日常英语"></asp:ListItem>
+                                <asp:ListItem Text="商务英语"></asp:ListItem>
+                                <asp:ListItem Text="高考英语"></asp:ListItem>
+                                <asp:ListItem Text="托福考试"></asp:ListItem>
+                                <asp:ListItem Text="雅思考试"></asp:ListItem>
+                                <asp:ListItem Text="大学英语四六级"></asp:ListItem>
+                            </asp:DropDownList>
+                        </div>
+                    </div>
 
-                        <div class="control-group">
-                            <label class="control-label" for="focusedInput">头像 </label>
-                            <div class="controls">
-                                <asp:FileUpload runat="server" ID="TeacherImage" ToolTip="传~" />
-                                <asp:Image runat="server" ID="ShowImage" />
-                            </div>
+                    <div class="control-group">
+                        <label class="control-label" for="focusedInput">适用人群 </label>
+                        <div class="controls">
+                            <asp:TextBox runat="server" ID="TeacherSuitable" CssClass="input-xlarge focused"></asp:TextBox>
+                            <asp:RegularExpressionValidator runat="server" ControlToValidate="TeacherSuitable" ValidationExpression="^[^\^]+$" ErrorMessage="不能含有非法字符^"></asp:RegularExpressionValidator>
                         </div>
-                        <div class="control-group">
-                            <label class="control-label">性别</label>
-                            <div class="controls">
-                                <asp:DropDownList ID="TeacherSex" runat="server" CssClass="input-xlarge focused">
-                                    <asp:ListItem Text="男" Value="m"></asp:ListItem>
-                                    <asp:ListItem Text="女" Value="f"></asp:ListItem>
-                                </asp:DropDownList>
-                            </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label" for="focusedInput">购买相关 </label>
+                        <div class="controls">
+                            <asp:TextBox runat="server" ID="TeacherAbout" CssClass="input-xlarge focused"></asp:TextBox>
+                            <asp:RegularExpressionValidator runat="server" ControlToValidate="TeacherAbout" ValidationExpression="^[^\^]+$" ErrorMessage="不能含有非法字符^"></asp:RegularExpressionValidator>
                         </div>
-                        <div class="control-group">
-                            <label class="control-label" for="focusedInput">年龄 </label>
-                            <div class="controls">
-                                <asp:TextBox runat="server" ID="TeacherAge" CssClass="input-xlarge focused"></asp:TextBox>
-                                <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="TeacherAge" ValidationExpression="^\d{1,2}$" ErrorMessage="年龄应在1~100之间"></asp:RegularExpressionValidator>                      
-                            </div>
-                        </div>
-                        <div class="control-group">
-                            <label class="control-label" for="focusedInput">国籍 </label>
-                            <div class="controls">
-                                <asp:DropDownList ID="TeacherNation" runat="server" CssClass="input-xlarge focused">
-                                    <asp:ListItem Text="America"></asp:ListItem>
-                                    <asp:ListItem Text="England"></asp:ListItem>
-                                    <asp:ListItem Text="Australia"></asp:ListItem>
-                                </asp:DropDownList>
-                            </div>
-                        </div>
-                        <div class="control-group">
-                            <label class="control-label" for="focusedInput">专长 </label>
-                            <div class="controls">
-                                <asp:DropDownList ID="TeacherSkill" runat="server" CssClass="input-xlarge focused">
-                                    <asp:ListItem Text="日常英语"></asp:ListItem>
-                                    <asp:ListItem Text="商务英语"></asp:ListItem>
-                                    <asp:ListItem Text="高考英语"></asp:ListItem>
-                                    <asp:ListItem Text="托福考试"></asp:ListItem>
-                                    <asp:ListItem Text="雅思考试"></asp:ListItem>
-                                    <asp:ListItem Text="大学英语四六级"></asp:ListItem>
-                                </asp:DropDownList>
-                            </div>
-                        </div>
+                    </div>
 
-                        <div class="control-group">
-                            <label class="control-label" for="focusedInput">适用人群 </label>
-                            <div class="controls">
-                                <asp:TextBox runat="server" ID="TeacherSuitable" CssClass="input-xlarge focused"></asp:TextBox>
-                                <asp:RegularExpressionValidator runat="server" ControlToValidate="TeacherSuitable" ValidationExpression="^\S{1,}$" ErrorMessage="不能为空或含有空格"></asp:RegularExpressionValidator>                      
-                            </div>
+                    <div class="control-group">
+                        <label class="control-label" for="focusedInput">简介 </label>
+                        <div class="controls">
+                            <asp:TextBox runat="server" ID="TeacherDescribe" TextMode="MultiLine" Rows="5"></asp:TextBox>
+                            <asp:RegularExpressionValidator runat="server" ControlToValidate="TeacherDescribe" ValidationExpression="^[^\^]+$" ErrorMessage="不能含有非法字符^"></asp:RegularExpressionValidator>
                         </div>
-                        <div class="control-group">
-                            <label class="control-label" for="focusedInput">购买相关 </label>
-                            <div class="controls">
-                                <asp:TextBox runat="server" ID="TeacherAbout" CssClass="input-xlarge focused"></asp:TextBox>
-                                <asp:RegularExpressionValidator runat="server" ControlToValidate="TeacherAbout" ValidationExpression="^\S{1,}$" ErrorMessage="不能为空或含有空格"></asp:RegularExpressionValidator>                      
-                            </div>
-                        </div>
-
-                        <div class="control-group">
-                            <label class="control-label" for="focusedInput">简介 </label>
-                            <div class="controls">
-                                <asp:TextBox runat="server" ID="TeacherDescribe" TextMode="MultiLine" Rows="5"></asp:TextBox>
-                                <asp:RegularExpressionValidator runat="server" ControlToValidate="TeacherDescribe" ValidationExpression="^\S{1,}$" ErrorMessage="不能为空或含有空格"></asp:RegularExpressionValidator>                      
-
-                            </div>
-                        </div>
-                        <div class="form-actions">
-                            <asp:Button ID="Submit" runat="server" CssClass="btn btn-primary" Text="确认" OnClick="Submit_Click" />
-                            <button class="btn btn-primary" type="reset">取消</button>
-                        </div>
-                    </fieldset>
-                </form>
+                    </div>
+                    <div class="form-actions">
+                        <asp:Button ID="Submit" runat="server" CssClass="btn btn-primary" Text="确认" OnClick="Submit_Click" />
+                        <button class="btn btn-primary" type="reset">取消</button>
+                    </div>
+                </fieldset>
 
             </div>
         </div>
