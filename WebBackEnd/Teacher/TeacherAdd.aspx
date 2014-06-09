@@ -35,13 +35,14 @@
                             <label class="control-label" for="focusedInput">昵称 </label>
                             <div class="controls">
                                 <asp:TextBox runat="server" ID="TeacherName" CssClass="input-xlarge focused"></asp:TextBox>
-                               
+                                <asp:RegularExpressionValidator runat="server" ControlToValidate="TeacherName" ValidationExpression="^\S{1,5}$" ErrorMessage="昵称长度应为1~5位"></asp:RegularExpressionValidator>                      
                             </div>
                         </div>
                         <div class="control-group">
                             <label class="control-label" for="focusedInput">称号 </label>
                             <div class="controls">
                                 <asp:TextBox runat="server" ID="TeacherNickName" CssClass="input-xlarge focused"></asp:TextBox>
+                                 <asp:RegularExpressionValidator runat="server" ControlToValidate="TeacherNickName" ValidationExpression="^\S{1,}$" ErrorMessage="称号不能为空或含有空格"></asp:RegularExpressionValidator>                      
                             </div>
                         </div>
 
@@ -56,17 +57,17 @@
                         <div class="control-group">
                             <label class="control-label">性别</label>
                             <div class="controls">
-                                <asp:RadioButton runat="server" ID="Male" Text="男" GroupName="Sex" TextAlign="Right" />
-                                <asp:RadioButton runat="server" ID="Female" Text="女" GroupName="Sex" TextAlign="Right" />
+                                <asp:DropDownList ID="TeacherSex" runat="server" CssClass="input-xlarge focused">
+                                    <asp:ListItem Text="男" Value="m"></asp:ListItem>
+                                    <asp:ListItem Text="女" Value="f"></asp:ListItem>
+                                </asp:DropDownList>
                             </div>
                         </div>
                         <div class="control-group">
                             <label class="control-label" for="focusedInput">年龄 </label>
                             <div class="controls">
-                                <asp:DropDownList ID="TeacherAge" runat="server" CssClass="input-xlarge focused">
-                                    <asp:ListItem Text="1"></asp:ListItem>
-                                    <asp:ListItem Text="2"></asp:ListItem>
-                                </asp:DropDownList>
+                                <asp:TextBox runat="server" ID="TeacherAge" CssClass="input-xlarge focused"></asp:TextBox>
+                                <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="TeacherAge" ValidationExpression="^\d{1,2}$" ErrorMessage="年龄应在1~100之间"></asp:RegularExpressionValidator>                      
                             </div>
                         </div>
                         <div class="control-group">
@@ -75,6 +76,7 @@
                                 <asp:DropDownList ID="TeacherNation" runat="server" CssClass="input-xlarge focused">
                                     <asp:ListItem Text="America"></asp:ListItem>
                                     <asp:ListItem Text="England"></asp:ListItem>
+                                    <asp:ListItem Text="Australia"></asp:ListItem>
                                 </asp:DropDownList>
                             </div>
                         </div>
@@ -82,8 +84,12 @@
                             <label class="control-label" for="focusedInput">专长 </label>
                             <div class="controls">
                                 <asp:DropDownList ID="TeacherSkill" runat="server" CssClass="input-xlarge focused">
-                                    <asp:ListItem Text="口语"></asp:ListItem>
-                                    <asp:ListItem Text="听力"></asp:ListItem>
+                                    <asp:ListItem Text="日常英语"></asp:ListItem>
+                                    <asp:ListItem Text="商务英语"></asp:ListItem>
+                                    <asp:ListItem Text="高考英语"></asp:ListItem>
+                                    <asp:ListItem Text="托福考试"></asp:ListItem>
+                                    <asp:ListItem Text="雅思考试"></asp:ListItem>
+                                    <asp:ListItem Text="大学英语四六级"></asp:ListItem>
                                 </asp:DropDownList>
                             </div>
                         </div>
@@ -91,16 +97,15 @@
                         <div class="control-group">
                             <label class="control-label" for="focusedInput">适用人群 </label>
                             <div class="controls">
-                                <asp:DropDownList ID="TeacherSuitable" runat="server" CssClass="input-xlarge focused">
-                                    <asp:ListItem Text="80后"></asp:ListItem>
-                                    <asp:ListItem Text="90后"></asp:ListItem>
-                                </asp:DropDownList>
+                                <asp:TextBox runat="server" ID="TeacherSuitable" CssClass="input-xlarge focused"></asp:TextBox>
+                                <asp:RegularExpressionValidator runat="server" ControlToValidate="TeacherSuitable" ValidationExpression="^\S{1,}$" ErrorMessage="不能为空或含有空格"></asp:RegularExpressionValidator>                      
                             </div>
                         </div>
                         <div class="control-group">
                             <label class="control-label" for="focusedInput">购买相关 </label>
                             <div class="controls">
                                 <asp:TextBox runat="server" ID="TeacherAbout" CssClass="input-xlarge focused"></asp:TextBox>
+                                <asp:RegularExpressionValidator runat="server" ControlToValidate="TeacherAbout" ValidationExpression="^\S{1,}$" ErrorMessage="不能为空或含有空格"></asp:RegularExpressionValidator>                      
                             </div>
                         </div>
 
@@ -108,6 +113,8 @@
                             <label class="control-label" for="focusedInput">简介 </label>
                             <div class="controls">
                                 <asp:TextBox runat="server" ID="TeacherDescribe" TextMode="MultiLine" Rows="5"></asp:TextBox>
+                                <asp:RegularExpressionValidator runat="server" ControlToValidate="TeacherDescribe" ValidationExpression="^\S{1,}$" ErrorMessage="不能为空或含有空格"></asp:RegularExpressionValidator>                      
+
                             </div>
                         </div>
                         <div class="form-actions">
