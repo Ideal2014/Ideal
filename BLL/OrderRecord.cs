@@ -41,5 +41,17 @@ namespace BLL
         {
             return dal.GetOrderList();
         }
+
+
+        IList<OrderRecordInfo> IBLL.IOrderRecord.GetOrdersByDate(DateTime dateTime)
+        {
+            return dal.GetOrdersByDate(dateTime);
+        }
+
+
+        DataSet IBLL.IOrderRecord.getOrderNumber()
+        {
+            return dal.getOrderNumber();
+        }
     }
 }

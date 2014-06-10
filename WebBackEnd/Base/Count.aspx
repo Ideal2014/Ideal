@@ -6,6 +6,9 @@
     <!-- content starts -->
 
     <asp:HiddenField ID="HiddenClassPercent" runat="server" ClientIDMode="Static" />
+    <asp:HiddenField ID="HiddenOrderNumber" runat="server" ClientIDMode="Static" />
+    <asp:HiddenField ID="HiddenField2" runat="server" ClientIDMode="Static" />
+    <asp:HiddenField ID="HiddenField3" runat="server" ClientIDMode="Static" />
     <div>
         <ul class="breadcrumb">
             <li>
@@ -91,7 +94,7 @@
 
         <div class="box span6">
             <div class="box-header well" data-original-title>
-                <h2><i class="icon-list-alt"></i>下单情况</h2>
+                <h2><i class="icon-list-alt"></i>最近10天下单情况</h2>
             </div>
             <div class="box-content">
                 <div id="stackchart" style="height: 300px"></div>
@@ -117,8 +120,11 @@
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="js" runat="Server">
     <script>
-        var str = $("#HiddenClassPercent").val();
-        var data_teacher = eval(str);
+
+        var data_teacher = eval($("#HiddenClassPercent").val());
+
+        var data_order = [];
+
     </script>
 </asp:Content>
 

@@ -10,11 +10,13 @@ using System.Web.UI.WebControls;
 public partial class Login_Default : System.Web.UI.Page
 {
     private IBLL.IAdmin bllAdmin = BLLFactory.DataAccess.CreateAdmin();
-
+    private IBLL.ITeacher bllTeacher = BLLFactory.DataAccess.CreateTeacher();
     protected void Page_Load(object sender, EventArgs e)
     {
         if (!IsPostBack)
         {
+            var a = bllTeacher.GetAll();
+           int b;
         }
     }
     protected void LoginButton_Click(object sender, EventArgs e)

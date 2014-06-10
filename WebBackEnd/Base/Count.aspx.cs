@@ -37,22 +37,36 @@ public partial class Base_Count : System.Web.UI.Page
     {
         IList<StudentInfo> studentList = bllStudent.GetAll();
         StudentNum.Text = studentList.Count.ToString();
-        NewStudentNum.Text = studentList.Count.ToString();
+
+        IList<StudentInfo> newStudentList = bllStudent.GetStudentsByDate(DateTime.Now);
+        NewStudentNum.Text = newStudentList.Count.ToString();
 
         IList<OrderRecordInfo> orderList = bllOrderRecord.GetAll();
         OrderNum.Text = orderList.Count.ToString();
-        NewOrderNum.Text = orderList.Count.ToString();
+
+        IList<OrderRecordInfo> newOrderList = bllOrderRecord.GetOrdersByDate(DateTime.Now);
+        NewOrderNum.Text = newOrderList.Count.ToString();
 
         IList<ClassRecordInfo> classList = bllClassRecord.GetAll();
         ClassNum.Text = classList.Count.ToString();
-        NewClassNum.Text = classList.Count.ToString();
+
+        IList<ClassRecordInfo> newClassList = bllClassRecord.GetClasssByDate(DateTime.Now);
+        NewClassNum.Text = newClassList.Count.ToString();
 
         IList<FeedbackInfo> feedbackList = bllFeedback.GetAll();
         FeeNum.Text = feedbackList.Count.ToString();
-        NewFeeNum.Text = feedbackList.Count.ToString();
 
-        DataSet ds = bllClassRecord.getClassPercent();
-        HiddenClassPercent.Value = dsToJson(ds);
+        IList<FeedbackInfo> newFeedbackList = bllFeedback.GetFeedBackByDate(DateTime.Now);
+        NewFeeNum.Text = newFeedbackList.Count.ToString();
+
+        DataSet dsClassPercent = bllClassRecord.getClassPercent();
+        HiddenClassPercent.Value = dsToJson(dsClassPercent);
+
+        DataSet dsOrderNumber = bllOrderRecord.getOrderNumber();
+        HiddenOrderNumber.Value = dsToJson(dsOrderNumber);
+
+
+
     }
 
     private string dsToJson(DataSet ds)
@@ -60,9 +74,6 @@ public partial class Base_Count : System.Web.UI.Page
         System.Text.StringBuilder str = new System.Text.StringBuilder("[");
         for (int o = 0; o < ds.Tables.Count; o++)
         {
-           // str.Append("{");
-            //str.Append(string.Format("\"{0}\":[", ds.Tables[o].TableName));
-
             for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
             {
                 str.Append("{");

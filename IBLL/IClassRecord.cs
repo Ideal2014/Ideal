@@ -16,5 +16,7 @@ namespace IBLL
 
 
         System.Data.DataSet getClassPercent();
+
+        IList<ClassRecordInfo> GetClasssByDate(DateTime dateTime);
     }
 }

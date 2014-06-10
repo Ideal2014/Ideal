@@ -455,22 +455,12 @@ function docReady() {
 	//stack chart
 	if($("#stackchart").length)
 	{
-		var d1 = [];
-		for (var i = 0; i <= 10; i += 1)
-		d1.push([i, parseInt(Math.random() * 30)]);
-
-		var d2 = [];
-		for (var i = 0; i <= 10; i += 1)
-			d2.push([i, parseInt(Math.random() * 30)]);
-
-		var d3 = [];
-		for (var i = 0; i <= 10; i += 1)
-			d3.push([i, parseInt(Math.random() * 30)]);
+	    var d = data_order;
 
 		var stack = 0, bars = true, lines = false, steps = false;
 
 		function plotWithOptions() {
-			$.plot($("#stackchart"), [ d1, d2, d3 ], {
+			$.plot($("#stackchart"), [ d ], {
 				series: {
 					stack: stack,
 					lines: { show: lines, fill: true, steps: steps },
@@ -571,6 +561,28 @@ function docReady() {
 		return res;
 	}
 
+	function getCurrentUserData() {
+	    if (data.length > 0)
+	        data = data.slice(1);
+
+	    // do a random walk
+	    while (data.length < totalPoints) {
+	        var prev = data.length > 0 ? data[data.length - 1] : 50;
+	        var y = prev + Math.random() * 10 - 5;
+	        if (y < 0)
+	            y = 0;
+	        if (y > 100)
+	            y = 100;
+	        data.push(y);
+	    }
+
+	    // zip the generated y values with the x values
+	    var res = [];
+	    for (var i = 0; i < data.length; ++i)
+	        res.push([i, data[i]])
+	    return res;
+	}
+
 	// setup control widget
 	var updateInterval = 30;
 	$("#updateInterval").val(updateInterval).change(function () {
@@ -590,12 +602,12 @@ function docReady() {
 	{
 		var options = {
 			series: { shadowSize: 1 }, // drawing is faster without shadows
-			yaxis: { min: 0, max: 100 },
+			yaxis: { min: 0, max: 10 },
 			xaxis: { show: false }
 		};
-		var plot = $.plot($("#realtimechart"), [ getRandomData() ], options);
+		var plot = $.plot($("#realtimechart"), [getCurrentUserData()], options);
 		function update() {
-			plot.setData([ getRandomData() ]);
+		    plot.setData([getCurrentUserData()]);
 			// since the axes don't change, we don't need to call plot.setupGrid()
 			plot.draw();
 			
