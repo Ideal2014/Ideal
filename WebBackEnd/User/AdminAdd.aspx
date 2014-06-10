@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="AdminAdd.aspx.cs" Inherits="Teacher_TeacherAdd" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="AdminAdd.aspx.cs" Inherits="User_AdminAdd" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="css" runat="Server">
 </asp:Content>
@@ -39,11 +39,11 @@
                         <div class="control-group">
                             <label class="control-label" for="focusedInput">昵称 </label>
                             <div class="controls">
-                                <asp:TextBox runat="server" CssClass="input-xlarge focused" SkinID="focusedInput" ID="AdminPetname"></asp:TextBox>
-                                <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="AdminName" ErrorMessage="昵称不可为空" Display="Dynamic"></asp:RequiredFieldValidator>
-                                <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="AdminrName" ValidationExpression="^.{1,5}$" ErrorMessage="昵称长度应为1~5位"></asp:RegularExpressionValidator>
-                                <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ControlToValidate="AdminName" ValidationExpression="^\S*$" ErrorMessage="不能含有空格"></asp:RegularExpressionValidator>
-                                <asp:RegularExpressionValidator ID="RegularExpressionValidator3" runat="server" ControlToValidate="AdminName" ValidationExpression="^[^\^]+$" ErrorMessage="不能含有非法字符^"></asp:RegularExpressionValidator>
+                                <asp:TextBox runat="server" CssClass="input-xlarge focused" SkinID="focusedInput" ID="AdminNickName"></asp:TextBox>
+                                <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="AdminNickName" ErrorMessage="昵称不可为空" Display="Dynamic"></asp:RequiredFieldValidator>
+                                <asp:RegularExpressionValidator runat="server" ControlToValidate="AdminNickName" ValidationExpression="^.{1,5}$" ErrorMessage="昵称长度应为1~5位"></asp:RegularExpressionValidator>
+                                <asp:RegularExpressionValidator runat="server" ControlToValidate="AdminNickName" ValidationExpression="^\S*$" ErrorMessage="不能含有空格"></asp:RegularExpressionValidator>
+                                <asp:RegularExpressionValidator runat="server" ControlToValidate="AdminNickName" ValidationExpression="^[^\^]+$" ErrorMessage="不能含有非法字符^"></asp:RegularExpressionValidator>
                             </div>
                         </div>
 
@@ -51,7 +51,7 @@
                             <label class="control-label" for="focusedInput">邮箱 </label>
                             <div class="controls">
                                 <asp:TextBox runat="server" CssClass="input-xlarge focused" SkinID="focusedInput" ID="AdminEmail"></asp:TextBox>
-                                <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="AdminEmail" ErrorMessage="邮箱不可为空" Display="Dynamic"></asp:RequiredFieldValidator>
+                                <asp:RequiredFieldValidator runat="server" ControlToValidate="AdminEmail" ErrorMessage="邮箱不可为空" Display="Dynamic"></asp:RequiredFieldValidator>
                                 <asp:RegularExpressionValidator runat="server" ControlToValidate="AdminEmail" ValidationExpression="^([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+@([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+\.[a-zA-Z]{2,3}$" ErrorMessage="请输入正确的邮箱格式"></asp:RegularExpressionValidator>
                             </div>
                         </div>
@@ -61,8 +61,9 @@
                             <div class="controls">
                                 <asp:TextBox runat="server" CssClass="input-xlarge focused" SkinID="focusedInput" ID="AdminPassword" TextMode="Password"></asp:TextBox>
                                 <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="AdminPassword" ErrorMessage="密码不可为空" Display="Dynamic"></asp:RequiredFieldValidator>
-                            <asp:RegularExpressionValidator ID="RegularExpressionValidator4" runat="server" ControlToValidate="TeacherAge" ValidationExpression="^\S{1,10}$" ErrorMessage="密码应为1~10位" Display="Dynamic"></asp:RegularExpressionValidator>
-
+                                <asp:RegularExpressionValidator ID="RegularExpressionValidator4" runat="server" ControlToValidate="AdminPassword" ValidationExpression="^.{1,10}$" ErrorMessage="密码应为1~10位" Display="Dynamic"></asp:RegularExpressionValidator>
+                                <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ControlToValidate="AdminPassword" ValidationExpression="^\S*$" ErrorMessage="不能含有空格"></asp:RegularExpressionValidator>
+                                <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="AdminPassword" ValidationExpression="^[^\^]+$" ErrorMessage="不能含有非法字符^"></asp:RegularExpressionValidator>
                             </div>
                         </div>
 
