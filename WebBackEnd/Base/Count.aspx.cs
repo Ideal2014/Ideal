@@ -19,17 +19,7 @@ public partial class Base_Count : System.Web.UI.Page
     {
         if (!IsPostBack)
         {
-
-            if (Request.Cookies["admin"] != null)
-            {
-                string id = Request.Cookies["admin"]["id"];
-                Bind();
-
-            }
-            else
-            {
-                Response.Redirect("~/Login/Login.aspx");
-            }
+            Bind();
         }
     }
 
@@ -62,13 +52,46 @@ public partial class Base_Count : System.Web.UI.Page
         DataSet dsClassPercent = bllClassRecord.getClassPercent();
         HiddenClassPercent.Value = dsToJson(dsClassPercent);
 
-        DataSet dsOrderNumber = bllOrderRecord.getOrderNumber();
-        HiddenOrderNumber.Value = dsToJson(dsOrderNumber);
-
-
-
+        IList<OrderRecordInfo> orders = bllOrderRecord.GetAll();
+        HiddenOrderNumber.Value = getOrderNumberJson(orders);
     }
 
+    private string getOrderNumberJson(IList<OrderRecordInfo> orders)
+    {
+        string json = "";
+        int[,] result = new int[10, 2];
+        for (int i = 0; i < 10; i++)
+        {
+            result.SetValue(i + 1, i, 0);
+            result.SetValue(0, i, 1);
+
+        }
+        for (int i = 0; i < orders.Count; i++)
+        {
+            OrderRecordInfo o = orders[i];
+            int off = DateTime.Now.Day.CompareTo(o.Ord_Time.Value.Day);
+            if (off >= 10 | off == 0)
+                continue;
+            //DateTime.
+            result.SetValue(result.GetValue(i, off - 1), off - 1, 1);
+        }
+        System.Text.StringBuilder str = new System.Text.StringBuilder("[");
+        for (int i = 0; i < 10; i++)
+        {
+
+            str.Append("[");
+            for (int j = 0; j < 2; j++)
+            {
+                str.Append(result.GetValue(i, j) + ",");
+            }
+            str.Remove(str.Length - 1, 1);
+            str.Append("],");
+        }
+        str.Remove(str.Length - 1, 1);
+        str.Append("]");
+        json = str.ToString();
+        return json;
+    }
     private string dsToJson(DataSet ds)
     {
         System.Text.StringBuilder str = new System.Text.StringBuilder("[");

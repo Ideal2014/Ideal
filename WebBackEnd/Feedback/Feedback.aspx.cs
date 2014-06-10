@@ -13,15 +13,7 @@ public partial class Feedback_Feedback : System.Web.UI.Page
     {
         if (!IsPostBack)
         {
-            if (Request.Cookies["admin"] != null)
-            {
-                string id = Request.Cookies["admin"]["id"];
-                Bind();
-            }
-            else
-            {
-                Response.Redirect("~/Login/Login.aspx");
-            }
+            Bind();
         }
     }
 
@@ -71,7 +63,7 @@ public partial class Feedback_Feedback : System.Web.UI.Page
         var button = sender as LinkButton;
         GridViewRow gvr = button.Parent.Parent as GridViewRow;
         var Label = FeedbackGrid.Rows[gvr.RowIndex].FindControl("LevelLabel") as Label;
-    //    var IDLabel = FeedbackGrid.Rows[gvr.RowIndex].("LevelLabel") as Label;
+        //    var IDLabel = FeedbackGrid.Rows[gvr.RowIndex].("LevelLabel") as Label;
         Label.Text = "D";
         bllFeedback.Remove(new FeedbackInfo() { Fee_ID = 1 });
     }

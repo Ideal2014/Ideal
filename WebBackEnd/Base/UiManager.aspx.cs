@@ -12,12 +12,24 @@ public partial class Base_UiManager : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-
+        if (!IsPostBack)
+        {
+            LoadImage();
+        }
     }
     protected void Modify_Click(object sender, EventArgs e)
     {
+        var btn = sender as Button;
         string errorMsg;
-        SaveImage(ImageFile1, Image1, "index1.png", out errorMsg);
+        if (ImageFile1.HasFile)
+            SaveImage(ImageFile1, Image1, "index1.png", out errorMsg);
+        if (ImageFile2.HasFile)
+            SaveImage(ImageFile2, Image2, "index2.png", out errorMsg);
+        if (ImageFile3.HasFile)
+            SaveImage(ImageFile3, Image3, "index3.png", out errorMsg);
+        if (ImageFile4.HasFile)
+            SaveImage(ImageFile4, Image4, "index4.png", out errorMsg);
+        LoadImage();
     }
 
     /// <summary>
@@ -26,8 +38,15 @@ public partial class Base_UiManager : System.Web.UI.Page
     /// <param name="str"></param>
     /// <returns></returns>
     /// 
-
-    public bool SaveImage(FileUpload uploadImageFile, Image imageDisplay, string fileName, out string errorMsg)
+    private void LoadImage()
+    {
+        string virDirPath = "~/Resourse/Image/";
+        Image1.ImageUrl = virDirPath + "index1.png";
+        Image2.ImageUrl = virDirPath + "index2.png";
+        Image3.ImageUrl = virDirPath + "index3.png";
+        Image4.ImageUrl = virDirPath + "index4.png";
+    }
+    private bool SaveImage(FileUpload uploadImageFile, Image imageDisplay, string fileName, out string errorMsg)
     {
         if (uploadImageFile.HasFile)//验证是否包含文件
         {
@@ -41,24 +60,24 @@ public partial class Base_UiManager : System.Web.UI.Page
                 //对上传文件的大小进行检测，限定文件最大不超过8M
                 if (uploadImageFile.PostedFile.ContentLength < 8192000)
                 {
-                    string virDirPath = "../Resourse/Image/";
-                    string dirPath = Server.MapPath("~/") + virDirPath;
+                    string virDirPath = "~/Resourse/Image/";
+                    string dirPath = Server.MapPath("~/") + "/Resourse/Image/";
                     if (Directory.Exists(dirPath) == false)//如果不存在就创建file文件夹
                     {
                         Directory.CreateDirectory(dirPath);
                     }
-                    string virpath = virDirPath+ "../" + fileName;//这是存到服务器上的虚拟路径
+                    string virpath = virDirPath + fileName;//这是存到服务器上的虚拟路径
                     string path = dirPath + fileName;//转换成服务器上的物理路径
                     uploadImageFile.PostedFile.SaveAs(path);//保存图片
                     //显示图片
-                    Image1.ImageUrl =  virpath;
+                    imageDisplay.ImageUrl = virpath;
                     //清空提示
                     errorMsg = "";
                     return true;
                 }
                 else
                 {
-                    Image1.ImageUrl = "";
+                    imageDisplay.ImageUrl = "";
                     errorMsg = "文件大小超出8M！请重新选择！";
                     return false;
                 }

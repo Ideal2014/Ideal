@@ -123,7 +123,7 @@
 
         var data_teacher = eval($("#HiddenClassPercent").val());
 
-        var data_order = [];
+        var data_order = eval($("#HiddenOrderNumber").val());
 
     </script>
 </asp:Content>

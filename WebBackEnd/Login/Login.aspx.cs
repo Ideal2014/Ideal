@@ -15,8 +15,6 @@ public partial class Login_Default : System.Web.UI.Page
     {
         if (!IsPostBack)
         {
-            var a = bllTeacher.GetAll();
-           int b;
         }
     }
     protected void LoginButton_Click(object sender, EventArgs e)
@@ -35,7 +33,8 @@ public partial class Login_Default : System.Web.UI.Page
             cookie.Values["id"] = admin.Adm_ID.ToString();
             cookie.Expires = System.DateTime.Now.AddDays(1);//设置过期时间  1天
             Response.Cookies.Add(cookie);
-            Response.Redirect("/Base/OrderList.aspx");
+            Response.Redirect("~/Base/Count.aspx");
+
         }
     }
 }
