@@ -10,13 +10,9 @@
     <!-- The styles -->
     <link href="css/bootstrap-cerulean.css" rel="stylesheet">
     <style type="text/css">
-        body {
-            padding-bottom: 40px;
-        }
+        body { padding-bottom: 40px; }
 
-        .sidebar-nav {
-            padding: 9px 0;
-        }
+        .sidebar-nav { padding: 9px 0; }
     </style>
     <link href="css/bootstrap-responsive.css" rel="stylesheet">
     <link href="css/charisma-app.css" rel="stylesheet">
@@ -76,38 +72,49 @@
                     <div class="well nav-collapse sidebar-nav">
                         <ul class="nav nav-tabs nav-stacked main-menu">
                             <li class="nav-header hidden-tablet">基本管理</li>
-                            <li><asp:HyperLink CssClass="ajax-link" runat="server" NavigateUrl="~/Base/UiManager.aspx"><i
+                            <li>
+                                <asp:HyperLink CssClass="ajax-link" runat="server" NavigateUrl="~/Base/UiManager.aspx"><i
                                 class="icon-home"></i><span class="hidden-tablet">界面管理</span></asp:HyperLink></li>
-                            <li><asp:HyperLink CssClass="ajax-link" runat="server" NavigateUrl="~/Base/Count.aspx"><i
+                            <li>
+                                <asp:HyperLink CssClass="ajax-link" runat="server" NavigateUrl="~/Base/Count.aspx"><i
                                 class="icon-home"></i><span class="hidden-tablet">统计信息</span></asp:HyperLink></li>
-                            <li><asp:HyperLink CssClass="ajax-link" runat="server" NavigateUrl="~/Base/OrderList.aspx"><i
+                            <li>
+                                <asp:HyperLink CssClass="ajax-link" runat="server" NavigateUrl="~/Base/OrderList.aspx"><i
                                 class="icon-home"></i><span class="hidden-tablet">订单信息</span></asp:HyperLink></li>
                             <li class="nav-header hidden-tablet">用户管理</li>
-                            <li><asp:HyperLink CssClass="ajax-link" runat="server" NavigateUrl="~/User/UserList.aspx"`><i
+                            <li>
+                                <asp:HyperLink CssClass="ajax-link" runat="server" NavigateUrl="~/User/UserList.aspx"><i
                                 class="icon-eye-open"></i><span class="hidden-tablet">用户列表</span></asp:HyperLink></li>
-                            <li><asp:HyperLink CssClass="ajax-link" runat="server" NavigateUrl><i
+                            <li>
+                                <asp:HyperLink CssClass="ajax-link" runat="server" NavigateUrl="~/User/AdminAdd.aspx"><i
                                 class="icon-eye-open"></i><span class="hidden-tablet">添加管理员</span></asp:HyperLink></li>
-                            <li><asp:HyperLink CssClass="ajax-link" runat="server" NavigateUrl><i
+                            <li>
+                                <asp:HyperLink CssClass="ajax-link" runat="server" NavigateUrl="~/User/StudentAdd.aspx"><i
                                 class="icon-eye-open"></i><span class="hidden-tablet">添加学生</span></asp:HyperLink></li>
                             <li class="nav-header hidden-tablet">教师管理</li>
-                            <li><asp:HyperLink CssClass="ajax-link" runat="server" NavigateUrl><i
+                            <li>
+                                <asp:HyperLink CssClass="ajax-link" runat="server" NavigateUrl="~/Teacher/TeacherList.aspx"><i
                                 class="icon-edit"></i><span class="hidden-tablet">教师列表</span></asp:HyperLink></li>
-                            <li><asp:HyperLink CssClass="ajax-link" runat="server" NavigateUrl><i
+                            <li>
+                                <asp:HyperLink CssClass="ajax-link" runat="server" NavigateUrl="~/Teacher/TeacherAdd.aspx"><i
                                 class="icon-eye-open"></i><span class="hidden-tablet">添加教师</span></asp:HyperLink></li>
                             <li class="nav-header hidden-tablet">教材管理</li>
-                            <li><asp:HyperLink CssClass="ajax-link" runat="server" NavigateUrl><i
+                            <li>
+                                <asp:HyperLink CssClass="ajax-link" runat="server" NavigateUrl="~/Book/BookList.aspx"><i
                                 class="icon-list-alt"></i><span class="hidden-tablet">教材列表</span></asp:HyperLink></li>
-                            <li><asp:HyperLink CssClass="ajax-link" runat="server" NavigateUrl><i
-                                class="icon-eye-open"></i><span class="hidden-tablet">添加教材</span></asp:HyperLink></li>
+
                             <li class="nav-header hidden-tablet">反馈管理</li>
-                            <li><asp:HyperLink CssClass="ajax-link" runat="server" NavigateUrl><i
+                            <li>
+                                <asp:HyperLink CssClass="ajax-link" runat="server" NavigateUrl="~/Feedback/Feedback.aspx"><i
                                 class="icon-list-alt"></i><span class="hidden-tablet">反馈列表</span></asp:HyperLink></li>
 
 
                             <li class="nav-header hidden-tablet">试题管理</li>
-                            <li><asp:HyperLink CssClass="ajax-link" runat="server" NavigateUrl><i
+                            <li>
+                                <asp:HyperLink CssClass="ajax-link" runat="server" NavigateUrl="~/Test/TestList.aspx"><i
                                 class="icon-list-alt"></i><span class="hidden-tablet">试题列表</span></asp:HyperLink></li>
-                            <li><asp:HyperLink CssClass="ajax-link" runat="server" NavigateUrl><i
+                            <li>
+                                <asp:HyperLink CssClass="ajax-link" runat="server" NavigateUrl="~/Test/TestAdd.aspx"><i
                                 class="icon-eye-open"></i><span class="hidden-tablet">添加试题</span></asp:HyperLink></li>
                         </ul>
                     </div>
