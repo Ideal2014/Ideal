@@ -33,9 +33,9 @@ public partial class User_StudentAdd : System.Web.UI.Page
 
         StudentInfo student = new StudentInfo();
 
-        student.Stu_UserName = StuEmail.Text.ToString();
-        student.Stu_NickName = StuNickName.Text.ToString();
+        student.Stu_UserName = StuNickName.Text.ToString();
         student.Stu_Password = StuPassword.Text.ToString();
+        student.Stu_Email = StuEmail.Text.ToString();
         //头像
         //时长
         //student.Stu_RegisteTime = StuDuration.Text;

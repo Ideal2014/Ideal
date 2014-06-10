@@ -9,6 +9,8 @@ using System.Web.UI.WebControls;
 
 public partial class User_StudentEdit : System.Web.UI.Page
 {
+    private static readonly IBLL.IStudent bllStudent = BLLFactory.DataAccess.CreateStudent();
+
     protected void Page_Load(object sender, EventArgs e)
     {
         if (!IsPostBack)
@@ -27,11 +29,14 @@ public partial class User_StudentEdit : System.Web.UI.Page
     }
     private void LoadInfo()
     {
-        StuNo.Value = Request.QueryString["id"].ToString();
+        if (Request.QueryString["id"] != null)
+            StuNo.Value = Request.QueryString["id"].ToString();
+        else
+            return;
         StudentInfo student = bllStudent.Get(Int32.Parse(StuNo.Value));
         StuNoShow.Text = student.Stu_ID.ToString();
         StuEmail.Text = student.Stu_UserName;
-        StuNickName.Text = student.Stu_Nickname;
+        //StuNickName.Text = student.Stu_Nickname;
         StuPassword.Text = student.Stu_Password;
 
     }
@@ -53,8 +58,8 @@ public partial class User_StudentEdit : System.Web.UI.Page
 
         StudentInfo student = new StudentInfo();
 
-        student.Stu_UserName = StuEmail.Text.ToString();
-        student.Stu_NickName = StuNickName.Text.ToString();
+        student.Stu_UserName = StuNickName.Text.ToString();
+        student.Stu_Email = StuEmail.Text.ToString();
         student.Stu_Password = StuPassword.Text.ToString();
         //头像
         //时长

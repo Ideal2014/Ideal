@@ -58,7 +58,7 @@
                             <div class="controls">
                                 <asp:TextBox runat="server" CssClass="input-xlarge focused" SkinID="focusedInput" ID="StuEmail"></asp:TextBox>
                                 <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="StuEmail" ErrorMessage="邮箱不可为空" Display="Dynamic"></asp:RequiredFieldValidator>
-                                <asp:RegularExpressionValidator ID="RegularExpressionValidator4" runat="server" ControlToValidate="StuEmail" ValidationExpression="^([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+@([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+\.[a-zA-Z]{2,3}$" ErrorMessage="请输入正确的邮箱格式"></asp:RegularExpressionValidator>
+                                <asp:RegularExpressionValidator ID="RegularExpressionValidator4" runat="server" ControlToValidate="StuEmail" ValidationExpression="^([a-zA-Z0-9]+[_|_|\.]?)*[a-zA-Z0-9]+@([a-zA-Z0-9]+[_|_|\.]?)*[a-zA-Z0-9]+\.[a-zA-Z]{2,3}$" ErrorMessage="请输入正确的邮箱格式"></asp:RegularExpressionValidator>
                             </div>
                         </div>
 
