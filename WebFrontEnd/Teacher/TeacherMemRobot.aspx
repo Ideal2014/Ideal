@@ -217,5 +217,13 @@
     <script src="http://cdn.bootcss.com/jquery/1.10.2/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/tts.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            $("body").removeClass("home");
+            $("body").addClass("page");
+            $("body").load("mobile");
+        });
+    </script>
 </asp:Content>
 

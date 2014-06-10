@@ -15,6 +15,7 @@ namespace IBLL
         IList<TeacherInfo> GetAll();
         TeacherInfo Get(int id);
 
-DataSet getTeacherList();
+        DataSet getTeacherList();
+
     }
 }
