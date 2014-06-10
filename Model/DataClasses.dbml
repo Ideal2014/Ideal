@@ -1,14 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="Viki" Class="DataClassesDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
   <Connection Mode="AppSettings" ConnectionString="Data Source=ADMIN-PC;Initial Catalog=Viki;Integrated Security=True" SettingsObjectName="Model.Properties.Settings" SettingsPropertyName="vikiConnectionString" Provider="System.Data.SqlClient" />
-  <Table Name="dbo.tb_Admin" Member="AdminInfo">
-    <Type Name="AdminInfo">
-      <Column Name="Adm_ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="Adm_UserName" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
-      <Column Name="Adm_Password" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
-      <Column Name="Adm_Nickname" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
-      <Column Name="Adm_LastLogin" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-    </Type>
-  </Table>
   <Table Name="dbo.tb_Test" Member="TestInfo">
     <Type Name="TestInfo">
       <Column Name="Tes_ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -93,6 +84,15 @@
       <Column Name="Tea_Nation" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
       <Column Name="Tea_About" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
       <Column Name="Tea_Suitable" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tb_Admin" Member="AdminInfo">
+    <Type Name="AdminInfo">
+      <Column Name="Adm_ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Adm_UserName" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Adm_Password" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="Adm_Email" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Adm_LastLogin" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
     </Type>
   </Table>
 </Database>

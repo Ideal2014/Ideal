@@ -35,10 +35,12 @@ public partial class User_StudentEdit : System.Web.UI.Page
             return;
         StudentInfo student = bllStudent.Get(Int32.Parse(StuNo.Value));
         StuNoShow.Text = student.Stu_ID.ToString();
-        StuEmail.Text = student.Stu_UserName;
-        //StuNickName.Text = student.Stu_Nickname;
+        StuNickName.Text = student.Stu_UserName;
+        StuEmail.Text = student.Stu_Email;
         StuPassword.Text = student.Stu_Password;
-
+        //头像
+        //余额
+        //StuDuration.Text=
     }
     protected void Submit_Click(object sender, EventArgs e)
     {

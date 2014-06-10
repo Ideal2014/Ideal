@@ -2,7 +2,9 @@
 using Model;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.Linq;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 
@@ -40,7 +42,7 @@ namespace SQLServerDAL
             foreach (AdminInfo o in query)
             {
                 o.Adm_LastLogin = admin.Adm_LastLogin;
-                o.Adm_Nickname = admin.Adm_Nickname;
+                o.Adm_Email = admin.Adm_Email;
                 o.Adm_Password = admin.Adm_Password;
                 o.Adm_UserName = admin.Adm_UserName;
             }
@@ -82,6 +84,19 @@ namespace SQLServerDAL
             finally
             {
             }
+        }
+
+
+        System.Data.DataSet IDAL.IAdmin.getAdminList()
+        {
+            SqlConnection sqlcon = new SqlConnection(connection);
+            string sqlstr = "SELECT   Adm_ID, Adm_UserName FROM      tb_Admin";
+            SqlDataAdapter myda = new SqlDataAdapter(sqlstr, sqlcon);
+            DataSet myds = new DataSet();
+            sqlcon.Open();
+            myda.Fill(myds);
+            sqlcon.Close();
+            return myds;
         }
     }
 }

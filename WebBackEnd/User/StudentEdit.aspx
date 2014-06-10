@@ -38,7 +38,7 @@
                         <div class="control-group">
                             <label class="control-label" for="focusedInput">学生号 </label>
                             <div class="controls">
-                                <asp:TextBox runat="server" CssClass="input-xlarge focused" SkinID="focusedInput" ID="StuNoShow"></asp:TextBox>
+                                <asp:TextBox runat="server" CssClass="input-xlarge focused" SkinID="focusedInput" ID="StuNoShow" ReadOnly="true"></asp:TextBox>
                             </div>
                         </div>
 

@@ -28,11 +28,14 @@ public partial class User_AdminView : System.Web.UI.Page
 
     private void LoadInfo()
     {
-        AdminNo.Value = Request.QueryString["id"].ToString();
+        if (Request.QueryString["id"] != null)
+            AdminNo.Value = Request.QueryString["id"].ToString();
+        else
+            return;
         AdminInfo admin = bllAdmin.Get(Int32.Parse(AdminNo.Value));
         AdminNoShow.Text = admin.Adm_ID.ToString();
-        AdminEmail.Text = admin.Adm_UserName;
-        AdminNickName.Text = admin.Adm_Nickname;
+        AdminEmail.Text = admin.Adm_Email;
+        AdminNickName.Text = admin.Adm_UserName;
         AdminPassword.Text = admin.Adm_Password;
        
     }

@@ -30,9 +30,6 @@ namespace Model
 		
     #region 可扩展性方法定义
     partial void OnCreated();
-    partial void InsertAdminInfo(AdminInfo instance);
-    partial void UpdateAdminInfo(AdminInfo instance);
-    partial void DeleteAdminInfo(AdminInfo instance);
     partial void InsertTestInfo(TestInfo instance);
     partial void UpdateTestInfo(TestInfo instance);
     partial void DeleteTestInfo(TestInfo instance);
@@ -57,6 +54,9 @@ namespace Model
     partial void InsertTeacherInfo(TeacherInfo instance);
     partial void UpdateTeacherInfo(TeacherInfo instance);
     partial void DeleteTeacherInfo(TeacherInfo instance);
+    partial void InsertAdminInfo(AdminInfo instance);
+    partial void UpdateAdminInfo(AdminInfo instance);
+    partial void DeleteAdminInfo(AdminInfo instance);
     #endregion
 		
 		public DataClassesDataContext() : 
@@ -87,14 +87,6 @@ namespace Model
 				base(connection, mappingSource)
 		{
 			OnCreated();
-		}
-		
-		public System.Data.Linq.Table<AdminInfo> AdminInfo
-		{
-			get
-			{
-				return this.GetTable<AdminInfo>();
-			}
 		}
 		
 		public System.Data.Linq.Table<TestInfo> TestInfo
@@ -160,162 +152,12 @@ namespace Model
 				return this.GetTable<TeacherInfo>();
 			}
 		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.tb_Admin")]
-	public partial class AdminInfo : INotifyPropertyChanging, INotifyPropertyChanged
-	{
 		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _Adm_ID;
-		
-		private string _Adm_UserName;
-		
-		private string _Adm_Password;
-		
-		private string _Adm_Nickname;
-		
-		private System.Nullable<System.DateTime> _Adm_LastLogin;
-		
-    #region 可扩展性方法定义
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnAdm_IDChanging(int value);
-    partial void OnAdm_IDChanged();
-    partial void OnAdm_UserNameChanging(string value);
-    partial void OnAdm_UserNameChanged();
-    partial void OnAdm_PasswordChanging(string value);
-    partial void OnAdm_PasswordChanged();
-    partial void OnAdm_NicknameChanging(string value);
-    partial void OnAdm_NicknameChanged();
-    partial void OnAdm_LastLoginChanging(System.Nullable<System.DateTime> value);
-    partial void OnAdm_LastLoginChanged();
-    #endregion
-		
-		public AdminInfo()
-		{
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Adm_ID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int Adm_ID
+		public System.Data.Linq.Table<AdminInfo> AdminInfo
 		{
 			get
 			{
-				return this._Adm_ID;
-			}
-			set
-			{
-				if ((this._Adm_ID != value))
-				{
-					this.OnAdm_IDChanging(value);
-					this.SendPropertyChanging();
-					this._Adm_ID = value;
-					this.SendPropertyChanged("Adm_ID");
-					this.OnAdm_IDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Adm_UserName", DbType="VarChar(20)")]
-		public string Adm_UserName
-		{
-			get
-			{
-				return this._Adm_UserName;
-			}
-			set
-			{
-				if ((this._Adm_UserName != value))
-				{
-					this.OnAdm_UserNameChanging(value);
-					this.SendPropertyChanging();
-					this._Adm_UserName = value;
-					this.SendPropertyChanged("Adm_UserName");
-					this.OnAdm_UserNameChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Adm_Password", DbType="VarChar(10)")]
-		public string Adm_Password
-		{
-			get
-			{
-				return this._Adm_Password;
-			}
-			set
-			{
-				if ((this._Adm_Password != value))
-				{
-					this.OnAdm_PasswordChanging(value);
-					this.SendPropertyChanging();
-					this._Adm_Password = value;
-					this.SendPropertyChanged("Adm_Password");
-					this.OnAdm_PasswordChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Adm_Nickname", DbType="VarChar(20)")]
-		public string Adm_Nickname
-		{
-			get
-			{
-				return this._Adm_Nickname;
-			}
-			set
-			{
-				if ((this._Adm_Nickname != value))
-				{
-					this.OnAdm_NicknameChanging(value);
-					this.SendPropertyChanging();
-					this._Adm_Nickname = value;
-					this.SendPropertyChanged("Adm_Nickname");
-					this.OnAdm_NicknameChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Adm_LastLogin", DbType="DateTime")]
-		public System.Nullable<System.DateTime> Adm_LastLogin
-		{
-			get
-			{
-				return this._Adm_LastLogin;
-			}
-			set
-			{
-				if ((this._Adm_LastLogin != value))
-				{
-					this.OnAdm_LastLoginChanging(value);
-					this.SendPropertyChanging();
-					this._Adm_LastLogin = value;
-					this.SendPropertyChanged("Adm_LastLogin");
-					this.OnAdm_LastLoginChanged();
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+				return this.GetTable<AdminInfo>();
 			}
 		}
 	}
@@ -1895,6 +1737,164 @@ namespace Model
 					this._Tea_Suitable = value;
 					this.SendPropertyChanged("Tea_Suitable");
 					this.OnTea_SuitableChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.tb_Admin")]
+	public partial class AdminInfo : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _Adm_ID;
+		
+		private string _Adm_UserName;
+		
+		private string _Adm_Password;
+		
+		private string _Adm_Email;
+		
+		private System.Nullable<System.DateTime> _Adm_LastLogin;
+		
+    #region 可扩展性方法定义
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnAdm_IDChanging(int value);
+    partial void OnAdm_IDChanged();
+    partial void OnAdm_UserNameChanging(string value);
+    partial void OnAdm_UserNameChanged();
+    partial void OnAdm_PasswordChanging(string value);
+    partial void OnAdm_PasswordChanged();
+    partial void OnAdm_EmailChanging(string value);
+    partial void OnAdm_EmailChanged();
+    partial void OnAdm_LastLoginChanging(System.Nullable<System.DateTime> value);
+    partial void OnAdm_LastLoginChanged();
+    #endregion
+		
+		public AdminInfo()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Adm_ID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int Adm_ID
+		{
+			get
+			{
+				return this._Adm_ID;
+			}
+			set
+			{
+				if ((this._Adm_ID != value))
+				{
+					this.OnAdm_IDChanging(value);
+					this.SendPropertyChanging();
+					this._Adm_ID = value;
+					this.SendPropertyChanged("Adm_ID");
+					this.OnAdm_IDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Adm_UserName", DbType="VarChar(20)")]
+		public string Adm_UserName
+		{
+			get
+			{
+				return this._Adm_UserName;
+			}
+			set
+			{
+				if ((this._Adm_UserName != value))
+				{
+					this.OnAdm_UserNameChanging(value);
+					this.SendPropertyChanging();
+					this._Adm_UserName = value;
+					this.SendPropertyChanged("Adm_UserName");
+					this.OnAdm_UserNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Adm_Password", DbType="VarChar(10)")]
+		public string Adm_Password
+		{
+			get
+			{
+				return this._Adm_Password;
+			}
+			set
+			{
+				if ((this._Adm_Password != value))
+				{
+					this.OnAdm_PasswordChanging(value);
+					this.SendPropertyChanging();
+					this._Adm_Password = value;
+					this.SendPropertyChanged("Adm_Password");
+					this.OnAdm_PasswordChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Adm_Email", DbType="VarChar(20)")]
+		public string Adm_Email
+		{
+			get
+			{
+				return this._Adm_Email;
+			}
+			set
+			{
+				if ((this._Adm_Email != value))
+				{
+					this.OnAdm_EmailChanging(value);
+					this.SendPropertyChanging();
+					this._Adm_Email = value;
+					this.SendPropertyChanged("Adm_Email");
+					this.OnAdm_EmailChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Adm_LastLogin", DbType="DateTime")]
+		public System.Nullable<System.DateTime> Adm_LastLogin
+		{
+			get
+			{
+				return this._Adm_LastLogin;
+			}
+			set
+			{
+				if ((this._Adm_LastLogin != value))
+				{
+					this.OnAdm_LastLoginChanging(value);
+					this.SendPropertyChanging();
+					this._Adm_LastLogin = value;
+					this.SendPropertyChanged("Adm_LastLogin");
+					this.OnAdm_LastLoginChanged();
 				}
 			}
 		}

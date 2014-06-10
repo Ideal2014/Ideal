@@ -2,7 +2,9 @@
 using Model;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.Linq;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 
@@ -76,6 +78,19 @@ namespace SQLServerDAL
                                             where s.Stu_RegisteTime.Value.Date == dateTime.Date
                                             select s;
             return query.ToList<StudentInfo>();
+        }
+
+
+        System.Data.DataSet IDAL.IStudent.getStudentList()
+        {
+            SqlConnection sqlcon = new SqlConnection(connection);
+            string sqlstr = "SELECT   Stu_ID, Stu_UserName FROM      tb_Student";
+            SqlDataAdapter myda = new SqlDataAdapter(sqlstr, sqlcon);
+            DataSet myds = new DataSet();
+            sqlcon.Open();
+            myda.Fill(myds);
+            sqlcon.Close();
+            return myds;
         }
     }
 }

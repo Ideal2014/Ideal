@@ -30,8 +30,8 @@ public partial class User_AdminAdd : System.Web.UI.Page
 
         AdminInfo admin = new AdminInfo();
 
-        admin.Adm_UserName = AdminEmail.Text.ToString();
-        admin.Adm_Nickname = AdminNickName.Text.ToString();
+        admin.Adm_UserName = AdminNickName.Text.ToString();
+        admin.Adm_Email = AdminEmail.Text.ToString();
         admin.Adm_Password = AdminPassword.Text.ToString();
 
         bllAdmin.Add(admin);

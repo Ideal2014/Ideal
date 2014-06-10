@@ -1,6 +1,7 @@
 ﻿using Model;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 
@@ -14,5 +15,8 @@ namespace IBLL
         IList<StudentInfo> GetAll();
         StudentInfo Get(int id);
         IList<StudentInfo> GetStudentsByDate(DateTime dateTime);
+
+
+        DataSet getStudentList();
     }
 }
