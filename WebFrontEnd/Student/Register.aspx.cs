@@ -18,12 +18,12 @@ public partial class Student_Register : System.Web.UI.Page
     protected void Register_Click(object sender, EventArgs e)
     {
         StudentInfo student = new StudentInfo();
-        student.Stu_UserName = Username.Text.ToString();
-        student.Stu_Email = MailBox.Text.ToString();
-        if(!Password1.Text.Equals(Password2.Text)){
+        student.Stu_UserName = Name.Text.ToString().Trim();
+        student.Stu_Email = MailBox.Text.ToString().Trim();
+        if(!Password1.Text.Equals(Password2.Text.Trim())){
             throw new Exception();
         }
-        student.Stu_Password = Password1.Text.ToString();
+        student.Stu_Password = Password1.Text.ToString().Trim();
         bllStudent.Add(student);
         Response.Redirect("~/Student/Login.aspx");
     }

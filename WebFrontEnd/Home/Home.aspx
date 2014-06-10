@@ -187,7 +187,7 @@
             <div class="main-content">
                <div class="container">
                   <div class="row">
-                     <div class="col-lg-6 col-md-6 col-sm-6">
+                     <div class="col-lg-6 col-md-6 col-sm-6" id ="LoginContent" runat="server">
                         <div class="content-box big ch-item bottom-pad-small">
                            <div class="ch-info-wrap">
                               <div class="ch-info">
@@ -197,7 +197,7 @@
                                  </div>
                               </div>
                            </div>
-                           <div class="content-box-info">
+                           <div class="content-box-info" >
                               <h3>用户</h3>
                               
                               <label>用户名:</label>
@@ -206,8 +206,8 @@
                                 <label>密&nbsp;&nbsp;&nbsp;码:</label>
                                <asp:TextBox id="Password" TextMode="password" class="formcontrol" placeholder="请输入密码" runat="server" />
                                 <br />
-                               <asp:Button id="Login" Text="登录" class = "btn-small btn-color submit  bottom-pad"  runat="server" />
-                               <asp:Button id="Cancle" Text="取消" class="btn-small btn-color cancle  bottom-pad" type ="cancle" runat="server" />
+                               <asp:Button id="Login" Text="登录" class = "btn-small btn-color submit  bottom-pad"  runat="server" OnClick="Login_Click" />
+                               <asp:Button id="Cancle" Text="取消" class="btn-small btn-color cancle  bottom-pad" type ="cancle" runat="server" OnClick="Cancle_Click" />
                                <br />
                               <a href="#">忘记密码？ <i class="icon-angle-right"></i><i class="icon-angle-right"></i></a>
                               <a href="../Student/Register.aspx">注册 <i class="icon-angle-right"></i><i class="icon-angle-right"></i></a>

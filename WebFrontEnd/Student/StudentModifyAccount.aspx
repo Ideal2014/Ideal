@@ -92,15 +92,15 @@
                          <div style="width:50%">
                          <div class="input-group input-type">
  						 <span class="input-group-addon">用户名</span>
-                            <asp:TextBox id="Name" class="form-control"  runat="server" />
+                            <asp:TextBox ID="Name" class="form-control"  runat="server" />
 						</div>
                          <div class="input-group input-type">
  						 <span class="input-group-addon">邮箱</span>
-                         <asp:TextBox id="Mailbox" class="form-control"  runat="server" />
+                         <asp:TextBox ID="Mailbox" class="form-control"  runat="server" />
 						</div>
                         <div class="input-group input-type">
  						 <span class="input-group-addon">手机</span>
-                         <asp:TextBox id="Telephone" class="form-control" runat="server" />
+                         <asp:TextBox ID="Telephone" class="form-control" runat="server" />
 						</div>
                         <div class="input-group input-type">
  						 <span class="input-group-addon">性别</span>
@@ -108,10 +108,6 @@
                                 <asp:ListItem Value ="男" >男</asp:ListItem>
                                 <asp:ListItem Value ="女">女</asp:ListItem>
                             </asp:RadioButtonList>
-						</div>
-                        <div class="input-group input-type">
- 						 <span class="input-group-addon">生日</span>
-                            <asp:TextBox id="Birthday" class="form-control" runat="server" />
 						</div>
                         <div class="input-type">
                            <asp:Button id="Submit" Text="提交修改" style="float:right" class="btn btn-normal btn-pad btn-color"  runat="server"  OnClick ="Submit_Click"/>
