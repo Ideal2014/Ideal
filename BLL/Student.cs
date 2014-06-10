@@ -42,5 +42,10 @@ namespace BLL
         }
 
 
+
+        System.Data.DataSet IBLL.IStudent.getStudentList()
+        {
+            return dal.getStudentList();
+        }
     }
 }

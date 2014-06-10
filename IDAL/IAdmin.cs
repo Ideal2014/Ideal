@@ -15,5 +15,7 @@ namespace IDAL
         IList<AdminInfo> GetAll();
         AdminInfo Get(int id);
         AdminInfo FindByName(string name);
+
+        System.Data.DataSet getAdminList();
     }
 }

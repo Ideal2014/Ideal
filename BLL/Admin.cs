@@ -47,5 +47,11 @@ namespace BLL
                 throw new Exception();
             return dal.FindByName(name);
         }
+
+
+        System.Data.DataSet IBLL.IAdmin.getAdminList()
+        {
+            return dal.getAdminList();
+        }
     }
 }

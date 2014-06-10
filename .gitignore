@@ -28,3 +28,5 @@ app.config
 !/.gitignore
 
 *.bak
+
+*.orig
