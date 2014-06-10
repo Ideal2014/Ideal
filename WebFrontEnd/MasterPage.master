@@ -7,27 +7,27 @@
 <!--[if gt IE 9]><!-->
 <html xmlns="http://www.w3.org/1999/xhtml">
 <!--<![endif]-->
-<head runat="server">
+<head id="Head1" runat="server">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>Viki智能外教</title>
     <asp:ContentPlaceHolder ID="css" runat="server">
     </asp:ContentPlaceHolder>
     <!-- Library CSS -->
-    <link rel="stylesheet" href="css/bootstrap.css">
-    <link rel="stylesheet" href="css/fonts/font-awesome/css/font-awesome.css">
-    <link rel="stylesheet" href="css/animations.css" media="screen">
-    <link rel="stylesheet" href="css/superfish.css" media="screen">
-    <link rel="stylesheet" href="css/revolution-slider/css/settings.css" media="screen">
-    <link rel="stylesheet" href="css/prettyPhoto.css" media="screen">
+    <link rel="stylesheet" href="css/bootstrap.css"/>
+    <link rel="stylesheet" href="css/fonts/font-awesome/css/font-awesome.css"/>
+    <link rel="stylesheet" href="css/animations.css" media="screen"/>
+    <link rel="stylesheet" href="css/superfish.css" media="screen"/>
+    <link rel="stylesheet" href="css/revolution-slider/css/settings.css" media="screen"/>
+    <link rel="stylesheet" href="css/prettyPhoto.css" media="screen"/>
     <!-- Theme CSS -->
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style.css"/>
     <!-- Skin -->
-    <link rel="stylesheet" href="css/colors/blue.css" id="colors">
+    <link rel="stylesheet" href="css/colors/blue.css" id="colors"/>
     <!-- Responsive CSS -->
     <link rel="stylesheet" href="css/theme-responsive.css">
 </head>
 <body class="home">
-    <form runat="server">
+    <form id="Form1" runat="server">
 
         <div class="wrap">
             <!-- Header Start -->
@@ -37,8 +37,8 @@
                     <div class="slidedown collapse">
                         <div class="container">
                             <div class="phone-email pull-left">
-                                <a href="../Student/Login.aspx"><i class="icon-link"></i>点击这里登录</a>
-                                <a href="../Student/Register.aspx"><i class="icon-link"></i>没有账号，注册</a>
+                               <i class="icon-link"></i> <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/Student/Login.aspx"></asp:HyperLink>
+                               <i class="icon-link"></i> <asp:HyperLink ID="HyperLink2" runat="server" NavigateUrl="~/Student/Register.aspx"></asp:HyperLink>
                             </div>
                             <div class="pull-right">
                                 <ul class="social pull-left">
@@ -49,7 +49,7 @@
                                     <li class="rss"><a href="#"><i class="icon-rss"></i></a></li>
                                 </ul>
                                 <div id="Div2" class="pull-right">
-                                    <input type="text" class="search-text-box">
+                                    <asp:TextBox  id="textbox1" class="search-text-box" runat="server"/>
                                 </div>
                             </div>
                         </div>
@@ -71,7 +71,7 @@
                             <h1>
 
                                 <a href="../Home/Home.aspx">
-                                    <asp:Image runat="server" src="../img/logo.png" alt="viki" Width="125" Height="60" />
+                                    <asp:Image ID="Image1" runat="server" src="../img/logo.png" alt="viki" Width="125" Height="60" />
 
                                 </a>
                             </h1>
@@ -159,7 +159,7 @@
         <!-- Wrap End -->
 
         <!-- The Scripts -->
-        <asp:ScriptManager runat="server">
+        <asp:ScriptManager ID="ScriptManager1" runat="server">
             <Scripts>
                 <asp:ScriptReference Path="js/jquery.min.js" />
                 <asp:ScriptReference Path="js/bootstrap.js" />

@@ -64,6 +64,10 @@
       <Project>{ad8f07b8-2599-46ba-a70b-30f70299214d}</Project>
       <Name>Model</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Support\BLLSupport.csproj">
+      <Project>{e627b9de-6309-4669-a333-961e9eb48ed2}</Project>
+      <Name>BLLSupport</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

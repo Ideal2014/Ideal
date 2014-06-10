@@ -14,7 +14,7 @@ namespace IDAL
         void Modify(StudentInfo student);
         IList<StudentInfo> GetAll();
         StudentInfo Get(int id);
-
+        StudentInfo GetByName(String name);
         IList<StudentInfo> GetStudentsByDate(DateTime dateTime);
         System.Data.DataSet getStudentList();
     }

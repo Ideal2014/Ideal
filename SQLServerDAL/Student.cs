@@ -46,6 +46,9 @@ namespace SQLServerDAL
                 o.Stu_Image = student.Stu_Image;
                 o.Stu_Password = student.Stu_Password;
                 o.Stu_UserName = student.Stu_UserName;
+                o.Stu_Birthday = student.Stu_Birthday;
+                o.Stu_Sex = student.Stu_Sex;
+                o.Stu_Tel = student.Stu_Tel;
             }
             ctx.SubmitChanges();
         }
@@ -69,6 +72,16 @@ namespace SQLServerDAL
             return query.FirstOrDefault<StudentInfo>();
         }
 
+
+        StudentInfo IDAL.IStudent.GetByName(string name)
+        {
+            DataContext ctx = new DataContext(connection);
+            ITable<StudentInfo> students = ctx.GetTable<StudentInfo>();
+            IQueryable<StudentInfo> query = from s in students
+                                            where s.Stu_UserName == name
+                                            select s;
+            return query.FirstOrDefault<StudentInfo>();
+        }
 
         IList<StudentInfo> IDAL.IStudent.GetStudentsByDate(DateTime dateTime)
         {
