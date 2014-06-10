@@ -13,8 +13,8 @@ public partial class Feedback_Feedback : System.Web.UI.Page
     {
         if (!IsPostBack)
         {
-            Bind();
-        }
+                Bind();
+            }
     }
 
     private void Bind()

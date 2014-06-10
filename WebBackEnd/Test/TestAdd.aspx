@@ -32,7 +32,7 @@
                                 <div class="control-group">
 								<label class="control-label" for="focusedInput">题型 </label>
 								<div class="controls">
-								<asp:TextBox ID="TextBox2" runat="server"></asp:TextBox>
+								<asp:TextBox ID="TestType" runat="server"></asp:TextBox>
 								</div>
 							  </div>
 
@@ -40,65 +40,47 @@
                                 <div class="control-group">
 							  <label class="control-label" for="textarea2">内容</label>
 							  <div class="controls">
-								<asp:TextBox ID="TextBox3" runat="server"></asp:TextBox>
+								<asp:TextBox ID="TextDetail" runat="server"></asp:TextBox>
 							  </div>
 							</div>
-
-
-
-							  
-                              
 
 
                               <div class="control-group">
 								<label class="control-label" for="focusedInput">选项A</label>
 								<div class="controls">
-								<asp:TextBox ID="TextBox4" runat="server"></asp:TextBox>
+								<asp:TextBox ID="AnswerA" runat="server"></asp:TextBox>
 								</div>
 							  </div>
 							  
                               <div class="control-group">
 								<label class="control-label" for="focusedInput">选项B</label>
 								<div class="controls">
-								 <asp:TextBox ID="TextBox5" runat="server"></asp:TextBox>
+								 <asp:TextBox ID="AnswerB" runat="server"></asp:TextBox>
 								</div>
 							  </div>
                               
                               <div class="control-group">
 								<label class="control-label" for="focusedInput">选项C</label>
 								<div class="controls">
-								<asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
+								<asp:TextBox ID="AnswerC" runat="server"></asp:TextBox>
 								</div>
 							  </div>
                               
                                <div class="control-group">
 								<label class="control-label" for="focusedInput">选项D</label>
 								<div class="controls">
-								<asp:TextBox ID="TextBox6" runat="server"></asp:TextBox>
+								<asp:TextBox ID="AnswerD" runat="server"></asp:TextBox>
 								</div>
 							  </div>
 
                                <div class="control-group">
 								<label class="control-label">答案 </label>
-								<div class="controls">
-								  <label class="checkbox inline">
-									<asp:CheckBox ID="A" runat="server" /> 
-								  </label>
-								  <label class="checkbox inline">
-									<asp:CheckBox ID="B" runat="server" /> 
-								  </label>
-                                    <label class="checkbox inline">
-								<asp:CheckBox ID="C" runat="server" /> 
-								  </label>
-                                    <label class="checkbox inline">
-									<asp:CheckBox ID="D" runat="server" /> 
-								  </label>
-								</div>
+							<asp:TextBox ID="TestAnswer" runat="server"></asp:TextBox>
 							  </div>
                               
 							  <div class="form-actions">
-								<asp:Button ID="Add"  runat="server" Text="确认添加" />
-								<asp:Button ID="Cancle" runat="server" Text="取消" />
+								<asp:Button ID="Add"  runat="server" type="submit" class="btn btn-primary"  OnClick="Add_Click" Text ="确认添加" />
+                              	<asp:Button ID="Cancle" runat="server" Text="取消" />
 							  </div>
 							</fieldset>
 						  </div>

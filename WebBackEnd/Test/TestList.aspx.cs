@@ -1,18 +1,17 @@
-﻿using Model;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using Model;
 
-public partial class Book_BookList : System.Web.UI.Page
+public partial class Test_Default : System.Web.UI.Page
 {
-    private static readonly IBLL.IBook bllBook = BLLFactory.DataAccess.CreateBook();
-    private static readonly IBLL.ITeacher bllTeacher = BLLFactory.DataAccess.CreateTeacher();
-
+    private static readonly IBLL.ITest bllTest = BLLFactory.DataAccess.CreateTest();
     protected void Page_Load(object sender, EventArgs e)
     {
+       
         if (!IsPostBack)
         {
             if (Request.Cookies["admin"] != null)
@@ -24,19 +23,23 @@ public partial class Book_BookList : System.Web.UI.Page
             {
                 Response.Redirect("~/Login/Login.aspx");
             }
+        
         }
+    }
+
+    private void Bind()
+    {
+        TestGrid.DataSource = bllTest.GetTestList();
+        TestGrid.DataBind();
+    }
+   
+    protected void Modify_Click(object sender, EventArgs e)
+    {
+
     }
     protected void Delete_Click(object sender, EventArgs e)
     {
-        BookInfo book = new BookInfo();
-        
-        bllBook.Remove(book);
-    }
-    private void Bind()
-    {
-        BookGrid.DataSource = bllBook.GetBookList();
-        BookGrid.DataBind();
+
     }
 
 }
-

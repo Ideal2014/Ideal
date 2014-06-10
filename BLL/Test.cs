@@ -34,5 +34,9 @@ namespace BLL
         {
             return dal.Get(id);
         }
+        System.Data.DataSet IBLL.ITest.GetTestList()
+        {
+            return dal.GetTestList();
+        }
     }
 }

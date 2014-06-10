@@ -2,7 +2,9 @@
 using Model;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.Linq;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 
@@ -68,5 +70,25 @@ namespace SQLServerDAL
                                             select s;
             return query.FirstOrDefault<TestInfo>();
         }
+        DataSet IDAL.ITest.GetTestList()
+        {
+            SqlConnection sqlcon = null;
+            try
+            {
+                sqlcon = new SqlConnection(connection);
+                string sqlstr = "SELECT   Tes_ID, Tes_Type, Tes_Detail, Tes_A, Tes_C, Tes_B, Tes_D, Tes_Answer FROM  tb_Test";
+                SqlDataAdapter myda = new SqlDataAdapter(sqlstr, sqlcon);
+                DataSet myds = new DataSet();
+                sqlcon.Open();
+                myda.Fill(myds);
+                return myds;
+            }
+            finally
+            {
+                if (sqlcon != null)
+                    sqlcon.Close();
+            }
+        }
     }
+
 }

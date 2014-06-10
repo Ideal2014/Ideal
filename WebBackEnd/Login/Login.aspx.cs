@@ -19,10 +19,10 @@ public partial class Login_Default : System.Web.UI.Page
     }
     protected void LoginButton_Click(object sender, EventArgs e)
     {
-        string userNameRegex = @"^\d{1}$";
+        string userNameRegex = @"^\d+$";
         if (!Regex.IsMatch(UserName.Text.ToString(), userNameRegex))
             throw new Exception();
-        string passwordRegex = @"^\d{1}$";
+        string passwordRegex = @"^\d+$";
         if (!Regex.IsMatch(UserName.Text.ToString(), passwordRegex))
             throw new Exception();
 

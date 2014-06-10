@@ -1,16 +1,13 @@
-﻿using Model;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-public partial class Book_BookList : System.Web.UI.Page
+public partial class Feedback_Feedback : System.Web.UI.Page
 {
-    private static readonly IBLL.IBook bllBook = BLLFactory.DataAccess.CreateBook();
-    private static readonly IBLL.ITeacher bllTeacher = BLLFactory.DataAccess.CreateTeacher();
-
+    private static readonly IBLL.IFeedback bllFeedback = BLLFactory.DataAccess.CreateFeedback();
     protected void Page_Load(object sender, EventArgs e)
     {
         if (!IsPostBack)
@@ -26,17 +23,10 @@ public partial class Book_BookList : System.Web.UI.Page
             }
         }
     }
-    protected void Delete_Click(object sender, EventArgs e)
-    {
-        BookInfo book = new BookInfo();
-        
-        bllBook.Remove(book);
-    }
+
     private void Bind()
     {
-        BookGrid.DataSource = bllBook.GetBookList();
-        BookGrid.DataBind();
+        FeedbackGrid.DataSource = bllFeedback.GetFeedbackList();
+        FeedbackGrid.DataBind();
     }
-
 }
-
