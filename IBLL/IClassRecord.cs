@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Data;
 
 namespace IBLL
 {
@@ -13,6 +14,7 @@ namespace IBLL
         void Modify(ClassRecordInfo classRecord);
         IList<ClassRecordInfo> GetAll();
         ClassRecordInfo Get(int id);
+        DataSet GetClassRecordList(int stu_id);
 
 
         System.Data.DataSet getClassPercent();

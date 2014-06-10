@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Model;
+using System.Data;
 
 namespace BLL
 {
@@ -33,6 +34,11 @@ namespace BLL
         BookInfo IBLL.IBook.Get(int id)
         {
             return dal.Get(id);
+        }
+
+        DataSet IBLL.IBook.GetBookList()
+        {
+            return dal.GetBookList();
         }
     }
 }

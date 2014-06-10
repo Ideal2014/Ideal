@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Data;
 
 namespace IDAL
 {
@@ -13,5 +14,6 @@ namespace IDAL
         void Modify(BookInfo book);
         IList<BookInfo> GetAll();
         BookInfo Get(int id);
+        DataSet GetBookList();
     }
 }

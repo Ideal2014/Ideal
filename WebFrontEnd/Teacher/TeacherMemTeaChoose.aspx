@@ -41,7 +41,7 @@
                                  <div class="tabscontent" id="Div1" style="display: block;">
                                     <ul class="posts">
                                        <li>
-                                          <a href="#"><img class="img-thumbnail recent-post-img" alt="" src="../img/recent-post-img.jpg"></a>
+                                          <a href="#"><img class="img-thumbnail recent-post-img" alt="" src="../img/recent-post-img.jpg"/></a>
           <h2>Qiyu</h2><span class="color">学号：</span>
           <span>11301127</span>
 
@@ -87,60 +87,45 @@
                      <div class="posts-block col-lg-9 col-md-9 col-sm-8 col-xs-12">
                         <article class="post hentry">
                           <div class="post-content">
-                             <asp:Table ID="TeacherTable" CssClass="table table-bordered" runat="server" GridLines="horizontal" HorizontalAlign="Center">
-        
-                           
-                              <asp:TableRow style="border-width:thin">
-                                 <asp:TableCell width="15%" style="border:none"><span style="border:none"><img src="../img/teacher/teacher-1@2x.png"/></span></asp:TableCell>
-                                 <asp:TableCell width="50%" style="border:none"><h4>日常外教 <a href="../Teacher/TeacherTeaInfo.aspx">Viki</a></h4>
-                                 <h6>专长 日常英语</h6>
-                                 <h6>来自 美国</h6></asp:TableCell>
-                                 <asp:TableCell  width="26%" style="border:none"><asp:Button ID="BuyButton1" type="submit"  class="btn btn-normal btn-danger" runat="server" Text="购买"></asp:Button>
-  </asp:TableCell>
-                              </asp:TableRow>
-                              <asp:TableRow>
-                                 <asp:TableCell width="15%" style="border:none"><span style="border:none"><img src="../img/teacher/teacher-2@2x.png"/></span></asp:TableCell>
-                                 <asp:TableCell width="50%" style="border:none"><h4>四六级外教 <a href="../Teacher/TeacherTeaInfo.aspx">Olivia</a></h4>
-                                 <h6>专长 日常英语</h6>
-                                 <h6>来自 美国</h6></asp:TableCell>
-                                 <asp:TableCell width="26%" style="border:none"><asp:Button ID="BuyButton2" type="submit"  class="btn btn-normal btn-danger" runat="server" Text="购买"></asp:Button>
-  </asp:TableCell>
-                              </asp:TableRow>
-                              
-                              <asp:TableRow>
-                                 <asp:TableCell width="15%" style="border:none"><span style="border:none"><img src="../img/teacher/teacher-3@2x.png"/></span></asp:TableCell>
-                                 <asp:TableCell width="50%" style="border:none"><h4>托福外教 <a href="../Teacher/TeacherTeaInfo.aspx">Stephenia</a></h4>
-                                 <h6>专长 日常英语</h6>
-                                 <h6>来自 美国</h6></asp:TableCell>
-                                 <asp:TableCell width="26%" style="border:none"><asp:Button ID="BuyButton3" type="submit"  class="btn btn-normal btn-danger" runat="server" Text="购买"></asp:Button>
-  </asp:TableCell>
-                              </asp:TableRow>
-                              <asp:TableRow>
-                                 <asp:TableCell width="15%" style="border:none"><span style="border:none"><img src="../img/teacher/teacher-4@2x.png"/></span></asp:TableCell>
-                                 <asp:TableCell width="50%" style="border:none"><h4>商务外教 <a href="../Teacher/TeacherTeaInfo.aspx">Peter</a></h4>
-                                 <h6>专长 日常英语</h6>
-                                 <h6>来自 美国</h6></asp:TableCell>
-                                 <asp:TableCell width="26%" style="border:none"><asp:Button ID="BuyButton4" type="submit"  class="btn btn-normal btn-danger" runat="server" Text="购买"></asp:Button>
-  </asp:TableCell>
-                              </asp:TableRow>
-                              <asp:TableRow>
-                                 <asp:TableCell width="15%" style="border:none"><span style="border:none"><img src="../img/teacher/teacher-5@2x.png"/></span></asp:TableCell>
-                                 <asp:TableCell width="50%" style="border:none"><h4>高考外教 <a href="../Teacher/TeacherTeaInfo.aspx">Danel</a></h4>
-                                 <h6>专长 日常英语</h6>
-                                 <h6>来自 美国</h6></asp:TableCell>
-                                 <asp:TableCell width="26%" style="border:none"><asp:Button ID="BuyButton5" type="submit"  class="btn btn-normal btn-danger" runat="server" Text="购买"></asp:Button>
-  </asp:TableCell>
-                              </asp:TableRow>
-                              <asp:TableRow>
-                                 <asp:TableCell width="15%" style="border:none"><span style="border:none"><img src="../img/teacher/teacher-6@2x.png"/></span></asp:TableCell>
-                                 <asp:TableCell width="50%" style="border:none"><h4>日常外教 <a href="../Teacher/TeacherTeaInfo.aspx">Albert</a></h4>
-                                 <h6>专长 雅思英语外教</h6>
-                                 <h6>来自 美国</h6></asp:TableCell>
-                                 <asp:TableCell width="26%" style="border:none"><asp:Button ID="BuyButton6" type="submit"  class="btn btn-normal btn-danger" runat="server" Text="购买"></asp:Button>
-  </asp:TableCell>
-                              </asp:TableRow>
-                          
-                        </asp:Table>
+                             <asp:GridView ID="GridTea" ShowHeader="false" CssClass="table table-bordered" runat="server" AutoGenerateColumns="false">
+                                <Columns>
+                                    <asp:TemplateField ItemStyle-CssClass="center" ItemStyle-Width="15%">
+                                        <ItemTemplate>
+                                            <span style="border:none">
+                                                <asp:Image ID="ImageT" runat="server" ImageUrl='<%#Bind("Tea_SImage") %>' />
+                                            </span>
+                                        </ItemTemplate>
+                                    </asp:TemplateField>
+                                    <asp:TemplateField Visible="false" ItemStyle-CssClass="center" ItemStyle-Width="15%">
+                                        <ItemTemplate>
+                                            <asp:Label ID="LabelID" runat="server" Text='<%#Bind("Tea_ID") %>' />
+                                        </ItemTemplate>
+                                    </asp:TemplateField>
+                                    <asp:TemplateField ItemStyle-CssClass="center" ItemStyle-Width="50%">
+                                        <ItemTemplate>
+                                            <span style="border:none">
+                                                <h4>
+                                                    <asp:Label ID="LabelNick" runat="server" Text='<%#Bind("Tea_Nickname") %>' />
+                                                    <asp:HyperLink ID="LinkInfo" NavigateUrl='<%# String.Format("~/Teacher/TeacherMemTeaInfo.aspx?TeaID={0}",Eval("Tea_ID")) %>' Target="_blank" runat="server">
+                                                        <asp:Label ID="LabelName" runat="server" Text='<%#Bind("Tea_Name") %>' />
+                                                    </asp:HyperLink>
+                                                </h4>
+                                                <h6>
+                                                    专长<asp:Label ID="LabelSkill" runat="server" Text='<%#Bind("Tea_Skill") %>' /></br></br>
+                                                    来自<asp:Label ID="LabelNation" runat="server" Text='<%#Bind("Tea_Nation") %>' />
+                                                </h6>
+                                            </span>
+                                        </ItemTemplate>
+                                    </asp:TemplateField>
+                                     <asp:TemplateField ItemStyle-CssClass="center" ItemStyle-Width="26%">
+                                        <ItemTemplate>
+                                            <span style="border:none">
+                                                <asp:Button ID="BuyButton" class="btn-color btn-normal btn-pad" runat="server" Text="购买"></asp:Button>
+                                            </span>
+                                        </ItemTemplate>
+                                    </asp:TemplateField>
+                                </Columns>                    
+                        </asp:GridView>
                            </div>
                         </article>
                      </div>

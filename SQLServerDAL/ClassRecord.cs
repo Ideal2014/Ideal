@@ -88,5 +88,26 @@ namespace SQLServerDAL
                     sqlcon.Close();
             }
         }
+
+        DataSet IDAL.IClassRecord.GetClassRecordList(int stu_id)
+        {
+            SqlConnection sqlcon = null;
+            try
+            {
+                sqlcon = new SqlConnection(connection);
+                string sqlstr =string.Format("SELECT tb_Teacher.Tea_Name, tb_ClassRecord.Cla_StartTime, tb_ClassRecord.Cla_EndTime FROM tb_ClassRecord INNER JOIN tb_Teacher ON tb_ClassRecord.Tea_ID = tb_Teacher.Tea_ID WHERE tb_ClassRecord.Stu_ID = {0}",stu_id);
+                SqlDataAdapter myda = new SqlDataAdapter(sqlstr, sqlcon);
+                DataSet myds = new DataSet();
+                sqlcon.Open();
+                myda.Fill(myds);
+                return myds;
+            }
+            finally
+            {
+                if (sqlcon != null)
+                    sqlcon.Close();
+            }
+
+        }
     }
 }

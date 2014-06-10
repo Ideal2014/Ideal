@@ -17,18 +17,6 @@
       <Column Name="Bal_Time" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
     </Type>
   </Table>
-  <Table Name="dbo.tb_Book" Member="BookInfo">
-    <Type Name="BookInfo">
-      <Column Name="Boo_ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="Tea_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="Boo_Image" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="Boo_Desribe" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
-      <Column Name="Boo_RegisterDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="Boo_Preview" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="Boo_View" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="Boo_Name" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
-    </Type>
-  </Table>
   <Table Name="dbo.tb_ClassRecord" Member="ClassRecordInfo">
     <Type Name="ClassRecordInfo">
       <Column Name="Cla_ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -94,6 +82,18 @@
       <Column Name="Tes_C" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
       <Column Name="Tes_D" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
       <Column Name="Tes_Answer" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tb_Book" Member="BookInfo">
+    <Type Name="BookInfo">
+      <Column Name="Boo_ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Tea_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Boo_Image" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Boo_Desribe" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="Boo_RegisterDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Boo_Preview" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Boo_View" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Boo_Name" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
     </Type>
   </Table>
 </Database>

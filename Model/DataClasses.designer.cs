@@ -36,9 +36,6 @@ namespace Model
     partial void InsertBalanceInfo(BalanceInfo instance);
     partial void UpdateBalanceInfo(BalanceInfo instance);
     partial void DeleteBalanceInfo(BalanceInfo instance);
-    partial void InsertBookInfo(BookInfo instance);
-    partial void UpdateBookInfo(BookInfo instance);
-    partial void DeleteBookInfo(BookInfo instance);
     partial void InsertClassRecordInfo(ClassRecordInfo instance);
     partial void UpdateClassRecordInfo(ClassRecordInfo instance);
     partial void DeleteClassRecordInfo(ClassRecordInfo instance);
@@ -57,6 +54,9 @@ namespace Model
     partial void InsertTestInfo(TestInfo instance);
     partial void UpdateTestInfo(TestInfo instance);
     partial void DeleteTestInfo(TestInfo instance);
+    partial void InsertBookInfo(BookInfo instance);
+    partial void UpdateBookInfo(BookInfo instance);
+    partial void DeleteBookInfo(BookInfo instance);
     #endregion
 		
 		public DataClassesDataContext() : 
@@ -105,14 +105,6 @@ namespace Model
 			}
 		}
 		
-		public System.Data.Linq.Table<BookInfo> BookInfo
-		{
-			get
-			{
-				return this.GetTable<BookInfo>();
-			}
-		}
-		
 		public System.Data.Linq.Table<ClassRecordInfo> ClassRecordInfo
 		{
 			get
@@ -158,6 +150,14 @@ namespace Model
 			get
 			{
 				return this.GetTable<TestInfo>();
+			}
+		}
+		
+		public System.Data.Linq.Table<BookInfo> BookInfo
+		{
+			get
+			{
+				return this.GetTable<BookInfo>();
 			}
 		}
 	}
@@ -429,236 +429,6 @@ namespace Model
 					this._Bal_Time = value;
 					this.SendPropertyChanged("Bal_Time");
 					this.OnBal_TimeChanged();
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.tb_Book")]
-	public partial class BookInfo : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _Boo_ID;
-		
-		private System.Nullable<int> _Tea_ID;
-		
-		private string _Boo_Image;
-		
-		private string _Boo_Desribe;
-		
-		private System.Nullable<System.DateTime> _Boo_RegisterDate;
-		
-		private string _Boo_Preview;
-		
-		private string _Boo_View;
-		
-		private string _Boo_Name;
-		
-    #region 可扩展性方法定义
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnBoo_IDChanging(int value);
-    partial void OnBoo_IDChanged();
-    partial void OnTea_IDChanging(System.Nullable<int> value);
-    partial void OnTea_IDChanged();
-    partial void OnBoo_ImageChanging(string value);
-    partial void OnBoo_ImageChanged();
-    partial void OnBoo_DesribeChanging(string value);
-    partial void OnBoo_DesribeChanged();
-    partial void OnBoo_RegisterDateChanging(System.Nullable<System.DateTime> value);
-    partial void OnBoo_RegisterDateChanged();
-    partial void OnBoo_PreviewChanging(string value);
-    partial void OnBoo_PreviewChanged();
-    partial void OnBoo_ViewChanging(string value);
-    partial void OnBoo_ViewChanged();
-    partial void OnBoo_NameChanging(string value);
-    partial void OnBoo_NameChanged();
-    #endregion
-		
-		public BookInfo()
-		{
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Boo_ID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int Boo_ID
-		{
-			get
-			{
-				return this._Boo_ID;
-			}
-			set
-			{
-				if ((this._Boo_ID != value))
-				{
-					this.OnBoo_IDChanging(value);
-					this.SendPropertyChanging();
-					this._Boo_ID = value;
-					this.SendPropertyChanged("Boo_ID");
-					this.OnBoo_IDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Tea_ID", DbType="Int")]
-		public System.Nullable<int> Tea_ID
-		{
-			get
-			{
-				return this._Tea_ID;
-			}
-			set
-			{
-				if ((this._Tea_ID != value))
-				{
-					this.OnTea_IDChanging(value);
-					this.SendPropertyChanging();
-					this._Tea_ID = value;
-					this.SendPropertyChanged("Tea_ID");
-					this.OnTea_IDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Boo_Image", DbType="VarChar(50)")]
-		public string Boo_Image
-		{
-			get
-			{
-				return this._Boo_Image;
-			}
-			set
-			{
-				if ((this._Boo_Image != value))
-				{
-					this.OnBoo_ImageChanging(value);
-					this.SendPropertyChanging();
-					this._Boo_Image = value;
-					this.SendPropertyChanged("Boo_Image");
-					this.OnBoo_ImageChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Boo_Desribe", DbType="VarChar(100)")]
-		public string Boo_Desribe
-		{
-			get
-			{
-				return this._Boo_Desribe;
-			}
-			set
-			{
-				if ((this._Boo_Desribe != value))
-				{
-					this.OnBoo_DesribeChanging(value);
-					this.SendPropertyChanging();
-					this._Boo_Desribe = value;
-					this.SendPropertyChanged("Boo_Desribe");
-					this.OnBoo_DesribeChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Boo_RegisterDate", DbType="DateTime")]
-		public System.Nullable<System.DateTime> Boo_RegisterDate
-		{
-			get
-			{
-				return this._Boo_RegisterDate;
-			}
-			set
-			{
-				if ((this._Boo_RegisterDate != value))
-				{
-					this.OnBoo_RegisterDateChanging(value);
-					this.SendPropertyChanging();
-					this._Boo_RegisterDate = value;
-					this.SendPropertyChanged("Boo_RegisterDate");
-					this.OnBoo_RegisterDateChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Boo_Preview", DbType="VarChar(50)")]
-		public string Boo_Preview
-		{
-			get
-			{
-				return this._Boo_Preview;
-			}
-			set
-			{
-				if ((this._Boo_Preview != value))
-				{
-					this.OnBoo_PreviewChanging(value);
-					this.SendPropertyChanging();
-					this._Boo_Preview = value;
-					this.SendPropertyChanged("Boo_Preview");
-					this.OnBoo_PreviewChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Boo_View", DbType="VarChar(50)")]
-		public string Boo_View
-		{
-			get
-			{
-				return this._Boo_View;
-			}
-			set
-			{
-				if ((this._Boo_View != value))
-				{
-					this.OnBoo_ViewChanging(value);
-					this.SendPropertyChanging();
-					this._Boo_View = value;
-					this.SendPropertyChanged("Boo_View");
-					this.OnBoo_ViewChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Boo_Name", DbType="VarChar(20)")]
-		public string Boo_Name
-		{
-			get
-			{
-				return this._Boo_Name;
-			}
-			set
-			{
-				if ((this._Boo_Name != value))
-				{
-					this.OnBoo_NameChanging(value);
-					this.SendPropertyChanging();
-					this._Boo_Name = value;
-					this.SendPropertyChanged("Boo_Name");
-					this.OnBoo_NameChanged();
 				}
 			}
 		}
@@ -1919,6 +1689,236 @@ namespace Model
 					this._Tes_Answer = value;
 					this.SendPropertyChanged("Tes_Answer");
 					this.OnTes_AnswerChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.tb_Book")]
+	public partial class BookInfo : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _Boo_ID;
+		
+		private System.Nullable<int> _Tea_ID;
+		
+		private string _Boo_Image;
+		
+		private string _Boo_Desribe;
+		
+		private System.Nullable<System.DateTime> _Boo_RegisterDate;
+		
+		private string _Boo_Preview;
+		
+		private string _Boo_View;
+		
+		private string _Boo_Name;
+		
+    #region 可扩展性方法定义
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnBoo_IDChanging(int value);
+    partial void OnBoo_IDChanged();
+    partial void OnTea_IDChanging(System.Nullable<int> value);
+    partial void OnTea_IDChanged();
+    partial void OnBoo_ImageChanging(string value);
+    partial void OnBoo_ImageChanged();
+    partial void OnBoo_DesribeChanging(string value);
+    partial void OnBoo_DesribeChanged();
+    partial void OnBoo_RegisterDateChanging(System.Nullable<System.DateTime> value);
+    partial void OnBoo_RegisterDateChanged();
+    partial void OnBoo_PreviewChanging(string value);
+    partial void OnBoo_PreviewChanged();
+    partial void OnBoo_ViewChanging(string value);
+    partial void OnBoo_ViewChanged();
+    partial void OnBoo_NameChanging(string value);
+    partial void OnBoo_NameChanged();
+    #endregion
+		
+		public BookInfo()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Boo_ID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int Boo_ID
+		{
+			get
+			{
+				return this._Boo_ID;
+			}
+			set
+			{
+				if ((this._Boo_ID != value))
+				{
+					this.OnBoo_IDChanging(value);
+					this.SendPropertyChanging();
+					this._Boo_ID = value;
+					this.SendPropertyChanged("Boo_ID");
+					this.OnBoo_IDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Tea_ID", DbType="Int")]
+		public System.Nullable<int> Tea_ID
+		{
+			get
+			{
+				return this._Tea_ID;
+			}
+			set
+			{
+				if ((this._Tea_ID != value))
+				{
+					this.OnTea_IDChanging(value);
+					this.SendPropertyChanging();
+					this._Tea_ID = value;
+					this.SendPropertyChanged("Tea_ID");
+					this.OnTea_IDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Boo_Image", DbType="VarChar(50)")]
+		public string Boo_Image
+		{
+			get
+			{
+				return this._Boo_Image;
+			}
+			set
+			{
+				if ((this._Boo_Image != value))
+				{
+					this.OnBoo_ImageChanging(value);
+					this.SendPropertyChanging();
+					this._Boo_Image = value;
+					this.SendPropertyChanged("Boo_Image");
+					this.OnBoo_ImageChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Boo_Desribe", DbType="VarChar(MAX)")]
+		public string Boo_Desribe
+		{
+			get
+			{
+				return this._Boo_Desribe;
+			}
+			set
+			{
+				if ((this._Boo_Desribe != value))
+				{
+					this.OnBoo_DesribeChanging(value);
+					this.SendPropertyChanging();
+					this._Boo_Desribe = value;
+					this.SendPropertyChanged("Boo_Desribe");
+					this.OnBoo_DesribeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Boo_RegisterDate", DbType="DateTime")]
+		public System.Nullable<System.DateTime> Boo_RegisterDate
+		{
+			get
+			{
+				return this._Boo_RegisterDate;
+			}
+			set
+			{
+				if ((this._Boo_RegisterDate != value))
+				{
+					this.OnBoo_RegisterDateChanging(value);
+					this.SendPropertyChanging();
+					this._Boo_RegisterDate = value;
+					this.SendPropertyChanged("Boo_RegisterDate");
+					this.OnBoo_RegisterDateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Boo_Preview", DbType="VarChar(50)")]
+		public string Boo_Preview
+		{
+			get
+			{
+				return this._Boo_Preview;
+			}
+			set
+			{
+				if ((this._Boo_Preview != value))
+				{
+					this.OnBoo_PreviewChanging(value);
+					this.SendPropertyChanging();
+					this._Boo_Preview = value;
+					this.SendPropertyChanged("Boo_Preview");
+					this.OnBoo_PreviewChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Boo_View", DbType="VarChar(50)")]
+		public string Boo_View
+		{
+			get
+			{
+				return this._Boo_View;
+			}
+			set
+			{
+				if ((this._Boo_View != value))
+				{
+					this.OnBoo_ViewChanging(value);
+					this.SendPropertyChanging();
+					this._Boo_View = value;
+					this.SendPropertyChanged("Boo_View");
+					this.OnBoo_ViewChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Boo_Name", DbType="VarChar(20)")]
+		public string Boo_Name
+		{
+			get
+			{
+				return this._Boo_Name;
+			}
+			set
+			{
+				if ((this._Boo_Name != value))
+				{
+					this.OnBoo_NameChanging(value);
+					this.SendPropertyChanging();
+					this._Boo_Name = value;
+					this.SendPropertyChanged("Boo_Name");
+					this.OnBoo_NameChanged();
 				}
 			}
 		}

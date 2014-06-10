@@ -78,25 +78,19 @@
                               <li><a href="#">提交反馈</a></li>
                            </ul></div>
                         <!-- Category Widget End -->
-                        
-        
-                        
-                        
-                        
                      </div>
                      <!-- Sidebar End -->
                      <div class="posts-block col-lg-9 col-md-9 col-sm-8 col-xs-12">
                         <article class="post hentry">
                           <div class="post-content">
                            <div>
-                            <img style=" float:left" src="../img/teacher/teacher-1@2x.png"/><ul style=" float:left">
-                           <li> <h2>Viki</h2></li>
-                            <li>日常英语</li>
-                            <li>美国</li>
-                            </ul><asp:Button type="submit"  class="btn btn-large btn-danger" style=" float:right" runat="server" Text="购买"></asp:Button></form><div class="clearfix"></div>
+                            <asp:Image ID="ImageT" style=" float:left" runat="server"/><ul style=" float:left">
+                           <li> <h2><asp:Label ID="LabelName" runat="server"/></h2></li>
+                            <li><asp:Label ID="LabelSkill" runat="server"/></li>
+                            <li><asp:Label ID="LabelNation" runat="server"/></li>
+                            </ul><asp:Button ID="Button1" type="submit"  class="btn-color btn-normal btn-pad" style=" float:right" runat="server" Text="购买"></asp:Button><div class="clearfix"></div>
                             <div class="divider"/></div>
-                            <p>也许有时你会苦恼，没有一个伙伴和你一起学习，与你一问一答，让你在枯燥的学习中收获乐趣，更学到知识。
-Viki正是为此而诞生。她知晓《和外教聊天记单词-日常交流1000词》中所有的对话、例句、翻译、重点单词及解释，以及正确朗读发音。 跟着Viki学日常会话英语，通过场景记单词，你能学得更快，记得更牢，掌握得更好！</p>
+                            <p><asp:Label ID="LabelDes" runat="server" /></p>
                            </div>
                         </article>
                      </div>
@@ -106,6 +100,8 @@ Viki正是为此而诞生。她知晓《和外教聊天记单词-日常交流100
             </div>
             <!-- Main Content end-->
          </div>
+    <br /><br /><br />
+         
          <!-- Content End -->
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="js" Runat="Server">
