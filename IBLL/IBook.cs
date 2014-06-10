@@ -15,6 +15,8 @@ namespace IBLL
         IList<BookInfo> GetAll();
         BookInfo Get(int id);
 
+        DataSet GetBookList();
+
 
      
     }
