@@ -37,12 +37,9 @@ namespace BLL
             return dal.Get(id);
         }
 
-        System.Data.DataSet IBLL.IBook.GetBookList()
+        DataSet IBLL.IBook.GetBookList()
         {
             return dal.GetBookList();
         }
-
-
- 
     }
 }

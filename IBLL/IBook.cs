@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Text;
+using System.Data;
 
 namespace IBLL
 {
@@ -14,10 +15,6 @@ namespace IBLL
         void Modify(BookInfo book);
         IList<BookInfo> GetAll();
         BookInfo Get(int id);
-
-        DataSet GetBookList();
-
-
-     
+        DataSet GetBookList();     
     }
 }

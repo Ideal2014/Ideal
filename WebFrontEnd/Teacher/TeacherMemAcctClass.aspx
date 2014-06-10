@@ -40,7 +40,7 @@
                                  <div class="tabscontent" id="Div1" style="display: block;">
                                     <ul class="posts">
                                        <li>
-                                          <a href="#"><img class="img-thumbnail recent-post-img" alt="" src="../img/recent-post-img.jpg"></a>
+                                          <a href="#"><asp:Image ID="Image1" class="img-thumbnail recent-post-img" alt="" ImageUrl="../img/recent-post-img.jpg" runat="server"/></a>
           <h2>Qiyu</h2><span class="color">学号：</span>
           <span>11301127</span>
 
@@ -91,20 +91,20 @@
                         </article>
                          <div style="width:100%">
                          
-                        <asp:Table CssClass="table table-bordered" runat="server" GridLines="horizontal" HorizontalAlign="Center">
-							<asp:TableRow>
-                                <asp:TableCell>序号</asp:TableCell>
-                                <asp:TableCell>教师</asp:TableCell>
-                                <asp:TableCell>上课时间</asp:TableCell>
-                                <asp:TableCell>结束时间</asp:TableCell>
-                            </asp:TableRow>
-                            <asp:TableRow>
-                                <asp:TableCell>1</asp:TableCell>
-                                <asp:TableCell>Viki</asp:TableCell>
-                                <asp:TableCell>2014-04-10 16:40</asp:TableCell>
-                                <asp:TableCell>2014-04-10 18:40</asp:TableCell>
-                            </asp:TableRow>
-						</asp:Table>
+                        <asp:GridView ID="GridRec" CssClass="table table-bordered" runat= "server"  AutoGenerateColumns="false">
+                            <Columns>
+                                <asp:TemplateField HeaderText="序号" InsertVisible="False"> 
+                                    <ItemStyle HorizontalAlign="Center" /> 
+                                        <HeaderStyle HorizontalAlign="Center" Width="5%" /> 
+                                    <ItemTemplate> 
+                                        <%#Container.DataItemIndex+1%> 
+                                    </ItemTemplate> 
+                                </asp:TemplateField>
+                                <asp:BoundField DataField="Tea_Name" HeaderText="教师" ItemStyle-CssClass="center" />
+                                <asp:BoundField DataField="Cla_StartTime" HeaderText="上课时间" ItemStyle-CssClass="center" />
+                                <asp:BoundField DataField="Cla_EndTime" HeaderText="结束时间" ItemStyle-CssClass="center" />
+                            </Columns>
+						</asp:GridView>
                          
                      </div>
                      <!-- Left Section End -->

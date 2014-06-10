@@ -32,5 +32,16 @@ namespace Model.Properties {
                 return ((string)(this["vikiConnectionString"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=lnzhai-PC;Initial Catalog=db_viki;Integrated Security=True;Pooling=Fa" +
+            "lse")]
+        public string db_vikiConnectionString {
+            get {
+                return ((string)(this["db_vikiConnectionString"]));
+            }
+        }
     }
 }

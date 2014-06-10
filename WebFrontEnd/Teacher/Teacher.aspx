@@ -49,17 +49,16 @@
                         <div class="testimonial item">
                           
                               <p>
-                              <img src="../img/teacher/teacher-1@detail.png" /></br>
-                              也许有时你会苦恼，没有一个伙伴和你一起学习，与你一问一答，让你在枯燥的学习中收获乐趣，更学到知识。</br>
-Viki正是为此而诞生。她知晓《和外教聊天记单词-日常交流1000词》中所有的对话、例句、翻译、重点单词及解释，以及正确朗读发音。
-跟着Viki学日常会话英语，通过场景记单词，你能学得更快，记得更牢，掌握得更好！</p>
+                              <asp:Image ID="ImageP1" runat="server" /></br>
+                              <asp:Label ID="LabelD1" runat="server"/>
+                              </p>
                            
                            <div class="testimonials-arrow">
                            </div>
                            <div class="author">
-                              <div class="testimonial-image "><img alt="" src="../img/teacher/teacher-1@2x.png"></div>
+                              <div class="testimonial-image "><asp:Image ID="ImageT1" alt="" runat="server"/></div>
                               <div class="testimonial-author-info">
-                                 <a href="../Teacher/TeacherTeaInfo.aspx"><span class="color">Viki</span></a>
+                                 <a href="../Teacher/TeacherTeaInfo.aspx"><span class="color"><asp:Label ID="LabelT1" runat="server"/></span></a>
                               </div>
                            </div>
                         </div>
@@ -67,15 +66,15 @@ Viki正是为此而诞生。她知晓《和外教聊天记单词-日常交流100
                      <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                         <div class="testimonial item">
                           <p> 
-                          <img src="../img/teacher/teacher-2@detail.png" /></br>
-                          Olivia是著名的英语单词记忆教材：《和外教聊天记单词-四六级必考1000词》的配套学习伴侣。</br>她知晓《和外教聊天记单词-四六级必考1000词》中所有的对话、例句、翻译、重点单词及解释，以及正确朗读发音。
-跟着Olivia学四六级，通过场景记单词，让您在一对一的情景对话交流中，熟悉并掌握四六级考试中可能会出现的语言，轻松战胜四六级。</p>
+                          <asp:Image ID="ImageP2" runat="server" /></br>
+                              <asp:Label ID="LabelD2" runat="server"/>
+                          </p>
                            <div class="testimonials-arrow">
                            </div>
                            <div class="author">
-                              <div class="testimonial-image "><img alt="" src="../img/teacher/teacher-2@2x.png"></div>
+                              <div class="testimonial-image "><asp:Image ID="ImageT2" alt="" runat="server"/></div>
                               <div class="testimonial-author-info">
-                                 <a href="../Teacher/TeacherTeaInfo.aspx"><span class="color">Olivia</span></a>
+                                 <a href="../Teacher/TeacherTeaInfo.aspx"><span class="color"><asp:Label ID="LabelT2" runat="server"/></span></a>
                               </div>
                            </div>
                         </div>
@@ -86,15 +85,15 @@ Viki正是为此而诞生。她知晓《和外教聊天记单词-日常交流100
                      <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                         <div class="testimonial item">
                            <p>
-                           <img src="../img/teacher/teacher-3@detail.png" /></br>
-                           无论是打算去美国留学，畅享启发式教学的独特魅力；还是打算赴美工作，感受美国多元化的文化与升华；还是想在美国定居，完成自我理想——新托福考试，都是你面临的第一关“挑战”！想要成功应对托福考试，却并没有那么容易。</br>Stephanie作为《和外教聊天记单词-托福必考1000词》的配套学习伴侣，知晓《和外教聊天记单词-托福必考1000词》中所有的对话、例句、翻译、重点单词及解释，以及正确朗读发音。
-跟着Stephanie学托福英语，能够有效帮助攻克新托福中最至关重要的听力和口语两关，Stephanie会用最纯正的美式思维让你抛开解题与技巧，真正地置身“美国”，体验“与人交流”的乐趣，从中收获重要的英语知识和技能。</p>
+                           <asp:Image ID="ImageP3" runat="server" /></br>
+                               <asp:Label ID="LabelD3" runat="server"/>
+                           </p>
                            <div class="testimonials-arrow">
                            </div>
                            <div class="author">
-                              <div class="testimonial-image "><img alt="" src="../img/teacher/teacher-3@2x.png"></div>
+                              <div class="testimonial-image "><asp:Image ID="ImageT3" alt="" runat="server"/></div>
                               <div class="testimonial-author-info">
-                                 <a href="../Teacher/TeacherTeaInfo.aspx"><span class="color">Stephanie</span></a>
+                                 <a href="../Teacher/TeacherTeaInfo.aspx"><span class="color"><asp:Label ID="LabelT3" runat="server"/></span></a>
                               </div>
                            </div>
                         </div>
@@ -102,15 +101,16 @@ Viki正是为此而诞生。她知晓《和外教聊天记单词-日常交流100
                      <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                         <div class="testimonial item">
                           <p>
-                          <img src="../img/teacher/teacher-4@detail.png" /></br>
-                          商务英语是以适应职场生活的语言要求为目的，内容涉及到商务活动的方方面面。商务英语课程不只是简单地对学员的英文水平、能力的提高，它更多地是向学员传授一种西方的观念理念，包括如何和外国人打交道，如何和他们合作、工作的方式方法，以及他们的生活习惯等。</br>Peter对此十分熟知。他知晓《和外教聊天记单词-商务必备1000词》中所有的对话、例句、翻译、重点单词及解释，以及正确朗读发音。
-国外原汁原味的商务英语对话，让你自如应对工作挑战。</p>
+                          <asp:Image ID="ImageP4" runat="server" /></br>
+                               <asp:Label ID="LabelD4" runat="server"/>
+
+                          </p>
                            <div class="testimonials-arrow">
                            </div>
                            <div class="author">
-                              <div class="testimonial-image "><img alt="" src="../img/teacher/teacher-4@2x.png"></div>
+                              <div class="testimonial-image "><asp:Image ID="ImageT4" alt="" runat="server"/></div>
                               <div class="testimonial-author-info">
-                                 <a href="../Teacher/TeacherTeaInfo.aspx"><span class="color">Peter</span></a>
+                                 <a href="../Teacher/TeacherTeaInfo.aspx"><span class="color"><asp:Label ID="LabelT4" runat="server"/></span></a>
                               </div>
                            </div>
                         </div>
@@ -121,14 +121,16 @@ Viki正是为此而诞生。她知晓《和外教聊天记单词-日常交流100
                       <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                         <div class="testimonial item">
                          <p> 
-                         <img src="../img/teacher/teacher-5@detail.png" /></br>
-                         Daniel作为《和外教聊天记单词-高考必考1000词》的配套学习伴侣，知晓《和外教聊天记单词-高考必考1000词》中所有的对话、例句、翻译、重点单词及解释，以及正确朗读发音。他了解高考英语要求学生所掌握的3000-4000的词汇量以及一些中高级词汇，熟悉高考常见单词和词组的正确用法，书面使用技巧和一定会话能力，涉及听、说、读、写多个方面。</br>跟着Daniel学高考英语，通过场景记单词，让您在一对一的情景对话交流中，熟悉并掌握高考英语中可能会出现的单词、词组和句法，轻松战胜高考英语。</p>
+                         <asp:Image ID="ImageP5" runat="server" /></br>
+                               <asp:Label ID="LabelD5" runat="server"/>
+
+                         </p>
                            <div class="testimonials-arrow">
                            </div>
                            <div class="author">
-                              <div class="testimonial-image "><img alt="" src="../img/teacher/teacher-5@2x.png"></div>
+                              <div class="testimonial-image "><asp:Image ID="ImageT5" alt="" runat="server"/></div>
                               <div class="testimonial-author-info">
-                                 <a href="../Teacher/TeacherTeaInfo.aspx"><span class="color">Daniel</span></a>
+                                 <a href="../Teacher/TeacherTeaInfo.aspx"><span class="color"><asp:Label ID="LabelT5" runat="server"/></span></a>
                               </div>
                            </div>
                         </div>
@@ -136,15 +138,16 @@ Viki正是为此而诞生。她知晓《和外教聊天记单词-日常交流100
                       <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                         <div class="testimonial item">
                           <p>
-                          <img src="../img/teacher/teacher-6@detail.png" /></br>
-                           全球超过7,000所机构认可雅思成绩，无论你想留学、移民、就业，还是检测英语水平；无论你想去英国，澳大利亚，新西兰，美国，加拿大，还是荷兰，法国，德国，瑞士，瑞典，新加坡，香港，马来西亚，日本，南非等；你只需要一项英语考试－－雅思考试。</br>Albert作为《和外教聊天记单词-雅思必考1000词》的配套学习伴侣，知晓《和外教聊天记单词-雅思必考1000词》中所有的对话、例句、翻译、重点单词及解释，以及正确朗读发音。
-跟着Albert学雅思英语，能够有效帮助攻克雅思考试中最至关重要的听力和口语两关，Albert会用最纯正的欧美思维让你抛开解题与技巧，真正地置身“异国”，体验“与人交流”的乐趣，从中收获重要的英语知识和技能。</p>
+                          <asp:Image ID="ImageP6" runat="server" /></br>
+                               <asp:Label ID="LabelD6" runat="server"/>
+
+                          </p>
                            <div class="testimonials-arrow">
                            </div>
                            <div class="author">
-                              <div class="testimonial-image "><img alt="" src="../img/teacher/teacher-6@2x.png"></div>
+                              <div class="testimonial-image "><asp:Image ID="ImageT6" alt="" runat="server"/></div>
                               <div class="testimonial-author-info">
-                                 <a href="../Teacher/TeacherTeaInfo.aspx"><span class="color">Albert</span></a>
+                                 <a href="../Teacher/TeacherTeaInfo.aspx"><span class="color"><asp:Label ID="LabelT6" runat="server"/></span></a>
                               </div>
                            </div>
                         </div>

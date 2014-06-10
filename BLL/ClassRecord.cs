@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Model;
+using System.Data;
 
 namespace BLL
 {
@@ -38,6 +39,11 @@ namespace BLL
         System.Data.DataSet IBLL.IClassRecord.getClassPercent()
         {
             return dal.getClassPercent();
+        }
+
+        DataSet IBLL.IClassRecord.GetClassRecordList(int stu_id)
+        {
+            return dal.GetClassRecordList(stu_id);
         }
 
 
