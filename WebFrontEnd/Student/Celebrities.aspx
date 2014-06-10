@@ -46,8 +46,8 @@
                   <div class="row">
                      <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                         <div class="testimonial item">
-                           <p>
-                              雅思成绩：总分8分，听力9分，阅读8分，口语7.5分
+                           <p><asp:Label id ="Grade1" runat="server">
+                              雅思成绩：总分8分，听力9分，阅读8分，口语7.5分</asp:Label>
                            </p>
                             <p>
                                我觉得，Viki的针对性非常强。对我的帮助非常大：一是授课的老师发音非常标准，通过和viki的外教对话，矫正了一些我的不正确发音；二是和手机电脑对话，避免了和真人对话的尴尬，说不出来也不觉得不好意思，这让我大胆的说出来，从而练习了我的口语；三是Viki有智能拼写及语法纠错的功能，能及时发现改正我的坏习惯；四是应用内容源取自各大经典教材，权威师资改编对英语考试有极大的帮助.
@@ -68,9 +68,9 @@
                            <p>
                                雅思成绩：听力9分，口语7分
                            </p>
-                           <p>
+                           <p><asp:Label runat="server">
                               听力和口语对我来说是难点，通过Viki，我和外教在线交流，锻炼了我的听力和口语。听力练习是个长期的过程，大家一定要坚持下来。在练习的过程中，我们会发现其中的秘诀，这个当然每个人都不一样，要提醒大家的是：只有通过不断的练习，长期积累才能真正提高英语听力水平，不要指望一个月就能大大提高，希望大家都能坚持下来！有了一定的听力基础后，可练习精听。每次只听一句话，但一定要听懂。先听简单的话，在听长句、复杂句。
-                              &nbsp;&nbsp;&nbsp;&nbsp;<a href="celebrity_detail.html" target="_blank">查看详情</a>
+                              &nbsp;&nbsp;&nbsp;&nbsp;<a href="celebrity_detail.html" target="_blank">查看详情</a></asp:Label>
                            </p>
                            <div class="testimonials-arrow">
                            </div>

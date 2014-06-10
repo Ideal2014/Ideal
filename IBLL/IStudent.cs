@@ -11,7 +11,9 @@ namespace IBLL
         void Add(StudentInfo student);
         void Remove(StudentInfo student);
         void Modify(StudentInfo student);
+        bool CheckLogin(StudentInfo s1);
         IList<StudentInfo> GetAll();
         StudentInfo Get(int id);
+        StudentInfo GetByName(String name);
     }
 }

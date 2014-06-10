@@ -60,6 +60,7 @@ EndProject
 Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "WebFrontEnd", "WebFrontEnd\", "{30506963-C468-4B2F-86CE-F2FA624E5001}"
 	ProjectSection(WebsiteProperties) = preProject
 		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
+		ProjectReferences = "{237591bf-fe1d-4443-8f72-cb33d6676aae}|BLL.dll;{78831ea8-f7e7-4639-bf25-e9daf9ea01f3}|DALFactory.dll;{5af82640-de33-4706-a45a-0776a75ea661}|BLLFactory.dll;{6a28cb25-479e-4090-8320-7abac3a68e49}|IBLL.dll;{c1bbbc03-e908-4256-92e7-4d2a3bff106f}|IDAL.dll;{ad8f07b8-2599-46ba-a70b-30f70299214d}|Model.dll;{682f80a0-eade-4917-b863-55077a0a292a}|OracleDAL.dll;{f2f6f137-578f-4bfc-bbb7-02ab8fa73cea}|SQLServerDAL.dll;"
 		Debug.AspNetCompiler.VirtualPath = "/WebFrontEnd"
 		Debug.AspNetCompiler.PhysicalPath = "WebFrontEnd\"
 		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\WebFrontEnd\"

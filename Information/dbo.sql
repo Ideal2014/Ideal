@@ -19,7 +19,7 @@ Date: 2014-05-30 20:14:26
 -- Table structure for tb_Admin
 -- ----------------------------
 DROP TABLE [dbo].[tb_Admin]
-GO
+;
 CREATE TABLE [dbo].[tb_Admin] (
 [Adm_ID] int NOT NULL IDENTITY(1,1) ,
 [Adm_UserName] varchar(20) NULL ,
@@ -29,13 +29,13 @@ CREATE TABLE [dbo].[tb_Admin] (
 )
 
 
-GO
+;
 
 -- ----------------------------
 -- Table structure for tb_Balance
 -- ----------------------------
 DROP TABLE [dbo].[tb_Balance]
-GO
+;
 CREATE TABLE [dbo].[tb_Balance] (
 [Bal_ID] int NOT NULL IDENTITY(1,1) ,
 [Stu_ID] int NOT NULL ,
@@ -44,13 +44,13 @@ CREATE TABLE [dbo].[tb_Balance] (
 )
 
 
-GO
+;
 
 -- ----------------------------
 -- Table structure for tb_Book
 -- ----------------------------
 DROP TABLE [dbo].[tb_Book]
-GO
+;
 CREATE TABLE [dbo].[tb_Book] (
 [Boo_ID] int NOT NULL IDENTITY(1,1) ,
 [Tea_ID] int NULL ,
@@ -63,13 +63,13 @@ CREATE TABLE [dbo].[tb_Book] (
 )
 
 
-GO
+;
 
 -- ----------------------------
 -- Table structure for tb_ClassRecord
 -- ----------------------------
 DROP TABLE [dbo].[tb_ClassRecord]
-GO
+;
 CREATE TABLE [dbo].[tb_ClassRecord] (
 [Cla_ID] int NOT NULL IDENTITY(1,1) ,
 [Stu_ID] int NULL ,
@@ -79,15 +79,15 @@ CREATE TABLE [dbo].[tb_ClassRecord] (
 )
 
 
-GO
+;
 DBCC CHECKIDENT(N'[dbo].[tb_ClassRecord]', RESEED, 2)
-GO
+;
 
 -- ----------------------------
 -- Table structure for tb_Feedback
 -- ----------------------------
 DROP TABLE [dbo].[tb_Feedback]
-GO
+;
 CREATE TABLE [dbo].[tb_Feedback] (
 [Fee_ID] int NOT NULL IDENTITY(1,1) ,
 [Stu_ID] int NULL ,
@@ -98,13 +98,13 @@ CREATE TABLE [dbo].[tb_Feedback] (
 )
 
 
-GO
+;
 
 -- ----------------------------
 -- Table structure for tb_OrderRecord
 -- ----------------------------
 DROP TABLE [dbo].[tb_OrderRecord]
-GO
+;
 CREATE TABLE [dbo].[tb_OrderRecord] (
 [Ord_ID] int NOT NULL IDENTITY(1,1) ,
 [Stu_ID] int NULL ,
@@ -114,13 +114,13 @@ CREATE TABLE [dbo].[tb_OrderRecord] (
 )
 
 
-GO
+;
 
 -- ----------------------------
 -- Table structure for tb_Student
 -- ----------------------------
 DROP TABLE [dbo].[tb_Student]
-GO
+;
 CREATE TABLE [dbo].[tb_Student] (
 [Stu_ID] int NOT NULL IDENTITY(1,1) ,
 [Stu_UserName] varchar(10) NULL ,
@@ -132,13 +132,13 @@ CREATE TABLE [dbo].[tb_Student] (
 )
 
 
-GO
+;
 
 -- ----------------------------
 -- Table structure for tb_Teacher
 -- ----------------------------
 DROP TABLE [dbo].[tb_Teacher]
-GO
+;
 CREATE TABLE [dbo].[tb_Teacher] (
 [Tea_ID] int NOT NULL IDENTITY(1,1) ,
 [Tea_Name] varchar(20) NULL ,
@@ -154,15 +154,15 @@ CREATE TABLE [dbo].[tb_Teacher] (
 )
 
 
-GO
+;
 DBCC CHECKIDENT(N'[dbo].[tb_Teacher]', RESEED, 2)
-GO
+;
 
 -- ----------------------------
 -- Table structure for tb_Test
 -- ----------------------------
 DROP TABLE [dbo].[tb_Test]
-GO
+;
 CREATE TABLE [dbo].[tb_Test] (
 [Tes_ID] int NOT NULL IDENTITY(1,1) ,
 [Tes_Type] varchar(20) NULL ,
@@ -175,7 +175,7 @@ CREATE TABLE [dbo].[tb_Test] (
 )
 
 
-GO
+;
 
 -- ----------------------------
 -- Indexes structure for table tb_Admin
@@ -185,7 +185,7 @@ GO
 -- Primary Key structure for table tb_Admin
 -- ----------------------------
 ALTER TABLE [dbo].[tb_Admin] ADD PRIMARY KEY ([Adm_ID])
-GO
+;
 
 -- ----------------------------
 -- Indexes structure for table tb_Balance
@@ -195,7 +195,7 @@ GO
 -- Primary Key structure for table tb_Balance
 -- ----------------------------
 ALTER TABLE [dbo].[tb_Balance] ADD PRIMARY KEY ([Bal_ID])
-GO
+;
 
 -- ----------------------------
 -- Indexes structure for table tb_Book
@@ -205,7 +205,7 @@ GO
 -- Primary Key structure for table tb_Book
 -- ----------------------------
 ALTER TABLE [dbo].[tb_Book] ADD PRIMARY KEY ([Boo_ID])
-GO
+;
 
 -- ----------------------------
 -- Indexes structure for table tb_ClassRecord
@@ -215,7 +215,7 @@ GO
 -- Primary Key structure for table tb_ClassRecord
 -- ----------------------------
 ALTER TABLE [dbo].[tb_ClassRecord] ADD PRIMARY KEY ([Cla_ID])
-GO
+;
 
 -- ----------------------------
 -- Indexes structure for table tb_Feedback
@@ -225,7 +225,7 @@ GO
 -- Primary Key structure for table tb_Feedback
 -- ----------------------------
 ALTER TABLE [dbo].[tb_Feedback] ADD PRIMARY KEY ([Fee_ID])
-GO
+;
 
 -- ----------------------------
 -- Indexes structure for table tb_OrderRecord
@@ -235,7 +235,7 @@ GO
 -- Primary Key structure for table tb_OrderRecord
 -- ----------------------------
 ALTER TABLE [dbo].[tb_OrderRecord] ADD PRIMARY KEY ([Ord_ID])
-GO
+;
 
 -- ----------------------------
 -- Indexes structure for table tb_Student
@@ -245,7 +245,7 @@ GO
 -- Primary Key structure for table tb_Student
 -- ----------------------------
 ALTER TABLE [dbo].[tb_Student] ADD PRIMARY KEY ([Stu_ID])
-GO
+;
 
 -- ----------------------------
 -- Indexes structure for table tb_Teacher
@@ -255,7 +255,7 @@ GO
 -- Primary Key structure for table tb_Teacher
 -- ----------------------------
 ALTER TABLE [dbo].[tb_Teacher] ADD PRIMARY KEY ([Tea_ID])
-GO
+;
 
 -- ----------------------------
 -- Indexes structure for table tb_Test
@@ -265,4 +265,4 @@ GO
 -- Primary Key structure for table tb_Test
 -- ----------------------------
 ALTER TABLE [dbo].[tb_Test] ADD PRIMARY KEY ([Tes_ID])
-GO
+;

@@ -34,5 +34,21 @@ namespace BLL
         {
             return dal.Get(id);
         }
+
+
+        StudentInfo IBLL.IStudent.GetByName(string name)
+        {
+            return dal.GetByName(name);
+        }
+
+
+        bool IBLL.IStudent.CheckLogin(StudentInfo s1)
+        {
+            StudentInfo s2 = dal.Get(s1.Stu_ID);
+            if (s2.Stu_Password.Equals(s1.Stu_Password))
+                return true;
+            else
+                return false;
+        }
     }
 }

@@ -38,29 +38,10 @@
                             账号：  <asp:TextBox id="Username" class="form-control" runat="server" />
                             密码：  <asp:TextBox id="Password1" TextMode="password" class="form-control" runat="server" />
                             确认密码：  <asp:TextBox id="Password2" TextMode="password" class="form-control" runat="server" />
-                            用户邮箱：<br>
-                              <div class="input-group"> <asp:TextBox id="MailBox" class="form-control" runat="server" />
-                                 <span class="input-group-addon">@</span>
-                                   <select class="form-control">
-                                 <option>qq.com</option>
-                                 <option>163.com</option>
-                                 <option>126.com</option>
-                                 <option>gmail.com</option>
-                                 <option>bjtu.edu.cn</option>
-                              </select>
-                             </div>
-                                     手机号码：  <asp:TextBox id="Telephone" class="form-control" runat="server" />
-                                     家庭住址：  <asp:TextBox id="Address" class="form-control" runat="server" />
-                              
+                            用户邮箱：  <asp:TextBox id="MailBox" class="form-control" runat="server" />
                               <div class="checkbox">
-                                  <asp:Button id="Register" Text="注册" class="btn-color btn-normal btn-pad" runat="server" />
+                                  <asp:Button id="Register" Text="注册" class="btn-color btn-normal btn-pad" runat="server" OnClick="Register_Click" />
                               </div>
-                            <!-- /input-group -->
-                              
-                              <!-- /input-group -->
-                              
-      
-                           </div>
                         </div>
                      </div>
                      <div style="height:100px">
@@ -76,4 +57,3 @@
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="js" Runat="Server">
 </asp:Content>
-

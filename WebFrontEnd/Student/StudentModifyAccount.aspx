@@ -2,7 +2,7 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="css" Runat="Server">
 </asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="main" style="padding-bottom:0" Runat="Server">
+<asp:Content ID="Content2" ContentPlaceHolderID="main"  Runat="Server">
     
             <!-- Title, Breadcrumb Start-->
             <div class="breadcrumb-wrapper">
@@ -90,45 +90,31 @@
 </ul></div>
                         </article>
                          <div style="width:50%">
-                         
+                         <div class="input-group input-type">
+ 						 <span class="input-group-addon">用户名</span>
+                            <asp:TextBox id="Name" class="form-control"  runat="server" />
+						</div>
                          <div class="input-group input-type">
  						 <span class="input-group-addon">邮箱</span>
-                         <asp:TextBox id="Mailbox" class="form-control" value="11301127@bjtu.edu.cn" runat="server" />
+                         <asp:TextBox id="Mailbox" class="form-control"  runat="server" />
 						</div>
                         <div class="input-group input-type">
  						 <span class="input-group-addon">手机</span>
-                         <asp:TextBox id="Telephone" class="form-control" value="18755608711" runat="server" />
+                         <asp:TextBox id="Telephone" class="form-control" runat="server" />
 						</div>
                         <div class="input-group input-type">
  						 <span class="input-group-addon">性别</span>
- 						 <input type="radio" checked id="111"  style=" margin-left:20px; display:inline"  name="a1"/><label style="display:inline" for="111">男</label><input style="display:inline;margin-left:20px;" type="radio" id="222" name="a1" placeholder="" /><label style="display:inline" for="222">女</label>
+                            <asp:RadioButtonList ID="Radio"  RepeatLayout="OrderedList" runat="server">
+                                <asp:ListItem Value ="男" >男</asp:ListItem>
+                                <asp:ListItem Value ="女">女</asp:ListItem>
+                            </asp:RadioButtonList>
 						</div>
                         <div class="input-group input-type">
  						 <span class="input-group-addon">生日</span>
-                         <asp:TextBox id="Birthday" class="form-control" value="1993/07/14" runat="server" />
-						</div>
-                        <div class="input-group input-type">
- 						 <span class="input-group-addon">昵称</span>
-                            <asp:TextBox id="Nickname" class="form-control" value="小宇宇" runat="server" />
-						</div>
-                        <div class="input-group input-type">
- 						 <span class="input-group-addon">QQ</span>
-                            <asp:TextBox id="Qq" class="form-control" value="11096664234" runat="server" />
-						</div>
-                        <div class="input-group input-type">
- 						 <span class="input-group-addon">收件人姓名</span>
-                            <asp:TextBox id="Name" class="form-control" value="qiyu" runat="server" />
-						</div>
-                        <div class="input-group input-type">
- 						 <span class="input-group-addon">收件人地址</span>
-                            <asp:TextBox id="Address" class="form-control" value="北京交通大学" runat="server" />
-						</div>
-                        <div class="input-group input-type">
- 						 <span class="input-group-addon">邮编</span>
-                            <asp:TextBox id="Code" class="form-control" value="100044" runat="server" />
+                            <asp:TextBox id="Birthday" class="form-control" runat="server" />
 						</div>
                         <div class="input-type">
-                           <asp:Button id="Submit" Text="提交修改" style="float:right" class="btn btn-normal btn-pad btn-color"  runat="server" />
+                           <asp:Button id="Submit" Text="提交修改" style="float:right" class="btn btn-normal btn-pad btn-color"  runat="server"  OnClick ="Submit_Click"/>
                          </div>
                      </div>
                      <!-- Left Section End -->

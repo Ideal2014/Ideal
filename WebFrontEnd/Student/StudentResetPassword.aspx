@@ -92,7 +92,7 @@
                          <div style="width:50%">
                           <div class="input-group input-type">
  						 <span class="input-group-addon">验证邮箱</span>
-                         <asp:TextBox id="Mailbox" class="form-control" placeholder="11301127@bjtu.edu.cn" runat="server" />
+                         <asp:TextBox id="Mailbox" class="form-control"  runat="server" />
 						</div>
                          <div class="input-group input-type">
  						 <span class="input-group-addon">请输入原密码</span>
@@ -108,7 +108,7 @@
 						</div>
                        
                         <div class="input-type">
-                        <asp:Button id="ResetPassword" Text="提交修改" class="btn-color btn-normal btn-pad" runat="server" />
+                        <asp:Button id="ResetPassword" Text="提交修改" class="btn-color btn-normal btn-pad" runat="server" OnClick="ResetPassword_Click" />
                          
                      </div>
                      <!-- Left Section End -->
@@ -125,6 +125,7 @@
          
          
       </div>
+</div>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="js" Runat="Server">
 </asp:Content>
