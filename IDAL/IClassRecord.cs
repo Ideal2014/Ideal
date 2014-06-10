@@ -17,5 +17,7 @@ namespace IDAL
         #region 齐宇
         System.Data.DataSet getClassPercent();
         #endregion
+
+        IList<ClassRecordInfo> GetClasssByDate(DateTime dateTime);
     }
 }

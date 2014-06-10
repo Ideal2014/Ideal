@@ -40,5 +40,11 @@ namespace BLL
         {
             return dal.GetFeedbackList();
         }
+
+
+        IList<FeedbackInfo> IBLL.IFeedback.GetFeedBackByDate(DateTime dateTime)
+        {
+            return dal.GetFeedBackByDate(dateTime);
+        }
     }
 }

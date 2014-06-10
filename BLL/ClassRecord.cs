@@ -39,5 +39,11 @@ namespace BLL
         {
             return dal.getClassPercent();
         }
+
+
+        IList<ClassRecordInfo> IBLL.IClassRecord.GetClasssByDate(DateTime dateTime)
+        {
+            return dal.GetClasssByDate(dateTime);
+        }
     }
 }

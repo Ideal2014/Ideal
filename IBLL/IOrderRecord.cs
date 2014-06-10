@@ -16,5 +16,8 @@ namespace IBLL
         OrderRecordInfo Get(int id);
 
         DataSet GetOrderList();
+        IList<OrderRecordInfo> GetOrdersByDate(DateTime dateTime);
+
+        DataSet getOrderNumber();
     }
 }

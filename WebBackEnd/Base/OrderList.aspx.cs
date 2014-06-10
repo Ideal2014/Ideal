@@ -14,15 +14,7 @@ public partial class Base_OrderList : System.Web.UI.Page
     {
         if (!IsPostBack)
         {
-            if (Request.Cookies["admin"] != null)
-            {
-                string id = Request.Cookies["admin"]["id"];
-                Bind();
-            }
-            else
-            {
-                Response.Redirect("~/Login/Login.aspx");
-            }
+            Bind();
         }
     }
 

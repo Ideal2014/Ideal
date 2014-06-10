@@ -34,5 +34,13 @@ namespace BLL
         {
             return dal.Get(id);
         }
+
+
+        IList<StudentInfo> IBLL.IStudent.GetStudentsByDate(DateTime dateTime)
+        {
+            return dal.GetStudentsByDate(dateTime);
+        }
+
+
     }
 }
