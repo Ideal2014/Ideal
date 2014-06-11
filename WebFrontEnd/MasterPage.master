@@ -69,11 +69,9 @@
                         <!-- Logo Start -->
                         <div class="logo pull-left">
                             <h1>
-
                                 <a href="../Home/Home.aspx">
                                     <asp:Image ID="Image1" runat="server" src="../img/logo.png" alt="viki" Width="125" Height="60" />
-
-                                </a>
+                                        </asp:HyperLink>
                             </h1>
                         </div>
                         <!-- Logo End -->
@@ -88,34 +86,38 @@
                         <nav class="collapse navbar-collapse menu">
                             <ul class="nav navbar-nav sf-menu">
                                 <li>
-                                    <a href="../Home/Home.aspx">首页</a>
+                                    <asp:HyperLink ID="HyperLink3" runat="server" NavigateUrl="~/Home/Home.aspx" class="current">首页</asp:HyperLink>
                                 </li>
                                 <li>
-                                    <a href="teachers.html">外教团队
-                                    </a>
+                                    <asp:HyperLink ID="HyperLink4" runat="server" NavigateUrl="~/Teacher/Teacher.aspx" class="sf-with-ul">外教团队</asp:HyperLink>
                                 </li>
                                 <li>
-                                    <a href="../Book/Book.aspx">课程教材 
-                                    </a>
+                                    <asp:HyperLink ID="HyperLink5" runat="server" NavigateUrl="~/Book/Book.aspx" class="sf-with-ul">课程教材</asp:HyperLink>
                                 </li>
                                 <li>
-                                    <a href="../Student/Celebrities.aspx">名人堂</a>
+                                    <asp:HyperLink ID="HyperLink6" runat="server" NavigateUrl="~/Student/Celebrities.aspx" class="sf-with-ul">名人堂</asp:HyperLink>
                                 </li>
-                                <li><a href="../Test/TestPage.aspx">水平自测</a></li>
+
                                 <li>
-                                    <a href="../About/About.aspx" class="sf-with-ul">关于我们
-                          
+                                    <asp:HyperLink ID="HyperLink7" runat="server" NavigateUrl="~/Test/TestPage.aspx" class="sf-with-ul">水平自测</asp:HyperLink>
+                                </li>
+                                <li>
+                          <asp:HyperLink ID="HyperLink8" runat="server" NavigateUrl="~/About/About.aspx"  class="sf-with-ul">关于我们</asp:HyperLink>
                                    
 
                                         <span class="sf-sub-indicator">
                                             <i class="icon-angle-down "></i>
                                         </span>
-                                    </a>
                                     <ul>
-                                        <li><a href="../About/About.aspx" class="sf-with-ul">关于我们</a></li>
-
-                                        <li><a href="../About/Solution.aspx" class="sf-with-ul">Viki的理念和解决方案</a></li>
-                                        <li><a href="../About/Phone.aspx" class="sf-with-ul">Viki的移动客户端</a></li>
+                                        <li>
+                                        <asp:HyperLink ID="HyperLink9" runat="server" NavigateUrl="~/About/About.aspx"  class="sf-with-ul">关于我们</asp:HyperLink>
+                                            </li>
+                                        <li>
+                                            <asp:HyperLink ID="HyperLink10" runat="server" NavigateUrl="~/About/Solution.aspx"  class="sf-with-ul">Viki的理念和解决方案</asp:HyperLink>
+                                            </li>
+                                        <li>
+                                            <asp:HyperLink ID="HyperLink11" runat="server" NavigateUrl="~/About/Phone.aspx"  class="sf-with-ul">Viki的移动客户端</asp:HyperLink>
+                                            </li>
                                     </ul>
                                 </li>
 

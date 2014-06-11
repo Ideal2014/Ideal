@@ -39,9 +39,9 @@
                                  <div class="tabscontent" id="Div1" style="display: block;">
                                     <ul class="posts">
                                        <li>
-                                          <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="#"><img class="img-thumbnail recent-post-img" alt="" src="img/recent-post-img.jpg"></asp:HyperLink>
-          <h2>Qiyu</h2><span class="color">学号：</span>
-          <span>11301127</span>
+                                          <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="#"><asp:Image ID="Image7" class="img-thumbnail recent-post-img" runat="server" ImageUrl="~/img/recent-post-img.jpg" /></asp:HyperLink>
+          <h2><asp:Label runat="server" ID="Std_Name" Text="Qiyu"/></h2><span class="color">学号：</span>
+          <span><asp:Label ID="Std_ID" runat="server" Text="11301127"/></span>
 
            
                                        </li>
@@ -68,11 +68,11 @@
                         <!-- Category Widget Start -->
                         <div class="widget category"><h3 class="title">会员中心</h3>
                            <ul class="category-list slide">
-                           <li><asp:HyperLink ID="HyperLink2" runat="server" NavigateUrl="member-teachers-start.html">智能外教</asp:HyperLink></li>
-                              <li><asp:HyperLink ID="HyperLink3" runat="server" NavigateUrl="../Teacher/TeacherTeaChoose.aspx">购买时长</asp:HyperLink></li>
+                           <li><asp:HyperLink ID="HyperLink2" runat="server" NavigateUrl="~/Teacher/TeacherMemTeaChoose.aspx">智能外教</asp:HyperLink></li>
+                              <li><asp:HyperLink ID="HyperLink3" runat="server" NavigateUrl="../Teacher/TeacherMemTeaChoose.aspx">购买时长</asp:HyperLink></li>
                               
                               <li><asp:HyperLink ID="HyperLink4" runat="server" NavigateUrl="../Purchase/AccountInfo.aspx">账户管理</asp:HyperLink></li>
-                              <li><asp:HyperLink ID="HyperLink5" runat="server" NavigateUrl="#">提交反馈</asp:HyperLink></li>
+                              <li><asp:HyperLink ID="HyperLink5" runat="server" NavigateUrl="../Feedback/FeedbackPage.aspx">提交反馈</asp:HyperLink></li>
                            </ul></div>
                         <!-- Category Widget End -->
    
@@ -89,67 +89,33 @@
 </ul></div>
                         </article>
                          <div>
-                         <asp:table class="table table-bordered" runat="server">
-							<asp:TableHeaderRow>
-                              <asp:TableHeaderCell>序号</asp:TableHeaderCell>
-                              <asp:TableHeaderCell>老师</asp:TableHeaderCell>
-							  <asp:TableHeaderCell>姓名</asp:TableHeaderCell>
-                              <asp:TableHeaderCell>专长</asp:TableHeaderCell>
-							  <asp:TableHeaderCell>到期时间</asp:TableHeaderCell>
-							  <asp:TableHeaderCell>操作</asp:TableHeaderCell>
-				          </asp:TableHeaderRow>
-							<asp:TableRow>
-							  <asp:TableCell>1</asp:TableCell>
-							  <asp:TableCell><asp:Image ID="Image4" runat="server" ImageUrl="~/img/teacher/teacher-1@2x.png"/></asp:TableCell>
-							  <asp:TableCell>Viki</asp:TableCell>
-							  <asp:TableCell>日常英语</asp:TableCell>
-							  <asp:TableCell>2014-04-10</asp:TableCell>
-                              <asp:TableCell><form action="../Purchase/TeachersPurchase.aspx"><button type="submit"  class="btn btn-danger">购买</button></form></asp:TableCell>
-					      </asp:TableRow>
-                          <asp:TableRow>
-							  <asp:TableCell>2</asp:TableCell>
-							  <asp:TableCell><asp:Image ID="Image1" runat="server" ImageUrl="~/img/teacher/teacher-2@2x.png"/>
-                              </asp:TableCell>
-							  <asp:TableCell>Olivia</asp:TableCell>
-							  <asp:TableCell>四六级英语</asp:TableCell>
-							  <asp:TableCell>2014-04-10</asp:TableCell>
-                              <asp:TableCell><form action="../Purchase/TeachersPurchase.aspx"><button type="submit"  class="btn btn-danger">购买</button></form></asp:TableCell>
-					      </asp:TableRow>
-                          <asp:TableRow>
-							  <asp:TableCell>3</asp:TableCell>
-							  <asp:TableCell><asp:Image ID="Image2" runat="server" ImageUrl="~/img/teacher/teacher-3@2x.png"/></asp:TableCell>
-							  <asp:TableCell>Spethanie</asp:TableCell>
-							  <asp:TableCell>托福英语</asp:TableCell>
-							  <asp:TableCell>未购买</asp:TableCell>
-                              <asp:TableCell><form action="../Purchase/TeachersPurchase.aspx"><button type="submit"  class="btn btn-danger">购买</button></form></asp:TableCell>
-					      </asp:TableRow>
-                          <asp:TableRow>
-							  <asp:TableCell>4</asp:TableCell>
-							  <asp:TableCell><asp:Image ID="Image3" runat="server" ImageUrl="~/img/teacher/teacher-4@2x.png"/></asp:TableCell>
-							  <asp:TableCell>Peter</asp:TableCell>
-							  <asp:TableCell>商务英语</asp:TableCell>
-							  <asp:TableCell>未购买</asp:TableCell>
-                              <asp:TableCell><form action="../Purchase/TeachersPurchase.aspx"><button type="submit"  class="btn btn-danger">购买</button></form></asp:TableCell>
-					      </asp:TableRow>
-                          <asp:TableRow>
-							  <asp:TableCell>5</asp:TableCell>
-							  <asp:TableCell><asp:Image ID="Image5" runat="server" ImageUrl="~/img/teacher/teacher-5@2x.png"/></asp:TableCell>
-							  <asp:TableCell>Danvel</asp:TableCell>
-							  <asp:TableCell>高考英语</asp:TableCell>
-							  <asp:TableCell>未购买</asp:TableCell>
-                              <asp:TableCell><form action="../Purchase/TeachersPurchase.aspx"><button type="submit"  class="btn btn-danger">购买</button></form></asp:TableCell>
-					      </asp:TableRow>
-                          <asp:TableRow>
-							  <asp:TableCell>6</asp:TableCell>
-							  <asp:TableCell><asp:Image ID="Image6" runat="server" ImageUrl="~/img/teacher/teacher-6@2x.png"/></asp:TableCell>
-							  <asp:TableCell>Albert</asp:TableCell>
-							  <asp:TableCell>雅思英语</asp:TableCell>
-							  <asp:TableCell>未购买</asp:TableCell>
-                              <asp:TableCell><form action="../Purchase/TeachersPurchase.aspx"><button type="submit"  class="btn btn-danger">购买</button></form></asp:TableCell>
-					      </asp:TableRow>
-                          
-							
-						</asp:table>
+                             <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" HeaderStyle-Font-Bold="true" class="table table-bordered">
+                                <Columns>
+                                    <asp:TemplateField HeaderText="序号">
+                                        <ItemStyle  HorizontalAlign="Center"/>
+                                        <HeaderStyle HorizontalAlign="Center"/>
+                                        <ItemTemplate>
+                                            <%#Container.DataItemIndex+1 %>
+                                        </ItemTemplate>
+                                    </asp:TemplateField>
+                                    <asp:TemplateField HeaderText="教师">
+                                        <ItemStyle  HorizontalAlign="Center"/>
+                                        <HeaderStyle HorizontalAlign="Center"/>
+                                        <ItemTemplate>
+                                            <asp:image runat="server" ImageUrl='<%#Eval("Tea_image")%>'/> 
+                                        </ItemTemplate>
+                                    </asp:TemplateField>
+                                    <asp:BoundField DataField="Tea_Name" HeaderText="姓名" SortExpression="Tea_Name" />
+                                    <asp:BoundField DataField="Tea_Skill" HeaderText="专长" SortExpression="Tea_Skill" />
+                                    <asp:BoundField DataField="Bal_Time" HeaderText="到期时间" SortExpression="Bal_Time" />
+                                    <asp:TemplateField HeaderText="操作">
+                                        <ItemTemplate>
+                                            <asp:Button id="Button1" runat="server" class="btn-color btn-normal btn-pad"  Text="购买" CommandName="a" CommandArgument='<%#Eval("Tea_ID") %>' OnCommand="Button1_Command"/>
+                                        </ItemTemplate>
+                                    </asp:TemplateField>
+
+                                </Columns>
+                            </asp:GridView>
 						</div>                         
                      </div>
                      <!-- Left Section End -->

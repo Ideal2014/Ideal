@@ -30,7 +30,7 @@
                      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                         <h3 class="title">选择购买</h3>
                         <!-- pricing table -->
-                        <div id="pay_area" class="userpay" style="display:'none'">
+                        <div id="pay_area" class="userpay" style="display:none">
           <h3 class="zhifu_title"></h3>
                     <div style="float:left; width:100%">
                     <h2>专业版 ￥899</h2>
@@ -42,13 +42,13 @@
                     <h4>平台支付</h4>
           <ul style="list-style:none; display:block">
 						            <li style="float:left">
-             <asp:RadioButton ID="RadioButton1" name="payMethod" runat="server" Text="" />
+             <asp:RadioButton ID="RadioButton1" name="payMethod" runat="server" Text="" Checked="true"/>
 &nbsp;<asp:Image ID="Image1" runat="server" ImageUrl="http://static.51talk.com/images/bank/alipay.png" ImageAlign="AbsMiddle"/></li>
           </ul>
           
                        </div>
                        <div style="width:100%;float:left; padding-top:20px">
-                           <asp:Button ID="Button1" class=" btn btn-color btn-group-lg" style="margin-left:120px" runat="server" Text="继续" />
+                           <asp:Button ID="Button1" OnClick="Button1_Click" class=" btn btn-color btn-group-lg" style="margin-left:120px" runat="server" Text="继续" />
                             </div>
                        </div>
                        </div>

@@ -119,8 +119,19 @@ namespace SQLServerDAL
             sqlcon.Open();
             myda.Fill(myds);
             sqlcon.Close();
+            return myds;
+        }
+        DataSet IDAL.IOrderRecord.GetAllOrder(int id)
+        {
+            SqlConnection sqlcon = new SqlConnection(connection);
+            String sqlstr = String.Format("Select * from tb_OrderRecord where Stu_ID = {0}", id);
+            SqlDataAdapter myda = new SqlDataAdapter(sqlstr, sqlcon);
+            DataSet myds = new DataSet();
+            sqlcon.Open();
+            myda.Fill(myds);
             sqlcon.Close();
             return myds;
         }
+
     }
 }

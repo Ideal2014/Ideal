@@ -39,9 +39,9 @@
                                  <div class="tabscontent" id="Div1" style="display: block;">
                                     <ul class="posts">
                                        <li>
-                                          <asp:HyperLink ID="HyperLink2" runat="server" NavigateUrl="#"><asp:Image ID="Image1" runat="server" ImageUrl="~/img/recent-post-img.jpg"/></asp:HyperLink>
-          <h2>Qiyu</h2><span class="color">学号：</span>
-          <span>11301127</span>
+                                         <asp:HyperLink ID="HyperLink2" runat="server" NavigateUrl="#"><asp:Image ID="Image7" class="img-thumbnail recent-post-img" runat="server" ImageUrl="~/img/recent-post-img.jpg" /></asp:HyperLink>
+          <h2><asp:Label runat="server" ID="Std_Name" Text="Qiyu"/></h2><span class="color">学号：</span>
+          <span><asp:Label ID="Std_ID" runat="server" Text="11301127"/></span>
 
            
                                        </li>
@@ -68,11 +68,11 @@
                         <!-- Category Widget Start -->
                         <div class="widget category"><h3 class="title">会员中心</h3>
                            <ul class="category-list slide">
-                           <li><asp:HyperLink ID="HyperLink3" runat="server" NavigateUrl="#">智能外教</asp:HyperLink></li>
-                              <li><asp:HyperLink ID="HyperLink4" runat="server" NavigateUrl="#">购买时长</asp:HyperLink></li>
+<li><asp:HyperLink ID="HyperLink3" runat="server" NavigateUrl="~/Teacher/TeacherMemTeaChoose.aspx">智能外教</asp:HyperLink></li>
+                              <li><asp:HyperLink ID="HyperLink4" runat="server" NavigateUrl="../Teacher/TeacherMemTeaChoose.aspx">购买时长</asp:HyperLink></li>
                               
-                              <li><asp:HyperLink ID="HyperLink5" runat="server" NavigateUrl="#">账户管理</asp:HyperLink></li>
-                              <li><asp:HyperLink ID="HyperLink6" runat="server" NavigateUrl="#">提交反馈</asp:HyperLink></li>
+                              <li><asp:HyperLink ID="HyperLink5" runat="server" NavigateUrl="../Purchase/AccountInfo.aspx">账户管理</asp:HyperLink></li>
+                              <li><asp:HyperLink ID="HyperLink6" runat="server" NavigateUrl="../Feedback/FeedbackPage.aspx">提交反馈</asp:HyperLink></li>
                            </ul></div>
                         <!-- Category Widget End -->
    
@@ -81,33 +81,62 @@
                      <div class="posts-block col-lg-9 col-md-9 col-sm-8 col-xs-12">
                         <article class="post hentry">
                           <div class="post-content"><ul class="nav nav-tabs">
-                    <li  ><asp:HyperLink ID="HyperLink7" runat="server" NavigateUrl="#">账户信息</asp:HyperLink></li>
-  <li><asp:HyperLink ID="HyperLink8" runat="server" NavigateUrl="#">修改个人信息</asp:HyperLink></li>
-  <li><asp:HyperLink ID="HyperLink9" runat="server" NavigateUrl="#">修改密码</asp:HyperLink></li>
-  <li class="active"><asp:HyperLink ID="HyperLink10" runat="server" NavigateUrl="#">购买记录</asp:HyperLink></li>
-  <li><asp:HyperLink ID="HyperLink11" runat="server" NavigateUrl="#">上课记录</asp:HyperLink></li>
+                    <li  class="active"><asp:HyperLink ID="HyperLink7" runat="server" NavigateUrl="../Purchase/AccountInfo.aspx">账户信息</asp:HyperLink></li>
+  <li><asp:HyperLink ID="HyperLink8" runat="server" NavigateUrl="../Student/StudentModifyAccount.aspx">修改个人信息</asp:HyperLink></li>
+  <li><asp:HyperLink ID="HyperLink9" runat="server" NavigateUrl="../Student/StudentResetPassword.aspx">修改密码</asp:HyperLink></li>
+  <li><asp:HyperLink ID="HyperLink10" runat="server" NavigateUrl="../Purchase/AccountPurchase.aspx">购买记录</asp:HyperLink></li>
+  <li><asp:HyperLink ID="HyperLink11" runat="server" NavigateUrl="../Teacher/TeacherMemAcctClass.aspx">上课记录</asp:HyperLink></li>
 </ul></div>
                         </article>
                          <div style="width:100%">
-                         
-                        <asp:Table class="table table-bordered" runat="server">
-							<asp:TableHeaderRow>
-                              <asp:TableHeaderCell>序号</asp:TableHeaderCell>
-                              <asp:TableHeaderCell>订单时间</asp:TableHeaderCell>
-							  <asp:TableHeaderCell>订单金额</asp:TableHeaderCell>
-                              <asp:TableHeaderCell>教师</asp:TableHeaderCell>
-							  <asp:TableHeaderCell>套餐</asp:TableHeaderCell>
-				          </asp:TableHeaderRow>
-							<asp:TableRow>
-							  <asp:TableCell>1</asp:TableCell>
-							  <asp:TableCell>2014-04-10</asp:TableCell>
-							  <asp:TableCell>500元</asp:TableCell>
-							  <asp:TableCell>Viki</asp:TableCell>
-							  <asp:TableCell>普通
-                                </asp:TableCell>
-					      </asp:TableRow>
-							
-						</asp:Table>
+
+                             <script>
+                                 function convertMoney(money)
+                                 {
+                                     switch(money)
+                                     {
+                                         case 1:
+                                             return "299";
+                                         case 2:
+                                             return "499";
+                                         case 3:
+                                             return "899";
+                                         case 4:
+                                             return "1699";
+                                     }
+                                 }
+
+                                 function convertType(money) {
+                                     switch (money) {
+                                         case 1:
+                                             return "普通";
+                                         case 2:
+                                             return "高级";
+                                         case 3:
+                                             return "专业";
+                                         case 4:
+                                             return "旗舰";
+                                     }
+                                 }
+                             </script>
+
+                         <asp:GridView Id="GridView1" AutoGenerateColumns="False" runat="server" HeaderStyle-Font-Bold="true" class="table table-bordered">
+                             <Columns>
+                                 <asp:BoundField DataField="Ord_Time" HeaderText="订单时间" />
+                                 <asp:TemplateField HeaderText="订单金额">
+                                    <ItemTemplate>
+                                       <asp:Label ID="Label3" ClientIDMode="Static" runat="server" Text='<%#Eval("Ord_Plan") %>'></asp:Label>
+                                    </ItemTemplate>
+                                 </asp:TemplateField>
+                                 <asp:BoundField dataField="Tea_ID" HeaderText="教师"/>
+                                 <asp:TemplateField HeaderText="套餐">
+                                    <ItemTemplate>
+                                        <asp:Label ID="Label2" runat="server" Text='convertType(<%#Eval("Ord_Plan") %>)'></asp:Label>
+                                    </ItemTemplate>
+                                 </asp:TemplateField>
+                             </Columns>
+                         </asp:GridView>
+
                      </div>
                      <!-- Left Section End -->
                   </div>
@@ -119,5 +148,11 @@
 
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="js" Runat="Server">
+    <script>
+        $(document).ready(function () {
+            var v = convertType($("this").attr("text"));
+            $("#Label3").attr("text", v);
+        });
+</script>
 </asp:Content>
 

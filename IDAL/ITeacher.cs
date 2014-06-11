@@ -13,7 +13,6 @@ namespace IDAL
         void Modify(TeacherInfo teacher);
         IList<TeacherInfo> GetAll();
         TeacherInfo Get(int id);
-
         System.Data.DataSet getTeacherList();
 
     }

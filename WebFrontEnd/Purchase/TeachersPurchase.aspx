@@ -46,7 +46,7 @@
                                  <li class="row_style_1 align_center"><span>免费与智能外教交流</span></li>
                                  
                                  <!-- column footer -->
-                                 <li class="footer_row"><asp:HyperLink ID="HyperLink3"  class="sign_up btn-color btn-small" runat="server" NavigateUrl="#">购买!</asp:HyperLink></li>
+                                 <li class="footer_row"><asp:Button ID="button1" Text="购买"  class="sign_up btn-color btn-small" runat="server" NavigateUrl="#" OnClick="button1_Click"/></li>
                               </ul>
                            </div>
                            <!-- column style 2 -->
@@ -64,7 +64,7 @@
                                  <li class="row_style_3 align_center">2个月</li>
                                  <li class="row_style_1 align_center"><span>免费与智能外教交流</span></li>
                                  <!-- column footer -->
-                                 <li class="footer_row"><asp:HyperLink ID="HyperLink4" runat="server" class="sign_up btn-color btn-small" NavigateUrl="#">购买!</asp:HyperLink></li>
+                                 <li class="footer_row"><asp:Button ID="button2" Text="购买"  class="sign_up btn-color btn-small" runat="server" NavigateUrl="#" OnClick="button2_Click"/></li>
                               </ul>
                            </div>
                            <!-- column style 3 -->
@@ -82,7 +82,7 @@
                                  <li class="row_style_3 align_center">半年</li>
                                  <li class="row_style_1 align_center"><span>免费与智能外教交流</span></li>
                                  <!-- column footer -->
-                                 <li class="footer_row"><asp:HyperLink ID="HyperLink5" runat="server" NavigateUrl="#" class="sign_up btn-color btn-small">购买!</asp:HyperLink></li>
+                                 <li class="footer_row"><asp:Button ID="button3" Text="购买"  class="sign_up btn-color btn-small" runat="server" NavigateUrl="#" OnClick="button3_Click"/></li>
                               </ul>
                            </div>
                            <!-- column style 4 -->
@@ -100,7 +100,7 @@
                                  <li class="row_style_3 align_center">一年</li>
                                  <li class="row_style_1 align_center"><span>免费与智能外教交流</span></li>
                                  <!-- column footer -->
-                                 <li class="footer_row"><asp:HyperLink ID="HyperLink6" runat="server" NavigateUrl="#" class="sign_up btn-color btn-small">购买!</asp:HyperLink></li>
+                                 <li class="footer_row"><asp:Button ID="button4" Text="购买"  class="sign_up btn-color btn-small" runat="server" Height="21px" OnClick="button4_Click"/></li>
                               </ul>
                            </div>
                         </div>

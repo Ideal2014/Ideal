@@ -14,6 +14,7 @@ namespace IBLL
         void Modify(OrderRecordInfo orderRecord);
         IList<OrderRecordInfo> GetAll();
         OrderRecordInfo Get(int id);
+        DataSet GetAllOrder(int id);
 
         DataSet GetOrderList();
         IList<OrderRecordInfo> GetOrdersByDate(DateTime dateTime);

@@ -11,6 +11,8 @@ public partial class Home_Home : System.Web.UI.Page
     private  IBLL.IStudent bllStudent = BLLFactory.DataAccess.CreateStudent();
     protected void Page_Load(object sender, EventArgs e)
     {
+
+        
         if (!IsPostBack)
         {
             if (Request.Cookies["usr"] != null)

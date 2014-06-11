@@ -22,14 +22,15 @@
     <div class="left_2"><h4>根据题意，选择最佳答案</h4></div>
     <div class="right_2">
         <div class="title_r">
-            <span id='word_index'></span>.&nbsp;<span id='name'></span>
+            <span id='word_index'><asp:Label ID="Label2" runat="server"></asp:Label></span>.&nbsp;<span id='name'><asp:Label ID="Label3" runat="server"></asp:Label></span>
         </div>
         <div class="box_r">
-            <div><asp:RadioButton Text="A" ID="av" runat="server" GroupName="colors"/><span id='selection0'></span></div>      
-            <div><asp:RadioButton Text="B" ID='bv' runat="server" GroupName="colors"/><span id='selection1'></span></div>
-            <div><asp:RadioButton Text="C" ID='cv' runat="server" GroupName="colors"/><span id='selection2'></span></div>
-            <div><asp:RadioButton Text="D" ID='dv' runat="server" GroupName="colors"/><span id='selection3'></span></div>
-              
+            <asp:RadioButtonList runat="server" ID="btgp">
+                <asp:ListItem  Value="1" Text="A"></asp:ListItem>
+                <asp:ListItem  Value="2" Text="B"></asp:ListItem>
+                <asp:ListItem  Value="3" Text="C"></asp:ListItem>
+                <asp:ListItem  Value="4" Text="D"></asp:ListItem>
+            </asp:RadioButtonList>
         </div>
     </div>
 </div>
@@ -37,7 +38,7 @@
                            <ul class="pager">
   
   <li>
-      <asp:HyperLink ID="next" runat="server" NavigateUrl="~/Test/../Test/TestPage.aspx">Next</asp:HyperLink>
+      <asp:linkButton ID="next" runat="server" class="btn-color btn-normal btn-pad" Text="Next" OnClick="next_Click"/>
       </li>
 </ul>
                           </div>

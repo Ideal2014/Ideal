@@ -21,6 +21,7 @@ public partial class Student_Login : System.Web.UI.Page
             }
         }
         
+
     }
     protected void Login_Click(object sender, EventArgs e)
     {
@@ -39,7 +40,5 @@ public partial class Student_Login : System.Web.UI.Page
             Response.Cookies.Add(cookie);
             Response.Redirect("~/Home/Home.aspx");
         }
-
     }
-
 }
