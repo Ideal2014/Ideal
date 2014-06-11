@@ -48,10 +48,9 @@ namespace BLL{
         {
             s1.Stu_Password = Md5Support.GetMd5String(s1.Stu_Password);
             StudentInfo s2 = dal.Get(s1.Stu_ID);
-            if (s2.Stu_Password.Equals(s1.Stu_Password))
-                return true;
-            else
-                return false;
+            bool a = (s2.Stu_Password==s1.Stu_Password);
+            return (s2.Stu_Password.Equals(s1.Stu_Password)&&(s2.Stu_Validation==null));
+            
         }
 
         IList<StudentInfo> IBLL.IStudent.GetStudentsByDate(DateTime dateTime)

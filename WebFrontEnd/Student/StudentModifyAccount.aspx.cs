@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using Model;
+using System.IO;
 
 public partial class Student_Student_Modify_Account : System.Web.UI.Page
 {
@@ -22,7 +23,8 @@ public partial class Student_Student_Modify_Account : System.Web.UI.Page
             HttpCookie cookie = Request.Cookies["usr"];
             StudentInfo student = new StudentInfo();
             student.Stu_ID = Convert.ToInt32(cookie.Values["ID"]);
-            student.Stu_Password = cookie.Values["pass"];
+            student.Stu_Password = cookie.Values["pass"].Trim();
+
             if (!bllStudent.CheckLogin(student))
             {
                 Response.Redirect("~/Student/Login.aspx");
@@ -45,9 +47,41 @@ public partial class Student_Student_Modify_Account : System.Web.UI.Page
         student.Stu_UserName = Name.Text.ToString();
         student.Stu_Email = Mailbox.Text.ToString();
         student.Stu_Tel = Telephone.Text.ToString();
-        student.Stu_Sex = Radio.SelectedItem.Value;
+        if(Radio.SelectedItem!=null)
+            student.Stu_Sex = Radio.SelectedItem.Value;
+
+        if (HeadImage.HasFile)
+        {
+            student.Stu_Image = SaveFile(HeadImage.PostedFile);
+        }
         Console.WriteLine("xiugai");
         bllStudent.Modify(student);
         Response.Redirect("~/Student/StudentModifyAccount.aspx");
+    }
+    String SaveFile(HttpPostedFile file)
+    {
+        string savePath = "~/Resource/Image/Upload/";
+
+        string fileName = HeadImage.FileName;
+        string pathToCheck = savePath + fileName;
+        string tempfileName = "";       
+        if (System.IO.File.Exists(pathToCheck))
+        {
+            int counter = 2;
+            while (System.IO.File.Exists(pathToCheck))
+            {
+                tempfileName = counter.ToString() + fileName;
+                pathToCheck = savePath + tempfileName;
+                counter++;
+            }
+            fileName = tempfileName;
+        }   
+        if (System.IO.Directory.Exists(Server.MapPath(savePath)) == false)//如果不存在就创建file文件夹
+        {
+            System.IO.Directory.CreateDirectory(Server.MapPath(savePath));
+        }
+        savePath += fileName;
+        HeadImage.PostedFile.SaveAs(Server.MapPath(savePath));
+        return fileName;
     }
 }
