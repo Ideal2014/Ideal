@@ -37,4 +37,9 @@ public partial class Login_Default : System.Web.UI.Page
 
         }
     }
+
+    protected void LoginValidate_ServerValidate(object source, ServerValidateEventArgs args)
+    {
+       args.IsValid = false; 
+    }
 }

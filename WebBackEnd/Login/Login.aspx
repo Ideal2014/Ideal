@@ -54,9 +54,7 @@
                 <div class="row-fluid">
                     <div class="well span5 center login-box">
                         <div class="alert alert-info">
-                            请输入用户名和密码
-				
-                       
+                          <asp:CustomValidator runat="server" ID="LoginValidate" OnServerValidate="LoginValidate_ServerValidate" ErrorMessage="用户名或密码错误"></asp:CustomValidator>
                         </div>
 
                         <fieldset>

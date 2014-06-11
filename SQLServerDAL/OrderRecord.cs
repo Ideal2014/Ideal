@@ -12,7 +12,7 @@ namespace SQLServerDAL
 {
     public class OrderRecord : IDAL.IOrderRecord
     {
-        private  string connection = System.Configuration.ConfigurationManager.AppSettings["ConnectionString"];
+        private string connection = System.Configuration.ConfigurationManager.AppSettings["ConnectionString"];
 
         void IDAL.IOrderRecord.Add(OrderRecordInfo orderRecord)
         {
@@ -81,10 +81,10 @@ namespace SQLServerDAL
             sqlcon.Close();
             sqlcon.Close();
             return myds;
-           
+
         }
 
-      
+
         IList<OrderRecordInfo> IDAL.IOrderRecord.GetOrdersByDate(DateTime dateTime)
         {
             DataContext ctx = new DataContext(connection);
@@ -92,7 +92,7 @@ namespace SQLServerDAL
             IQueryable<OrderRecordInfo> query = from o in orderRecords
                                                 where o.Ord_Time.Date == dateTime.Date
                                                 select o;
-            return query.ToList<OrderRecordInfo>();   
+            return query.ToList<OrderRecordInfo>();
         }
 
 
@@ -100,6 +100,20 @@ namespace SQLServerDAL
         {
             SqlConnection sqlcon = new SqlConnection(connection);
             string sqlstr = "SELECT OrderRecordInfo.Ord_ID, OrderRecordInfo.Ord_Time, StudentInfo.Stu_UserName, OrderRecordInfo.Ord_Plan FROM OrderRecordInfo INNER JOIN StudentInfo ON OrderRecordInfo.Stu_ID = StudentInfo.Stu_ID";
+            SqlDataAdapter myda = new SqlDataAdapter(sqlstr, sqlcon);
+            DataSet myds = new DataSet();
+            sqlcon.Open();
+            myda.Fill(myds);
+            sqlcon.Close();
+            sqlcon.Close();
+            return myds;
+        }
+
+
+        DataSet IDAL.IOrderRecord.getOrderPercent()
+        {
+            SqlConnection sqlcon = new SqlConnection(connection);
+            string sqlstr = "SELECT 	TeacherInfo.Tea_Name AS label,	COUNT (OrderRecordInfo.Tea_ID) AS data FROM	OrderRecordInfo INNER JOIN TeacherInfo ON OrderRecordInfo.Tea_ID = TeacherInfo.Tea_ID GROUP BY 	TeacherInfo.Tea_Name";
             SqlDataAdapter myda = new SqlDataAdapter(sqlstr, sqlcon);
             DataSet myds = new DataSet();
             sqlcon.Open();

@@ -53,5 +53,11 @@ namespace BLL
         {
             return dal.getOrderNumber();
         }
+
+
+        DataSet IBLL.IOrderRecord.getOrderPercent()
+        {
+            return dal.getOrderPercent();
+        }
     }
 }

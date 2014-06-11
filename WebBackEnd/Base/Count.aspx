@@ -5,10 +5,11 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="content" runat="Server">
     <!-- content starts -->
 
+    <asp:HiddenField ID="HiddenClassNumber" runat="server" ClientIDMode="Static" />
     <asp:HiddenField ID="HiddenClassPercent" runat="server" ClientIDMode="Static" />
     <asp:HiddenField ID="HiddenOrderNumber" runat="server" ClientIDMode="Static" />
-    <asp:HiddenField ID="HiddenField2" runat="server" ClientIDMode="Static" />
-    <asp:HiddenField ID="HiddenField3" runat="server" ClientIDMode="Static" />
+    <asp:HiddenField ID="HiddenOrderPercent" runat="server" ClientIDMode="Static" />
+
     <div>
         <ul class="breadcrumb">
             <li>
@@ -64,28 +65,27 @@
     <div class="row-fluid"></div>
 
     <div class="row-fluid sortable">
-        <!--/span-->
-
-        <div class="box span6">
-            <div class="box-header well" data-original-title>
-                <h2><i class="icon-list-alt"></i>每个机器人访问量百分比</h2>
-            </div>
-            <div class="box-content">
-                <div id="piechart" style="height: 300px"></div>
-            </div>
-        </div>
-        <!--/span-->
-
         <div class="box span6">
             <div class="box-header well">
-                <h2><i class="icon-list-alt"></i>访问量</h2>
+                <h2><i class="icon-list-alt"></i>最近10天外教访问量</h2>
             </div>
             <div class="box-content">
-                <div id="realtimechart" class="center" style="height: 300px"></div>
+                <div id="stackchart-class" class="center" style="height: 300px"></div>
 
             </div>
         </div>
         <!--/span-->
+        <div class="box span6">
+            <div class="box-header well" data-original-title>
+                <h2><i class="icon-list-alt"></i>外教访问量百分比</h2>
+            </div>
+            <div class="box-content">
+                <div id="piechart-class" style="height: 300px"></div>
+            </div>
+        </div>
+        <!--/span-->
+
+
     </div>
     <!--/row-->
 
@@ -94,21 +94,20 @@
 
         <div class="box span6">
             <div class="box-header well" data-original-title>
-                <h2><i class="icon-list-alt"></i>最近10天下单情况</h2>
+                <h2><i class="icon-list-alt"></i>最近10天外教购买量</h2>
             </div>
             <div class="box-content">
-                <div id="stackchart" style="height: 300px"></div>
+                <div id="stackchart-order" style="height: 300px"></div>
             </div>
         </div>
         <!--/span-->
 
         <div class="box span6">
-            <div class="box-header well">
-                <h2><i class="icon-list-alt"></i>机器人当前访问量</h2>
+            <div class="box-header well" data-original-title>
+                <h2><i class="icon-list-alt"></i>外教购买量百分比</h2>
             </div>
             <div class="box-content">
-                <div id="sincos" class="center" style="height: 300px"></div>
-
+                <div id="piechart-order" style="height: 300px"></div>
             </div>
         </div>
         <!--/span-->
@@ -120,11 +119,79 @@
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="js" runat="Server">
     <script>
+        $(document).ready(function () {
+            var class_number = eval($("#HiddenClassNumber").val());
+            alert(class_number);
+            var order_number = eval($("#HiddenOrderNumber").val());
+            alert(order_number);
+            var class_percent = eval($("#HiddenClassPercent").val());
+           
+            var order_percent = eval($("#HiddenOrderPercent").val());
 
-        var data_teacher = eval($("#HiddenClassPercent").val());
+            stackchart_display($("#stackchart-class"), class_number);
+            stackchart_display($("#stackchart-order"), order_number);
+            piechart_display($("#piechart-class"), class_percent);
+            piechart_display($("#piechart-order"), order_percent);
+            function stackchart_display(stackchart, data) {
+                if (stackchart.length) {
+                    var stack = 0, bars = true, lines = false, steps = false;
 
-        var data_order = eval($("#HiddenOrderNumber").val());
+                    function plotWithOptions() {
+                        $.plot(stackchart, [data], {
+                            series: {
+                                stack: stack,
+                                lines: { show: lines, fill: true, steps: steps },
+                                bars: { show: bars, barWidth: 0.6 }
+                            }
+                        });
+                    }
+
+                    plotWithOptions();
+
+                    $(".stackControls input").click(function (e) {
+                        e.preventDefault();
+                        stack = $(this).val() == "With stacking" ? true : null;
+                        plotWithOptions();
+                    });
+                    $(".graphControls input").click(function (e) {
+                        e.preventDefault();
+                        bars = $(this).val().indexOf("Bars") != -1;
+                        lines = $(this).val().indexOf("Lines") != -1;
+                        steps = $(this).val().indexOf("steps") != -1;
+                        plotWithOptions();
+                    });
+                }
+            }
+            function piechart_display(piechart, data) {
+                if (piechart.length) {
+                    $.plot(piechart, data,
+                    {
+                        series: {
+                            pie: {
+                                show: true
+                            }
+                        },
+                        grid: {
+                            hoverable: true,
+                            clickable: true
+                        },
+                        legend: {
+                            show: false
+                        }
+                    });
+
+                    function pieHover(event, pos, obj) {
+                        if (!obj)
+                            return;
+                        percent = parseFloat(obj.series.percent).toFixed(2);
+                        $("#hover").html('<span style="font-weight: bold; color: ' + obj.series.color + '">' + obj.series.label + ' (' + percent + '%)</span>');
+                    }
+                    piechart.bind("plothover", pieHover);
+                }
+            }
+        });
+
+
 
     </script>
 </asp:Content>
-

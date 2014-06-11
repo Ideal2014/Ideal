@@ -9,11 +9,11 @@ using System.Web.UI.WebControls;
 
 public partial class Base_Count : System.Web.UI.Page
 {
-    private  IBLL.IStudent bllStudent = BLLFactory.DataAccess.CreateStudent();
-    private  IBLL.IOrderRecord bllOrderRecord = BLLFactory.DataAccess.CreateOrderRecord();
-    private  IBLL.IClassRecord bllClassRecord = BLLFactory.DataAccess.CreateClassRecord();
-    private  IBLL.IFeedback bllFeedback = BLLFactory.DataAccess.CreateFeedback();
-    private  IBLL.ITeacher bllTeacher = BLLFactory.DataAccess.CreateTeacher();
+    private IBLL.IStudent bllStudent = BLLFactory.DataAccess.CreateStudent();
+    private IBLL.IOrderRecord bllOrderRecord = BLLFactory.DataAccess.CreateOrderRecord();
+    private IBLL.IClassRecord bllClassRecord = BLLFactory.DataAccess.CreateClassRecord();
+    private IBLL.IFeedback bllFeedback = BLLFactory.DataAccess.CreateFeedback();
+    private IBLL.ITeacher bllTeacher = BLLFactory.DataAccess.CreateTeacher();
 
     protected void Page_Load(object sender, EventArgs e)
     {
@@ -49,13 +49,16 @@ public partial class Base_Count : System.Web.UI.Page
         IList<FeedbackInfo> newFeedbackList = bllFeedback.GetFeedBackByDate(DateTime.Now);
         NewFeeNum.Text = newFeedbackList.Count.ToString();
 
+        HiddenClassNumber.Value = getClassNumberJson(classList);
+
+        HiddenOrderNumber.Value = getOrderNumberJson(orderList);
+
         DataSet dsClassPercent = bllClassRecord.getClassPercent();
         HiddenClassPercent.Value = dsToJson(dsClassPercent);
 
-        IList<OrderRecordInfo> orders = bllOrderRecord.GetAll();
-        HiddenOrderNumber.Value = getOrderNumberJson(orders);
+        DataSet dsOrderPercent = bllOrderRecord.getOrderPercent();
+        HiddenOrderPercent.Value = dsToJson(dsOrderPercent);
     }
-
     private string getOrderNumberJson(IList<OrderRecordInfo> orders)
     {
         string json = "";
@@ -64,7 +67,6 @@ public partial class Base_Count : System.Web.UI.Page
         {
             result.SetValue(i + 1, i, 0);
             result.SetValue(0, i, 1);
-
         }
         for (int i = 0; i < orders.Count; i++)
         {
@@ -78,39 +80,65 @@ public partial class Base_Count : System.Web.UI.Page
         System.Text.StringBuilder str = new System.Text.StringBuilder("[");
         for (int i = 0; i < 10; i++)
         {
-
             str.Append("[");
             for (int j = 0; j < 2; j++)
             {
                 str.Append(result.GetValue(i, j) + ",");
             }
-            str.Remove(str.Length - 1, 1);
             str.Append("],");
         }
-        str.Remove(str.Length - 1, 1);
         str.Append("]");
         json = str.ToString();
         return json;
     }
+    private string getClassNumberJson(IList<ClassRecordInfo> classes)
+    {
+        string json = "";
+        int[,] result = new int[10, 2];
+        for (int i = 0; i < 10; i++)
+        {
+            result.SetValue(i + 1, i, 0);
+            result.SetValue(0, i, 1);
+        }
+        for (int i = 0; i < classes.Count; i++)
+        {
+            ClassRecordInfo o = classes[i];
+            int off = DateTime.Now.Day.CompareTo(o.Cla_StartTime.Day);
+            if (off >= 10 | off == 0)
+                continue;
+            result.SetValue(result.GetValue(i, off - 1), off - 1, 1);
+        }
+        System.Text.StringBuilder str = new System.Text.StringBuilder("[");
+        for (int i = 0; i < 10; i++)
+        {
+            str.Append("[");
+            for (int j = 0; j < 2; j++)
+            {
+                str.Append(result.GetValue(i, j) + ",");
+            }
+            str.Append("],");
+        }
+        str.Append("]");
+        json = str.ToString();
+        return json;
+    }
+
+   
+
     private string dsToJson(DataSet ds)
     {
         System.Text.StringBuilder str = new System.Text.StringBuilder("[");
-        for (int o = 0; o < ds.Tables.Count; o++)
+
+        for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
         {
-            for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
+            str.Append("{");
+            for (int j = 0; j < ds.Tables[0].Columns.Count; j++)
             {
-                str.Append("{");
-                for (int j = 0; j < ds.Tables[0].Columns.Count; j++)
-                {
-                    str.Append(string.Format("\"{0}\":\"{1}\",", ds.Tables[0].Columns[j].ColumnName, ds.Tables[0].Rows[i][j].ToString()));
-                }
-                str.Remove(str.Length - 1, 1);
-                str.Append("},");
+                str.Append(string.Format("\"{0}\":\"{1}\",", ds.Tables[0].Columns[j].ColumnName, ds.Tables[0].Rows[i][j].ToString()));
             }
-            str.Remove(str.Length - 1, 1);
-            str.Append("],");
+            str.Append("},");
         }
-        str.Remove(str.Length - 1, 1);
+        str.Append("]");
         return str.ToString();
     }
 }

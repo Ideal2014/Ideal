@@ -20,5 +20,7 @@ namespace IDAL
         IList<OrderRecordInfo> GetOrdersByDate(DateTime dateTime);
 
         DataSet getOrderNumber();
+
+        DataSet getOrderPercent();
     }
 }
