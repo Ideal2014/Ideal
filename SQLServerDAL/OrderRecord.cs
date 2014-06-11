@@ -12,7 +12,7 @@ namespace SQLServerDAL
 {
     public class OrderRecord : IDAL.IOrderRecord
     {
-        private static readonly string connection = System.Configuration.ConfigurationManager.AppSettings["ConnectionString"];
+        private  string connection = System.Configuration.ConfigurationManager.AppSettings["ConnectionString"];
 
         void IDAL.IOrderRecord.Add(OrderRecordInfo orderRecord)
         {
@@ -73,7 +73,7 @@ namespace SQLServerDAL
         DataSet IDAL.IOrderRecord.GetOrderList()
         {
             SqlConnection sqlcon = new SqlConnection(connection);
-            string sqlstr = "SELECT tb_OrderRecord.Ord_ID, tb_OrderRecord.Ord_Time, tb_Student.Stu_UserName, tb_OrderRecord.Ord_Plan FROM tb_OrderRecord INNER JOIN tb_Student ON tb_OrderRecord.Stu_ID = tb_Student.Stu_ID";
+            string sqlstr = "SELECT OrderRecordInfo.Ord_ID, OrderRecordInfo.Ord_Time, StudentInfo.Stu_UserName, OrderRecordInfo.Ord_Plan FROM OrderRecordInfo INNER JOIN StudentInfo ON OrderRecordInfo.Stu_ID = StudentInfo.Stu_ID";
             SqlDataAdapter myda = new SqlDataAdapter(sqlstr, sqlcon);
             DataSet myds = new DataSet();
             sqlcon.Open();
@@ -90,7 +90,7 @@ namespace SQLServerDAL
             DataContext ctx = new DataContext(connection);
             ITable<OrderRecordInfo> orderRecords = ctx.GetTable<OrderRecordInfo>();
             IQueryable<OrderRecordInfo> query = from o in orderRecords
-                                                where o.Ord_Time.Value.Date == dateTime.Date
+                                                where o.Ord_Time.Date == dateTime.Date
                                                 select o;
             return query.ToList<OrderRecordInfo>();   
         }
@@ -99,7 +99,7 @@ namespace SQLServerDAL
         DataSet IDAL.IOrderRecord.getOrderNumber()
         {
             SqlConnection sqlcon = new SqlConnection(connection);
-            string sqlstr = "SELECT tb_OrderRecord.Ord_ID, tb_OrderRecord.Ord_Time, tb_Student.Stu_UserName, tb_OrderRecord.Ord_Plan FROM tb_OrderRecord INNER JOIN tb_Student ON tb_OrderRecord.Stu_ID = tb_Student.Stu_ID";
+            string sqlstr = "SELECT OrderRecordInfo.Ord_ID, OrderRecordInfo.Ord_Time, StudentInfo.Stu_UserName, OrderRecordInfo.Ord_Plan FROM OrderRecordInfo INNER JOIN StudentInfo ON OrderRecordInfo.Stu_ID = StudentInfo.Stu_ID";
             SqlDataAdapter myda = new SqlDataAdapter(sqlstr, sqlcon);
             DataSet myds = new DataSet();
             sqlcon.Open();

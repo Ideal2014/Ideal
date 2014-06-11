@@ -12,7 +12,7 @@ namespace SQLServerDAL
 {
     public class Test : IDAL.ITest
     {
-        private static readonly string connection = System.Configuration.ConfigurationManager.AppSettings["ConnectionString"];
+        private  string connection = System.Configuration.ConfigurationManager.AppSettings["ConnectionString"];
 
         void IDAL.ITest.Add(TestInfo test)
         {
@@ -76,7 +76,7 @@ namespace SQLServerDAL
             try
             {
                 sqlcon = new SqlConnection(connection);
-                string sqlstr = "SELECT   Tes_ID, Tes_Type, Tes_Detail, Tes_A, Tes_C, Tes_B, Tes_D, Tes_Answer FROM  tb_Test";
+                string sqlstr = "SELECT   Tes_ID, Tes_Type, Tes_Detail, Tes_A, Tes_C, Tes_B, Tes_D, Tes_Answer FROM  TestInfo";
                 SqlDataAdapter myda = new SqlDataAdapter(sqlstr, sqlcon);
                 DataSet myds = new DataSet();
                 sqlcon.Open();

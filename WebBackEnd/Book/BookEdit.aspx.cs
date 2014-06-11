@@ -8,8 +8,8 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 public partial class Book_BookAdd : System.Web.UI.Page
 {
-    private static readonly IBLL.IBook bllBook = BLLFactory.DataAccess.CreateBook();
-    private static readonly IBLL.ITeacher bllTeacher = BLLFactory.DataAccess.CreateTeacher();
+    private  IBLL.IBook bllBook = BLLFactory.DataAccess.CreateBook();
+    private  IBLL.ITeacher bllTeacher = BLLFactory.DataAccess.CreateTeacher();
     protected void Page_Load(object sender, EventArgs e)
     {
         if (!IsPostBack)
@@ -30,7 +30,7 @@ public partial class Book_BookAdd : System.Web.UI.Page
     {
         BookInfo book = new BookInfo();
      
-        book.Boo_RegisterDate = (DateTime?)UpdataTime.SelectedDate;
+        book.Boo_RegisterDate = UpdataTime.SelectedDate;
         book.Tea_ID =Int32.Parse(TeacherList.SelectedValue);
         book.Boo_Image = System.IO.Path.GetFileName(BookPic.PostedFile.FileName);
         book.Boo_Preview = System.IO.Path.GetFileName(BookScan.PostedFile.FileName);

@@ -35,7 +35,7 @@ public partial class Teacher_TeacherEdit : System.Web.UI.Page
         TeacherNickName.Text = teacher.Tea_Nickname;
         //头像
         TeacherSex.SelectedValue = teacher.Tea_Sex;
-        TeacherAge.Text = teacher.Tea_Age.Value.ToString();
+        TeacherAge.Text = teacher.Tea_Age.ToString();
         TeacherNation.SelectedValue = teacher.Tea_Nation;
         TeacherSkill.Text = teacher.Tea_Skill;
         TeacherSuitable.Text = teacher.Tea_Suitable;

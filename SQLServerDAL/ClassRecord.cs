@@ -12,7 +12,7 @@ namespace SQLServerDAL
 {
     public class ClassRecord : IDAL.IClassRecord
     {
-        private static readonly string connection = System.Configuration.ConfigurationManager.AppSettings["ConnectionString"];
+        private  string connection = System.Configuration.ConfigurationManager.AppSettings["ConnectionString"];
 
         void IDAL.IClassRecord.Add(ClassRecordInfo classRecord)
         {
@@ -75,7 +75,7 @@ namespace SQLServerDAL
             try
             {
                 sqlcon = new SqlConnection(connection);
-                string sqlstr = "SELECT   tb_Teacher.Tea_Name AS label, COUNT(tb_ClassRecord.Tea_ID) AS data FROM tb_ClassRecord INNER JOIN tb_Teacher ON tb_ClassRecord.Tea_ID = tb_Teacher.Tea_ID GROUP BY tb_Teacher.Tea_Name";
+                string sqlstr = "SELECT   TeacherInfo.Tea_Name AS label, COUNT(ClassRecordInfo.Tea_ID) AS data FROM ClassRecordInfo INNER JOIN TeacherInfo ON ClassRecordInfo.Tea_ID = TeacherInfo.Tea_ID GROUP BY TeacherInfo.Tea_Name";
                 SqlDataAdapter myda = new SqlDataAdapter(sqlstr, sqlcon);
                 DataSet myds = new DataSet();
                 sqlcon.Open();
@@ -95,7 +95,7 @@ namespace SQLServerDAL
             try
             {
                 sqlcon = new SqlConnection(connection);
-                string sqlstr =string.Format("SELECT tb_Teacher.Tea_Name, tb_ClassRecord.Cla_StartTime, tb_ClassRecord.Cla_EndTime FROM tb_ClassRecord INNER JOIN tb_Teacher ON tb_ClassRecord.Tea_ID = tb_Teacher.Tea_ID WHERE tb_ClassRecord.Stu_ID = {0}",stu_id);
+                string sqlstr =string.Format("SELECT TeacherInfo.Tea_Name, ClassRecordInfo.Cla_StartTime, ClassRecordInfo.Cla_EndTime FROM ClassRecordInfo INNER JOIN TeacherInfo ON ClassRecordInfo.Tea_ID = TeacherInfo.Tea_ID WHERE ClassRecordInfo.Stu_ID = {0}",stu_id);
                 SqlDataAdapter myda = new SqlDataAdapter(sqlstr, sqlcon);
                 DataSet myds = new DataSet();
                 sqlcon.Open();
@@ -115,7 +115,7 @@ namespace SQLServerDAL
             DataContext ctx = new DataContext(connection);
             ITable<ClassRecordInfo> classRecords = ctx.GetTable<ClassRecordInfo>();
             IQueryable<ClassRecordInfo> query = from o in classRecords
-                                                where o.Cla_StartTime.Value.Date == dateTime.Date
+                                                where o.Cla_StartTime.Date == dateTime.Date
                                                 select o;
             return query.ToList<ClassRecordInfo>();
         }

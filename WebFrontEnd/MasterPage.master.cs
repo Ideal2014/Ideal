@@ -8,7 +8,7 @@ using System.Web.UI.WebControls;
 
 public partial class MasterPage : System.Web.UI.MasterPage
 {
-    private static readonly IBLL.IStudent stu = BLLFactory.DataAccess.CreateStudent();
+    private  IBLL.IStudent stu = BLLFactory.DataAccess.CreateStudent();
     protected void Page_Load(object sender, EventArgs e)
     {
         HttpCookie cookie = Request.Cookies["usr"];

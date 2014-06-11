@@ -14,7 +14,7 @@ namespace SQLServerDAL
 {
     public class Book : IDAL.IBook
     {
-        private static readonly string connection = System.Configuration.ConfigurationManager.AppSettings["ConnectionString"];
+        private  string connection = System.Configuration.ConfigurationManager.AppSettings["ConnectionString"];
 
         void IDAL.IBook.Add(BookInfo book)
         {
@@ -81,7 +81,7 @@ namespace SQLServerDAL
             try
             {
                 sqlcon = new SqlConnection(connection);
-                string sqlstr = string.Format("SELECT tb_Book.Boo_ID, tb_Book.Boo_Image, tb_Book.Boo_Desribe, tb_Book.Boo_Desribe, tb_Book.Boo_RegisterDate, tb_Book.Boo_Preview, tb_Book.Boo_View, tb_Book.Boo_Name, tb_Teacher.Tea_Name FROM tb_Book INNER JOIN tb_Teacher ON tb_Book.Tea_ID = tb_Teacher.Tea_ID ");
+                string sqlstr = string.Format("SELECT BookInfo.Boo_ID, BookInfo.Boo_Image, BookInfo.Boo_Desribe, BookInfo.Boo_Desribe, BookInfo.Boo_RegisterDate, BookInfo.Boo_Preview, BookInfo.Boo_View, BookInfo.Boo_Name, TeacherInfo.Tea_Name FROM BookInfo INNER JOIN TeacherInfo ON BookInfo.Tea_ID = TeacherInfo.Tea_ID ");
                 SqlDataAdapter myda = new SqlDataAdapter(sqlstr, sqlcon);
                 DataSet myds = new DataSet();
                 sqlcon.Open();

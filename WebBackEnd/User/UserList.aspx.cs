@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 public partial class User_UserList : System.Web.UI.Page
 {
-    private static readonly IBLL.IStudent bllStudent = BLLFactory.DataAccess.CreateStudent();
+    private  IBLL.IStudent bllStudent = BLLFactory.DataAccess.CreateStudent();
 
     protected void Page_Load(object sender, EventArgs e)
     {

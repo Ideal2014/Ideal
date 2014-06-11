@@ -10,7 +10,7 @@ using System.IO;
 
 public partial class Student_StudentResetPassword : System.Web.UI.Page
 {
-    private static readonly IBLL.IStudent bllStudent = BLLFactory.DataAccess.CreateStudent();
+    private  IBLL.IStudent bllStudent = BLLFactory.DataAccess.CreateStudent();
     protected void Page_Load(object sender, EventArgs e)
     {
         if (Request.Cookies["usr"] == null)

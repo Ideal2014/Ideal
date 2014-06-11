@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 public partial class MasterPage : System.Web.UI.MasterPage
 {
-    private static readonly IBLL.IAdmin bllAdmin = BLLFactory.DataAccess.CreateAdmin();
+    private  IBLL.IAdmin bllAdmin = BLLFactory.DataAccess.CreateAdmin();
 
     protected void Page_Load(object sender, EventArgs e)
     {

@@ -8,7 +8,7 @@ using Model;
 
 public partial class Teacher_TeacherMemTeaInfo : System.Web.UI.Page
 {
-    private static readonly IBLL.ITeacher bllTeacher = BLLFactory.DataAccess.CreateTeacher();
+    private  IBLL.ITeacher bllTeacher = BLLFactory.DataAccess.CreateTeacher();
 
     protected void Page_Load(object sender, EventArgs e)
     {

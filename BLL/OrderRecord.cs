@@ -9,7 +9,7 @@ namespace BLL
 {
     public class OrderRecord : IBLL.IOrderRecord
     {
-        private static readonly IDAL.IOrderRecord dal = DALFactory.DataAccess.CreateOrderRecord();
+        private  IDAL.IOrderRecord dal = DALFactory.DataAccess.CreateOrderRecord();
 
         void IBLL.IOrderRecord.Add(OrderRecordInfo orderRecord)
         {

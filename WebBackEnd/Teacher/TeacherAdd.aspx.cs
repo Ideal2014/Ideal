@@ -6,10 +6,11 @@ using System.Text.RegularExpressions;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using WebSupport;
 
 public partial class Teacher_TeacherAdd : System.Web.UI.Page
 {
-    private static readonly IBLL.ITeacher bllTeacher = BLLFactory.DataAccess.CreateTeacher();
+    private IBLL.ITeacher bllTeacher = BLLFactory.DataAccess.CreateTeacher();
 
     protected void Page_Load(object sender, EventArgs e)
     {
@@ -37,7 +38,11 @@ public partial class Teacher_TeacherAdd : System.Web.UI.Page
             throw new Exception();
         if (!Regex.IsMatch(TeacherDescribe.Text.ToString(), @"^\S*$"))
             throw new Exception();
-        
+
+        string error;
+        if (!UploadSupport.SaveImage(TeacherImage, ShowImage, Server.MapPath("~/"), "1.png", out error))
+            return;
+
         TeacherInfo teacher = new TeacherInfo();
 
         teacher.Tea_Name = TeacherName.Text.ToString();

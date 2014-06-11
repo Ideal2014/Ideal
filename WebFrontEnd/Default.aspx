@@ -2,17 +2,14 @@
 
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
 <head runat="server">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8;"/>
     <title></title>
 </head>
 <body>
     <form id="form1" runat="server">
-    <div>
-    <h2>这是前台！</h2>
-    </div>
-        
+    <div></div>
     </form>
 </body>
 </html>

@@ -10,7 +10,7 @@ namespace BLL
 {
     public class Book : IBLL.IBook
     {
-        private static readonly IDAL.IBook dal = DALFactory.DataAccess.CreateBook();
+        private  IDAL.IBook dal = DALFactory.DataAccess.CreateBook();
 
         void IBLL.IBook.Add(BookInfo book)
         {

@@ -12,7 +12,7 @@ namespace SQLServerDAL
 {
     public class Student : IDAL.IStudent
     {
-        private static readonly string connection = System.Configuration.ConfigurationManager.AppSettings["ConnectionString"];
+        private  string connection = System.Configuration.ConfigurationManager.AppSettings["ConnectionString"];
 
         void IDAL.IStudent.Add(StudentInfo student)
         {
@@ -88,7 +88,7 @@ namespace SQLServerDAL
             DataContext ctx = new DataContext(connection);
             ITable<StudentInfo> students = ctx.GetTable<StudentInfo>();
             IQueryable<StudentInfo> query = from s in students
-                                            where s.Stu_RegisteTime.Value.Date == dateTime.Date
+                                            where s.Stu_RegisteTime.Date == dateTime.Date
                                             select s;
             return query.ToList<StudentInfo>();
         }
@@ -97,7 +97,7 @@ namespace SQLServerDAL
         System.Data.DataSet IDAL.IStudent.getStudentList()
         {
             SqlConnection sqlcon = new SqlConnection(connection);
-            string sqlstr = "SELECT   Stu_ID, Stu_UserName FROM      tb_Student";
+            string sqlstr = "SELECT   Stu_ID, Stu_UserName FROM      StudentInfo";
             SqlDataAdapter myda = new SqlDataAdapter(sqlstr, sqlcon);
             DataSet myds = new DataSet();
             sqlcon.Open();

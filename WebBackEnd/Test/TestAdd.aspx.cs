@@ -8,7 +8,7 @@ using Model;
 
 public partial class Test_TestADD : System.Web.UI.Page
 {
-    private static readonly IBLL.ITest bllTest = BLLFactory.DataAccess.CreateTest();
+    private  IBLL.ITest bllTest = BLLFactory.DataAccess.CreateTest();
     protected void Page_Load(object sender, EventArgs e)
     {
 

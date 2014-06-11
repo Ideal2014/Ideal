@@ -10,7 +10,7 @@ namespace SQLServerDAL
 {
     public class Balance : IDAL.IBalance
     {
-        private static readonly string connection = System.Configuration.ConfigurationManager.AppSettings["ConnectionString"];
+        private  string connection = System.Configuration.ConfigurationManager.AppSettings["ConnectionString"];
 
         void IDAL.IBalance.Add(BalanceInfo balance)
         {

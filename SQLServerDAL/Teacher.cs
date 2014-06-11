@@ -12,7 +12,7 @@ namespace SQLServerDAL
 {
     public class Teacher : IDAL.ITeacher
     {
-        private static readonly string connection = System.Configuration.ConfigurationManager.AppSettings["ConnectionString"];
+        private  string connection = System.Configuration.ConfigurationManager.AppSettings["ConnectionString"];
 
         void IDAL.ITeacher.Add(TeacherInfo teacher)
         {
@@ -82,7 +82,7 @@ namespace SQLServerDAL
         {
 
             SqlConnection sqlcon = new SqlConnection(connection);
-            string sqlstr = "SELECT   Tea_ID, Tea_Name FROM      tb_Teacher";
+            string sqlstr = "SELECT   Tea_ID, Tea_Name FROM      TeacherInfo";
             SqlDataAdapter myda = new SqlDataAdapter(sqlstr, sqlcon);
             DataSet myds = new DataSet();
             sqlcon.Open();

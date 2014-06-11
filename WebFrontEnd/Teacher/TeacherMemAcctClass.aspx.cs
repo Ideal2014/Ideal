@@ -8,7 +8,7 @@ using Model;
 
 public partial class Teacher_TeacherAccount : System.Web.UI.Page
 {
-    private static readonly IBLL.IClassRecord bllClassRecord = BLLFactory.DataAccess.CreateClassRecord();
+    private  IBLL.IClassRecord bllClassRecord = BLLFactory.DataAccess.CreateClassRecord();
 
     protected void Page_Load(object sender, EventArgs e)
     {

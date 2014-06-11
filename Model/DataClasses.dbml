@@ -1,98 +1,103 @@
-﻿﻿<?xml version="1.0" encoding="utf-8"?><Database Name="Viki" Class="DataClassesDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=ADMIN-PC;Initial Catalog=Viki;Integrated Security=True" SettingsObjectName="Model.Properties.Settings" SettingsPropertyName="vikiConnectionString" Provider="System.Data.SqlClient" />
-  <Table Name="dbo.tb_Test" Member="TestInfo">
-    <Type Name="TestInfo">
-      <Column Name="Tes_ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="Tes_Type" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
-      <Column Name="Tes_Detail" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
-      <Column Name="Tes_A" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
-      <Column Name="Tes_B" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
-      <Column Name="Tes_C" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
-      <Column Name="Tes_D" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
-      <Column Name="Tes_Answer" Type="System.Int32" DbType="Int" CanBeNull="true" />
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="viki" Class="DataClassesDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=(local);Initial Catalog=viki;Integrated Security=True;Pooling=False" SettingsObjectName="Model.Properties.Settings" SettingsPropertyName="vikiConnectionString2" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.AdminInfo" Member="AdminInfo">
+    <Type Name="AdminInfo">
+      <Column Name="Adm_ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Adm_UserName" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="Adm_Password" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="Adm_Email" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="Adm_LastLogin" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
     </Type>
   </Table>
-  <Table Name="dbo.tb_Balance" Member="BalanceInfo">
+  <Table Name="dbo.TestInfo" Member="TestInfo">
+    <Type Name="TestInfo">
+      <Column Name="Tes_ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Tes_Type" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="Tes_Detail" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="Tes_A" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="Tes_B" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="Tes_C" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="Tes_D" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="Tes_Answer" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.BalanceInfo" Member="BalanceInfo">
     <Type Name="BalanceInfo">
       <Column Name="Bal_ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="Stu_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="Tea_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="Bal_Time" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Bal_Time" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
     </Type>
   </Table>
-  <Table Name="dbo.tb_ClassRecord" Member="ClassRecordInfo">
-    <Type Name="ClassRecordInfo">
-      <Column Name="Cla_ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="Stu_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="Tea_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="Cla_StartTime" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="Cla_EndTime" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.tb_OrderRecord" Member="OrderRecordInfo">
-    <Type Name="OrderRecordInfo">
-      <Column Name="Ord_ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="Stu_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="Tea_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="Ord_Time" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="Ord_Plan" Type="System.Int32" DbType="Int" CanBeNull="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.tb_Book" Member="BookInfo">
+  <Table Name="dbo.BookInfo" Member="BookInfo">
     <Type Name="BookInfo">
       <Column Name="Boo_ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="Tea_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="Boo_Image" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="Boo_Desribe" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
-      <Column Name="Boo_RegisterDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="Boo_Preview" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="Boo_View" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="Boo_Name" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Tea_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Boo_Image" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Boo_Desribe" Type="System.String" DbType="VarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="Boo_RegisterDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="Boo_Preview" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Boo_View" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Boo_Name" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
     </Type>
   </Table>
-  <Table Name="dbo.tb_Student" Member="StudentInfo">
-    <Type Name="StudentInfo">
-      <Column Name="Stu_ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="Stu_UserName" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
-      <Column Name="Stu_Password" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
-      <Column Name="Stu_Email" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
-      <Column Name="Stu_Image" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="Stu_LastLogin" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="Stu_RegisteTime" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+  <Table Name="dbo.ClassRecordInfo" Member="ClassRecordInfo">
+    <Type Name="ClassRecordInfo">
+      <Column Name="Cla_ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Stu_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Tea_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Cla_StartTime" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="Cla_EndTime" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
     </Type>
   </Table>
-  <Table Name="dbo.tb_Feedback" Member="FeedbackInfo">
+  <Table Name="dbo.FeedbackInfo" Member="FeedbackInfo">
     <Type Name="FeedbackInfo">
       <Column Name="Fee_ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="Stu_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="Fee_Topic" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="Fee_Detail" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
-      <Column Name="Fee_Time" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="Fee_Level" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+      <Column Name="Stu_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Fee_Topic" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Fee_Detail" Type="System.String" DbType="VarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="Fee_Time" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="Fee_Level" Type="System.Char" DbType="Char(1) NOT NULL" CanBeNull="false" />
     </Type>
   </Table>
-  <Table Name="dbo.tb_Teacher" Member="TeacherInfo">
+  <Table Name="dbo.OrderRecordInfo" Member="OrderRecordInfo">
+    <Type Name="OrderRecordInfo">
+      <Column Name="Ord_ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Stu_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Tea_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Ord_Time" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="Ord_Plan" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.StudentInfo" Member="StudentInfo">
+    <Type Name="StudentInfo">
+      <Column Name="Stu_ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Stu_UserName" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Stu_Password" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Stu_Email" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Stu_Image" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="Stu_LastLogin" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="Stu_RegisteTime" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="Stu_Sex" Type="System.String" DbType="Char(10) NOT NULL" CanBeNull="false" />
+      <Column Name="Stu_Birthday" Type="System.DateTime" DbType="SmallDateTime NOT NULL" CanBeNull="false" />
+      <Column Name="Stu_Tel" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="Stu_Validation" Type="System.String" DbType="Char(10) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TeacherInfo" Member="TeacherInfo">
     <Type Name="TeacherInfo">
       <Column Name="Tea_ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="Tea_Name" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
-      <Column Name="Tea_Nickname" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
-      <Column Name="Tea_Image" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="Tea_Describe" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
-      <Column Name="Tea_Sex" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
-      <Column Name="Tea_Age" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="Tea_Skill" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="Tea_Nation" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
-      <Column Name="Tea_About" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
-      <Column Name="Tea_Suitable" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.tb_Admin" Member="AdminInfo">
-    <Type Name="AdminInfo">
-      <Column Name="Adm_ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="Adm_UserName" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
-      <Column Name="Adm_Password" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
-      <Column Name="Adm_Email" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
-      <Column Name="Adm_LastLogin" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Tea_Name" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="Tea_Nickname" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="Tea_Image" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Tea_Describe" Type="System.String" DbType="VarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="Tea_Sex" Type="System.String" DbType="Char(2) NOT NULL" CanBeNull="false" />
+      <Column Name="Tea_Age" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Tea_Skill" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Tea_Nation" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="Tea_About" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="Tea_Suitable" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="Tea_SImage" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
     </Type>
   </Table>
 </Database>

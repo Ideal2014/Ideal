@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 public partial class Feedback_Feedback : System.Web.UI.Page
 {
-    private static readonly IBLL.IFeedback bllFeedback = BLLFactory.DataAccess.CreateFeedback();
+    private  IBLL.IFeedback bllFeedback = BLLFactory.DataAccess.CreateFeedback();
     protected void Page_Load(object sender, EventArgs e)
     {
         if (!IsPostBack)

@@ -9,7 +9,7 @@ using System.Web.UI.WebControls;
 
 public partial class User_AdminAdd : System.Web.UI.Page
 {
-    private static readonly IBLL.IAdmin bllAdmin = BLLFactory.DataAccess.CreateAdmin();
+    private  IBLL.IAdmin bllAdmin = BLLFactory.DataAccess.CreateAdmin();
 
     protected void Page_Load(object sender, EventArgs e)
     {
@@ -21,7 +21,7 @@ public partial class User_AdminAdd : System.Web.UI.Page
             throw new Exception();
         if (!Regex.IsMatch(AdminNickName.Text.ToString(), @"^\S[^\^]+$"))
             throw new Exception();
-        if (!Regex.IsMatch(AdminEmail.Text.ToString(), @"^([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+@([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+\.[a-zA-Z]{2,3}$"))
+        if (!Regex.IsMatch(AdminEmail.Text.ToString(), @"^([a-zA-Z0-9]+[_|_|\.]?)*[a-zA-Z0-9]+@([a-zA-Z0-9]+[_|_|\.]?)*[a-zA-Z0-9]+\.[a-zA-Z]{2,3}$"))
             throw new Exception();
         if (!Regex.IsMatch(AdminPassword.Text.ToString(), @"^\S{1,10}$"))
             throw new Exception();

@@ -9,7 +9,7 @@ namespace BLL
 {
     public class ClassRecord : IBLL.IClassRecord
     {
-        private static readonly IDAL.IClassRecord dal = DALFactory.DataAccess.CreateClassRecord();
+        private  IDAL.IClassRecord dal = DALFactory.DataAccess.CreateClassRecord();
 
         void IBLL.IClassRecord.Add(ClassRecordInfo classRecord)
         {

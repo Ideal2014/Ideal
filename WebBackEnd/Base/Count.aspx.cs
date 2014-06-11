@@ -9,11 +9,11 @@ using System.Web.UI.WebControls;
 
 public partial class Base_Count : System.Web.UI.Page
 {
-    private static readonly IBLL.IStudent bllStudent = BLLFactory.DataAccess.CreateStudent();
-    private static readonly IBLL.IOrderRecord bllOrderRecord = BLLFactory.DataAccess.CreateOrderRecord();
-    private static readonly IBLL.IClassRecord bllClassRecord = BLLFactory.DataAccess.CreateClassRecord();
-    private static readonly IBLL.IFeedback bllFeedback = BLLFactory.DataAccess.CreateFeedback();
-    private static readonly IBLL.ITeacher bllTeacher = BLLFactory.DataAccess.CreateTeacher();
+    private  IBLL.IStudent bllStudent = BLLFactory.DataAccess.CreateStudent();
+    private  IBLL.IOrderRecord bllOrderRecord = BLLFactory.DataAccess.CreateOrderRecord();
+    private  IBLL.IClassRecord bllClassRecord = BLLFactory.DataAccess.CreateClassRecord();
+    private  IBLL.IFeedback bllFeedback = BLLFactory.DataAccess.CreateFeedback();
+    private  IBLL.ITeacher bllTeacher = BLLFactory.DataAccess.CreateTeacher();
 
     protected void Page_Load(object sender, EventArgs e)
     {
@@ -69,7 +69,7 @@ public partial class Base_Count : System.Web.UI.Page
         for (int i = 0; i < orders.Count; i++)
         {
             OrderRecordInfo o = orders[i];
-            int off = DateTime.Now.Day.CompareTo(o.Ord_Time.Value.Day);
+            int off = DateTime.Now.Day.CompareTo(o.Ord_Time.Day);
             if (off >= 10 | off == 0)
                 continue;
             //DateTime.

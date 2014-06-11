@@ -8,7 +8,7 @@ namespace BLL
 {
     public class Balance : IBLL.IBalance
     {
-        private static readonly IDAL.IBalance dal = DALFactory.DataAccess.CreateBalance();
+        private  IDAL.IBalance dal = DALFactory.DataAccess.CreateBalance();
 
         void IBLL.IBalance.Add(BalanceInfo balance)
         {

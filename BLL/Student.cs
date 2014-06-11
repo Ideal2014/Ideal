@@ -8,7 +8,7 @@ using BLLSupport;
 namespace BLL{
     public class Student : IBLL.IStudent
     {
-        private static readonly IDAL.IStudent dal = DALFactory.DataAccess.CreateStudent();
+        private  IDAL.IStudent dal = DALFactory.DataAccess.CreateStudent();
 
         void IBLL.IStudent.Add(StudentInfo student)
         {

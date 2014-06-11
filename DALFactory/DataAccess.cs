@@ -9,7 +9,7 @@ namespace DALFactory
 {
     public sealed class DataAccess
     {
-        private static readonly string path = ConfigurationManager.AppSettings["DAL"];
+        private static  string path = ConfigurationManager.AppSettings["DAL"];
 
         public static IDAL.IStudent CreateStudent()
         {

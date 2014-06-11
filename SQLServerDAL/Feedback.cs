@@ -11,7 +11,7 @@ namespace SQLServerDAL
 {
     public class Feedback : IDAL.IFeedback
     {
-        private static readonly string connection = System.Configuration.ConfigurationManager.AppSettings["ConnectionString"];
+        private  string connection = System.Configuration.ConfigurationManager.AppSettings["ConnectionString"];
 
         void IDAL.IFeedback.Add(FeedbackInfo feedback)
         {
@@ -105,7 +105,7 @@ namespace SQLServerDAL
             try
             {
                 sqlcon = new SqlConnection(connection);
-                string sqlstr = "SELECT tb_Feedback.Fee_ID tb_Feedback.Fee_Topic, tb_Feedback.Fee_Detail, tb_Feedback.Fee_Time, tb_Feedback.Fee_Level,tb_Student.Stu_UserName FROM tb_Feedback INNER JOIN tb_Student ON tb_Feedback.Stu_ID = tb_Student.Stu_ID";
+                string sqlstr = "SELECT FeedbackInfo.Fee_ID FeedbackInfo.Fee_Topic, FeedbackInfo.Fee_Detail, FeedbackInfo.Fee_Time, FeedbackInfo.Fee_Level,StudentInfo.Stu_UserName FROM FeedbackInfo INNER JOIN StudentInfo ON FeedbackInfo.Stu_ID = StudentInfo.Stu_ID";
                 SqlDataAdapter myda = new SqlDataAdapter(sqlstr, sqlcon);
                 DataSet myds = new DataSet();
                 sqlcon.Open();
@@ -126,7 +126,7 @@ namespace SQLServerDAL
             DataContext ctx = new DataContext(connection);
             ITable<FeedbackInfo> feedbacks = ctx.GetTable<FeedbackInfo>();
             IQueryable<FeedbackInfo> query = from o in feedbacks
-                                             where o.Fee_Time.Value.Date ==dateTime.Date
+                                             where o.Fee_Time.Date==dateTime.Date
                                              select o;
             return query.ToList<FeedbackInfo>();
         }

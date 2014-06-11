@@ -8,7 +8,7 @@ namespace BLL
 {
     public class Test : IBLL.ITest
     {
-        private static readonly IDAL.ITest dal = DALFactory.DataAccess.CreateTest();
+        private  IDAL.ITest dal = DALFactory.DataAccess.CreateTest();
 
         void IBLL.ITest.Add(TestInfo student)
         {

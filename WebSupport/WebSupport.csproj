@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{237591BF-FE1D-4443-8F72-CB33D6676AAE}</ProjectGuid>
+    <ProjectGuid>{ADCFE757-41C0-4FD3-9565-BD2B7B03E408}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>BLL</RootNamespace>
-    <AssemblyName>BLL</AssemblyName>
+    <RootNamespace>WebSupport</RootNamespace>
+    <AssemblyName>WebSupport</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -31,43 +31,11 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
-    <Reference Include="System.configuration" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.XML" />
+    <Reference Include="System.Web" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Admin.cs" />
+    <Compile Include="UploadSupport.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Balance.cs" />
-    <Compile Include="Book.cs" />
-    <Compile Include="ClassRecord.cs" />
-    <Compile Include="Feedback.cs" />
-    <Compile Include="OrderRecord.cs" />
-    <Compile Include="Teacher.cs" />
-    <Compile Include="Test.cs" />
-    <Compile Include="Student.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\BLLSupport\BLLSupport.csproj">
-      <Project>{e627b9de-6309-4669-a333-961e9eb48ed2}</Project>
-      <Name>BLLSupport</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\DALFactory\DALFactory.csproj">
-      <Project>{78831ea8-f7e7-4639-bf25-e9daf9ea01f3}</Project>
-      <Name>DALFactory</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\IBLL\IBLL.csproj">
-      <Project>{6a28cb25-479e-4090-8320-7abac3a68e49}</Project>
-      <Name>IBLL</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\IDAL\IDAL.csproj">
-      <Project>{c1bbbc03-e908-4256-92e7-4d2a3bff106f}</Project>
-      <Name>IDAL</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Model\Model.csproj">
-      <Project>{ad8f07b8-2599-46ba-a70b-30f70299214d}</Project>
-      <Name>Model</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

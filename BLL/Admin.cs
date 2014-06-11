@@ -8,7 +8,7 @@ namespace BLL
 {
     public class Admin : IBLL.IAdmin
     {
-        private static readonly IDAL.IAdmin dal = DALFactory.DataAccess.CreateAdmin();
+        private  IDAL.IAdmin dal = DALFactory.DataAccess.CreateAdmin();
 
         void IBLL.IAdmin.Add(AdminInfo admin)
         {

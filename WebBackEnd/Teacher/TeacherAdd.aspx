@@ -53,8 +53,9 @@
                     <div class="control-group">
                         <label class="control-label" for="focusedInput">头像 </label>
                         <div class="controls">
-                            <asp:FileUpload runat="server" ID="TeacherImage" ToolTip="传~" />
+                            <asp:FileUpload runat="server" ID="TeacherImage" ToolTip="上传头像" />
                             <asp:Image runat="server" ID="ShowImage" />
+                            
                         </div>
                     </div>
                     <div class="control-group">

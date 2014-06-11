@@ -9,7 +9,7 @@ namespace BLLFactory
 {
     public sealed class DataAccess
     {
-        private static readonly string path = ConfigurationManager.AppSettings["BLL"];
+        private static string path = ConfigurationManager.AppSettings["BLL"];
 
         public static IBLL.IStudent CreateStudent()
         {

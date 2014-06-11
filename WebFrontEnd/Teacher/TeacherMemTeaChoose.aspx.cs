@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 public partial class Teacher_TeacherMemTeaChoose : System.Web.UI.Page
 {
-    private static readonly IBLL.ITeacher bllTeacher = BLLFactory.DataAccess.CreateTeacher();
+    private  IBLL.ITeacher bllTeacher = BLLFactory.DataAccess.CreateTeacher();
 
     protected void Page_Load(object sender, EventArgs e)
     {

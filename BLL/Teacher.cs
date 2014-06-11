@@ -8,7 +8,7 @@ namespace BLL
 {
     public class Teacher : IBLL.ITeacher
     {
-        private static readonly IDAL.ITeacher dal = DALFactory.DataAccess.CreateTeacher();
+        private  IDAL.ITeacher dal = DALFactory.DataAccess.CreateTeacher();
 
         void IBLL.ITeacher.Add(TeacherInfo teacher)
         {

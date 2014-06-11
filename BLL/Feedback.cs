@@ -8,7 +8,7 @@ namespace BLL
 {
     public class Feedback : IBLL.IFeedback
     {
-        private static readonly IDAL.IFeedback dal = DALFactory.DataAccess.CreateFeedback();
+        private  IDAL.IFeedback dal = DALFactory.DataAccess.CreateFeedback();
 
         void IBLL.IFeedback.Add(FeedbackInfo student)
         {

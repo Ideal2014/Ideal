@@ -8,8 +8,8 @@ using System.Web.UI.WebControls;
 
 public partial class Book_BookList : System.Web.UI.Page
 {
-    private static readonly IBLL.IBook bllBook = BLLFactory.DataAccess.CreateBook();
-    private static readonly IBLL.ITeacher bllTeacher = BLLFactory.DataAccess.CreateTeacher();
+    private  IBLL.IBook bllBook = BLLFactory.DataAccess.CreateBook();
+    private  IBLL.ITeacher bllTeacher = BLLFactory.DataAccess.CreateTeacher();
 
     protected void Page_Load(object sender, EventArgs e)
     {
