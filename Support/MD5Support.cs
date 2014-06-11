@@ -11,11 +11,9 @@ namespace BLLSupport
     {
         public static String GetMd5String(String input)
         {
-            MD5 md5 = new MD5CryptoServiceProvider();
-            byte[] res = md5.ComputeHash(Encoding.Default.GetBytes(input), 0, input.Length);
-            char[] temp = new char[res.Length];
-            System.Array.Copy(res, temp, res.Length);
-            return new String(temp);
+            MD5 md5Hasher = MD5.Create();
+            byte[] data = md5Hasher.ComputeHash(Encoding.GetEncoding("UTF-8").GetBytes(input));
+            return BitConverter.ToString(data);
         }
 
     }

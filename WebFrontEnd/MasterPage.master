@@ -37,8 +37,8 @@
       <link rel="stylesheet" href="css/ie.css">
       <![endif]-->
 </head>
-<body class="home">
-    <form id="Form1" runat="server">
+<body class="home" >
+    <form id="Form1" runat="server" accept-charset="utf-8">
 
         <div class="wrap">
             <!-- Header Start -->
