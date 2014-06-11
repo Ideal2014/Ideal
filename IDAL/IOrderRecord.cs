@@ -14,6 +14,7 @@ namespace IDAL
         void Modify(OrderRecordInfo orderRecord);
         IList<OrderRecordInfo> GetAll();
         OrderRecordInfo Get(int id);
+        DataSet GetAllOrder(int id);
 
         DataSet GetOrderList();
     }

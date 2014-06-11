@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Data;
 
 namespace IBLL
 {
@@ -13,5 +14,6 @@ namespace IBLL
         void Modify(BalanceInfo balance);
         IList<BalanceInfo> GetAll();
         BalanceInfo Get(int id);
+        DataSet GetBalanceWithTea(int id);
     }
 }

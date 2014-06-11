@@ -39,7 +39,7 @@
                               <asp:TextBox id="Username" class="form-control" runat="server" />
                             密码：  
                               <asp:TextBox id="Password" TextMode="password" class="form-control" runat="server" />
-                           <asp:Button id="Login" Text="登录" class="btn-color btn-normal btn-pad" runat="server" />
+                           <asp:Button id="Login" Text="登录" class="btn-color btn-normal btn-pad" OnClick="Login_Click"  runat="server" />
                             <!-- /input-group -->
                               
                               <!-- /input-group -->

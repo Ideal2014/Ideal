@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Model;
+using System.Data;
 
 namespace BLL
 {
@@ -33,6 +34,11 @@ namespace BLL
         BalanceInfo IBLL.IBalance.Get(int id)
         {
             return dal.Get(id);
+        }
+
+        DataSet IBLL.IBalance.GetBalanceWithTea(int id)
+        {
+            return dal.GetBalanceWithTea(id);
         }
     }
 }

@@ -39,9 +39,9 @@
                                  <div class="tabscontent" id="Div1" style="display: block;">
                                     <ul class="posts">
                                        <li>
-                                          <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/Feedback/FeedbackPage.aspx"><asp:Image ID="Image1" class="img-thumbnail recent-post-img" runat="server" ImageUrl="img/recent-post-img.jpg" /></asp:HyperLink>
-          &nbsp;<h2>Qiyu</h2><span class="color">学号：</span>
-          <span>11301127</span>
+                                          <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/Feedback/FeedbackPage.aspx"><asp:Image ID="Image1" class="img-thumbnail recent-post-img" runat="server" ImageUrl="~/img/recent-post-img.jpg" /></asp:HyperLink>
+          <h2><asp:Label runat="server" ID="Std_Name" Text="Qiyu"/></h2><span class="color">学号：</span>
+          <span><asp:Label ID="Std_ID" runat="server" Text="11301127"/></span>
 
            
                                        </li>
@@ -68,10 +68,10 @@
                         <!-- Category Widget Start -->
                         <div class="widget category"><h3 class="title">会员中心</h3>
                            <ul class="category-list slide">
-                           <li><asp:HyperLink  ID="HyperLink2" runat="server" NavigateUrl="member-teachers-start.html">智能外教</asp:HyperLink></li>
-                               <li><asp:HyperLink ID="HyperLink3"  runat="server" NavigateUrl="../Teacher/TeacherTeaChoose.aspx">购买时长</asp:HyperLink></li>
+                           <li><asp:HyperLink  ID="HyperLink2" runat="server" NavigateUrl="~/Teacher/TeacherMemTeaChoose.aspx">智能外教</asp:HyperLink></li>
+                               <li><asp:HyperLink ID="HyperLink3"  runat="server" NavigateUrl="../Teacher/TeacherMemTeaChoose.aspx">购买时长</asp:HyperLink></li>
                                <li><asp:HyperLink ID="HyperLink4"  runat="server" NavigateUrl="../Purchase/AccountInfo.aspx">账户管理</asp:HyperLink></li>
-                               <li><asp:HyperLink ID="HyperLink5"  runat="server" NavigateUrl="../Purchase/AccountInfo.aspx">提交反馈</asp:HyperLink></li>
+                               <li><asp:HyperLink ID="HyperLink5"  runat="server" NavigateUrl="../Feedback/FeedbackPage.aspx">提交反馈</asp:HyperLink></li>
                            </ul></div>
                         <!-- Category Widget End -->
    
@@ -82,19 +82,21 @@
                        <h3 class="title">提交反馈</h3>
                               <div class="row">
                                  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                    <label>标题: <span>*</span></label>
-                                     <asp:TextBox class="form-control" ID="name" name="name" runat="server" ></asp:TextBox>
+                                    <asp:label ID="t" runat="server">标题: <span>*</span></asp:label>
+                                     <asp:TextBox class="form-control" ID="name" name="name" runat="server" ></asp:TextBox><br/>
+                                     <asp:RegularExpressionValidator ID="RegularExpressionValidator1" ControlToValidate="name" runat="server" ValidationExpression="^.{1,50}$" ErrorMessage="标题必须为1-50个字"></asp:RegularExpressionValidator>
                                  </div>
                            
                               </div>
                          
                               <div class="row">
                                  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                    <label>内容: <span>*</span></label>
-                                     <asp:TextBox class="form-control" ID="text" TextMode="MultiLine" name="text" Rows="4" Columns="40" runat="server" ></asp:TextBox>
+                                    <asp:label ID="c" runat="server">内容: <span>*</span></asp:label>
+                                     <asp:TextBox class="form-control" ID="text" TextMode="MultiLine" name="text" Rows="4" Columns="40" runat="server" ></asp:TextBox><br />
+                                     <asp:RegularExpressionValidator ID="RegularExpressionValidator2" ControlToValidate="text" runat="server" ValidationExpression="^.{1,150}$" ErrorMessage="内容必须为1-150个字"></asp:RegularExpressionValidator>
                                  </div>
                               </div>
-                           <asp:Button ID="Button1" class="btn-normal btn-color submit  bottom-pad" runat="server" Text="发送" />
+                           <asp:Button ID="Button1" runat="server" Text="发送" OnClick="Button1_Click" />
                            <div class="success alert-success alert" style="display:none">Your message has been sent successfully.</div>
                            <div class="error alert-error alert" style="display:none">E-mail must be valid and message must be longer than 100 characters.</div>
                            <div class="clearfix">

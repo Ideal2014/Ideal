@@ -11,4 +11,11 @@ public partial class Student_Login : System.Web.UI.Page
     {
 
     }
+    protected void Login_Click(object sender, EventArgs e)
+    {
+        HttpCookie cookie = new HttpCookie("usr");
+        cookie.Values["ID"] = "1";
+        Response.AppendCookie(cookie);
+        Response.Redirect("~/Purchase/AccountPurchase.aspx");
+    }
 }

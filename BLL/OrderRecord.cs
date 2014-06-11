@@ -41,5 +41,10 @@ namespace BLL
         {
             return dal.GetOrderList();
         }
+
+        DataSet IBLL.IOrderRecord.GetAllOrder(int id)
+        {
+            return dal.GetAllOrder(id);
+        }
     }
 }

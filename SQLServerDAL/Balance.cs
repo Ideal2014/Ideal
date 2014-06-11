@@ -1,10 +1,11 @@
-﻿
+﻿using System.Data;
 using Model;
 using System;
 using System.Collections.Generic;
 using System.Data.Linq;
 using System.Linq;
 using System.Text;
+using System.Data.SqlClient;
 
 namespace SQLServerDAL
 {
@@ -64,6 +65,27 @@ namespace SQLServerDAL
                                             where o.Bal_ID == id
                                             select o;
             return query.FirstOrDefault<BalanceInfo>();
+        }
+
+        DataSet IDAL.IBalance.GetBalanceWithTea(int id)
+        {
+            SqlConnection sqlcon = null;
+            try
+            {
+                sqlcon = new SqlConnection(connection);
+                string sqlstr = string.Format("select * from tb_Balance join tb_Teacher on tb_Balance.Tea_ID = tb_Teacher.Tea_ID where Stu_ID = {0}",id);
+                SqlDataAdapter myda = new SqlDataAdapter(sqlstr, sqlcon);
+                DataSet myds = new DataSet();
+                sqlcon.Open();
+                myda.Fill(myds);
+                return myds;
+            }
+            finally
+            {
+                if (sqlcon != null)
+                    sqlcon.Close();
+            }
+
         }
     }
 }
