@@ -59,12 +59,6 @@ namespace Model
     partial void DeleteTeacherInfo(TeacherInfo instance);
     #endregion
 		
-		public DataClassesDataContext() : 
-				base(global::Model.Properties.Settings.Default.vikiConnectionString2, mappingSource)
-		{
-			OnCreated();
-		}
-		
 		public DataClassesDataContext(string connection) : 
 				base(connection, mappingSource)
 		{

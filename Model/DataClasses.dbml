@@ -1,5 +1,4 @@
-﻿﻿<?xml version="1.0" encoding="utf-8"?><Database Name="viki" Class="DataClassesDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=(local);Initial Catalog=viki;Integrated Security=True;Pooling=False" SettingsObjectName="Model.Properties.Settings" SettingsPropertyName="vikiConnectionString2" Provider="System.Data.SqlClient" />
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="viki" Class="DataClassesDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
   <Table Name="dbo.AdminInfo" Member="AdminInfo">
     <Type Name="AdminInfo">
       <Column Name="Adm_ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
