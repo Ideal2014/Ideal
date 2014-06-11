@@ -58,7 +58,7 @@
                            <div class="author">
                               <div class="testimonial-image "><asp:Image ID="ImageT1" alt="" runat="server"/></div>
                               <div class="testimonial-author-info">
-                                 <a href="../Teacher/TeacherTeaInfo.aspx"><span class="color"><asp:Label ID="LabelT1" runat="server"/></span></a>
+                                 <span class="color"><asp:Label ID="LabelT1" runat="server"/></span>
                               </div>
                            </div>
                         </div>
@@ -66,7 +66,7 @@
                      <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                         <div class="testimonial item">
                           <p> 
-                          <asp:Image ID="ImageP2" runat="server" /></br>
+                          <asp:Image ID="ImageP2" runat="server" /><br/>
                               <asp:Label ID="LabelD2" runat="server"/>
                           </p>
                            <div class="testimonials-arrow">
@@ -74,7 +74,7 @@
                            <div class="author">
                               <div class="testimonial-image "><asp:Image ID="ImageT2" alt="" runat="server"/></div>
                               <div class="testimonial-author-info">
-                                 <a href="../Teacher/TeacherTeaInfo.aspx"><span class="color"><asp:Label ID="LabelT2" runat="server"/></span></a>
+                                 <span class="color"><asp:Label ID="LabelT2" runat="server"/></span>
                               </div>
                            </div>
                         </div>
@@ -85,7 +85,7 @@
                      <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                         <div class="testimonial item">
                            <p>
-                           <asp:Image ID="ImageP3" runat="server" /></br>
+                           <asp:Image ID="ImageP3" runat="server" /><br/>
                                <asp:Label ID="LabelD3" runat="server"/>
                            </p>
                            <div class="testimonials-arrow">
@@ -93,7 +93,7 @@
                            <div class="author">
                               <div class="testimonial-image "><asp:Image ID="ImageT3" alt="" runat="server"/></div>
                               <div class="testimonial-author-info">
-                                 <a href="../Teacher/TeacherTeaInfo.aspx"><span class="color"><asp:Label ID="LabelT3" runat="server"/></span></a>
+                                 <span class="color"><asp:Label ID="LabelT3" runat="server"/></span>
                               </div>
                            </div>
                         </div>
@@ -101,7 +101,7 @@
                      <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                         <div class="testimonial item">
                           <p>
-                          <asp:Image ID="ImageP4" runat="server" /></br>
+                          <asp:Image ID="ImageP4" runat="server" /><br/>
                                <asp:Label ID="LabelD4" runat="server"/>
 
                           </p>
@@ -110,7 +110,7 @@
                            <div class="author">
                               <div class="testimonial-image "><asp:Image ID="ImageT4" alt="" runat="server"/></div>
                               <div class="testimonial-author-info">
-                                 <a href="../Teacher/TeacherTeaInfo.aspx"><span class="color"><asp:Label ID="LabelT4" runat="server"/></span></a>
+                                 <span class="color"><asp:Label ID="LabelT4" runat="server"/></span>
                               </div>
                            </div>
                         </div>
@@ -121,7 +121,7 @@
                       <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                         <div class="testimonial item">
                          <p> 
-                         <asp:Image ID="ImageP5" runat="server" /></br>
+                         <asp:Image ID="ImageP5" runat="server" /><br/>
                                <asp:Label ID="LabelD5" runat="server"/>
 
                          </p>
@@ -130,7 +130,7 @@
                            <div class="author">
                               <div class="testimonial-image "><asp:Image ID="ImageT5" alt="" runat="server"/></div>
                               <div class="testimonial-author-info">
-                                 <a href="../Teacher/TeacherTeaInfo.aspx"><span class="color"><asp:Label ID="LabelT5" runat="server"/></span></a>
+                                 <span class="color"><asp:Label ID="LabelT5" runat="server"/></span>
                               </div>
                            </div>
                         </div>
@@ -138,7 +138,7 @@
                       <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                         <div class="testimonial item">
                           <p>
-                          <asp:Image ID="ImageP6" runat="server" /></br>
+                          <asp:Image ID="ImageP6" runat="server" /><br/>
                                <asp:Label ID="LabelD6" runat="server"/>
 
                           </p>
@@ -147,7 +147,7 @@
                            <div class="author">
                               <div class="testimonial-image "><asp:Image ID="ImageT6" alt="" runat="server"/></div>
                               <div class="testimonial-author-info">
-                                 <a href="../Teacher/TeacherTeaInfo.aspx"><span class="color"><asp:Label ID="LabelT6" runat="server"/></span></a>
+                                 <span class="color"><asp:Label ID="LabelT6" runat="server"/></span>
                               </div>
                            </div>
                         </div>

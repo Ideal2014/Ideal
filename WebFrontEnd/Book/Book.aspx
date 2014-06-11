@@ -70,7 +70,7 @@
                                         <ItemTemplate>
                                             <span style="border:none">
                                                 <asp:Button CssClass="btn-color btn-normal btn-pad" CommandName="LinkPart" CommandArgument='<%#Eval("Boo_Preview") %>' ID="DownloadPart" runat="server" OnCommand="DownloadPart_Command" Text="下载试读样章"></asp:Button>
-                                                <asp:Button CssClass="btn-color btn-normal btn-pad" ID="DownloadAll" CommandArgument='<%#Eval("Boo_View") %>' OnCommand="DownloadAll_Command" runat="server" Text="下载完整版"></asp:Button>
+                                                <asp:Button CssClass="btn-color btn-normal btn-pad" ID="DownloadAll" CommandArgument='<%#Eval("Boo_View")+","+Eval("Tea_ID") %>' OnCommand="DownloadAll_Command" runat="server" Text="下载完整版"></asp:Button>
                                             </span>
                                         </ItemTemplate>
                                     </asp:TemplateField>

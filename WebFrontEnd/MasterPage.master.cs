@@ -14,6 +14,7 @@ public partial class MasterPage : System.Web.UI.MasterPage
         HttpCookie cookie = Request.Cookies["usr"];
         IBLL.IStudent stu = BLLFactory.DataAccess.CreateStudent();
         int ID = -1;
+
         if (null != cookie)
         {
             ID = Convert.ToInt32(cookie.Values["ID"]);

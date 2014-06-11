@@ -1,4 +1,4 @@
-﻿using System.Data;
+﻿﻿using System.Data;
 using Model;
 using System;
 using System.Collections.Generic;
@@ -67,6 +67,16 @@ namespace SQLServerDAL
             return query.FirstOrDefault<BalanceInfo>();
         }
 
+        BalanceInfo IDAL.IBalance.GetbyTidSid(int tid, int sid)
+        {
+            DataContext ctx = new DataContext(connection);
+            ITable<BalanceInfo> balances = ctx.GetTable<BalanceInfo>();
+            IQueryable<BalanceInfo> query = from o in balances
+                                            where o.Tea_ID == tid && o.Stu_ID == sid
+                                            select o;
+            return query.FirstOrDefault<BalanceInfo>();
+        }
+        
         DataSet IDAL.IBalance.GetBalanceWithTea(int id)
         {
             SqlConnection sqlcon = null;

@@ -40,9 +40,9 @@
                                  <div class="tabscontent" id="Div1" style="display: block;">
                                     <ul class="posts">
                                        <li>
-                                          <a href="#"><asp:Image ID="Image1" class="img-thumbnail recent-post-img" alt="" ImageUrl="../img/recent-post-img.jpg" runat="server"/></a>
-          <h2>Qiyu</h2><span class="color">学号：</span>
-          <span>11301127</span>
+                                          <asp:HyperLink ID="HyperLink2" runat="server" NavigateUrl="#"><asp:Image ID="Image7" class="img-thumbnail recent-post-img" runat="server" ImageUrl="~/img/recent-post-img.jpg" /></asp:HyperLink>
+          <h2><asp:Label runat="server" ID="Std_Name" Text="Qiyu"/></h2><span class="color">学号：</span>
+          <span><asp:Label ID="Std_ID" runat="server" Text="11301127"/></span>
 
            
                                        </li>
@@ -69,12 +69,13 @@
                         <!-- Category Widget Start -->
                         <div class="widget category"><h3 class="title">会员中心</h3>
                            <ul class="category-list slide">
-                           <li><a href="member-teachers-start.html">智能外教</a></li>
-                              <li><a href="../Teacher/TeacherTeaChoose.aspx">购买时长</a></li>
+<li><asp:HyperLink ID="HyperLink3" runat="server" NavigateUrl="~/Teacher/TeacherMemTeaChoose.aspx">智能外教</asp:HyperLink></li>
+                              <li><asp:HyperLink ID="HyperLink4" runat="server" NavigateUrl="../Teacher/TeacherMemTeaChoose.aspx">购买时长</asp:HyperLink></li>
                               
-                              <li><a href="../Purchase/AccountInfo.aspx">账户管理</a></li>
-                              <li><a href="#">提交反馈</a></li>
-                           </ul></div>
+                              <li><asp:HyperLink ID="HyperLink5" runat="server" NavigateUrl="../Purchase/AccountInfo.aspx">账户管理</asp:HyperLink></li>
+                              <li><asp:HyperLink ID="HyperLink6" runat="server" NavigateUrl="../Feedback/FeedbackPage.aspx">提交反馈</asp:HyperLink></li>
+                           </ul>
+</div>
                         <!-- Category Widget End -->
    
                      </div>

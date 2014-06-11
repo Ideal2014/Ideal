@@ -36,6 +36,11 @@ namespace BLL
             return dal.Get(id);
         }
 
+        BalanceInfo IBLL.IBalance.GetbyTidSid(int tid, int sid)
+        {
+            return dal.GetbyTidSid(tid, sid);
+        }
+
         DataSet IBLL.IBalance.GetBalanceWithTea(int id)
         {
             return dal.GetBalanceWithTea(id);

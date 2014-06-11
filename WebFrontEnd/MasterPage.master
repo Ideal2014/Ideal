@@ -69,6 +69,7 @@
                         <!-- Logo Start -->
                         <div class="logo pull-left">
                             <h1>
+               
                                 <a href="../Home/Home.aspx">
                                     <asp:Image ID="Image1" runat="server" src="../img/logo.png" alt="viki" Width="125" Height="60" />
                                         </asp:HyperLink>

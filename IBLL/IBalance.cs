@@ -14,6 +14,7 @@ namespace IBLL
         void Modify(BalanceInfo balance);
         IList<BalanceInfo> GetAll();
         BalanceInfo Get(int id);
+        BalanceInfo GetbyTidSid(int tid, int sid);
         DataSet GetBalanceWithTea(int id);
     }
 }
