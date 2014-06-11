@@ -121,9 +121,9 @@
     <script>
         $(document).ready(function () {
             var class_number = eval($("#HiddenClassNumber").val());
-            alert(class_number);
+
             var order_number = eval($("#HiddenOrderNumber").val());
-            alert(order_number);
+ 
             var class_percent = eval($("#HiddenClassPercent").val());
            
             var order_percent = eval($("#HiddenOrderPercent").val());
@@ -190,8 +190,5 @@
                 }
             }
         });
-
-
-
     </script>
 </asp:Content>

@@ -76,14 +76,16 @@
                         <ul class="nav nav-tabs nav-stacked main-menu">
                             <li class="nav-header hidden-tablet">基本管理</li>
                             <li>
-                                <asp:HyperLink CssClass="ajax-link" runat="server" NavigateUrl="~/Base/UiManager.aspx"><i
-                                class="icon-home"></i><span class="hidden-tablet">界面管理</span></asp:HyperLink></li>
-                            <li>
-                                <asp:HyperLink CssClass="ajax-link" runat="server" NavigateUrl="~/Base/Count.aspx"><i
+                                <asp:HyperLink ID="HyperLink1" CssClass="ajax-link" runat="server" NavigateUrl="~/Base/Count.aspx"><i
                                 class="icon-home"></i><span class="hidden-tablet">统计信息</span></asp:HyperLink></li>
                             <li>
-                                <asp:HyperLink CssClass="ajax-link" runat="server" NavigateUrl="~/Base/OrderList.aspx"><i
+                                <asp:HyperLink ID="HyperLink2" CssClass="ajax-link" runat="server" NavigateUrl="~/Base/OrderList.aspx"><i
                                 class="icon-home"></i><span class="hidden-tablet">订单信息</span></asp:HyperLink></li>
+                            <li>
+                                <asp:HyperLink CssClass="ajax-link" runat="server" NavigateUrl="~/Base/UiManager.aspx"><i
+                                class="icon-home"></i><span class="hidden-tablet">界面管理</span></asp:HyperLink></li>
+
+
                             <li class="nav-header hidden-tablet">用户管理</li>
                             <li>
                                 <asp:HyperLink CssClass="ajax-link" runat="server" NavigateUrl="~/User/UserList.aspx"><i

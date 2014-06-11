@@ -61,7 +61,6 @@ public partial class Base_Count : System.Web.UI.Page
     }
     private string getOrderNumberJson(IList<OrderRecordInfo> orders)
     {
-        string json = "";
         int[,] result = new int[10, 2];
         for (int i = 0; i < 10; i++)
         {
@@ -88,12 +87,10 @@ public partial class Base_Count : System.Web.UI.Page
             str.Append("],");
         }
         str.Append("]");
-        json = str.ToString();
-        return json;
+        return str.ToString();
     }
     private string getClassNumberJson(IList<ClassRecordInfo> classes)
     {
-        string json = "";
         int[,] result = new int[10, 2];
         for (int i = 0; i < 10; i++)
         {
@@ -119,11 +116,10 @@ public partial class Base_Count : System.Web.UI.Page
             str.Append("],");
         }
         str.Append("]");
-        json = str.ToString();
-        return json;
+        return str.ToString();
     }
 
-   
+
 
     private string dsToJson(DataSet ds)
     {

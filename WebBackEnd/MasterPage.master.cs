@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 public partial class MasterPage : System.Web.UI.MasterPage
 {
-    private  IBLL.IAdmin bllAdmin = BLLFactory.DataAccess.CreateAdmin();
+    private IBLL.IAdmin bllAdmin = BLLFactory.DataAccess.CreateAdmin();
 
     protected void Page_Load(object sender, EventArgs e)
     {
@@ -30,8 +30,7 @@ public partial class MasterPage : System.Web.UI.MasterPage
         {
             cookie.Expires = System.DateTime.Now.AddDays(-1);
         }
-        //var a = Request.ServerVariables["LOCAL_ADDR"];
-        //var b = Request.ServerVariables["SERVER_PORT"];
-        Response.AppendCookie(cookie);
+        Response.Cookies.Add(cookie);
+        Response.Redirect("~/Default.aspx");
     }
 }
