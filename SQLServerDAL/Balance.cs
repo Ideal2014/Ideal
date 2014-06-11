@@ -65,5 +65,16 @@ namespace SQLServerDAL
                                             select o;
             return query.FirstOrDefault<BalanceInfo>();
         }
+
+        BalanceInfo IDAL.IBalance.GetbyTidSid(int tid, int sid)
+        {
+            DataContext ctx = new DataContext(connection);
+            ITable<BalanceInfo> balances = ctx.GetTable<BalanceInfo>();
+            IQueryable<BalanceInfo> query = from o in balances
+                                            where o.Tea_ID == tid && o.Stu_ID == sid
+                                            select o;
+            return query.FirstOrDefault<BalanceInfo>();
+        }
+        
     }
 }

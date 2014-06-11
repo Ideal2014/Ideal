@@ -77,7 +77,7 @@ namespace SQLServerDAL
             try
             {
                 sqlcon = new SqlConnection(connection);
-                string sqlstr = string.Format("SELECT tb_Book.Boo_ID, tb_Book.Boo_Image, tb_Book.Boo_Desribe, tb_Book.Boo_Desribe, tb_Book.Boo_RegisterDate, tb_Book.Boo_Preview, tb_Book.Boo_View, tb_Book.Boo_Name, tb_Teacher.Tea_Name FROM tb_Book INNER JOIN tb_Teacher ON tb_Book.Tea_ID = tb_Teacher.Tea_ID ");
+                string sqlstr = string.Format("SELECT tb_Book.Boo_ID, tb_Book.Boo_Image, tb_Book.Boo_Desribe, tb_Book.Boo_Desribe, tb_Book.Boo_RegisterDate, tb_Book.Boo_Preview, tb_Book.Boo_View, tb_Book.Boo_Name, tb_Book.Tea_ID, tb_Teacher.Tea_Name FROM tb_Book INNER JOIN tb_Teacher ON tb_Book.Tea_ID = tb_Teacher.Tea_ID ");
                 SqlDataAdapter myda = new SqlDataAdapter(sqlstr, sqlcon);
                 DataSet myds = new DataSet();
                 sqlcon.Open();
