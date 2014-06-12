@@ -26,9 +26,13 @@ public partial class Student_StudentResetPassword : System.Web.UI.Page
         if(!bllStudent.CheckLogin(student)){
             Response.Redirect("~/Student/Login.aspx");
         }
-
+        student = bllStudent.Get(student.Stu_ID);
         Mailbox.Text = bllStudent.Get(Convert.ToInt32(cookie.Values["ID"])).Stu_Email;
         Mailbox.Attributes["ContentEditable"]="false";
+
+        Image7.ImageUrl = student.Stu_Image;
+        Std_Name.Text = student.Stu_UserName;
+        Std_ID.Text = Convert.ToString(student.Stu_ID);
         
     }
 

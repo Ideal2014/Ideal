@@ -40,9 +40,9 @@
                                  <div class="tabscontent" id="Div1" style="display: block;">
                                     <ul class="posts">
                                        <li>
-                                          <a href="#"><img class="img-thumbnail recent-post-img" alt="" src="../img/recent-post-img.jpg"></a>
-          <h2>Qiyu</h2><span class="color">学号：</span>
-          <span>11301127</span>
+                                          <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="#"><asp:Image ID="Image7" class="img-thumbnail recent-post-img" runat="server" ImageUrl="~/img/recent-post-img.jpg" /></asp:HyperLink>
+          <h2><asp:Label runat="server" ID="Std_Name" Text="Qiyu"/></h2><span class="color">学号：</span>
+          <span><asp:Label ID="Std_ID" runat="server" Text="11301127"/></span>
 
            
                                        </li>
@@ -92,29 +92,35 @@
                          <div style="width:50%">
                           <div class="input-group input-type">
  						 <span class="input-group-addon">验证邮箱</span>
-                         <asp:TextBox id="Mailbox" class="form-control"  runat="server" />
+                             <div class="input-group-lg">
+                         <asp:TextBox id="Mailbox" class="form-control"  runat="server" /></div>
 						</div>
                          <div class="input-group input-type">
  						 <span class="input-group-addon">请输入原密码</span>
+                             <div class="input-group-lg">
                           <asp:TextBox id="Password1" TextMode="password"   class="form-control" runat="server" />
                              <asp:Label  ID="Check" runat="server"></asp:Label>
                              <asp:RequiredFieldValidator ID="Password1Validator1" runat="server"
                                   ControlToValidate="Password1" Display="Dynamic" ErrorMessage="不能为空"
                                   Font-Size="15px" ForeColor="Red"></asp:RequiredFieldValidator>
+                                 </div>
 						</div>
                         <div class="input-group input-type">
  						 <span class="input-group-addon">请输入新密码</span>
+                            <div class="input-group-lg">
  						 <asp:TextBox id="Password2" TextMode="password" class="form-control" runat="server" />
                             <asp:RequiredFieldValidator ID="Password2Validator1" runat="server"
                                   ControlToValidate="Password2" Display="Dynamic" ErrorMessage="不能为空"
                                   Font-Size="15px" ForeColor="Red" ></asp:RequiredFieldValidator>
                             <asp:RegularExpressionValidator ID="Password1Validator2"  runat="server"
-                                  ErrorMessage="密码6-20位" ControlToValidate="Password1"
+                                  ErrorMessage="密码6-20位" ControlToValidate="Password2"
                                   DisPlay="Dynamic" ValidationExpression="^.{6,19}$"
                                   Font-Size="15px" ForeColor="Red"></asp:RegularExpressionValidator>
+                                </div>
 						</div>
                         <div class="input-group input-type">
  						 <span class="input-group-addon">请确认新密码</span>
+                            <div class="input-group-lg">
  						<asp:TextBox id="Password3" TextMode="password" class="form-control" runat="server" />
                             <asp:RequiredFieldValidator ID="Password3dValidator1" runat="server"
                                   ControlToValidate="Password3" Display="Dynamic" ErrorMessage="不能为空"
@@ -122,6 +128,7 @@
                               <asp:CompareValidator ID="Password3Validator2" runat="server"
                                   ErrorMessage="两次输入的密码不一致" ControlToCompare="Password2" ControlToValidate="Password3"
                                   Display="Dynamic" Font-Size="15px" ForeColor="Red"></asp:CompareValidator>
+                                </div>
 						</div>
                        
                         <div class="input-type">

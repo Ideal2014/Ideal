@@ -23,6 +23,7 @@ public partial class Student_Register : System.Web.UI.Page
         student.Stu_Validation = "success";
         student.Stu_LastLogin = DateTime.Now;
         student.Stu_RegisteTime = DateTime.Now;
+        student.Stu_Image = "~/Resource/Image/Upload/default.jpg";
         if(!Password1.Text.Equals(Password2.Text.Trim())){
             throw new Exception();
         }
