@@ -96,15 +96,32 @@
 						</div>
                          <div class="input-group input-type">
  						 <span class="input-group-addon">请输入原密码</span>
-                          <asp:TextBox id="Password1" TextMode="password" class="form-control" runat="server" />
+                          <asp:TextBox id="Password1" TextMode="password"   class="form-control" runat="server" />
+                             <asp:Label  ID="Check" runat="server"></asp:Label>
+                             <asp:RequiredFieldValidator ID="Password1Validator1" runat="server"
+                                  ControlToValidate="Password1" Display="Dynamic" ErrorMessage="不能为空"
+                                  Font-Size="15px" ForeColor="Red"></asp:RequiredFieldValidator>
 						</div>
                         <div class="input-group input-type">
  						 <span class="input-group-addon">请输入新密码</span>
  						 <asp:TextBox id="Password2" TextMode="password" class="form-control" runat="server" />
+                            <asp:RequiredFieldValidator ID="Password2Validator1" runat="server"
+                                  ControlToValidate="Password2" Display="Dynamic" ErrorMessage="不能为空"
+                                  Font-Size="15px" ForeColor="Red" ></asp:RequiredFieldValidator>
+                            <asp:RegularExpressionValidator ID="Password1Validator2"  runat="server"
+                                  ErrorMessage="密码6-20位" ControlToValidate="Password1"
+                                  DisPlay="Dynamic" ValidationExpression="^.{6,19}$"
+                                  Font-Size="15px" ForeColor="Red"></asp:RegularExpressionValidator>
 						</div>
                         <div class="input-group input-type">
  						 <span class="input-group-addon">请确认新密码</span>
  						<asp:TextBox id="Password3" TextMode="password" class="form-control" runat="server" />
+                            <asp:RequiredFieldValidator ID="Password3dValidator1" runat="server"
+                                  ControlToValidate="Password3" Display="Dynamic" ErrorMessage="不能为空"
+                                  Font-Size="15px" ForeColor="Red"></asp:RequiredFieldValidator>
+                              <asp:CompareValidator ID="Password3Validator2" runat="server"
+                                  ErrorMessage="两次输入的密码不一致" ControlToCompare="Password2" ControlToValidate="Password3"
+                                  Display="Dynamic" Font-Size="15px" ForeColor="Red"></asp:CompareValidator>
 						</div>
                        
                         <div class="input-type">

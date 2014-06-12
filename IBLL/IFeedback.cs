@@ -16,7 +16,9 @@ namespace IBLL
         FeedbackInfo Get(int id);
 
         DataSet GetFeedbackList();
+        DataSet GetSuperFeedbackList();
 
         IList<FeedbackInfo> GetFeedBackByDate(DateTime dateTime);
+        IList<FeedbackInfo> GetFeedBackByLevelTop6();
     }
 }

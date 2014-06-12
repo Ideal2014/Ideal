@@ -49,7 +49,7 @@
                                   Font-Size="15px" ForeColor="Red"></asp:RequiredFieldValidator>
                               <asp:RegularExpressionValidator ID="Password1Validator2"  runat="server"
                                   ErrorMessage="密码6-20位" ControlToValidate="Password1"
-                                  DisPlay="Dynamic" ValidationExpression="^{6,19}$"
+                                  DisPlay="Dynamic" ValidationExpression="^.{6,19}$"
                                   Font-Size="15px" ForeColor="Red"></asp:RegularExpressionValidator>
                             <br />确认密码：  <asp:TextBox ID="Password2" TextMode="password" class="form-control" placeholder="请再次输入密码" runat="server" />
                               <asp:RequiredFieldValidator ID="Password2Validator1" runat="server"

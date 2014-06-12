@@ -18,5 +18,7 @@ namespace IDAL
         DataSet GetFeedbackList();
 
         IList<FeedbackInfo> GetFeedBackByDate(DateTime dateTime);
+        IList<FeedbackInfo> GetFeedBackByLevelTop6();
+        DataSet GetSuperFeedbackList();
     }
 }

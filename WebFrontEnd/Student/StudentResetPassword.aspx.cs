@@ -34,8 +34,11 @@ public partial class Student_StudentResetPassword : System.Web.UI.Page
 
     protected void ResetPassword_Click(object sender, EventArgs e)
     {
-        HttpCookie cookie = Request.Cookies["usr"];
+            HttpCookie cookie = Request.Cookies["usr"];
             StudentInfo student = bllStudent.Get(Convert.ToInt32(cookie.Values["ID"]));
+            student.Stu_Password =Password1.Text.Trim();
+            if(bllStudent.CheckLogin(student)&&Password2.Text.Trim().Equals(Password3.Text.Trim())){
+                student.Stu_Password = Password2.Text.Trim();
             student.Stu_Validation = Str(10, false);
             bllStudent.Modify(student);
             String strSmtpServer = "smtp.163.com";
@@ -57,6 +60,7 @@ public partial class Student_StudentResetPassword : System.Web.UI.Page
             Console.Out.WriteLine(ex.Data);
             throw ex;
         }
+            }
     }
  
     /// <summary>

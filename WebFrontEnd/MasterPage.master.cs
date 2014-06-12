@@ -8,7 +8,6 @@ using System.Web.UI.WebControls;
 
 public partial class MasterPage : System.Web.UI.MasterPage
 {
-    private  IBLL.IStudent stu = BLLFactory.DataAccess.CreateStudent();
     protected void Page_Load(object sender, EventArgs e)
     {
         HttpCookie cookie = Request.Cookies["usr"];
@@ -54,13 +53,8 @@ public partial class MasterPage : System.Web.UI.MasterPage
         {
             HttpCookie cookie = Request.Cookies["usr"];
             if (null != cookie)
-            {
-                HttpCookie cook = new HttpCookie("usr");
-                cook.Expires = DateTime.Now.AddDays(-1);
-                Response.AppendCookie(cook);
-            }
+                Response.Cookies.Remove("usr");
             Response.Redirect("~/Student/Login.aspx");
-
         }
     }
 }

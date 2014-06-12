@@ -20,6 +20,9 @@ public partial class Student_Register : System.Web.UI.Page
         StudentInfo student = new StudentInfo();
         student.Stu_UserName = Name.Text.ToString().Trim();
         student.Stu_Email = MailBox.Text.ToString().Trim();
+        student.Stu_Validation = "success";
+        student.Stu_LastLogin = DateTime.Now;
+        student.Stu_RegisteTime = DateTime.Now;
         if(!Password1.Text.Equals(Password2.Text.Trim())){
             throw new Exception();
         }
