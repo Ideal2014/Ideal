@@ -124,7 +124,7 @@ namespace SQLServerDAL
         DataSet IDAL.IOrderRecord.GetAllOrder(int id)
         {
             SqlConnection sqlcon = new SqlConnection(connection);
-            String sqlstr = String.Format("Select * from tb_OrderRecord where Stu_ID = {0}", id);
+            String sqlstr = String.Format("Select * from OrderRecordInfo where Stu_ID = {0}", id);
             SqlDataAdapter myda = new SqlDataAdapter(sqlstr, sqlcon);
             DataSet myds = new DataSet();
             sqlcon.Open();

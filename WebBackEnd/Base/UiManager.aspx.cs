@@ -22,15 +22,30 @@ public partial class Base_UiManager : System.Web.UI.Page
     {
         var btn = sender as Button;
         string errorMsg;
+        string server = Server.MapPath("~/");
         if (ImageFile1.HasFile)
-            UploadSupport.SaveImage(ImageFile1, Image1, Server.MapPath("~/"), "index1.png", out errorMsg);
+        {
+            UploadSupport.SaveImage(ImageFile1, server + "../Resourse/Image/index1.png", out errorMsg);
+            UploadSupport.CopyFile(server + "../Resourse/Image/index1.png", server + "/Resourse/Image/index1.png");
+            
+        }
         if (ImageFile2.HasFile)
-            UploadSupport.SaveImage(ImageFile2, Image2, Server.MapPath("~/"), "index2.png", out errorMsg);
+        {
+            UploadSupport.SaveImage(ImageFile2, server + "../Resourse/Image/index2.png", out errorMsg);
+            UploadSupport.CopyFile(server + "../Resourse/Image/index2.png", server + "/Resourse/Image/index2.png");
+            
+        }
         if (ImageFile3.HasFile)
-            UploadSupport.SaveImage(ImageFile3, Image3, Server.MapPath("~/"), "index3.png", out errorMsg);
+        {
+            UploadSupport.SaveImage(ImageFile3, server + "../Resourse/Image/index3.png", out errorMsg);
+            UploadSupport.CopyFile(server + "../Resourse/Image/index3.png", server + "/Resourse/Image/index3.png");
+           
+        }
         if (ImageFile4.HasFile)
-            UploadSupport.SaveImage(ImageFile4, Image4, Server.MapPath("~/"), "index4.png", out errorMsg);
-       // LoadImage();
+        {
+            UploadSupport.SaveImage(ImageFile4, server + "../Resourse/Image/index4.png", out errorMsg);
+            UploadSupport.CopyFile(server + "../Resourse/Image/index4.png", server + "/Resourse/Image/index4.png");
+        }
     }
 
     /// <summary>
@@ -41,10 +56,10 @@ public partial class Base_UiManager : System.Web.UI.Page
     /// 
     private void LoadImage()
     {
-        Image1.ImageUrl =  "~/index1.png";
-        Image2.ImageUrl = "~/index2.png";
-        Image3.ImageUrl =  "~/index3.png";
-        Image4.ImageUrl =  "~/index4.png";
+        Image1.ImageUrl = "~/Resourse/Image/index1.png";
+        Image2.ImageUrl = "~/Resourse/Image/index2.png";
+        Image3.ImageUrl = "~/Resourse/Image/index3.png";
+        Image4.ImageUrl = "~/Resourse/Image/index4.png";
     }
 
 }

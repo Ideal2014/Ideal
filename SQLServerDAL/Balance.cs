@@ -83,7 +83,7 @@ namespace SQLServerDAL
             try
             {
                 sqlcon = new SqlConnection(connection);
-                string sqlstr = string.Format("select * from tb_Balance join tb_Teacher on tb_Balance.Tea_ID = tb_Teacher.Tea_ID where Stu_ID = {0}",id);
+                string sqlstr = string.Format("select * from BalanceInfo join TeacherInfo on BalanceInfo.Tea_ID = TeacherInfo.Tea_ID where Stu_ID = {0}",id);
                 SqlDataAdapter myda = new SqlDataAdapter(sqlstr, sqlcon);
                 DataSet myds = new DataSet();
                 sqlcon.Open();
