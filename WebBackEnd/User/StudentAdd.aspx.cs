@@ -6,10 +6,11 @@ using System.Text.RegularExpressions;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using WebSupport;
 
 public partial class User_StudentAdd : System.Web.UI.Page
 {
-    private  IBLL.IStudent bllStudent = BLLFactory.DataAccess.CreateStudent();
+    private IBLL.IStudent bllStudent = BLLFactory.DataAccess.CreateStudent();
 
     protected void Page_Load(object sender, EventArgs e)
     {
@@ -31,6 +32,11 @@ public partial class User_StudentAdd : System.Web.UI.Page
         if (!Regex.IsMatch(StuPassword.Text.ToString(), @"^\d+$"))
             throw new Exception();
 
+        string server = Server.MapPath("~/");
+        string imageName = UploadSupport.GenerateRandom(10) + ".jpg";
+        string error;
+        if (!UploadSupport.SaveImage(ImageFile, server, imageName, out error))
+            return;
         StudentInfo student = new StudentInfo();
 
         student.Stu_UserName = StuNickName.Text.ToString();

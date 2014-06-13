@@ -51,13 +51,20 @@
                         </div>
                     </div>
                     <div class="control-group">
-                        <label class="control-label" for="focusedInput">头像 </label>
+                        <label class="control-label" for="focusedInput">大图</label>
                         <div class="controls">
-                            <asp:FileUpload runat="server" ID="TeacherImage" ToolTip="上传头像" />
+                            <asp:FileUpload runat="server" ID="FileUpload" ToolTip="上传大图" />
                             <asp:Image runat="server" ID="ShowImage" />
-                            
                         </div>
                     </div>
+                    <div class="control-group">
+                        <label class="control-label" for="focusedInput">小图</label>
+                        <div class="controls">
+                            <asp:FileUpload runat="server" ID="FileSUpload" ToolTip="上传小图" />
+                            <asp:Image runat="server" ID="ShowSImage" />
+                        </div>
+                    </div>
+
                     <div class="control-group">
                         <label class="control-label">性别</label>
                         <div class="controls">

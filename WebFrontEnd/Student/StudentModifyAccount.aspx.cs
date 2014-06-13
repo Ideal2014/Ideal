@@ -6,10 +6,11 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using Model;
 using System.IO;
+using WebSupport;
 
 public partial class Student_Student_Modify_Account : System.Web.UI.Page
 {
-    private  IBLL.IStudent bllStudent = BLLFactory.DataAccess.CreateStudent();
+    private IBLL.IStudent bllStudent = BLLFactory.DataAccess.CreateStudent();
     protected void Page_Load(object sender, EventArgs e)
     {
         if (!IsPostBack)
@@ -50,13 +51,17 @@ public partial class Student_Student_Modify_Account : System.Web.UI.Page
         student.Stu_UserName = Name.Text.ToString();
         student.Stu_Email = Mailbox.Text.ToString();
         student.Stu_Tel = Telephone.Text.ToString();
-        if(Radio.SelectedItem!=null)
+        if (Radio.SelectedItem != null)
             student.Stu_Sex = Radio.SelectedItem.Value;
 
         if (HeadImage.HasFile)
         {
-            student.Stu_Image = SaveFile(HeadImage.PostedFile);
+            string error;
+            string fileName = UploadSupport.GenerateRandom(10) + ".jpg";
+              UploadSupport.SaveImage(HeadImage,Server.MapPath("~/"),fileName,out error);
+            student.Stu_Image = UploadSupport.Image(fileName);
         }
+
         Console.WriteLine("xiugai");
         bllStudent.Modify(student);
         Response.Redirect("~/Student/StudentModifyAccount.aspx");
@@ -67,7 +72,7 @@ public partial class Student_Student_Modify_Account : System.Web.UI.Page
 
         string fileName = HeadImage.FileName;
         string pathToCheck = savePath + fileName;
-        string tempfileName = "";       
+        string tempfileName = "";
         if (System.IO.File.Exists(pathToCheck))
         {
             int counter = 2;
@@ -78,7 +83,7 @@ public partial class Student_Student_Modify_Account : System.Web.UI.Page
                 counter++;
             }
             fileName = tempfileName;
-        }   
+        }
         if (System.IO.Directory.Exists(Server.MapPath(savePath)) == false)//如果不存在就创建file文件夹
         {
             System.IO.Directory.CreateDirectory(Server.MapPath(savePath));
