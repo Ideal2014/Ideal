@@ -96,7 +96,7 @@ namespace SQLServerDAL
         System.Data.DataSet IDAL.IStudent.getStudentList()
         {
             SqlConnection sqlcon = new SqlConnection(connection);
-            string sqlstr = "SELECT   Stu_ID, Stu_UserName FROM      StudentInfo";
+            string sqlstr = "SELECT   Stu_ID, Stu_UserName, Stu_RegisteTime FROM      StudentInfo";
             SqlDataAdapter myda = new SqlDataAdapter(sqlstr, sqlcon);
             DataSet myds = new DataSet();
             sqlcon.Open();

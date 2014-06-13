@@ -43,6 +43,7 @@ namespace SQLServerDAL
                                             select o;
             foreach (BookInfo o in query)
             {
+                o.Boo_Name = book.Boo_Name;
                 o.Boo_Desribe = book.Boo_Desribe;
                 o.Boo_Image = book.Boo_Image;
                 o.Boo_Preview = book.Boo_Preview;

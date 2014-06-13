@@ -1732,10 +1732,6 @@ namespace Model
 		
 		private string _Tea_Nation;
 		
-		private string _Tea_About;
-		
-		private string _Tea_Suitable;
-		
 		private string _Tea_SImage;
 		
     #region 可扩展性方法定义
@@ -1760,10 +1756,6 @@ namespace Model
     partial void OnTea_SkillChanged();
     partial void OnTea_NationChanging(string value);
     partial void OnTea_NationChanged();
-    partial void OnTea_AboutChanging(string value);
-    partial void OnTea_AboutChanged();
-    partial void OnTea_SuitableChanging(string value);
-    partial void OnTea_SuitableChanged();
     partial void OnTea_SImageChanging(string value);
     partial void OnTea_SImageChanged();
     #endregion
@@ -1949,46 +1941,6 @@ namespace Model
 					this._Tea_Nation = value;
 					this.SendPropertyChanged("Tea_Nation");
 					this.OnTea_NationChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Tea_About", DbType="VarChar(100) NOT NULL", CanBeNull=false)]
-		public string Tea_About
-		{
-			get
-			{
-				return this._Tea_About;
-			}
-			set
-			{
-				if ((this._Tea_About != value))
-				{
-					this.OnTea_AboutChanging(value);
-					this.SendPropertyChanging();
-					this._Tea_About = value;
-					this.SendPropertyChanged("Tea_About");
-					this.OnTea_AboutChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Tea_Suitable", DbType="VarChar(100) NOT NULL", CanBeNull=false)]
-		public string Tea_Suitable
-		{
-			get
-			{
-				return this._Tea_Suitable;
-			}
-			set
-			{
-				if ((this._Tea_Suitable != value))
-				{
-					this.OnTea_SuitableChanging(value);
-					this.SendPropertyChanging();
-					this._Tea_Suitable = value;
-					this.SendPropertyChanged("Tea_Suitable");
-					this.OnTea_SuitableChanged();
 				}
 			}
 		}

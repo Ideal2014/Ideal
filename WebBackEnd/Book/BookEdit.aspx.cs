@@ -29,12 +29,12 @@ public partial class Book_BookAdd : System.Web.UI.Page
     protected void KeepButton_Click(object sender, EventArgs e)
     {
         BookInfo book = new BookInfo();
-     
+        book.Boo_Name = BookName.Text.ToString();
         book.Boo_RegisterDate = UpdataTime.SelectedDate;
         book.Tea_ID =Int32.Parse(TeacherList.SelectedValue);
-        book.Boo_Image = System.IO.Path.GetFileName(BookPic.PostedFile.FileName);
-        book.Boo_Preview = System.IO.Path.GetFileName(BookScan.PostedFile.FileName);
-        book.Boo_View = System.IO.Path.GetFileName(BookComplete.PostedFile.FileName);
+        book.Boo_Image = "lala";
+        book.Boo_Preview = "lalala";
+        book.Boo_View = "sss";
         book.Boo_Desribe = BookDescribe.Text.ToString();
 
 

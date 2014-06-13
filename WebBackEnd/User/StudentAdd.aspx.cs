@@ -21,7 +21,7 @@ public partial class User_StudentAdd : System.Web.UI.Page
             throw new Exception();
         if (!Regex.IsMatch(StuNickName.Text.ToString(), @"^\S[^\^]+$"))
             throw new Exception();
-        if (!Regex.IsMatch(StuEmail.Text.ToString(), @"^([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+@([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+\.[a-zA-Z]{2,3}$"))
+        if (!Regex.IsMatch(StuEmail.Text.ToString(), @"^\S[^\^]+$"))
             throw new Exception();
         if (!Regex.IsMatch(StuPassword.Text.ToString(), @"^\S{1,10}$"))
             throw new Exception();
@@ -38,7 +38,8 @@ public partial class User_StudentAdd : System.Web.UI.Page
         student.Stu_Email = StuEmail.Text.ToString();
         //头像
         //时长
-        //student.Stu_RegisteTime = StuDuration.Text;
+        student.Stu_RegisteTime = DateTime.Now;
+        student.Stu_LastLogin = DateTime.Now;
 
         bllStudent.Add(student);
 
