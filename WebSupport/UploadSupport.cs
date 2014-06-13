@@ -36,21 +36,21 @@ namespace WebSupport
                         string realpath = realdirPath + fileName;//转换成服务器上的物理路径
                         uploadImageFile.PostedFile.SaveAs(realpath);//保存图片
                         //显示图片
-                        imageDisplay.ImageUrl = virpath;
+                        //imageDisplay.ImageUrl = virpath;
                         //清空提示
                         errorMsg = "";
                         return true;
                     }
                     else
                     {
-                        imageDisplay.ImageUrl = "";
+                        // imageDisplay.ImageUrl = "";
                         errorMsg = "文件大小超出8M！请重新选择！";
                         return false;
                     }
                 }
                 else
                 {
-                    imageDisplay.ImageUrl = "";
+                    //imageDisplay.ImageUrl = "";
                     errorMsg = "要上传的文件类型不对！请重新选择！";
                     return false;
                 }
@@ -61,6 +61,68 @@ namespace WebSupport
                 errorMsg = "请选择要上传的图片！";
                 return false;
             }
+        }
+
+        public static bool SaveImage(FileUpload uploadImageFile, string path, out string errorMsg)
+        {
+            if (uploadImageFile.HasFile)//验证是否包含文件
+            {
+                //取得文件的扩展名,并转换成小写
+                //string fileName = UploadImageFile.FileName.ToLower();
+
+                string fileExtension = Path.GetExtension(path).ToLower();
+
+                //验证上传文件是否图片格式
+                if (IsImage(fileExtension))
+                {
+
+                    //对上传文件的大小进行检测，限定文件最大不超过8M
+                    if (uploadImageFile.PostedFile.ContentLength < 8192000)
+                    {
+                        string realdirPath = Path.GetDirectoryName(path);
+                        string fileName = Path.GetFileName(path);
+                        if (Directory.Exists(realdirPath) == false)//如果不存在就创建file文件夹
+                        {
+                            Directory.CreateDirectory(realdirPath);
+                        }
+                        uploadImageFile.PostedFile.SaveAs(path);//保存图片
+
+                        //清空提示
+                        errorMsg = "";
+                        return true;
+                    }
+                    else
+                    {
+                        errorMsg = "文件大小超出8M！请重新选择！";
+                        return false;
+                    }
+                }
+                else
+                {
+                    errorMsg = "要上传的文件类型不对！请重新选择！";
+                    return false;
+                }
+            }
+            else
+            {
+                errorMsg = "请选择要上传的图片！";
+                return false;
+            }
+        }
+        public static void CopyFile(string source, string distination)
+        {
+            string dir = Path.GetDirectoryName(distination);
+            //检查是否存在目的目录
+            if (!Directory.Exists(dir))
+                Directory.CreateDirectory(dir);
+            //先来移动文件
+            FileInfo file = new FileInfo(source);
+            file.CopyTo(distination, true);
+        }
+
+        private void MoveFolderTo(string p, string p_2)
+        {
+
         }
         private static bool IsImage(string str)
         {
