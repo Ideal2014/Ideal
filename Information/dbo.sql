@@ -19,7 +19,7 @@ Date: 2014-06-11 17:34:03
 -- Table structure for AdminInfo
 -- ----------------------------
 DROP TABLE [dbo].[AdminInfo]
-GO
+;
 CREATE TABLE [dbo].[AdminInfo] (
 [Adm_ID] int NOT NULL IDENTITY(1,1) ,
 [Adm_UserName] varchar(20) NOT NULL ,
@@ -29,15 +29,15 @@ CREATE TABLE [dbo].[AdminInfo] (
 )
 
 
-GO
+;
 DBCC CHECKIDENT(N'[dbo].[AdminInfo]', RESEED, 2)
-GO
+;
 
 -- ----------------------------
 -- Table structure for BalanceInfo
 -- ----------------------------
 DROP TABLE [dbo].[BalanceInfo]
-GO
+;
 CREATE TABLE [dbo].[BalanceInfo] (
 [Bal_ID] int NOT NULL IDENTITY(1,1) ,
 [Stu_ID] int NOT NULL ,
@@ -46,13 +46,13 @@ CREATE TABLE [dbo].[BalanceInfo] (
 )
 
 
-GO
+;
 
 -- ----------------------------
 -- Table structure for BookInfo
 -- ----------------------------
 DROP TABLE [dbo].[BookInfo]
-GO
+;
 CREATE TABLE [dbo].[BookInfo] (
 [Boo_ID] int NOT NULL IDENTITY(1,1) ,
 [Tea_ID] int NOT NULL ,
@@ -65,13 +65,13 @@ CREATE TABLE [dbo].[BookInfo] (
 )
 
 
-GO
+;
 
 -- ----------------------------
 -- Table structure for ClassRecordInfo
 -- ----------------------------
 DROP TABLE [dbo].[ClassRecordInfo]
-GO
+;
 CREATE TABLE [dbo].[ClassRecordInfo] (
 [Cla_ID] int NOT NULL IDENTITY(1,1) ,
 [Stu_ID] int NOT NULL ,
@@ -81,15 +81,15 @@ CREATE TABLE [dbo].[ClassRecordInfo] (
 )
 
 
-GO
+;
 DBCC CHECKIDENT(N'[dbo].[ClassRecordInfo]', RESEED, 2)
-GO
+;
 
 -- ----------------------------
 -- Table structure for FeedbackInfo
 -- ----------------------------
 DROP TABLE [dbo].[FeedbackInfo]
-GO
+;
 CREATE TABLE [dbo].[FeedbackInfo] (
 [Fee_ID] int NOT NULL IDENTITY(1,1) ,
 [Stu_ID] int NOT NULL ,
@@ -100,13 +100,13 @@ CREATE TABLE [dbo].[FeedbackInfo] (
 )
 
 
-GO
+;
 
 -- ----------------------------
 -- Table structure for OrderRecordInfo
 -- ----------------------------
 DROP TABLE [dbo].[OrderRecordInfo]
-GO
+;
 CREATE TABLE [dbo].[OrderRecordInfo] (
 [Ord_ID] int NOT NULL IDENTITY(1,1) ,
 [Stu_ID] int NOT NULL ,
@@ -116,13 +116,13 @@ CREATE TABLE [dbo].[OrderRecordInfo] (
 )
 
 
-GO
+;
 
 -- ----------------------------
 -- Table structure for StudentInfo
 -- ----------------------------
 DROP TABLE [dbo].[StudentInfo]
-GO
+;
 CREATE TABLE [dbo].[StudentInfo] (
 [Stu_ID] int NOT NULL IDENTITY(1,1) ,
 [Stu_UserName] varchar(50) NOT NULL ,
@@ -138,13 +138,13 @@ CREATE TABLE [dbo].[StudentInfo] (
 )
 
 
-GO
+;
 
 -- ----------------------------
 -- Table structure for TeacherInfo
 -- ----------------------------
 DROP TABLE [dbo].[TeacherInfo]
-GO
+;
 CREATE TABLE [dbo].[TeacherInfo] (
 [Tea_ID] int NOT NULL IDENTITY(1,1) ,
 [Tea_Name] varchar(20) NOT NULL ,
@@ -161,15 +161,15 @@ CREATE TABLE [dbo].[TeacherInfo] (
 )
 
 
-GO
+;
 DBCC CHECKIDENT(N'[dbo].[TeacherInfo]', RESEED, 13)
-GO
+;
 
 -- ----------------------------
 -- Table structure for TestInfo
 -- ----------------------------
 DROP TABLE [dbo].[TestInfo]
-GO
+;
 CREATE TABLE [dbo].[TestInfo] (
 [Tes_ID] int NOT NULL IDENTITY(1,1) ,
 [Tes_Type] varchar(20) NOT NULL ,
@@ -182,7 +182,7 @@ CREATE TABLE [dbo].[TestInfo] (
 )
 
 
-GO
+;
 
 -- ----------------------------
 -- Indexes structure for table AdminInfo
@@ -192,7 +192,7 @@ GO
 -- Primary Key structure for table AdminInfo
 -- ----------------------------
 ALTER TABLE [dbo].[AdminInfo] ADD PRIMARY KEY ([Adm_ID])
-GO
+;
 
 -- ----------------------------
 -- Indexes structure for table BalanceInfo
@@ -202,7 +202,7 @@ GO
 -- Primary Key structure for table BalanceInfo
 -- ----------------------------
 ALTER TABLE [dbo].[BalanceInfo] ADD PRIMARY KEY ([Bal_ID])
-GO
+;
 
 -- ----------------------------
 -- Indexes structure for table BookInfo
@@ -212,7 +212,7 @@ GO
 -- Primary Key structure for table BookInfo
 -- ----------------------------
 ALTER TABLE [dbo].[BookInfo] ADD PRIMARY KEY ([Boo_ID])
-GO
+;
 
 -- ----------------------------
 -- Indexes structure for table ClassRecordInfo
@@ -222,7 +222,7 @@ GO
 -- Primary Key structure for table ClassRecordInfo
 -- ----------------------------
 ALTER TABLE [dbo].[ClassRecordInfo] ADD PRIMARY KEY ([Cla_ID])
-GO
+;
 
 -- ----------------------------
 -- Indexes structure for table FeedbackInfo
@@ -232,7 +232,7 @@ GO
 -- Primary Key structure for table FeedbackInfo
 -- ----------------------------
 ALTER TABLE [dbo].[FeedbackInfo] ADD PRIMARY KEY ([Fee_ID])
-GO
+;
 
 -- ----------------------------
 -- Indexes structure for table OrderRecordInfo
@@ -242,7 +242,7 @@ GO
 -- Primary Key structure for table OrderRecordInfo
 -- ----------------------------
 ALTER TABLE [dbo].[OrderRecordInfo] ADD PRIMARY KEY ([Ord_ID])
-GO
+;
 
 -- ----------------------------
 -- Indexes structure for table StudentInfo
@@ -252,7 +252,7 @@ GO
 -- Primary Key structure for table StudentInfo
 -- ----------------------------
 ALTER TABLE [dbo].[StudentInfo] ADD PRIMARY KEY ([Stu_ID])
-GO
+;
 
 -- ----------------------------
 -- Indexes structure for table TeacherInfo
@@ -262,7 +262,7 @@ GO
 -- Primary Key structure for table TeacherInfo
 -- ----------------------------
 ALTER TABLE [dbo].[TeacherInfo] ADD PRIMARY KEY ([Tea_ID])
-GO
+;
 
 -- ----------------------------
 -- Indexes structure for table TestInfo
@@ -272,4 +272,4 @@ GO
 -- Primary Key structure for table TestInfo
 -- ----------------------------
 ALTER TABLE [dbo].[TestInfo] ADD PRIMARY KEY ([Tes_ID])
-GO
+;

@@ -130,5 +130,39 @@ namespace SQLServerDAL
                                              select o;
             return query.ToList<FeedbackInfo>();
         }
+
+
+        IList<FeedbackInfo> IDAL.IFeedback.GetFeedBackByLevelTop6()
+        {
+            DataContext ctx = new DataContext(connection);
+            ITable<FeedbackInfo> feedbacks = ctx.GetTable<FeedbackInfo>();
+            IQueryable<FeedbackInfo> query = (from o in feedbacks
+                                              where o.Fee_Level == 's'
+                                             orderby o.Fee_Time descending
+                                             select o).Take(6);
+            return query.ToList<FeedbackInfo>();
+        }
+
+
+        DataSet IDAL.IFeedback.GetSuperFeedbackList()
+        {
+            SqlConnection sqlcon = null;
+            try
+            {
+                sqlcon = new SqlConnection(connection);
+                string sqlstr = "SELECT   FeedbackInfo.*, StudentInfo.Stu_UserName, StudentInfo.Stu_Image FROM FeedbackInfo INNER JOIN StudentInfo ON FeedbackInfo.Stu_ID = StudentInfo.Stu_ID";
+                SqlDataAdapter myda = new SqlDataAdapter(sqlstr, sqlcon);
+                DataSet myds = new DataSet();
+                sqlcon.Open();
+                myda.Fill(myds);
+                return myds;
+            }
+            finally
+            {
+                if (sqlcon != null)
+                    sqlcon.Close();
+            }
+
+        }
     }
 }

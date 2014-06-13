@@ -46,7 +46,6 @@ namespace SQLServerDAL
                 o.Stu_Image = student.Stu_Image;
                 o.Stu_Password = student.Stu_Password;
                 o.Stu_UserName = student.Stu_UserName;
-                o.Stu_Birthday = student.Stu_Birthday;
                 o.Stu_Sex = student.Stu_Sex;
                 o.Stu_Tel = student.Stu_Tel;
             }

@@ -37,8 +37,15 @@
                           <div class="col-lg-6 col-md-6 col-xs-12 col-sm-6 ">
                             账号：  
                               <asp:TextBox id="Username" class="form-control" runat="server" />
+                              <asp:RequiredFieldValidator ID="NameValidator1" runat="server"
+                                  ErrorMessage ="用户名不能为空" ControlToValidate="Username" Display="Dynamic"
+                                  Font-Size="15px" ForeColor="Red"></asp:RequiredFieldValidator>
                             密码：  
                               <asp:TextBox id="Password" TextMode="password" class="form-control" runat="server" />
+                              <asp:RequiredFieldValidator ID="PasswordValidator1" runat="server"
+                                  ErrorMessage ="用户名不能为空" ControlToValidate="Password" Display="Dynamic"
+                                  Font-Size="15px" ForeColor="Red"></asp:RequiredFieldValidator>
+
                            <asp:Button id="Login" Text="登录" class="btn-color btn-normal btn-pad" runat="server" OnClick="Login_Click" />
                             <!-- /input-group -->
                               

@@ -12,6 +12,8 @@
     <title>Viki智能外教</title>
     <asp:ContentPlaceHolder ID="css" runat="server">
     </asp:ContentPlaceHolder>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'/>
+    <link href='http://fonts.googleapis.com/css?family=Oswald:400,300,700' rel='stylesheet' type='text/css'/>
     <!-- Library CSS -->
     <link rel="stylesheet" href="css/bootstrap.css"/>
     <link rel="stylesheet" href="css/fonts/font-awesome/css/font-awesome.css"/>
@@ -24,10 +26,19 @@
     <!-- Skin -->
     <link rel="stylesheet" href="css/colors/blue.css" id="colors"/>
     <!-- Responsive CSS -->
-    <link rel="stylesheet" href="css/theme-responsive.css">
+    <link rel="stylesheet" href="css/theme-responsive.css"/>
+
+    <!-- The HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+      <script src="js/respond.min.js"></script>
+      <![endif]-->
+    <!--[if IE]>
+      <link rel="stylesheet" href="css/ie.css">
+      <![endif]-->
 </head>
-<body class="home" >
-    <form id="Form1" runat="server" accept-charset="utf-8">
+<body class="home">
+    <form id="Form1" runat="server">
 
         <div class="wrap">
             <!-- Header Start -->
@@ -36,9 +47,9 @@
                 <div class="top-bar">
                     <div class="slidedown collapse">
                         <div class="container">
-                            <div class="phone-email pull-left">
+                            <div class="phone-email pull-left"> 
                                <i class="icon-link"></i> <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/Student/Login.aspx"></asp:HyperLink>
-                               <i class="icon-link"></i> <asp:HyperLink ID="HyperLink2" runat="server" NavigateUrl="~/Student/Register.aspx"></asp:HyperLink>
+                               <i class="icon-link"></i> <asp:LinkButton ID="HyperLink2" runat="server" OnClick="HyperLink2_Click1" ></asp:LinkButton>
                             </div>
                             <div class="pull-right">
                                 <ul class="social pull-left">
@@ -69,8 +80,8 @@
                         <!-- Logo Start -->
                         <div class="logo pull-left">
                             <h1>
-               
-                                <a href="../Home/Home.aspx">
+
+                                    <asp:HyperLink ID="HyperLink12" runat="server" NavigateUrl="~/Home/Home.aspx">
                                     <asp:Image ID="Image1" runat="server" src="../img/logo.png" alt="viki" Width="125" Height="60" />
                                         </asp:HyperLink>
                             </h1>

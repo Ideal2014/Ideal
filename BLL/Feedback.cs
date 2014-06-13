@@ -46,5 +46,17 @@ namespace BLL
         {
             return dal.GetFeedBackByDate(dateTime);
         }
+
+
+        IList<FeedbackInfo> IBLL.IFeedback.GetFeedBackByLevelTop6()
+        {
+            return dal.GetFeedBackByLevelTop6();
+        }
+
+
+        System.Data.DataSet IBLL.IFeedback.GetSuperFeedbackList()
+        {
+            return dal.GetSuperFeedbackList();
+        }
     }
 }

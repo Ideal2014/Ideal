@@ -68,21 +68,6 @@
       <Column Name="Ord_Plan" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
     </Type>
   </Table>
-  <Table Name="dbo.StudentInfo" Member="StudentInfo">
-    <Type Name="StudentInfo">
-      <Column Name="Stu_ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="Stu_UserName" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="Stu_Password" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="Stu_Email" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="Stu_Image" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
-      <Column Name="Stu_LastLogin" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
-      <Column Name="Stu_RegisteTime" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
-      <Column Name="Stu_Sex" Type="System.String" DbType="Char(10) NOT NULL" CanBeNull="false" />
-      <Column Name="Stu_Birthday" Type="System.DateTime" DbType="SmallDateTime NOT NULL" CanBeNull="false" />
-      <Column Name="Stu_Tel" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
-      <Column Name="Stu_Validation" Type="System.String" DbType="Char(10) NOT NULL" CanBeNull="false" />
-    </Type>
-  </Table>
   <Table Name="dbo.TeacherInfo" Member="TeacherInfo">
     <Type Name="TeacherInfo">
       <Column Name="Tea_ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -97,6 +82,20 @@
       <Column Name="Tea_About" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
       <Column Name="Tea_Suitable" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
       <Column Name="Tea_SImage" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.StudentInfo" Member="StudentInfo">
+    <Type Name="StudentInfo">
+      <Column Name="Stu_ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Stu_UserName" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Stu_Password" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Stu_Email" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Stu_Image" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="Stu_LastLogin" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="Stu_RegisteTime" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="Stu_Sex" Type="System.String" DbType="Char(10)" CanBeNull="true" />
+      <Column Name="Stu_Tel" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Stu_Validation" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
     </Type>
   </Table>
 </Database>

@@ -26,16 +26,23 @@ public partial class Student_StudentResetPassword : System.Web.UI.Page
         if(!bllStudent.CheckLogin(student)){
             Response.Redirect("~/Student/Login.aspx");
         }
-
+        student = bllStudent.Get(student.Stu_ID);
         Mailbox.Text = bllStudent.Get(Convert.ToInt32(cookie.Values["ID"])).Stu_Email;
         Mailbox.Attributes["ContentEditable"]="false";
+
+        Image7.ImageUrl = student.Stu_Image;
+        Std_Name.Text = student.Stu_UserName;
+        Std_ID.Text = Convert.ToString(student.Stu_ID);
         
     }
 
     protected void ResetPassword_Click(object sender, EventArgs e)
     {
-        HttpCookie cookie = Request.Cookies["usr"];
+            HttpCookie cookie = Request.Cookies["usr"];
             StudentInfo student = bllStudent.Get(Convert.ToInt32(cookie.Values["ID"]));
+            student.Stu_Password =Password1.Text.Trim();
+            if(bllStudent.CheckLogin(student)&&Password2.Text.Trim().Equals(Password3.Text.Trim())){
+                student.Stu_Password = Password2.Text.Trim();
             student.Stu_Validation = Str(10, false);
             bllStudent.Modify(student);
             String strSmtpServer = "smtp.163.com";
@@ -57,6 +64,7 @@ public partial class Student_StudentResetPassword : System.Web.UI.Page
             Console.Out.WriteLine(ex.Data);
             throw ex;
         }
+            }
     }
  
     /// <summary>
