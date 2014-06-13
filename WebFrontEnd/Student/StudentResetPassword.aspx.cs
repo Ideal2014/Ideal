@@ -109,4 +109,20 @@ public partial class Student_StudentResetPassword : System.Web.UI.Page
         }
         return result;
     }
+
+    protected void ResetValidate_ServerValidate(object source, ServerValidateEventArgs args)
+    {
+        HttpCookie cookie = Request.Cookies["usr"];
+        StudentInfo student = new StudentInfo();
+        student.Stu_ID = Convert.ToInt32(cookie.Values["ID"]);
+        student.Stu_Password = Password1.Text.Trim();
+        if (student != null && bllStudent.CheckLogin(student))
+        {
+            args.IsValid = true;
+        }
+        else
+        {
+            args.IsValid = false;
+        }
+    }
 }

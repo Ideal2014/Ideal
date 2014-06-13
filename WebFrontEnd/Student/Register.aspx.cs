@@ -43,4 +43,16 @@ public partial class Student_Register : System.Web.UI.Page
         bllStudent.Add(student);
         Response.Redirect("~/Student/Login.aspx");
     }
+    protected void RegisterValidate_ServerValidate(object source, ServerValidateEventArgs args)
+    {
+        StudentInfo student = bllStudent.GetByName(Name.Text.Trim());
+        if (student!=null)
+        {
+            args.IsValid = false;
+        }
+        else
+        {
+            args.IsValid = true;
+        }
+    }
 }
