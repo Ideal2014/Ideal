@@ -15,9 +15,11 @@ public partial class Student_Login : System.Web.UI.Page
         {
             if (Request.Cookies["usr"] != null)
             {
+               
                 HttpCookie cookie = new HttpCookie("usr");
                 cookie.Expires = System.DateTime.Now.AddDays(-1);
                 Response.Cookies.Add(cookie);
+                
             }
         }
         

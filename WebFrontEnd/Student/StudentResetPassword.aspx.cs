@@ -48,11 +48,14 @@ public partial class Student_StudentResetPassword : System.Web.UI.Page
             String strSmtpServer = "smtp.163.com";
             String strFrom = "vikivalidation@163.com";
             String strFromPass = "vikiviki";
-            String strTo = "825549402@qq.com";//student.stu_Email;
+            String strTo = "2570845188@qq.com";//student.stu_Email;
             String strSubject = "Viki账号激活";
             StringBuilder sb = new StringBuilder();
+
+
+       
             sb.AppendFormat("点击下面链接激活账号，否则重新注册账号，链接只能使用一次，请尽快激活！</br>");
-            sb.AppendFormat("<a href='{0}/Student/MailValidateSuccess.aspx?userName={1}&validateCode={2}''>点击这里</a></br>", Server.UrlPathEncode(Request.ApplicationPath), student.Stu_ID, student.Stu_Validation);
+            sb.AppendFormat("<a href='{0}WebBackEnd/Student/MailValidateSuccess.aspx?userName={1}&validateCode={2}''>点击这里</a></br>", Request.Url.Authority, student.Stu_ID, student.Stu_Validation);
             sb.AppendFormat("如未能激活请点击下面链接：<a href='{0}/Student/MailValidateSuccess.aspx?userName={1}&validateCode={2}'>{3}/Student/MailValidateSuccess.aspx?userName={4}&validateCode={5}</a></br>", Server.UrlPathEncode(Request.ApplicationPath), student.Stu_ID, student.Stu_Validation, Server.UrlPathEncode(Request.ApplicationPath), student.Stu_ID, student.Stu_Validation);
             SendSMTPEMail(strSmtpServer, strFrom, strFromPass, strTo, strSubject, sb.ToString());
             Response.Redirect("~/Student/Login.aspx");
