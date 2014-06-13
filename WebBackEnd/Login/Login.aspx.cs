@@ -19,6 +19,20 @@ public partial class Login_Default : System.Web.UI.Page
     }
     protected void LoginButton_Click(object sender, EventArgs e)
     {
+        if (LoginValidate.IsValid)
+        {
+            AdminInfo admin = bllAdmin.FindByName(UserName.Text.ToString());
+            HttpCookie cookie = new HttpCookie("admin");
+            cookie.Values["id"] = admin.Adm_ID.ToString();
+            cookie.Expires = System.DateTime.Now.AddDays(1);//设置过期时间  1天
+            Response.Cookies.Add(cookie);
+            Response.Redirect("~/Base/Count.aspx");
+        }
+
+    }
+
+    protected void LoginValidate_ServerValidate(object source, ServerValidateEventArgs args)
+    {
         string userNameRegex = @"^\d+$";
         if (!Regex.IsMatch(UserName.Text.ToString(), userNameRegex))
             throw new Exception();
@@ -29,17 +43,11 @@ public partial class Login_Default : System.Web.UI.Page
         AdminInfo admin = bllAdmin.FindByName(UserName.Text.ToString());
         if (admin != null && Password.Text.ToString() == admin.Adm_Password)
         {
-            HttpCookie cookie = new HttpCookie("admin");
-            cookie.Values["id"] = admin.Adm_ID.ToString();
-            cookie.Expires = System.DateTime.Now.AddDays(1);//设置过期时间  1天
-            Response.Cookies.Add(cookie);
-            Response.Redirect("~/Base/Count.aspx");
-
+            args.IsValid = true;
         }
-    }
-
-    protected void LoginValidate_ServerValidate(object source, ServerValidateEventArgs args)
-    {
-       args.IsValid = false; 
+        else
+        {
+            args.IsValid = false;
+        }
     }
 }
