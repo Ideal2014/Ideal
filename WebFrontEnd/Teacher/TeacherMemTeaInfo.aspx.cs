@@ -25,6 +25,7 @@ public partial class Teacher_TeacherMemTeaInfo : System.Web.UI.Page
                 Image7.ImageUrl = student.Stu_Image;
                 Std_Name.Text = student.Stu_UserName;
                 Std_ID.Text = Convert.ToString(student.Stu_ID);
+
                 string teaid = Request.QueryString["TeaID"];
                 TeacherInfo teacher = bllTeacher.Get(Convert.ToInt32(teaid));
                 ImageT.ImageUrl = teacher.Tea_SImage;

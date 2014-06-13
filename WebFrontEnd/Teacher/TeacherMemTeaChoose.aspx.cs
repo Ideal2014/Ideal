@@ -52,7 +52,7 @@ public partial class Teacher_TeacherMemTeaChoose : System.Web.UI.Page
         }
         else
         {
-            Response.Redirect(String.Format("../Purchase/TeachersPurchase.aspx?tid={0}", e.CommandArgument));
+            Response.Redirect(String.Format("~/TeacherMemRobot.aspx?tid={0}", e.CommandArgument));
         }
         
     }
