@@ -67,8 +67,12 @@ public partial class Test_Default : System.Web.UI.Page
         }
         else
         {
-            Response.Write("<script>alert('您的得分是：" + Session["goal"] + "')</script>");
-            Response.Redirect("~/Purchase/AccountInfo.aspx");
+            Label3.Text="<br/>";
+
+            Label2.Text = "您的得分是：" + Session["goal"] + "<br/><br/><br/><br/><br/>";
+            btgp.Visible = false;
+            next.Text = "返回个人中心";
+            next.PostBackUrl = "~/Purchase/AccountInfo.aspx";
         }
     }
 }
