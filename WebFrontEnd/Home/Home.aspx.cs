@@ -49,15 +49,9 @@ public partial class Home_Home : System.Web.UI.Page
 
     private void LoadImage()
     {
-        string server = Server.MapPath("~/");
-        UploadSupport.CopyFile(server + "../Resourse/Image/index1.png", server + "/Resourse/Image/index1.png");
-        UploadSupport.CopyFile(server + "../Resourse/Image/index2.png", server + "/Resourse/Image/index2.png");
-        UploadSupport.CopyFile(server + "../Resourse/Image/index3.png", server + "/Resourse/Image/index3.png");
-        UploadSupport.CopyFile(server + "../Resourse/Image/index4.png", server + "/Resourse/Image/index4.png");
-
-        Image1.ImageUrl = "~/Resourse/Image/index1.png";
-        Image2.ImageUrl = "~/Resourse/Image/index2.png";
-        Image3.ImageUrl = "~/Resourse/Image/index3.png";
-        Image4.ImageUrl = "~/Resourse/Image/index4.png";
+        Image1.ImageUrl = UploadSupport.Image("index1.png");
+        Image2.ImageUrl = UploadSupport.Image("index2.png");
+        Image3.ImageUrl = UploadSupport.Image("index3.png");
+        Image4.ImageUrl = UploadSupport.Image("index4.png");
     }
 }

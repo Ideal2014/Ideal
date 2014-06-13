@@ -39,15 +39,22 @@ public partial class Teacher_TeacherAdd : System.Web.UI.Page
         if (!Regex.IsMatch(TeacherDescribe.Text.ToString(), @"^\S*$"))
             throw new Exception();
 
+        string server = Server.MapPath("~/");
+        string imageName = UploadSupport.GenerateRandom(10) + ".jpg";
         string error;
-        if (!UploadSupport.SaveImage(TeacherImage, ShowImage, Server.MapPath("~/"), "1.png", out error))
+        if (!UploadSupport.SaveImage(FileUpload, server, imageName, out error))
+            return;
+        string imageSName = UploadSupport.GenerateRandom(10) + ".jpg";
+        string errorS;
+        if (!UploadSupport.SaveImage(FileSUpload, server, imageName, out errorS))
             return;
 
         TeacherInfo teacher = new TeacherInfo();
 
         teacher.Tea_Name = TeacherName.Text.ToString();
         teacher.Tea_Nickname = TeacherNickName.Text.ToString();
-        //teacher.Tea_Image = TeacherImage.r
+        teacher.Tea_Image = UploadSupport.Image(imageName);
+        teacher.Tea_SImage = UploadSupport.Image(imageSName);
         teacher.Tea_Sex = TeacherSex.SelectedValue.ToString();
         teacher.Tea_Age = Int32.Parse(TeacherAge.Text.ToString());
         teacher.Tea_Nation = TeacherNation.Text.ToString();
@@ -60,4 +67,5 @@ public partial class Teacher_TeacherAdd : System.Web.UI.Page
 
         Response.Redirect("~/Teacher/TeacherList.aspx");
     }
+
 }
