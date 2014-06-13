@@ -41,7 +41,7 @@ namespace SQLServerDAL
                                             select o;
             foreach (TeacherInfo o in query)
             {
-                o.Tea_About = teacher.Tea_About;
+             
                 o.Tea_Age = teacher.Tea_Age;
                 o.Tea_Describe = teacher.Tea_Describe;
                 o.Tea_Image = teacher.Tea_Image;
@@ -50,7 +50,6 @@ namespace SQLServerDAL
                 o.Tea_Nickname = teacher.Tea_Nickname;
                 o.Tea_Sex = teacher.Tea_Sex;
                 o.Tea_Skill = teacher.Tea_Skill;
-                o.Tea_Suitable = teacher.Tea_Suitable;
                 o.Tea_SImage = teacher.Tea_SImage;
             }
             ctx.SubmitChanges();
@@ -81,7 +80,7 @@ namespace SQLServerDAL
         {
 
             SqlConnection sqlcon = new SqlConnection(connection);
-            string sqlstr = "SELECT   Tea_ID, Tea_Name FROM      TeacherInfo";
+            string sqlstr = "SELECT   Tea_ID, Tea_Name,Tea_Sex,Tea_Nation,Tea_Skill FROM TeacherInfo";
             SqlDataAdapter myda = new SqlDataAdapter(sqlstr, sqlcon);
             DataSet myds = new DataSet();
             sqlcon.Open();

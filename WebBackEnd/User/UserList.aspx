@@ -30,7 +30,7 @@
                     <Columns>
 
                         <asp:BoundField DataField="Stu_UserName" HeaderText="用户" />
-                        <asp:BoundField HeaderText="添加时间" ItemStyle-CssClass="center" />
+                        <asp:BoundField DataField="Stu_RegisteTime" HeaderText ="添加时间" ItemStyle-CssClass="center" />
                         <asp:TemplateField HeaderText="操作" ItemStyle-CssClass="center">
                             <ItemTemplate>
                                 <asp:Label ID="StudentID" runat="server" Text='<%# Bind("Stu_ID") %>' Visible="false"></asp:Label>
@@ -91,7 +91,7 @@
                         <asp:BoundField DataField="Adm_LastLogin" HeaderText="上次登录时间" ItemStyle-CssClass="center" />
                         <asp:TemplateField HeaderText="操作" ItemStyle-CssClass="center">
                             <ItemTemplate>
-                                <asp:Label ID="StudentID" runat="server" Text='<%# Bind("Adm_ID") %>' Visible="false"></asp:Label>
+                                <asp:Label ID="AdminId" runat="server" Text='<%# Bind("Adm_ID") %>' Visible="false"></asp:Label>
                                 <asp:LinkButton ID="Modify" runat="server" CssClass="btn btn-info" OnClick="Modify_Click">
                                      <i class="icon-edit icon-white"></i>修改
                                 </asp:LinkButton>
@@ -111,7 +111,7 @@
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-                                                <asp:Button ID="Button1" runat="server" class="btn btn-primary"  OnClick="Delete_Click" Text="删除"/>
+                                                <asp:Button ID="Button1" runat="server" class="btn btn-primary"  OnClick="Button1_Click" Text="删除"/>
                                                
                                             </div>
                                         </div>

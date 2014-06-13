@@ -35,7 +35,7 @@ public partial class Teacher_TeacherList : System.Web.UI.Page
     }
     protected void Delete_Click(object sender, EventArgs e)
     {
-        var button = sender as LinkButton;
+        var button = sender as Button;
         GridViewRow gvr = (GridViewRow)button.Parent.Parent;
         var lab = (Label)this.TeacherList.Rows[gvr.RowIndex].FindControl("TeacherID");
         int id = Int32.Parse(lab.Text.ToString());

@@ -35,7 +35,7 @@
 							<div class="control-group">
 							  <asp:label class="control-label" runat="server" for="typeahead">书名 </asp:label>
 							  <div class="controls">
-							<asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
+							<asp:TextBox ID="BookName" runat="server"></asp:TextBox>
 							  </div>
 							</div>
                                 <div class="control-group">
