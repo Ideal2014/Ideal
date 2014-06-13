@@ -49,18 +49,7 @@
                                <i class="icon-link"></i> <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/Student/Login.aspx"></asp:HyperLink>
                                <i class="icon-link"></i> <asp:LinkButton ID="HyperLink2" runat="server" OnClick="HyperLink2_Click1" ></asp:LinkButton>
                             </div>
-                            <div class="pull-right">
-                                <ul class="social pull-left">
-                                    <li class="facebook"><a href="#"><i class="icon-facebook"></i></a></li>
-                                    <li class="twitter"><a href="#"><i class="icon-twitter"></i></a></li>
-                                    <li class="dribbble"><a href="#"><i class="icon-dribbble"></i></a></li>
-                                    <li class="linkedin"><a href="#"><i class="icon-linkedin"></i></a></li>
-                                    <li class="rss"><a href="#"><i class="icon-rss"></i></a></li>
-                                </ul>
-                                <div id="Div2" class="pull-right">
-                                    <asp:TextBox  id="textbox1" class="search-text-box" runat="server"/>
-                                </div>
-                            </div>
+                           
                         </div>
                     </div>
                 </div>
@@ -152,15 +141,7 @@
                     <div class="container">
                         <div class="row">
                             <div class="col-lg-6 col-md-6 col-xs-12 col-sm-6 ">Copyright &copy; 2014.Company name All rights reserved.<a target="_blank" href="http://sc.chinaz.com/moban/">Ideal</a></div>
-                            <div class="col-lg-6 col-md-6 col-xs-12 col-sm-6 ">
-                                <ul class="social social-icons-footer-bottom">
-                                    <li class="facebook"><a href="#" data-toggle="tooltip" title="Facebook"><i class="icon-facebook"></i></a></li>
-                                    <li class="twitter"><a href="#" data-toggle="tooltip" title="Twitter"><i class="icon-twitter"></i></a></li>
-                                    <li class="dribbble"><a href="#" data-toggle="tooltip" title="Dribble"><i class="icon-dribbble"></i></a></li>
-                                    <li class="linkedin"><a href="#" data-toggle="tooltip" title="LinkedIn"><i class="icon-linkedin"></i></a></li>
-                                    <li class="rss"><a href="#" data-toggle="tooltip" title="Rss"><i class="icon-rss"></i></a></li>
-                                </ul>
-                            </div>
+                           
                         </div>
                     </div>
                 </div>

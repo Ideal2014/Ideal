@@ -39,6 +39,8 @@ public partial class Student_Login : System.Web.UI.Page
             cookie.Expires = System.DateTime.Now.AddDays(1);//设置过期时间  1天
             Response.Cookies.Add(cookie);
             Response.Redirect("~/Home/Home.aspx");
+
         }
+        
     }
 }

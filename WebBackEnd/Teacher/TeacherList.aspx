@@ -21,12 +21,7 @@
         <div class="box span12">
             <div class="box-header well" data-original-title>
                 <h2><i class="icon-user"></i>教师列表</h2>
-                <div class="pull-right">
-                    <asp:LinkButton ID="Add" runat="server" OnClick="Add_Click" CssClass="btn btn-warning">
-                        <i class="icon-plus-sign icon-white"></i>
-                        添加教师
-                    </asp:LinkButton>
-                </div>
+              
             </div>
             <div class="box-content">
                 <asp:GridView ID="TeacherList" runat="server" CssClass="table table-striped table-bordered bootstrap-datatable datatable" AutoGenerateColumns="false">

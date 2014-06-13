@@ -90,7 +90,7 @@ namespace SQLServerDAL
         System.Data.DataSet IDAL.IAdmin.getAdminList()
         {
             SqlConnection sqlcon = new SqlConnection(connection);
-            string sqlstr = "SELECT   Adm_ID, Adm_UserName FROM      AdminInfo";
+            string sqlstr = "SELECT * FROM      AdminInfo";
             SqlDataAdapter myda = new SqlDataAdapter(sqlstr, sqlcon);
             DataSet myds = new DataSet();
             sqlcon.Open();

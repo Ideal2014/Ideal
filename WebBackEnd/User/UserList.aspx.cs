@@ -7,7 +7,8 @@ using System.Web.UI.WebControls;
 
 public partial class User_UserList : System.Web.UI.Page
 {
-    private  IBLL.IStudent bllStudent = BLLFactory.DataAccess.CreateStudent();
+    private IBLL.IStudent bllStudent = BLLFactory.DataAccess.CreateStudent();
+    private IBLL.IAdmin bllAdmin = BLLFactory.DataAccess.CreateAdmin();
 
     protected void Page_Load(object sender, EventArgs e)
     {
@@ -22,6 +23,10 @@ public partial class User_UserList : System.Web.UI.Page
 
         StudentList.DataSource = bllStudent.getStudentList();
         StudentList.DataBind();
+
+        AdminList.DataSource = bllAdmin.getAdminList();
+        AdminList.DataBind();
+
     }
     protected void Modify_Click(object sender, EventArgs e)
     {
@@ -34,7 +39,7 @@ public partial class User_UserList : System.Web.UI.Page
     }
     protected void Delete_Click(object sender, EventArgs e)
     {
-        var button = sender as LinkButton;
+        var button = sender as Button;
         GridViewRow gvr = (GridViewRow)button.Parent.Parent;
         var lab = (Label)this.StudentList.Rows[gvr.RowIndex].FindControl("StudentID");
         int id = Int32.Parse(lab.Text.ToString());

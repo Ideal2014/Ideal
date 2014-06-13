@@ -18,12 +18,7 @@
         <div class="box span12">
             <div class="box-header well" data-original-title>
                 <h2><i class="icon-user"></i>教材列表</h2>
-                <div class="pull-right">
-                    <a class="btn btn-warning" href="book-add.html">
-                        <i class="icon-plus-sign icon-white"></i>
-                        添加教材                                       
-                    </a>
-                </div>
+               
             </div>
             <div class="box-content">
                 <table class="table table-striped table-bordered bootstrap-datatable datatable">
