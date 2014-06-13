@@ -40,16 +40,16 @@
                                   ErrorMessage ="用户名不能为空" ControlToValidate="Name" Display="Dynamic"
                                   Font-Size="15px" ForeColor="Red"></asp:RequiredFieldValidator>
                               <asp:RegularExpressionValidator ID="NameValidator2" runat="server"
-                                  ErrorMessage="格式不对，请输入只能输入5-20个以字母开头、可带数字、“_”、“.”的字串" ControlToValidate="Name"
+                                  ErrorMessage="格式不对，请输入只能输入6-20个以字母开头、可带数字、“_”、“.”的字串" ControlToValidate="Name"
                                   DisPlay="Dynamic" ValidationExpression="^[a-zA-Z]{1}([a-zA-Z0-9]|[._]){5,19}$"
                                   Font-Size="15px" ForeColor="Red"></asp:RegularExpressionValidator>
-                            <br />密码：  <asp:TextBox id="Password1" TextMode="password" class="form-control" placeholder="输入6-20位密码" runat="server" />
+                            <br />密码：  <asp:TextBox ID="Password1" TextMode="password" class="form-control" placeholder="输入6-20位密码" runat="server" />
                               <asp:RequiredFieldValidator ID="Password1Validator1" runat="server"
                                   ControlToValidate="Password1" Display="Dynamic" ErrorMessage="不能为空"
                                   Font-Size="15px" ForeColor="Red"></asp:RequiredFieldValidator>
-                              <asp:RegularExpressionValidator ID="Password1Validator2"  runat="server"
-                                  ErrorMessage="密码6-20位" ControlToValidate="Password1"
-                                  DisPlay="Dynamic" ValidationExpression="^.{6,19}$"
+                              <asp:RegularExpressionValidator ID="Password1Validator2"  runat="server"  ControlToValidate="Password1"
+                                  ErrorMessage="密码6-20位"
+                                  DisPlay="Dynamic" ValidationExpression="^.{5,19}$"
                                   Font-Size="15px" ForeColor="Red"></asp:RegularExpressionValidator>
                             <br />确认密码：  <asp:TextBox ID="Password2" TextMode="password" class="form-control" placeholder="请再次输入密码" runat="server" />
                               <asp:RequiredFieldValidator ID="Password2Validator1" runat="server"
