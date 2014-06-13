@@ -12,7 +12,7 @@ public partial class MasterPage : System.Web.UI.MasterPage
     protected void Page_Load(object sender, EventArgs e)
     {
 
-        if (Request.Cookies["admin"] != null)
+        if (Request.Cookies["admin"] != null && Request.Cookies["admin"]["id"] != null)
         {
             string id = Request.Cookies["admin"]["id"];
             Admin.Text = bllAdmin.Get(Int32.Parse(id)).Adm_UserName;
