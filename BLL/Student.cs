@@ -9,7 +9,7 @@ namespace BLL{
     public class Student : IBLL.IStudent
     {
         private  IDAL.IStudent dal = DALFactory.DataAccess.CreateStudent();
-
+        //加密用户密码后保存信息
         void IBLL.IStudent.Add(StudentInfo student)
         {
 
@@ -43,12 +43,11 @@ namespace BLL{
             return dal.GetByName(name);
         }
 
-
+        //登录验证，验证用户的密码和是否为激活状态
         bool IBLL.IStudent.CheckLogin(StudentInfo s1)
         {
             s1.Stu_Password = Md5Support.GetMd5String(s1.Stu_Password);
             StudentInfo s2 = dal.Get(s1.Stu_ID);
-            bool a = (s2.Stu_Password==s1.Stu_Password);
             return (s2.Stu_Password.Equals(s1.Stu_Password)&&(s2.Stu_Validation.Equals("success")));
             
         }

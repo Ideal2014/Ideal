@@ -7,6 +7,10 @@ using System.Web.UI.WebControls;
 using Model;
 using System.Text.RegularExpressions;
 
+/*
+ * author:summer
+ */
+
 public partial class Student_Register : System.Web.UI.Page
 {
     private  IBLL.IStudent bllStudent = BLLFactory.DataAccess.CreateStudent();
@@ -16,6 +20,8 @@ public partial class Student_Register : System.Web.UI.Page
         {
         }
     }
+    //对于输入进行验证
+    //将数据存入数据库
     protected void Register_Click(object sender, EventArgs e)
     {
         string userNameRegex = @"^[a-zA-Z]{1}([a-zA-Z0-9]|[._]){5,19}$";
@@ -43,16 +49,12 @@ public partial class Student_Register : System.Web.UI.Page
         bllStudent.Add(student);
         Response.Redirect("~/Student/Login.aspx");
     }
+
+    //验证用户名是否已经存在
     protected void RegisterValidate_ServerValidate(object source, ServerValidateEventArgs args)
     {
         StudentInfo student = bllStudent.GetByName(Name.Text.Trim());
-        if (student!=null)
-        {
-            args.IsValid = false;
-        }
-        else
-        {
-            args.IsValid = true;
-        }
+        args.IsValid = (student==null);
+
     }
 }

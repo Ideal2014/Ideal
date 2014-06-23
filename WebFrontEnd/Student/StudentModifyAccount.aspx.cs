@@ -6,10 +6,13 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using Model;
 using System.IO;
-
+/*
+ * author:summer
+ */ 
 public partial class Student_Student_Modify_Account : System.Web.UI.Page
 {
     private  IBLL.IStudent bllStudent = BLLFactory.DataAccess.CreateStudent();
+    //加载页面，验证用户登录信息，显示个人信息
     protected void Page_Load(object sender, EventArgs e)
     {
         if (!IsPostBack)
@@ -43,6 +46,7 @@ public partial class Student_Student_Modify_Account : System.Web.UI.Page
 
         }
     }
+    //点击提交，对个人信息内容进行修改
     protected void Submit_Click(object sender, EventArgs e)
     {
         HttpCookie cookie = Request.Cookies["usr"];
@@ -61,6 +65,8 @@ public partial class Student_Student_Modify_Account : System.Web.UI.Page
         bllStudent.Modify(student);
         Response.Redirect("~/Student/StudentModifyAccount.aspx");
     }
+
+    //上传文件
     String SaveFile(HttpPostedFile file)
     {
         string savePath = "~/Resource/Image/Upload/";

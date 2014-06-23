@@ -53,7 +53,7 @@ namespace BLL
             return dal.GetFeedBackByLevelTop6();
         }
 
-
+        //得到为s状态的反馈表，即名人堂的信息
         System.Data.DataSet IBLL.IFeedback.GetSuperFeedbackList()
         {
             return dal.GetSuperFeedbackList();

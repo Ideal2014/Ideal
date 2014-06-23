@@ -91,6 +91,8 @@
                         </article>
                          
                          <div style="width:50%">
+                              <asp:CustomValidator runat="server" ID="RegisteValidate"  class="form-control"  ValidationGroup="reset"
+                                       OnServerValidate="ResetValidate_ServerValidate"  ErrorMessage="密码不正确"  Font-Size="15px" ForeColor="Red"></asp:CustomValidator>
                           <div class="input-group input-type">
  						 <span class="input-group-addon">验证邮箱</span>
                              <div class="input-group-lg">
@@ -100,25 +102,24 @@
  						 <span class="input-group-addon">请输入原密码</span>
                              <div class="input-group-lg">
                           <asp:TextBox id="Password1" TextMode="password"   class="form-control" runat="server" />
-                             <asp:RequiredFieldValidator ID="Password1Validator1" runat="server" ValidationGroup="reset"
+                             <asp:RequiredFieldValidator ID="Password1Validator1" runat="server"   ValidationGroup="reset"
                                   ControlToValidate="Password1" Display="Dynamic" ErrorMessage="不能为空"
                                   Font-Size="15px" ForeColor="Red"></asp:RequiredFieldValidator>
-                                 <asp:RegularExpressionValidator ID="Password1Validator2"  runat="server"  ControlToValidate="Password1"
+                                 <asp:RegularExpressionValidator ID="Password1Validator2"  runat="server"    ControlToValidate="Password1"
                                   ErrorMessage="密码6-20位" ValidationGroup="reset"
                                   DisPlay="Dynamic" ValidationExpression="^.{5,19}$"
                                   Font-Size="15px" ForeColor="Red"></asp:RegularExpressionValidator>
-                                 <asp:CustomValidator runat="server" ID="RegisteValidate" ValidationGroup="reset"
-                                       OnServerValidate="ResetValidate_ServerValidate"  ErrorMessage="密码不正确"  Font-Size="15px" ForeColor="Red"></asp:CustomValidator>
+                                
                                  </div>
 						</div>
                         <div class="input-group input-type">
  						 <span class="input-group-addon">请输入新密码</span>
                             <div class="input-group-lg">
  						 <asp:TextBox id="Password2" TextMode="password" class="form-control" runat="server" />
-                            <asp:RequiredFieldValidator ID="Password2Validator1" runat="server" ValidationGroup="reset"
+                            <asp:RequiredFieldValidator ID="Password2Validator1" runat="server"  ValidationGroup="reset"
                                   ControlToValidate="Password2" Display="Dynamic" ErrorMessage="不能为空"
                                   Font-Size="15px" ForeColor="Red" ></asp:RequiredFieldValidator>
-                            <asp:RegularExpressionValidator ID="Password2Validator2"  runat="server"
+                            <asp:RegularExpressionValidator ID="Password2Validator2"   runat="server"
                                   ErrorMessage="密码6-20位" ControlToValidate="Password2"
                                   DisPlay="Dynamic" ValidationExpression="^.{5,19}$" ValidationGroup="reset"
                                   Font-Size="15px" ForeColor="Red"></asp:RegularExpressionValidator>
@@ -128,14 +129,14 @@
  						 <span class="input-group-addon">请确认新密码</span>
                             <div class="input-group-lg">
  						<asp:TextBox id="Password3" TextMode="password" class="form-control" runat="server" />
-                            <asp:RequiredFieldValidator ID="Password3dValidator1" runat="server" ValidationGroup="reset"
+                            <asp:RequiredFieldValidator ID="Password3dValidator1" runat="server"   ValidationGroup="reset"
                                   ControlToValidate="Password3" Display="Dynamic" ErrorMessage="不能为空"
                                   Font-Size="15px" ForeColor="Red"></asp:RequiredFieldValidator>
                                 <asp:RegularExpressionValidator ID="Password3dValidator2"  runat="server"  ValidationGroup="reset"
                                   ErrorMessage="密码6-20位" ControlToValidate="Password3"
                                   DisPlay="Dynamic" ValidationExpression="^.{5,19}$"
                                   Font-Size="15px" ForeColor="Red"></asp:RegularExpressionValidator>
-                              <asp:CompareValidator ID="Password3Validator3" runat="server" ValidationGroup="reset"
+                              <asp:CompareValidator ID="Password3Validator3" runat="server"   ValidationGroup="reset"
                                   ErrorMessage="两次输入的密码不一致" ControlToCompare="Password2" ControlToValidate="Password3"
                                   Display="Dynamic" Font-Size="15px" ForeColor="Red"></asp:CompareValidator>
                                 </div>
@@ -159,6 +160,7 @@
          
          
       </div>
+        <br /> <br /> <br /> <br /> <br />
 </div>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="js" Runat="Server">
