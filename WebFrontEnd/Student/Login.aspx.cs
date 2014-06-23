@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using Model;
+using System.Text.RegularExpressions;
 
 public partial class Student_Login : System.Web.UI.Page
 {
@@ -43,5 +44,29 @@ public partial class Student_Login : System.Web.UI.Page
             Response.Redirect("~/Home/Home.aspx");
         }
         
+    }
+    protected void LoginValidate_ServerValidate(object source, ServerValidateEventArgs args)
+    {
+        string userNameRegex = @"^[a-zA-Z]{1}([a-zA-Z0-9]|[._]){5,19}$";
+        if (!Regex.IsMatch(Username.Text.ToString(), userNameRegex))
+            throw new Exception();
+        string passwordRegex = @".{5,19}$";
+        if (!Regex.IsMatch( Password.Text.ToString(), passwordRegex))
+            throw new Exception();
+
+        StudentInfo student = new StudentInfo();
+        StudentInfo student2 = bllStudent.GetByName(Username.Text.Trim());
+        student.Stu_ID = student2.Stu_ID;
+        student.Stu_Password = Password.Text.ToString().Trim();
+        if ( student!= null && bllStudent.CheckLogin(student))
+        {
+            
+            args.IsValid = true;
+        }
+        else
+        {
+            
+            args.IsValid = false;
+        }
     }
 }

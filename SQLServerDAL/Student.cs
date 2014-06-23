@@ -48,6 +48,8 @@ namespace SQLServerDAL
                 o.Stu_UserName = student.Stu_UserName;
                 o.Stu_Sex = student.Stu_Sex;
                 o.Stu_Tel = student.Stu_Tel;
+                o.Stu_LastLogin = student.Stu_LastLogin;
+                o.Stu_Validation = student.Stu_Validation;
             }
             ctx.SubmitChanges();
         }

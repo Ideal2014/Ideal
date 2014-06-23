@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using Model;
+using System.Text.RegularExpressions;
 
 public partial class Student_Register : System.Web.UI.Page
 {
@@ -17,6 +18,17 @@ public partial class Student_Register : System.Web.UI.Page
     }
     protected void Register_Click(object sender, EventArgs e)
     {
+        string userNameRegex = @"^[a-zA-Z]{1}([a-zA-Z0-9]|[._]){5,19}$";
+        if (!Regex.IsMatch(Name.Text.ToString(), userNameRegex))
+            throw new Exception();
+        string passwordRegex = @".{5,19}$";
+        if (!Regex.IsMatch(Password1.Text.ToString(), passwordRegex))
+            throw new Exception();
+        if (!Regex.IsMatch(Password2.Text.ToString(), passwordRegex))
+            throw new Exception();
+        string mailRegex = @"^[\w-]+(\.[\w-]+)*@[\w-]+(\.[\w-]+)+$";
+        if (!Regex.IsMatch(MailBox.Text.ToString(), mailRegex))
+            throw new Exception();
         StudentInfo student = new StudentInfo();
         student.Stu_UserName = Name.Text.ToString().Trim();
         student.Stu_Email = MailBox.Text.ToString().Trim();
@@ -30,5 +42,17 @@ public partial class Student_Register : System.Web.UI.Page
         student.Stu_Password = Password1.Text.ToString().Trim();
         bllStudent.Add(student);
         Response.Redirect("~/Student/Login.aspx");
+    }
+    protected void RegisterValidate_ServerValidate(object source, ServerValidateEventArgs args)
+    {
+        StudentInfo student = bllStudent.GetByName(Name.Text.Trim());
+        if (student!=null)
+        {
+            args.IsValid = false;
+        }
+        else
+        {
+            args.IsValid = true;
+        }
     }
 }
