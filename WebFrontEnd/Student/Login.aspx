@@ -36,7 +36,7 @@
                          <div >
                           <asp:CustomValidator runat="server" ID="LoginValidate" DisPlay="Dynamic" 
                                OnServerValidate="LoginValidate_ServerValidate" ValidationGroup="login"
-                               ErrorMessage="用户名或密码错误"  Font-Size="15px" ForeColor="Red"></asp:CustomValidator>
+                               ErrorMessage="用户名，密码错误或修改后为进行邮箱验证"  Font-Size="15px" ForeColor="Red"></asp:CustomValidator>
                         </div>
                         <div class="row">
                           <div class="col-lg-6 col-md-6 col-xs-12 col-sm-6 ">
@@ -61,7 +61,7 @@
                                   ValidationGroup="login" Font-Size="15px" ForeColor="Red"></asp:RegularExpressionValidator>
 
                           <br /> <asp:Button id="Login" ValidationGroup="login" Text="登录" class="btn-color btn-normal btn-pad" runat="server" OnClick="Login_Click" />
-                              <input type="button" id="Button1"  class="btn-color btn-normal btn-pad"  value="注册" onclick="javascript:self.location('~/Student/Register.aspx')" />
+                              
                             <!-- /input-group -->
                               
                               <!-- /input-group -->

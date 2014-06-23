@@ -6,11 +6,13 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using Model;
 using System.IO;
-using WebSupport;
-
+/*
+ * author:summer
+ */ 
 public partial class Student_Student_Modify_Account : System.Web.UI.Page
 {
-    private IBLL.IStudent bllStudent = BLLFactory.DataAccess.CreateStudent();
+    private  IBLL.IStudent bllStudent = BLLFactory.DataAccess.CreateStudent();
+    //加载页面，验证用户登录信息，显示个人信息
     protected void Page_Load(object sender, EventArgs e)
     {
         if (!IsPostBack)
@@ -44,6 +46,7 @@ public partial class Student_Student_Modify_Account : System.Web.UI.Page
 
         }
     }
+    //点击提交，对个人信息内容进行修改
     protected void Submit_Click(object sender, EventArgs e)
     {
         HttpCookie cookie = Request.Cookies["usr"];
@@ -51,28 +54,26 @@ public partial class Student_Student_Modify_Account : System.Web.UI.Page
         student.Stu_UserName = Name.Text.ToString();
         student.Stu_Email = Mailbox.Text.ToString();
         student.Stu_Tel = Telephone.Text.ToString();
-        if (Radio.SelectedItem != null)
+        if(Radio.SelectedItem!=null)
             student.Stu_Sex = Radio.SelectedItem.Value;
 
         if (HeadImage.HasFile)
         {
-            string error;
-            string fileName = UploadSupport.GenerateRandom(10) + ".jpg";
-              UploadSupport.SaveImage(HeadImage,Server.MapPath("~/"),fileName,out error);
-            student.Stu_Image = UploadSupport.Image(fileName);
+            student.Stu_Image = SaveFile(HeadImage.PostedFile);
         }
-
         Console.WriteLine("xiugai");
         bllStudent.Modify(student);
         Response.Redirect("~/Student/StudentModifyAccount.aspx");
     }
+
+    //上传文件
     String SaveFile(HttpPostedFile file)
     {
         string savePath = "~/Resource/Image/Upload/";
 
         string fileName = HeadImage.FileName;
         string pathToCheck = savePath + fileName;
-        string tempfileName = "";
+        string tempfileName = "";       
         if (System.IO.File.Exists(pathToCheck))
         {
             int counter = 2;
@@ -83,7 +84,7 @@ public partial class Student_Student_Modify_Account : System.Web.UI.Page
                 counter++;
             }
             fileName = tempfileName;
-        }
+        }   
         if (System.IO.Directory.Exists(Server.MapPath(savePath)) == false)//如果不存在就创建file文件夹
         {
             System.IO.Directory.CreateDirectory(Server.MapPath(savePath));

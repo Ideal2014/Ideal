@@ -6,6 +6,9 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using Model;
 using System.Text.RegularExpressions;
+/*
+ * author:summer
+ */
 
 public partial class Student_Login : System.Web.UI.Page
 {
@@ -26,6 +29,8 @@ public partial class Student_Login : System.Web.UI.Page
         
 
     }
+    //验证登录
+    //在cookie中添加user
     protected void Login_Click(object sender, EventArgs e)
     {
         StudentInfo student = new StudentInfo();
@@ -45,6 +50,8 @@ public partial class Student_Login : System.Web.UI.Page
         }
         
     }
+    //后端进行登录验证
+    //验证密码是否正确
     protected void LoginValidate_ServerValidate(object source, ServerValidateEventArgs args)
     {
         string userNameRegex = @"^[a-zA-Z]{1}([a-zA-Z0-9]|[._]){5,19}$";

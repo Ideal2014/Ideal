@@ -143,7 +143,7 @@ namespace SQLServerDAL
             return query.ToList<FeedbackInfo>();
         }
 
-
+        //获得s状态的反馈表，也就是名人堂的信息
         DataSet IDAL.IFeedback.GetSuperFeedbackList()
         {
             SqlConnection sqlcon = null;
