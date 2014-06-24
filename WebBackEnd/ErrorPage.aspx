@@ -1,5 +1,4 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="ErrorPage.aspx.cs" Inherits="ErrorPage" %>
-
 <!DOCTYPE html>
 <html lang="en">
   <head>

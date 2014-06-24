@@ -91,7 +91,7 @@
                                 <asp:HyperLink CssClass="ajax-link" runat="server" NavigateUrl="~/User/UserList.aspx"><i
                                 class="icon-eye-open"></i><span class="hidden-tablet">用户列表</span></asp:HyperLink></li>
                             <li>
-                                <asp:HyperLink CssClass="ajax-link" runat="server" NavigateUrl="~/User/AdminAdd.aspx"><i
+                                <asp:HyperLink ID="AdminAdd" CssClass="ajax-link" runat="server" NavigateUrl="~/User/AdminAdd.aspx"><i
                                 class="icon-eye-open"></i><span class="hidden-tablet">添加管理员</span></asp:HyperLink></li>
                             <li>
                                 <asp:HyperLink CssClass="ajax-link" runat="server" NavigateUrl="~/User/StudentAdd.aspx"><i
@@ -218,9 +218,6 @@
                 <asp:ScriptReference Path="js/charisma.js" />
             </Scripts>
         </asp:ScriptManager>
-
-
-
 
         <asp:ContentPlaceHolder ID="js" runat="server">
         </asp:ContentPlaceHolder>

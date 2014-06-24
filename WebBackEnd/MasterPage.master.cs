@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -12,15 +13,36 @@ public partial class MasterPage : System.Web.UI.MasterPage
     protected void Page_Load(object sender, EventArgs e)
     {
 
-        if (Request.Cookies["admin"] != null && Request.Cookies["admin"]["id"] != null)
+        if (!IsPostBack)
         {
-            string id = Request.Cookies["admin"]["id"];
-            Admin.Text = bllAdmin.Get(Int32.Parse(id)).Adm_UserName;
+            if (!CheckLogin())
+                Response.Redirect("~/Login/Login.aspx");
         }
-        else
+    }
+
+    private bool CheckLogin()
+    {
+        if (Request.Cookies["admin"] == null)
+            return false;
+        if (Request.Cookies["admin"]["name"] == null || Request.Cookies["admin"]["password"] == null)
+            return false;
+        string name = Request.Cookies["admin"]["name"];
+        string password = Request.Cookies["admin"]["password"];
+        if ("".Equals(name) || "".Equals(password))
+            return false;
+        AdminInfo admin = bllAdmin.FindByName(name);
+        if (null == admin)
+            return false;
+        if (admin.Adm_Password.Equals(password))
         {
-            Response.Redirect("~/Login/Login.aspx");
+            Admin.Text = admin.Adm_UserName;
+            if (!"admin".Equals(admin.Adm_Role))
+            {
+                AdminAdd.Visible = false;
+            }
+            return true;
         }
+        return false;
     }
     protected void Logout_Click(object sender, EventArgs e)
     {

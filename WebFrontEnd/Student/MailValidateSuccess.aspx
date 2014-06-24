@@ -29,7 +29,6 @@
             <div style="background:url(../img/slider/slider-bg-1.jpg) center top;">
             <div class="content">
                <div class="container" >
-                 
                   <div class="row" >
                      <div class="col-lg-12 col-md-12">
                         <h3 class="title">邮箱验证</h3>

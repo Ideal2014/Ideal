@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -24,9 +25,21 @@ public partial class User_UserList : System.Web.UI.Page
         StudentList.DataSource = bllStudent.getStudentList();
         StudentList.DataBind();
 
-        AdminList.DataSource = bllAdmin.getAdminList();
-        AdminList.DataBind();
-
+        if (CheckAdmin())
+        {
+            AdminList.DataSource = bllAdmin.getAdminList();
+            AdminList.DataBind();
+        }
+        else
+            AdminPanel.Visible = false;
+    }
+    private bool CheckAdmin()
+    {
+        string name = Request.Cookies["admin"]["name"];
+        AdminInfo admin = bllAdmin.FindByName(name);
+        if ("admin".Equals(admin.Adm_Role))
+            return true;
+        return false;
     }
     protected void Modify_Click(object sender, EventArgs e)
     {

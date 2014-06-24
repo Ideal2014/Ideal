@@ -9,11 +9,23 @@ using System.Web.UI.WebControls;
 
 public partial class User_AdminAdd : System.Web.UI.Page
 {
-    private  IBLL.IAdmin bllAdmin = BLLFactory.DataAccess.CreateAdmin();
+    private IBLL.IAdmin bllAdmin = BLLFactory.DataAccess.CreateAdmin();
 
     protected void Page_Load(object sender, EventArgs e)
     {
-
+        if (!IsPostBack)
+        {
+            if (!CheckAdmin())
+                throw new Exception();
+        }
+    }
+    private bool CheckAdmin()
+    {
+        string name = Request.Cookies["admin"]["name"];
+        AdminInfo admin = bllAdmin.FindByName(name);
+        if ("admin".Equals(admin.Adm_Role))
+            return true;
+        return false;
     }
     protected void Submit_Click(object sender, EventArgs e)
     {

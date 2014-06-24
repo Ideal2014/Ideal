@@ -48,7 +48,7 @@ public partial class Teacher_TeacherMemTeaChoose : System.Web.UI.Page
         BalanceInfo balance = bllBalance.GetbyTidSid(Convert.ToInt32(e.CommandArgument), Convert.ToInt32(stdID));
         if (System.DateTime.Now > balance.Bal_Time)
         {
-            Response.Redirect(string.Format("../Purchase/TeachersPurchase.aspx?tid={0}", e.CommandArgument));
+            Response.Redirect(String.Format("../Purchase/TeachersPurchase.aspx?tid={0}", e.CommandArgument));
         }
         else
         {
