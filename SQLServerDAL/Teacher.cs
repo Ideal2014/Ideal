@@ -80,7 +80,7 @@ namespace SQLServerDAL
         {
 
             SqlConnection sqlcon = new SqlConnection(connection);
-            string sqlstr = "SELECT   Tea_ID, Tea_Name,Tea_Sex,Tea_Nation,Tea_Skill FROM TeacherInfo";
+            string sqlstr = "SELECT * FROM TeacherInfo";
             SqlDataAdapter myda = new SqlDataAdapter(sqlstr, sqlcon);
             DataSet myds = new DataSet();
             sqlcon.Open();
