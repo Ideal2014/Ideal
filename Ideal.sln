@@ -60,7 +60,7 @@ EndProject
 Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "WebFrontEnd", "WebFrontEnd\", "{30506963-C468-4B2F-86CE-F2FA624E5001}"
 	ProjectSection(WebsiteProperties) = preProject
 		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
-		ProjectReferences = "{237591bf-fe1d-4443-8f72-cb33d6676aae}|BLL.dll;{78831ea8-f7e7-4639-bf25-e9daf9ea01f3}|DALFactory.dll;{5af82640-de33-4706-a45a-0776a75ea661}|BLLFactory.dll;{6a28cb25-479e-4090-8320-7abac3a68e49}|IBLL.dll;{c1bbbc03-e908-4256-92e7-4d2a3bff106f}|IDAL.dll;{ad8f07b8-2599-46ba-a70b-30f70299214d}|Model.dll;{682f80a0-eade-4917-b863-55077a0a292a}|OracleDAL.dll;{f2f6f137-578f-4bfc-bbb7-02ab8fa73cea}|SQLServerDAL.dll;{E627B9DE-6309-4669-A333-961E9EB48ED2}|Support.dll;{adcfe757-41c0-4fd3-9565-bd2b7b03e408}|WebSupport.dll;"
+		ProjectReferences = "{237591bf-fe1d-4443-8f72-cb33d6676aae}|BLL.dll;{78831EA8-F7E7-4639-BF25-E9DAF9EA01F3}|DALFactory.dll;{C1BBBC03-E908-4256-92E7-4D2A3BFF106F}|IDAL.dll;{6A28CB25-479E-4090-8320-7ABAC3A68E49}|IBLL.dll;{5af82640-de33-4706-a45a-0776a75ea661}|BLLFactory.dll;{682f80a0-eade-4917-b863-55077a0a292a}|OracleDAL.dll;{f2f6f137-578f-4bfc-bbb7-02ab8fa73cea}|SQLServerDAL.dll;{adcfe757-41c0-4fd3-9565-bd2b7b03e408}|WebSupport.dll;{e627b9de-6309-4669-a333-961e9eb48ed2}|Support.dll;{ad8f07b8-2599-46ba-a70b-30f70299214d}|Model.dll;"
 		Debug.AspNetCompiler.VirtualPath = "/WebFrontEnd"
 		Debug.AspNetCompiler.PhysicalPath = "WebFrontEnd\"
 		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\WebFrontEnd\"

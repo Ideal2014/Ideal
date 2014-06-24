@@ -12,6 +12,7 @@ using System.Text;
 using System.IO;
 using System.Xml;
 using Com.Alipay;
+using Model;
 
 /// <summary>
 /// 功能：纯担保交易接口接入页
@@ -33,14 +34,81 @@ public partial class _Default : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        if (!IsPostBack)
+        
+        IBLL.ITeacher tea = BLLFactory.DataAccess.CreateTeacher();
+        
+
+        int plan = Convert.ToInt32(Request.QueryString["plan"]);
+        int tid = Convert.ToInt32(Request.QueryString["tid"]);
+        String tNick = tea.Get(tid).Tea_Nickname;
+        String planName = "";
+        String discribe = "";
+        double price = 0;
+        switch (plan) 
         {
-            WIDseller_email.Text = "11301145@bjtu.edu.cn";
+            case 1:
+                planName = "普通版";
+                price = 299;
+                discribe = "可与智能外教交流1个月";
+                break;
+            case 2:
+                planName = "高级版";
+                price = 499;
+                discribe = "可与智能外教交流2个月";
+                break;
+            case 3:
+                planName = "专业版";
+                price = 899;
+                discribe = "可与智能外教交流半年";
+                break;
+            case 4:
+                planName = "旗舰版";
+                price = 1699;
+                discribe = "可与智能外教交流一年";
+                break;
+
         }
+        
+
+        WIDout_trade_no.Text = GenerateRandom(10);
+        WIDsubject.Text = tNick+ planName;
+        WIDprice.Text = Convert.ToString(price );
+        WIDbody.Text = discribe;
+       
     }
+
+    private static char[] constant = 
+{ 
+'0','1','2','3','4','5','6','7','8','9'
+};
+
+
+
+
+    public static string GenerateRandom(int p)
+    {
+        System.Text.StringBuilder newRandom = new System.Text.StringBuilder(10);
+        Random rd = new Random();
+        for (int i = 0; i < p; i++)
+        {
+            newRandom.Append(constant[rd.Next(10)]);
+        }
+        return newRandom.ToString();
+    }
+
+
 
     protected void BtnAlipay_Click(object sender, EventArgs e)
     {
+        IBLL.IOrderRecord order = BLLFactory.DataAccess.CreateOrderRecord();
+        Model.OrderRecordInfo ord = new Model.OrderRecordInfo();
+        ord.Ord_Plan = Convert.ToInt32(Request.QueryString["plan"]);
+        ord.Ord_Time = System.DateTime.Now;
+        ord.Stu_ID = Convert.ToInt32(Request.Cookies["usr"].Values["ID"]);
+        ord.Tea_ID = Convert.ToInt32(Request.QueryString["tid"]);
+        ord.Ord_Num = Convert.ToInt32(WIDout_trade_no.Text);
+
+        order.Add(ord);
         ////////////////////////////////////////////请求参数////////////////////////////////////////////
 
         //支付类型
@@ -53,7 +121,7 @@ public partial class _Default : System.Web.UI.Page
         string return_url = "http://www.xxx.com/create_partner_trade_by_buyer-CSHARP-UTF-8/return_url.aspx";
         //需http://格式的完整路径，不能加?id=123这类自定义参数，不能写成http://localhost/
         //卖家支付宝帐户
-        string seller_email = WIDseller_email.Text.Trim();
+        string seller_email = "11301145@bjtu.edu.cn";
         //必填
         //商户订单号
         string out_trade_no = WIDout_trade_no.Text.Trim();
@@ -79,22 +147,22 @@ public partial class _Default : System.Web.UI.Page
         //订单描述
         string body = WIDbody.Text.Trim();
         //商品展示地址
-        string show_url = WIDshow_url.Text.Trim();
+        string show_url ="http://www.xxx.com/myorder.html";
         //需以http://开头的完整路径，如：http://www.xxx.com/myorder.html
         //收货人姓名
         string receive_name = WIDreceive_name.Text.Trim();
         //如：张三
         //收货人地址
-        string receive_address = WIDreceive_address.Text.Trim();
+        string receive_address = "";
         //如：XX省XXX市XXX区XXX路XXX小区XXX栋XXX单元XXX号
         //收货人邮编
-        string receive_zip = WIDreceive_zip.Text.Trim();
+        string receive_zip = "123456";
         //如：123456
         //收货人电话号码
-        string receive_phone = WIDreceive_phone.Text.Trim();
+        string receive_phone = "0571-88158090";
         //如：0571-88158090
         //收货人手机号码
-        string receive_mobile = WIDreceive_mobile.Text.Trim();
+        string receive_mobile = "13312341234";
         //如：13312341234
 
 

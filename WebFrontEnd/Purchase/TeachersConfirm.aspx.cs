@@ -5,6 +5,10 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
+/*
+ * @author 余春帆 
+ */
+
 public partial class Purchase_TeachersConfirm : System.Web.UI.Page
 {
     IBLL.IStudent stu = BLLFactory.DataAccess.CreateStudent();
@@ -30,6 +34,7 @@ public partial class Purchase_TeachersConfirm : System.Web.UI.Page
         
         tid = Request.QueryString["tid"];
         plan = Request.QueryString["plan"];
+
     }
     protected void Button1_Click(object sender, EventArgs e)
     {

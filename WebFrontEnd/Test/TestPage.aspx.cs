@@ -7,6 +7,10 @@ using System.Web.UI.WebControls;
 using System.Data;
 using Model;
 
+/*
+ * @author 余春帆 
+ */
+
 public partial class Test_Default : System.Web.UI.Page
 {
     int testNO = 0;
@@ -15,8 +19,8 @@ public partial class Test_Default : System.Web.UI.Page
     protected void Page_Load(object sender, EventArgs e)
     {
         try
-        {
-            tests = getData();
+        {               
+            tests = getData();                                      //获取数据
             if (!IsPostBack)
             {
                 if (testNO < tests.Count)
@@ -45,17 +49,17 @@ public partial class Test_Default : System.Web.UI.Page
         }
     }
 
-    protected IList<TestInfo> getData()
+    protected IList<TestInfo> getData()                             //读取数据库数据
     {
         IBLL.ITest test = BLLFactory.DataAccess.CreateTest();
-        IList<TestInfo> tests = test.GetAll();
+        IList<TestInfo> tests = test.GetAll();                      //读取全部测试题
         return tests;
     }
 
     protected void next_Click(object sender, EventArgs e)
     {
         if (Convert.ToInt32(tests.ElementAt<TestInfo>(testNO - 1).Tes_Answer) == btgp.SelectedIndex + 1)
-            Session["goal"] = (100.0 / tests.Count) + Convert.ToDouble(Session["goal"]);
+            Session["goal"] = (100.0 / tests.Count) + Convert.ToDouble(Session["goal"]);                //记录分数
         if (testNO < tests.Count)
         {
             Label2.Text = Convert.ToString(testNO + 1);
@@ -66,7 +70,7 @@ public partial class Test_Default : System.Web.UI.Page
             btgp.Items[3].Text = tests.ElementAt<TestInfo>(testNO).Tes_D;
         }
         else
-        {
+        {                                                                                           //显示总分
             Label3.Text="<br/>";
 
             Label2.Text = "您的得分是：" + Session["goal"] + "<br/><br/><br/><br/><br/>";

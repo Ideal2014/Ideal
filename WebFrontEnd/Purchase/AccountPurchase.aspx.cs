@@ -6,6 +6,10 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using Model;
 
+/*
+ * @author 余春帆 
+ */
+
 public partial class Purchase_AccountPurchase : System.Web.UI.Page
 {
     IBLL.IStudent stu = BLLFactory.DataAccess.CreateStudent();
@@ -23,7 +27,7 @@ public partial class Purchase_AccountPurchase : System.Web.UI.Page
                 Image7.ImageUrl = student.Stu_Image;
                 Std_Name.Text = student.Stu_UserName;
                 Std_ID.Text = Convert.ToString(student.Stu_ID);
-                getData(); 
+                getData();                                      //调用获取绑定数据
             }
             catch
             {
@@ -34,7 +38,7 @@ public partial class Purchase_AccountPurchase : System.Web.UI.Page
             Response.Redirect("~/Student/Login.aspx");
     }
 
-    protected void getData()
+    protected void getData()                        //获取数据，绑定数据
     {
         IBLL.IOrderRecord order = BLLFactory.DataAccess.CreateOrderRecord();
         GridView1.DataSource = order.GetAllOrder(stdID);
