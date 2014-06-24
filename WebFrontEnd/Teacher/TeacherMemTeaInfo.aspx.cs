@@ -6,6 +6,11 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using Model;
 
+/*
+ * author:翟丽娜
+ */
+
+
 public partial class Teacher_TeacherMemTeaInfo : System.Web.UI.Page
 {
     private  IBLL.ITeacher bllTeacher = BLLFactory.DataAccess.CreateTeacher();
@@ -19,7 +24,7 @@ public partial class Teacher_TeacherMemTeaInfo : System.Web.UI.Page
         if (null != cookie)
         {
             try
-            {
+            { //赋值
                 stdID = Convert.ToInt32(cookie.Values["ID"]);
                 StudentInfo student = stu.Get(stdID);
                 Image7.ImageUrl = student.Stu_Image;
@@ -35,11 +40,11 @@ public partial class Teacher_TeacherMemTeaInfo : System.Web.UI.Page
                 LabelDes.Text = teacher.Tea_Describe;
             }
             catch
-            {
+            { //未找到所传学生id
                 Response.Redirect("~/Student/Login.aspx");
             }
         }
-        else
+        else  //未登录
             Response.Redirect("~/Student/Login.aspx");
     }
 

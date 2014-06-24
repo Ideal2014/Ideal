@@ -284,7 +284,7 @@
 	        <div class="login-screen">
 	          <div class="login-icon">
         <asp:Image ID="Image1" runat="server" />
-	            <asp:Image ID="ImageT" ImageUrl="img/icon.png" alt="Welcome to Mail App" runat="server" />
+	            <asp:Image ID="ImageT" ImageUrl="~/img/teacher/teacher-1@2x.png" alt="Welcome to Mail App" runat="server" />
 	            <h4><small><center><asp:Label ID="LabelName" runat="server" Text="VIKI" /></center></small></h4>
 	            <a href="javascript:void(0)" class="btn btn-block btn-danger" onclick="TTS.say(content);">再听一遍?</a>
 	          </div>

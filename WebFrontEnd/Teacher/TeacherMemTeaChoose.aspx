@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="TeacherMemTeaChoose.aspx.cs" Inherits="Teacher_TeacherMemTeaChoose" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" EnableEventValidation="false"  AutoEventWireup="true" CodeFile="TeacherMemTeaChoose.aspx.cs" Inherits="Teacher_TeacherMemTeaChoose" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="css" Runat="Server">
 </asp:Content>
@@ -121,7 +121,7 @@
                                      <asp:TemplateField ItemStyle-CssClass="center" ItemStyle-Width="26%">
                                         <ItemTemplate>
                                             <span style="border:none">
-                                                <asp:Button ID="BuyButton" class="btn-color btn-normal btn-pad" CommandArgument='<%#Eval("Tea_ID") %>' OnCommand="BuyButton_Command" runat="server" Text="对话"></asp:Button>
+                                                <asp:Button ID="ChatButton" class="btn-color btn-normal btn-pad" CommandArgument='<%#Eval("Tea_ID") %>' OnCommand="ChatButton_Command" runat="server" Text="对话"></asp:Button>
                                             </span>
                                         </ItemTemplate>
                                     </asp:TemplateField>

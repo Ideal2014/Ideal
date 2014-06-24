@@ -6,6 +6,10 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using Model;
 
+/*
+ * author:翟丽娜
+ */
+
 public partial class Book_Book : System.Web.UI.Page
 {
     private static readonly IBLL.IBook bllBook = BLLFactory.DataAccess.CreateBook();
@@ -17,7 +21,6 @@ public partial class Book_Book : System.Web.UI.Page
     protected void Page_Load(object sender, EventArgs e)
     {
         cookie = Request.Cookies["usr"];
-       // stuId = cookie.Values["ID"];
 
         if (!IsPostBack)
         {
@@ -32,9 +35,10 @@ public partial class Book_Book : System.Web.UI.Page
     }
 
 
-
+    //下载试读版 点击事件
     protected void DownloadPart_Command(object sender, CommandEventArgs e)
     {
+        //调用浏览器下载功能下载文档
         string filename = MapPath(Convert.ToString(e.CommandArgument));
         Response.Clear();
         Response.ContentType = "application/octet-stream ";
@@ -44,6 +48,8 @@ public partial class Book_Book : System.Web.UI.Page
         Response.Flush();
         Response.WriteFile(Convert.ToString(e.CommandArgument)); 
     }
+
+    //下载完整版 点击事件
     protected void DownloadAll_Command(object sender, CommandEventArgs e)
     {
         object[] arguments = e.CommandArgument.ToString().Split(',');
@@ -55,9 +61,9 @@ public partial class Book_Book : System.Web.UI.Page
         {
             stuId = cookie.Values["ID"];
         }
-        else
+        else               
         {
-            Response.Redirect("~/Student/Login.aspx");
+            Response.Redirect("~/Student/Login.aspx");      //未登录时点击，跳转带登录页面
         }
 
         if (!stuId.Equals("-1"))
@@ -67,14 +73,16 @@ public partial class Book_Book : System.Web.UI.Page
                 StudentInfo stuInfo = bllStudent.Get(Convert.ToInt32(stuId));
             }
             catch {
-                Response.Redirect("~/Student/Login.aspx");
+                Response.Redirect("~/Student/Login.aspx");  //未找到该学生id时，跳转到登录界面
             }
         }
 
+        //余额不足时，跳转到购买界面
         if (System.DateTime.Now > balance.Bal_Time)
         {
             Response.Redirect(String.Format("../Purchase/TeachersPurchase.aspx?tid={0}",teaId));
         }
+        //有余额时，下载完整版
         else {
             string filename = MapPath(viewUrl);
             Response.Clear();

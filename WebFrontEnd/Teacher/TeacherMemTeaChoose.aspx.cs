@@ -6,6 +6,10 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using Model;
 
+/*
+ * author:翟丽娜
+ */
+
 public partial class Teacher_TeacherMemTeaChoose : System.Web.UI.Page
 {
     private static readonly IBLL.ITeacher bllTeacher = BLLFactory.DataAccess.CreateTeacher();
@@ -20,7 +24,7 @@ public partial class Teacher_TeacherMemTeaChoose : System.Web.UI.Page
         if (null != cookie)
         {
             try
-            {
+            {  //找到所传学生id
                 stdID = Convert.ToInt32(cookie.Values["ID"]);
                 StudentInfo student = stu.Get(stdID);
                 Image7.ImageUrl = student.Stu_Image;
@@ -29,10 +33,11 @@ public partial class Teacher_TeacherMemTeaChoose : System.Web.UI.Page
                 GridBind();
             }
             catch
-            {
+            {   //未找到所传学生id
                 Response.Redirect("~/Student/Login.aspx");
             }
         }
+            //未登录
         else
             Response.Redirect("~/Student/Login.aspx");
     }
@@ -43,14 +48,15 @@ public partial class Teacher_TeacherMemTeaChoose : System.Web.UI.Page
         GridTea.DataBind();
     }
 
-    protected void BuyButton_Command(object sender, CommandEventArgs e)
+    //点击对话 事件
+    protected void ChatButton_Command(object sender, CommandEventArgs e)
     {
         BalanceInfo balance = bllBalance.GetbyTidSid(Convert.ToInt32(e.CommandArgument), Convert.ToInt32(stdID));
-        if (System.DateTime.Now > balance.Bal_Time)
+        if (System.DateTime.Now > balance.Bal_Time)  //对应该老师没有余额，则跳到购买界面
         {
             Response.Redirect(String.Format("../Purchase/TeachersPurchase.aspx?tid={0}", e.CommandArgument));
         }
-        else
+        else //有余额，直接跳到对话界面
         {
             Response.Redirect(String.Format("~/TeacherMemRobot.aspx?tid={0}", e.CommandArgument));
         }
