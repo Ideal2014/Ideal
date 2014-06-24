@@ -6,6 +6,10 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using Model;
 
+/*
+ * @author 余春帆 
+ */
+
 public partial class Feedback_FeedbackPage : System.Web.UI.Page
 {
     IBLL.IStudent stu = BLLFactory.DataAccess.CreateStudent();
@@ -14,7 +18,7 @@ public partial class Feedback_FeedbackPage : System.Web.UI.Page
     protected void Page_Load(object sender, EventArgs e)
     {
         HttpCookie cookie = Request.Cookies["usr"];
-        if (null != cookie)
+        if (null != cookie)                                         //判断用户是否登录
         {
             try
             {
@@ -56,7 +60,7 @@ public partial class Feedback_FeedbackPage : System.Web.UI.Page
                 feedback.Fee_Topic = title;
                 feedback.Fee_Detail = content;
                 t.Text = "sss";
-                feed.Add(feedback);
+                feed.Add(feedback);                                             //写入反馈信息
 
             }
             catch

@@ -6,6 +6,10 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using Model;
 
+/*
+ * @author 余春帆 
+ */
+
 public partial class Purchase_AccountInfo : System.Web.UI.Page
 {
 
@@ -35,7 +39,7 @@ public partial class Purchase_AccountInfo : System.Web.UI.Page
             Response.Redirect("~/Student/Login.aspx");
     }
 
-    protected void getData() 
+    protected void getData()                            //获取绑定数据
     {
         IBLL.IBalance bal = BLLFactory.DataAccess.CreateBalance();
         GridView1.DataSource = bal.GetBalanceWithTea(stdID);

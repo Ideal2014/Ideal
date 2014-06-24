@@ -162,17 +162,11 @@ ul,ol{
             </div>
             <div id="body" style="clear: left">
                 <dl class="content">
-                    <dt>卖家支付宝帐户：</dt>
-                    <dd>
-                        <span class="null-star">*</span>
-                        <asp:TextBox ID="WIDseller_email" name="WIDseller_email" runat="server" ReadOnly="true"></asp:TextBox>
-                        <span></span>
-                    </dd>
                     <dt>商户订单号：</dt>
                     <dd>
                         <span class="null-star">*</span>
                         <asp:TextBox ID="WIDout_trade_no" name="WIDout_trade_no" runat="server"></asp:TextBox>
-                        <span>商户网站订单系统中唯一订单号，必填</span>
+                        
                     </dd>
                     <dt>订单名称：</dt>
                     <dd>
@@ -192,42 +186,15 @@ ul,ol{
                         <asp:TextBox ID="WIDbody" name="WIDbody" runat="server"></asp:TextBox>
                         <span></span>
                     </dd>
-                    <dt>商品展示地址：</dt>
-                    <dd>
-                        <span class="null-star">*</span>
-                        <asp:TextBox ID="WIDshow_url" name="WIDshow_url" runat="server"></asp:TextBox>
-                        <span>需以http://开头的完整路径，如：http://www.xxx.com/myorder.html</span>
-                    </dd>
+                   
                     <dt>收货人姓名：</dt>
                     <dd>
                         <span class="null-star">*</span>
                         <asp:TextBox ID="WIDreceive_name" name="WIDreceive_name" runat="server"></asp:TextBox>
                         <span>如：张三</span>
                     </dd>
-                    <dt>收货人地址：</dt>
-                    <dd>
-                        <span class="null-star">*</span>
-                        <asp:TextBox ID="WIDreceive_address" name="WIDreceive_address" runat="server"></asp:TextBox>
-                        <span>如：XX省XXX市XXX区XXX路XXX小区XXX栋XXX单元XXX号</span>
-                    </dd>
-                    <dt>收货人邮编：</dt>
-                    <dd>
-                        <span class="null-star">*</span>
-                        <asp:TextBox ID="WIDreceive_zip" name="WIDreceive_zip" runat="server"></asp:TextBox>
-                        <span>如：123456</span>
-                    </dd>
-                    <dt>收货人电话号码：</dt>
-                    <dd>
-                        <span class="null-star">*</span>
-                        <asp:TextBox ID="WIDreceive_phone" name="WIDreceive_phone" runat="server"></asp:TextBox>
-                        <span>如：0571-88158090</span>
-                    </dd>
-                    <dt>收货人手机号码：</dt>
-                    <dd>
-                        <span class="null-star">*</span>
-                        <asp:TextBox ID="WIDreceive_mobile" name="WIDreceive_mobile" runat="server"></asp:TextBox>
-                        <span>如：13312341234</span>
-                    </dd>
+                    
+                    
                     <dt></dt>
                     <dd>
                         <span class="new-btn-login-sp">

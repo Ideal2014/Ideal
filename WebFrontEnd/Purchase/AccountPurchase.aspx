@@ -81,10 +81,10 @@
                      <div class="posts-block col-lg-9 col-md-9 col-sm-8 col-xs-12">
                         <article class="post hentry">
                           <div class="post-content"><ul class="nav nav-tabs">
-                    <li  class="active"><asp:HyperLink ID="HyperLink7" runat="server" NavigateUrl="../Purchase/AccountInfo.aspx">账户信息</asp:HyperLink></li>
+                    <li><asp:HyperLink ID="HyperLink7" runat="server" NavigateUrl="../Purchase/AccountInfo.aspx">账户信息</asp:HyperLink></li>
   <li><asp:HyperLink ID="HyperLink8" runat="server" NavigateUrl="../Student/StudentModifyAccount.aspx">修改个人信息</asp:HyperLink></li>
   <li><asp:HyperLink ID="HyperLink9" runat="server" NavigateUrl="../Student/StudentResetPassword.aspx">修改密码</asp:HyperLink></li>
-  <li><asp:HyperLink ID="HyperLink10" runat="server" NavigateUrl="../Purchase/AccountPurchase.aspx">购买记录</asp:HyperLink></li>
+  <li class="active"><asp:HyperLink ID="HyperLink10" runat="server" NavigateUrl="../Purchase/AccountPurchase.aspx">购买记录</asp:HyperLink></li>
   <li><asp:HyperLink ID="HyperLink11" runat="server" NavigateUrl="../Teacher/TeacherMemAcctClass.aspx">上课记录</asp:HyperLink></li>
 </ul></div>
                         </article>
