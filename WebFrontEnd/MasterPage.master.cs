@@ -52,8 +52,11 @@ public partial class MasterPage : System.Web.UI.MasterPage
         else
         {
             HttpCookie cookie = Request.Cookies["usr"];
-            if (null != cookie)
-                Response.Cookies.Remove("usr");
+            if (cookie != null)
+            {
+                cookie.Expires = System.DateTime.Now.AddDays(-1);
+            }
+            Response.Cookies.Add(cookie);
             Response.Redirect("~/Student/Login.aspx");
         }
     }

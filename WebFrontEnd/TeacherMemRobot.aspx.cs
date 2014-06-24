@@ -19,15 +19,26 @@ public partial class TeacherMemRobot : System.Web.UI.Page
 
     protected void Page_Load(object sender, EventArgs e)
     {
-        teaid = Request.QueryString["tid"];
+        if (!IsPostBack)
+        {
+            
+            teaid = Request.QueryString["tid"];
 
-        teacher = bllTeacher.Get(Convert.ToInt32(teaid));
-       // ImageT.ImageUrl = teacher.Tea_SImage;
-        LabelName.Text = teacher.Tea_Name;
+            teacher = bllTeacher.Get(Convert.ToInt32(teaid));
+            // ImageT.ImageUrl = teacher.Tea_SImage;
+            Tid.Text = teacher.Tea_ID.ToString();
+            LabelName.Text = teacher.Tea_Name;
+
+            string act = Request.QueryString["act"];
+            if (null != act && "check".Equals(act))
+            {
+                Check();
+            }
+        }
     }
 
     //发送点击事件
-    protected void ButtonSend_Click(object sender, EventArgs e)
+    protected void Check()
     {
         HttpCookie cookie = Request.Cookies["usr"];
         int stdID = Convert.ToInt32(cookie.Values["ID"]);
@@ -35,10 +46,12 @@ public partial class TeacherMemRobot : System.Web.UI.Page
 
         if (System.DateTime.Now > balance.Bal_Time)
         {
-            string strMsg = "余额不足，购买时长？";
-            string strUrl_Yes = "~/Purchase/TeachersPurchase.aspx", strUrl_No = "~/Teacher/TeacherMemTeaChoose.aspx";
-            Response.Write("<Script Language='JavaScript'>if ( window.confirm('" + strMsg + "')) {  window.location.href='" + strUrl_Yes +
-                              "' } else {window.location.href='" + strUrl_No + "' };</script>");
+            string strMsg = "余额不足，请购买时长";
+           // string strUrl_Yes = "~/Purchase/TeachersPurchase.aspx", strUrl_No = "~/Teacher/TeacherMemTeaChoose.aspx";
+            //Response.Write("<Script Language='JavaScript'>if ( window.confirm('" + strMsg + "')) {  window.location.href='" + strUrl_Yes +
+              //                "' } else {window.location.href='" + strUrl_No + "' };</script>");
+            Response.Write(strMsg);
         }
+        Response.End();
     }
 }

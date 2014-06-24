@@ -49,8 +49,8 @@ public partial class User_AdminAdd : System.Web.UI.Page
         bllAdmin.Add(admin);
 
         Response.Redirect("~/User/UserList.aspx");
-
     }
+
     protected void Reset_Click(object sender, EventArgs e)
     {
 

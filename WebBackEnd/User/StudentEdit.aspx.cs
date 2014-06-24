@@ -48,7 +48,7 @@ public partial class User_StudentEdit : System.Web.UI.Page
             throw new Exception();
         if (!Regex.IsMatch(StuNickName.Text.ToString(), @"^\S[^\^]+$"))
             throw new Exception();
-        if (!Regex.IsMatch(StuEmail.Text.ToString(), @"^([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+@([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+\.[a-zA-Z]{2,3}$"))
+        if (!Regex.IsMatch(StuEmail.Text.ToString(), @"^([a-zA-Z0-9]+[_|_|\.]?)*[a-zA-Z0-9]+@([a-zA-Z0-9]+[_|_|\.]?)*[a-zA-Z0-9]+\.[a-zA-Z]{2,3}$"))
             throw new Exception();
         if (!Regex.IsMatch(StuPassword.Text.ToString(), @"^\S{1,10}$"))
             throw new Exception();
