@@ -95,10 +95,10 @@
  						 <span class="input-group-addon">用户名</span>
                              <div class="input-group-lg">
                             <asp:TextBox ID="Name" class="form-control"  runat="server" />
-                              <asp:RequiredFieldValidator ID="NameValidator1" runat="server" class="form-control"
+                              <asp:RequiredFieldValidator ID="NameValidator1" runat="server" class="form-control" ValidationGroup="modify"
                                   ErrorMessage ="用户名不能为空" ControlToValidate="Name" Display="Dynamic"
                                   Font-Size="15px" ForeColor="Red"></asp:RequiredFieldValidator>
-                              <asp:RegularExpressionValidator ID="NameValidator2" runat="server" class="form-control"
+                              <asp:RegularExpressionValidator ID="NameValidator2" runat="server" class="form-control" ValidationGroup="modify"
                                   ErrorMessage="格式不对，请输入只能输入5-20个以字母开头、可带数字、“_”、“.”的字串" ControlToValidate="Name"
                                   DisPlay="Dynamic" ValidationExpression="^[a-zA-Z]{1}([a-zA-Z0-9]|[._]){5,19}$"
                                   Font-Size="15px" ForeColor="Red"></asp:RegularExpressionValidator>
@@ -108,10 +108,10 @@
  						 <span class="input-group-addon">邮&nbsp;&nbsp;&nbsp;箱</span>
                              <div class="input-group-lg">
                          <asp:TextBox ID="Mailbox" class="form-control"  runat="server" />
-                             <asp:RequiredFieldValidator ID="MailValidator1" runat="server" class="form-control"
+                             <asp:RequiredFieldValidator ID="MailValidator1" runat="server" class="form-control" ValidationGroup="modify"
                                   ControlToValidate="MailBox" Display="Dynamic" ErrorMessage="不能为空"
                                   Font-Size="15px" ForeColor="Red"></asp:RequiredFieldValidator>
-                              <asp:RegularExpressionValidator ID="MailValidator2" runat="server" class="form-control"
+                              <asp:RegularExpressionValidator ID="MailValidator2" runat="server" class="form-control" ValidationGroup="modify"
                                    ControlToValidate="MailBox" Display="Dynamic" ErrorMessage="邮箱格式不正确"
                                    ValidationExpression="^[\w-]+(\.[\w-]+)*@[\w-]+(\.[\w-]+)+$"
                                     Font-Size="15px" ForeColor="Red"></asp:RegularExpressionValidator>
@@ -121,7 +121,7 @@
  						 <span class="input-group-addon">手&nbsp;&nbsp;&nbsp;机</span>
                             <div class="input-group-lg">
                          <asp:TextBox ID="Telephone" class="form-control" runat="server" />
-                              <asp:RegularExpressionValidator ID="TelephoneValidator2" runat="server" class="form-control"
+                              <asp:RegularExpressionValidator ID="TelephoneValidator2" runat="server" class="form-control" ValidationGroup="modify"
                                   ErrorMessage="格式不对,请输入手机号" ControlToValidate="Telephone"
                                   DisPlay="Dynamic" ValidationExpression="^1[3|4|5|8][0-9]\d{8}$"
                                   Font-Size="15px" ForeColor="Red"></asp:RegularExpressionValidator>
@@ -142,7 +142,7 @@
                             <div class="input-lg">
                             <asp:FileUpload ID ="HeadImage" class ="form-control"  runat="server"/>
                             <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" class="form-control"
-                                 ControlToValidate="HeadImage" ErrorMessage="必须是 jpg,png,或者gif文件"
+                                 ControlToValidate="HeadImage" ErrorMessage="必须是 jpg,png,或者gif文件" ValidationGroup="modify"
                                  ValidationExpression="^(([a-zA-Z]:)|(\\{2}\w+)\$?)(\\(\w[\w].*))+(.jpg|.JPG|.gif|.GIF|.png|.PNG)$"
                                 Font-Size="15px" ForeColor="Red"></asp:RegularExpressionValidator>
                                 </div>
@@ -151,7 +151,7 @@
 
                              <br />
                         <div class="input-type">
-                           <asp:Button id="Submit" Text="提交修改" style="float:right" class="btn btn-normal btn-pad btn-color"  runat="server"  OnClick ="Submit_Click"/>
+                           <asp:Button id="Submit" Text="提交修改" ValidationGroup="modify" style="float:right" class="btn btn-normal btn-pad btn-color"  runat="server"  OnClick ="Submit_Click"/>
                          </div>
                      </div>
                      <!-- Left Section End -->

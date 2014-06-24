@@ -12,7 +12,7 @@
                 <a href="#">首页</a> <span class="divider">/</span>
             </li>
             <li>
-                <a href="#">用户信息</a>
+                <a href="#">添加学生</a>
             </li>
         </ul>
     </div>

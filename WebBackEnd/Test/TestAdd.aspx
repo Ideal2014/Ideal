@@ -9,7 +9,7 @@
 						<a href="#">首页</a> <span class="divider">/</span>
 					</li>
 					<li>
-						<a href="#">试题信息</a>
+						<a href="#">添加试题</a>
 					</li>
 				</ul>
 			</div>

@@ -6,10 +6,11 @@ using System.Text.RegularExpressions;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using WebSupport;
 
 public partial class User_StudentAdd : System.Web.UI.Page
 {
-    private  IBLL.IStudent bllStudent = BLLFactory.DataAccess.CreateStudent();
+    private IBLL.IStudent bllStudent = BLLFactory.DataAccess.CreateStudent();
 
     protected void Page_Load(object sender, EventArgs e)
     {
@@ -21,7 +22,7 @@ public partial class User_StudentAdd : System.Web.UI.Page
             throw new Exception();
         if (!Regex.IsMatch(StuNickName.Text.ToString(), @"^\S[^\^]+$"))
             throw new Exception();
-        if (!Regex.IsMatch(StuEmail.Text.ToString(), @"^([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+@([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+\.[a-zA-Z]{2,3}$"))
+        if (!Regex.IsMatch(StuEmail.Text.ToString(), @"^\S[^\^]+$"))
             throw new Exception();
         if (!Regex.IsMatch(StuPassword.Text.ToString(), @"^\S{1,10}$"))
             throw new Exception();
@@ -31,6 +32,11 @@ public partial class User_StudentAdd : System.Web.UI.Page
         if (!Regex.IsMatch(StuPassword.Text.ToString(), @"^\d+$"))
             throw new Exception();
 
+        string server = Server.MapPath("~/");
+        string imageName = UploadSupport.GenerateRandom(10) + ".jpg";
+        string error;
+        if (!UploadSupport.SaveImage(ImageFile, server, imageName, out error))
+            return;
         StudentInfo student = new StudentInfo();
 
         student.Stu_UserName = StuNickName.Text.ToString();
@@ -38,7 +44,8 @@ public partial class User_StudentAdd : System.Web.UI.Page
         student.Stu_Email = StuEmail.Text.ToString();
         //头像
         //时长
-        //student.Stu_RegisteTime = StuDuration.Text;
+        student.Stu_RegisteTime = DateTime.Now;
+        student.Stu_LastLogin = DateTime.Now;
 
         bllStudent.Add(student);
 

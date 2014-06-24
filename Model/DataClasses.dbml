@@ -94,8 +94,6 @@
       <Column Name="Tea_Age" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="Tea_Skill" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="Tea_Nation" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
-      <Column Name="Tea_About" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
-      <Column Name="Tea_Suitable" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
       <Column Name="Tea_SImage" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
     </Type>
   </Table>

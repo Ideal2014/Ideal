@@ -39,7 +39,12 @@ public partial class Test_Default : System.Web.UI.Page
     }
     protected void Delete_Click(object sender, EventArgs e)
     {
-
+        var button = sender as Button;
+        GridViewRow gvr = (GridViewRow)button.Parent.Parent;
+        var lab = (Label)this.TestGrid.Rows[gvr.RowIndex].FindControl("TestID");
+        int id = Int32.Parse(lab.Text.ToString());
+        bllTest.Remove(bllTest.Get(id));
+        Bind();
     }
 
 }

@@ -41,7 +41,7 @@ public partial class User_UserList : System.Web.UI.Page
     {
         var button = sender as Button;
         GridViewRow gvr = (GridViewRow)button.Parent.Parent;
-        var lab = (Label)this.StudentList.Rows[gvr.RowIndex].FindControl("StudentID");
+        var lab = (Label)this.StudentList.Rows[gvr.RowIndex].FindControl("AdminID");
         int id = Int32.Parse(lab.Text.ToString());
         bllStudent.Remove(bllStudent.Get(id));
         Bind();
@@ -49,5 +49,14 @@ public partial class User_UserList : System.Web.UI.Page
     protected void Add_Click(object sender, EventArgs e)
     {
         Response.Redirect("~/User/StudentAdd.aspx");
+    }
+    protected void Button1_Click(object sender, EventArgs e)
+    {
+        var button = sender as Button;
+        GridViewRow gvr = (GridViewRow)button.Parent.Parent;
+        var lab = (Label)this.AdminList.Rows[gvr.RowIndex].FindControl("AdminID");
+        int id = Int32.Parse(lab.Text.ToString());
+        bllAdmin.Remove(bllAdmin.Get(id));
+        Bind();
     }
 }

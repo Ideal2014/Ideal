@@ -12,7 +12,7 @@
                 <a href="#">首页</a> <span class="divider">/</span>
             </li>
             <li>
-                <a href="#">教师信息</a>
+                <a href="#">添加教师</a>
             </li>
         </ul>
     </div>
@@ -22,7 +22,7 @@
     <div class="row-fluid sortable">
         <div class="box span12">
             <div class="box-header well" data-original-title>
-                <h2><i class="icon-plus-sign"></i>增加教师</h2>
+                <h2><i class="icon-plus-sign"></i>添加教师</h2>
                 <div class="box-icon">
                     <a href="#" class="btn btn-setting btn-round"><i class="icon-cog"></i></a>
                     <a href="#" class="btn btn-minimize btn-round"><i class="icon-chevron-up"></i></a>
@@ -51,13 +51,20 @@
                         </div>
                     </div>
                     <div class="control-group">
-                        <label class="control-label" for="focusedInput">头像 </label>
+                        <label class="control-label" for="focusedInput">大图</label>
                         <div class="controls">
-                            <asp:FileUpload runat="server" ID="TeacherImage" ToolTip="上传头像" />
+                            <asp:FileUpload runat="server" ID="FileUpload" ToolTip="上传大图" />
                             <asp:Image runat="server" ID="ShowImage" />
-                            
                         </div>
                     </div>
+                    <div class="control-group">
+                        <label class="control-label" for="focusedInput">小图</label>
+                        <div class="controls">
+                            <asp:FileUpload runat="server" ID="FileSUpload" ToolTip="上传小图" />
+                            <asp:Image runat="server" ID="ShowSImage" />
+                        </div>
+                    </div>
+
                     <div class="control-group">
                         <label class="control-label">性别</label>
                         <div class="controls">
@@ -100,20 +107,7 @@
                         </div>
                     </div>
 
-                    <div class="control-group">
-                        <label class="control-label" for="focusedInput">适用人群 </label>
-                        <div class="controls">
-                            <asp:TextBox runat="server" ID="TeacherSuitable" CssClass="input-xlarge focused"></asp:TextBox>
-                            <asp:RegularExpressionValidator runat="server" ControlToValidate="TeacherSuitable" ValidationExpression="^[^\^]+$" ErrorMessage="不能含有非法字符^"></asp:RegularExpressionValidator>
-                        </div>
-                    </div>
-                    <div class="control-group">
-                        <label class="control-label" for="focusedInput">购买相关 </label>
-                        <div class="controls">
-                            <asp:TextBox runat="server" ID="TeacherAbout" CssClass="input-xlarge focused"></asp:TextBox>
-                            <asp:RegularExpressionValidator runat="server" ControlToValidate="TeacherAbout" ValidationExpression="^[^\^]+$" ErrorMessage="不能含有非法字符^"></asp:RegularExpressionValidator>
-                        </div>
-                    </div>
+                   
 
                     <div class="control-group">
                         <label class="control-label" for="focusedInput">简介 </label>

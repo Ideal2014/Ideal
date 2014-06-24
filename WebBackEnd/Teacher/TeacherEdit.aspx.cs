@@ -38,8 +38,6 @@ public partial class Teacher_TeacherEdit : System.Web.UI.Page
         TeacherAge.Text = teacher.Tea_Age.ToString();
         TeacherNation.SelectedValue = teacher.Tea_Nation;
         TeacherSkill.Text = teacher.Tea_Skill;
-        TeacherSuitable.Text = teacher.Tea_Suitable;
-        TeacherAbout.Text = teacher.Tea_About;
         TeacherDescribe.Text = teacher.Tea_Describe;
     }
 
@@ -73,8 +71,6 @@ public partial class Teacher_TeacherEdit : System.Web.UI.Page
         teacher.Tea_Age = Int32.Parse(TeacherAge.Text.ToString());
         teacher.Tea_Nation = TeacherNation.Text.ToString();
         teacher.Tea_Skill = TeacherSkill.Text.ToString();
-        teacher.Tea_Suitable = TeacherSuitable.Text.ToString();
-        teacher.Tea_About = TeacherAbout.Text.ToString();
         teacher.Tea_Describe = TeacherDescribe.Text.ToString();
 
         bllTeacher.Modify(teacher);
