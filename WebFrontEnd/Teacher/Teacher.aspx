@@ -43,26 +43,27 @@
                     <!-- Left Section End -->
                 </div>
                 <div class="divider"></div>
-
-                <!-- 2 Column Testimonials -->
-                <%
-                    string content = "";
-                    bool isNewRow = true;
-                    foreach (Model.TeacherInfo t in bllTeacher.GetAll())
-                    {
-                        if (isNewRow)
-                            content += "<div class='row'>";
-                        content += "<div class='col-lg-5 col-md-5 col-sm-5 col-xs-5'><div class='testimonial item'><p><img src='" + t.Tea_Image + "'></br><label>" + t.Tea_Describe + "<label></p><div class='testimonials-arrow'></div><div class='author'><div class='testimonial-image '><img src='" + t.Tea_SImage + "'></div><div class='testimonial-author-info'><span class='color'><lable>" + t.Tea_Name + "</lable></span></div></div></div>";
-                        if (isNewRow)
-                        {
-                            content += "<div class='divider'></div></div>";
-                            isNewRow = false;
-                        }
-                        else
-                            isNewRow = true;
-                    }
-                    Response.Write(content); %>
-
+                <div class="row">
+                    <!-- 2 Column Testimonials -->
+                    <asp:Repeater runat="server" ID="TeacherList">
+                        <ItemTemplate>
+                            <div class='col-lg-5 col-md-5 col-sm-5 col-xs-5'>
+                                <div class='testimonial item'>
+                                    <p>
+                                        <img src='<%#Eval("Tea_Image")%>'></br><label><%#Eval("Tea_Describe")%><label>
+                                    </p>
+                                    <div class='testimonials-arrow'></div>
+                                    <div class='author'>
+                                        <div class='testimonial-image '>
+                                            <img src='<%#Eval("Tea_SImage")%>' />
+                                        </div>
+                                        <div class='testimonial-author-info'><span class='color'><a href='../Teacher/TeacherMemTeaInfo.aspx?TeaID=" + t.Tea_ID + "'><%#Eval("Tea_Name")%></a></span></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </ItemTemplate>
+                    </asp:Repeater>
+                </div>
                 <!-- 2 Column Testimonials End-->
             </div>
         </div>

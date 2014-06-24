@@ -72,7 +72,6 @@ public partial class Student_Login : System.Web.UI.Page
         }
         else
         {
-            
             args.IsValid = false;
         }
     }
