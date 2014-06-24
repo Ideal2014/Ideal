@@ -46,10 +46,6 @@ public partial class Feedback_FeedbackPage : System.Web.UI.Page
         String title = name.Text;
         String content = text.Text;
         
-        
-        t.Text = title;
-        c.Text = content;
-        
         if ((title.Length >= 1 && title.Length <= 50) || (content.Length >= 1 && content.Length <= 150))
         {
             try
