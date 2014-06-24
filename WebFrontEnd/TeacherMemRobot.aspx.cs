@@ -25,7 +25,7 @@ public partial class TeacherMemRobot : System.Web.UI.Page
             teaid = Request.QueryString["tid"];
 
             teacher = bllTeacher.Get(Convert.ToInt32(teaid));
-            // ImageT.ImageUrl = teacher.Tea_SImage;
+            ImageT.ImageUrl = teacher.Tea_SImage;
             Tid.Text = teacher.Tea_ID.ToString();
             LabelName.Text = teacher.Tea_Name;
 
@@ -37,7 +37,7 @@ public partial class TeacherMemRobot : System.Web.UI.Page
         }
     }
 
-    //发送点击事件
+    //检查余额
     protected void Check()
     {
         HttpCookie cookie = Request.Cookies["usr"];
@@ -47,9 +47,10 @@ public partial class TeacherMemRobot : System.Web.UI.Page
         if (System.DateTime.Now > balance.Bal_Time)
         {
             string strMsg = "余额不足，请购买时长";
-           // string strUrl_Yes = "~/Purchase/TeachersPurchase.aspx", strUrl_No = "~/Teacher/TeacherMemTeaChoose.aspx";
-            //Response.Write("<Script Language='JavaScript'>if ( window.confirm('" + strMsg + "')) {  window.location.href='" + strUrl_Yes +
-              //                "' } else {window.location.href='" + strUrl_No + "' };</script>");
+ //           string strUrl_Yes = "~/Purchase/TeachersPurchase.aspx", strUrl_No = "~/Teacher/TeacherMemTeaChoose.aspx";
+//            Response.Write("<Script Language='JavaScript'>if ( window.confirm('" + strMsg + "')) { window.location.href='" + strUrl_Yes +
+//"' } else {window.location.href='" + strUrl_No + "' };</script>"); 
+
             Response.Write(strMsg);
         }
         Response.End();

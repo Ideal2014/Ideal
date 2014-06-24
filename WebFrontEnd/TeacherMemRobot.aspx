@@ -189,29 +189,11 @@
                                 </li>
                                 <li>
                                     <a href="teachers.html">外教团队
-                           <span class="sf-sub-indicator">
-                               <i class="icon-angle-down "></i>
-                           </span>
                                     </a>
-                                    <ul>
-                                        <li><a href="teachers.html" class="sf-with-ul">Viki Chat外教团队</a></li>
-                                        <li><a href="teacher-info.html" class="sf-with-ul">外教招聘、培训和考核</a></li>
-                                        <li><a href="show.html" class="sf-with-ul">教学展示</a></li>
-                                    </ul>
                                 </li>
                                 <li>
                                     <a href="text.html" class="sf-with-ul">课程教材 
-                           <span class="sf-sub-indicator">
-                               <i class="icon-angle-down "></i>
-                           </span>
                                     </a>
-                                    <ul>
-                                        <li><a href="text.html" class="sf-with-ul">课程设置和推荐教材</a></li>
-                                        <li><a href="course-level.html" class="sf-with-ul">课程级别体系</a></li>
-                                        <li><a href="video.html" class="sf-with-ul">Viki Chat的上课视频</a></li>
-                                        <li><a href="flow.html" class="sf-with-ul">上课流程</a></li>
-
-                                    </ul>
                                 </li>
                                 <li>
                                     <a href="celebrity.html">名人堂</a>
@@ -324,7 +306,7 @@
             </div>
 
         </div>
-        <br />
+        <br /><br/><br/>
         <br />
         <br />
 
@@ -334,7 +316,17 @@
         <!-- Content End -->
         <!-- Footer Start -->
         <footer id="footer">
-        </footer>
+                <!-- Footer Bottom Start -->
+                <div class="footer-bottom">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-6 col-md-6 col-xs-12 col-sm-6 ">Copyright &copy; 2014.Company name All rights reserved.<a target="_blank" href="http://sc.chinaz.com/moban/">Ideal</a></div>
+                           
+                        </div>
+                    </div>
+                </div>
+                <!-- Footer Bottom End -->
+            </footer>
         <!-- Scroll To Top -->
         <a href="#" class="scrollup"><i class="icon-angle-up"></i></a>
 
