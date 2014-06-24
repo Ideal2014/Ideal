@@ -46,10 +46,6 @@ public partial class Feedback_FeedbackPage : System.Web.UI.Page
         String title = name.Text;
         String content = text.Text;
         
-        
-        t.Text = title;
-        c.Text = content;
-        
         if ((title.Length >= 1 && title.Length <= 50) || (content.Length >= 1 && content.Length <= 150))
         {
             try
@@ -59,7 +55,6 @@ public partial class Feedback_FeedbackPage : System.Web.UI.Page
                 feedback.Fee_Time = System.DateTime.Now;
                 feedback.Fee_Topic = title;
                 feedback.Fee_Detail = content;
-                t.Text = "sss";
                 feed.Add(feedback);                                             //写入反馈信息
 
             }

@@ -150,9 +150,11 @@
 <asp:Content ID="Content3" ContentPlaceHolderID="js" Runat="Server">
     <script>
         $(document).ready(function () {
+          
             var v = convertType($("this").attr("text"));
             $("#Label3").attr("text", v);
         });
+   
 </script>
 </asp:Content>
 
