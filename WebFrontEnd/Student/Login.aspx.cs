@@ -12,21 +12,21 @@ using System.Text.RegularExpressions;
 
 public partial class Student_Login : System.Web.UI.Page
 {
-    private  IBLL.IStudent bllStudent = BLLFactory.DataAccess.CreateStudent();
+    private IBLL.IStudent bllStudent = BLLFactory.DataAccess.CreateStudent();
     protected void Page_Load(object sender, EventArgs e)
     {
         if (!IsPostBack)
         {
             if (Request.Cookies["usr"] != null)
             {
-               
+
                 HttpCookie cookie = new HttpCookie("usr");
                 cookie.Expires = System.DateTime.Now.AddDays(-1);
                 Response.Cookies.Add(cookie);
-                
+
             }
         }
-        
+
 
     }
     //验证登录
@@ -35,6 +35,8 @@ public partial class Student_Login : System.Web.UI.Page
     {
         StudentInfo student = new StudentInfo();
         StudentInfo student2 = bllStudent.GetByName(Username.Text.Trim());
+        if (student2 == null)
+            return;
         student.Stu_ID = student2.Stu_ID;
         student.Stu_Password = Password.Text.ToString().Trim();
         if (bllStudent.CheckLogin(student))
@@ -43,12 +45,12 @@ public partial class Student_Login : System.Web.UI.Page
             bllStudent.Modify(student2);
             HttpCookie cookie = new HttpCookie("usr");
             cookie.Values["ID"] = student.Stu_ID.ToString();
-            cookie.Values["pass"] =Password.Text.ToString().Trim();
+            cookie.Values["pass"] = Password.Text.ToString().Trim();
             cookie.Expires = System.DateTime.Now.AddDays(1);//设置过期时间  1天
             Response.Cookies.Add(cookie);
             Response.Redirect("~/Home/Home.aspx");
         }
-        
+
     }
     //后端进行登录验证
     //验证密码是否正确
@@ -58,16 +60,21 @@ public partial class Student_Login : System.Web.UI.Page
         if (!Regex.IsMatch(Username.Text.ToString(), userNameRegex))
             throw new Exception();
         string passwordRegex = @".{5,19}$";
-        if (!Regex.IsMatch( Password.Text.ToString(), passwordRegex))
+        if (!Regex.IsMatch(Password.Text.ToString(), passwordRegex))
             throw new Exception();
 
         StudentInfo student = new StudentInfo();
         StudentInfo student2 = bllStudent.GetByName(Username.Text.Trim());
+        if (student2 == null)
+        {
+            args.IsValid = false;
+            return;
+        }
         student.Stu_ID = student2.Stu_ID;
         student.Stu_Password = Password.Text.ToString().Trim();
-        if ( student!= null && bllStudent.CheckLogin(student))
+        if (student != null && bllStudent.CheckLogin(student))
         {
-            
+
             args.IsValid = true;
         }
         else

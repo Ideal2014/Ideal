@@ -74,7 +74,7 @@ public partial class User_StudentEdit : System.Web.UI.Page
 
         bllStudent.Modify(student);
 
-        Response.Redirect("~/User/StudentList.aspx");
+        Response.Redirect("~/User/UserList.aspx");
     }
     protected void Reset_Click(object sender, EventArgs e)
     {
