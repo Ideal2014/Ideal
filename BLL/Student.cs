@@ -5,18 +5,19 @@ using System.Text;
 using Model;
 using BLLSupport;
 
-namespace BLL{
+namespace BLL
+{
     public class Student : IBLL.IStudent
     {
-        private  IDAL.IStudent dal = DALFactory.DataAccess.CreateStudent();
+        private IDAL.IStudent dal = DALFactory.DataAccess.CreateStudent();
         //加密用户密码后保存信息
         void IBLL.IStudent.Add(StudentInfo student)
         {
-           student.Stu_Password = BLLSupport.Md5Support.GetMd5String(student.Stu_Password);
+            student.Stu_Password = BLLSupport.Md5Support.GetMd5String(student.Stu_Password);
             dal.Add(student);
         }
 
-        string IBLL.IStudent.GetMd5(String  key)
+        string IBLL.IStudent.GetMd5(String key)
         {
             return BLLSupport.Md5Support.GetMd5String(key);
         }
@@ -52,8 +53,12 @@ namespace BLL{
         {
             s1.Stu_Password = Md5Support.GetMd5String(s1.Stu_Password);
             StudentInfo s2 = dal.Get(s1.Stu_ID);
-            return (s2.Stu_Password.Equals(s1.Stu_Password)&&(s2.Stu_Validation.Equals("success")));
-            
+            if (s2 == null || s1 == null)
+                return false;
+            if (s2.Stu_Validation==null)
+                return false;
+            return (s2.Stu_Password.Equals(s1.Stu_Password) && (s2.Stu_Validation.Equals("success")));
+
         }
 
         IList<StudentInfo> IBLL.IStudent.GetStudentsByDate(DateTime dateTime)
