@@ -1,9 +1,9 @@
 /*
 Navicat SQL Server Data Transfer
 
-Source Server         : qiyu-pc
+Source Server         : SLOAN\SQLEXPRESS
 Source Server Version : 105000
-Source Host           : qiyu-pc:1433
+Source Host           : SLOAN\SQLEXPRESS:1433
 Source Database       : viki
 Source Schema         : dbo
 
@@ -11,7 +11,7 @@ Target Server Type    : SQL Server
 Target Server Version : 105000
 File Encoding         : 65001
 
-Date: 2014-06-25 16:44:23
+Date: 2014-06-25 12:06:40
 */
 
 
@@ -31,7 +31,7 @@ CREATE TABLE [dbo].[AdminInfo] (
 
 
 GO
-DBCC CHECKIDENT(N'[dbo].[AdminInfo]', RESEED, 7)
+DBCC CHECKIDENT(N'[dbo].[AdminInfo]', RESEED, 8)
 GO
 
 -- ----------------------------
@@ -40,6 +40,9 @@ GO
 SET IDENTITY_INSERT [dbo].[AdminInfo] ON
 GO
 INSERT INTO [dbo].[AdminInfo] ([Adm_ID], [Adm_UserName], [Adm_Password], [Adm_Email], [Adm_LastLogin], [Adm_Role]) VALUES (N'7', N'admin', N'admin', N'11301127@bjtu.edu.cn', N'2014-06-25 16:21:45.000', N'admin')
+GO
+GO
+INSERT INTO [dbo].[AdminInfo] ([Adm_ID], [Adm_UserName], [Adm_Password], [Adm_Email], [Adm_LastLogin], [Adm_Role]) VALUES (N'8', N'1', N'1', N'1', N'2014-06-25 10:55:30.000', N'1')
 GO
 GO
 SET IDENTITY_INSERT [dbo].[AdminInfo] OFF
@@ -94,23 +97,23 @@ GO
 -- ----------------------------
 SET IDENTITY_INSERT [dbo].[BookInfo] ON
 GO
-INSERT INTO [dbo].[BookInfo] ([Boo_ID], [Tea_ID], [Boo_Image], [Boo_Desribe], [Boo_RegisterDate], [Boo_Preview], [Boo_View], [Boo_Name]) VALUES (N'21', N'23', N'1', N'从全世界来看，说英语的人数已经超过了任何语言的人数，10多个国家以英语为母语，45个国家的官方语言是英语，世界三分之一的人口（二十几亿）讲英语。比如在日本，除了他们的本国母语——日语之外，英语是他们的第二语言，很多高层次的日本人以会说英语为荣。', N'2014-06-19 02:26:51.000', N'1', N'1', N'和外教聊天记单词日常交流1000词')
+INSERT INTO [dbo].[BookInfo] ([Boo_ID], [Tea_ID], [Boo_Image], [Boo_Desribe], [Boo_RegisterDate], [Boo_Preview], [Boo_View], [Boo_Name]) VALUES (N'21', N'23', N'~/Resource/Image/cover-orange.PNG', N'从全世界来看，说英语的人数已经超过了任何语言的人数，10多个国家以英语为母语，45个国家的官方语言是英语，世界三分之一的人口（二十几亿）讲英语。比如在日本，除了他们的本国母语——日语之外，英语是他们的第二语言，很多高层次的日本人以会说英语为荣。', N'2014-06-19 02:26:51.000', N'1', N'1', N'和外教聊天记单词日常交流1000词')
 GO
 GO
-INSERT INTO [dbo].[BookInfo] ([Boo_ID], [Tea_ID], [Boo_Image], [Boo_Desribe], [Boo_RegisterDate], [Boo_Preview], [Boo_View], [Boo_Name]) VALUES (N'22', N'26', N'2', N'Olivia知晓《和外教聊天记单词-四六级必考1000词》中所有的对话、例句、翻译、重点单词及解释，以及正确朗读发音。学习考试从此不再枯燥单调，而是有了陪读的同伴，阅读、听力，不再是问题！过四六级，再也不难！ ', N'2014-06-25 02:28:58.000', N'2', N'2', N'和外教聊天记单词-四六级必考1000词')
+INSERT INTO [dbo].[BookInfo] ([Boo_ID], [Tea_ID], [Boo_Image], [Boo_Desribe], [Boo_RegisterDate], [Boo_Preview], [Boo_View], [Boo_Name]) VALUES (N'22', N'26', N'~/Resource/Image/red.PNG', N'Olivia知晓《和外教聊天记单词-四六级必考1000词》中所有的对话、例句、翻译、重点单词及解释，以及正确朗读发音。学习考试从此不再枯燥单调，而是有了陪读的同伴，阅读、听力，不再是问题！过四六级，再也不难！ ', N'2014-06-25 02:28:58.000', N'2', N'2', N'和外教聊天记单词-四六级必考1000词')
 GO
 GO
-INSERT INTO [dbo].[BookInfo] ([Boo_ID], [Tea_ID], [Boo_Image], [Boo_Desribe], [Boo_RegisterDate], [Boo_Preview], [Boo_View], [Boo_Name]) VALUES (N'25', N'27', N'3', N'全球超过7,000所机构认可托福成绩！学习考试从此不再枯燥单调，而是有了陪读的同伴，阅读、听力，不再是问题！内容涉及到托福英语的方方面面。', N'2014-06-25 02:31:16.000', N'3', N'3', N'和外教聊天记单词-托福必考1000词')
+INSERT INTO [dbo].[BookInfo] ([Boo_ID], [Tea_ID], [Boo_Image], [Boo_Desribe], [Boo_RegisterDate], [Boo_Preview], [Boo_View], [Boo_Name]) VALUES (N'25', N'27', N'~/Resource/Image/cover-blue.PNG', N'全球超过7,000所机构认可托福成绩！学习考试从此不再枯燥单调，而是有了陪读的同伴，阅读、听力，不再是问题！内容涉及到托福英语的方方面面。', N'2014-06-25 02:31:16.000', N'3', N'3', N'和外教聊天记单词-托福必考1000词')
 GO
 GO
-INSERT INTO [dbo].[BookInfo] ([Boo_ID], [Tea_ID], [Boo_Image], [Boo_Desribe], [Boo_RegisterDate], [Boo_Preview], [Boo_View], [Boo_Name]) VALUES (N'26', N'28', N'4', N'商务英语是以适应职场生活的语言要求为目的，内容涉及到商务活动的方方面面。商务英语课程不只是简单地对学员的英文水平、能力的提高，它更多地是向学员传授一种西方的观念理念，包括如何和外国人打交道，如何和他们合作、工作的方式方法，以及他们的生活习惯等。
+INSERT INTO [dbo].[BookInfo] ([Boo_ID], [Tea_ID], [Boo_Image], [Boo_Desribe], [Boo_RegisterDate], [Boo_Preview], [Boo_View], [Boo_Name]) VALUES (N'26', N'28', N'~/Resource/Image/cover-green.PNG', N'商务英语是以适应职场生活的语言要求为目的，内容涉及到商务活动的方方面面。商务英语课程不只是简单地对学员的英文水平、能力的提高，它更多地是向学员传授一种西方的观念理念，包括如何和外国人打交道，如何和他们合作、工作的方式方法，以及他们的生活习惯等。
 Peter对此十分熟知。他知晓《和外教聊天记单词-商务必备1000词》中所有的对话、例句、翻译、重点单词及解释，以及正确朗读发音。 国外原汁原味的商务英语对话，让你自如应对工作挑战。', N'2014-06-25 02:32:01.000', N'4', N'4', N'和外教聊天记单词-商务英语1000词')
 GO
 GO
-INSERT INTO [dbo].[BookInfo] ([Boo_ID], [Tea_ID], [Boo_Image], [Boo_Desribe], [Boo_RegisterDate], [Boo_Preview], [Boo_View], [Boo_Name]) VALUES (N'29', N'29', N'5', N'高考英语要求学生掌握3000-4000的词汇量以及一些中高级词汇，熟悉常见单词和词组的正确用法，掌握书面使用技巧和一定会话能力，涉及听、说、读、写多个方面。在一对一的情景对话交流中，熟悉并掌握高考英语中可能会出现的单词、词组和句法，轻松战胜高考英语。 ', N'2014-06-25 02:32:53.000', N'5', N'5', N'和外教聊天记单词-高考英语1000词')
+INSERT INTO [dbo].[BookInfo] ([Boo_ID], [Tea_ID], [Boo_Image], [Boo_Desribe], [Boo_RegisterDate], [Boo_Preview], [Boo_View], [Boo_Name]) VALUES (N'29', N'29', N'~/Resource/Image/cover-purple.PNG', N'高考英语要求学生掌握3000-4000的词汇量以及一些中高级词汇，熟悉常见单词和词组的正确用法，掌握书面使用技巧和一定会话能力，涉及听、说、读、写多个方面。在一对一的情景对话交流中，熟悉并掌握高考英语中可能会出现的单词、词组和句法，轻松战胜高考英语。 ', N'2014-06-25 02:32:53.000', N'5', N'5', N'和外教聊天记单词-高考英语1000词')
 GO
 GO
-INSERT INTO [dbo].[BookInfo] ([Boo_ID], [Tea_ID], [Boo_Image], [Boo_Desribe], [Boo_RegisterDate], [Boo_Preview], [Boo_View], [Boo_Name]) VALUES (N'30', N'30', N'6', N'全球超过7,000所机构认可雅思成绩！跟着Albert学英语，能够有效帮助攻克雅思考试中最至关重要的听力和口语两关，Albert会用最纯正的欧美思维让你抛开解题与技巧，真正地置身“异国”，体验“与人交流”的乐趣。 ', N'2014-06-25 02:33:25.000', N'6', N'6', N'和外教聊天记单词-雅思必考1000词')
+INSERT INTO [dbo].[BookInfo] ([Boo_ID], [Tea_ID], [Boo_Image], [Boo_Desribe], [Boo_RegisterDate], [Boo_Preview], [Boo_View], [Boo_Name]) VALUES (N'30', N'30', N'~/Resource/Image/cover-pink.PNG', N'全球超过7,000所机构认可雅思成绩！跟着Albert学英语，能够有效帮助攻克雅思考试中最至关重要的听力和口语两关，Albert会用最纯正的欧美思维让你抛开解题与技巧，真正地置身“异国”，体验“与人交流”的乐趣。 ', N'2014-06-25 02:33:25.000', N'6', N'6', N'和外教聊天记单词-雅思必考1000词')
 GO
 GO
 SET IDENTITY_INSERT [dbo].[BookInfo] OFF
@@ -263,28 +266,28 @@ GO
 -- ----------------------------
 SET IDENTITY_INSERT [dbo].[TeacherInfo] ON
 GO
-INSERT INTO [dbo].[TeacherInfo] ([Tea_ID], [Tea_Name], [Tea_Nickname], [Tea_Image], [Tea_Describe], [Tea_Sex], [Tea_Age], [Tea_Skill], [Tea_Nation], [Tea_About], [Tea_Suitable], [Tea_SImage]) VALUES (N'23', N'Viki', N'日常英语外教', N'~/Resource/Image/uS83YrM61r.jpg', N'也许有时你会苦恼，没有一个伙伴和你一起学习，与你一问一答，让你在枯燥的学习中收获乐趣，更学到知识。
-Viki正是为此而诞生。她知晓《和外教聊天记单词-日常交流1000词》中所有的对话、例句、翻译、重点单词及解释，以及正确朗读发音。 跟着Viki学日常会话英语，通过场景记单词，你能学得更快，记得更牢，掌握得更好！', N'女', N'20', N'日常英语', N'America', N'1', N'1', N'~/Resource/Image/QzktcqX70l.jpg')
+INSERT INTO [dbo].[TeacherInfo] ([Tea_ID], [Tea_Name], [Tea_Nickname], [Tea_Image], [Tea_Describe], [Tea_Sex], [Tea_Age], [Tea_Skill], [Tea_Nation], [Tea_About], [Tea_Suitable], [Tea_SImage]) VALUES (N'23', N'Viki', N'日常英语外教', N'~/Resource/Image/qYO6V4iO0m.jpg', N'也许有时你会苦恼，没有一个伙伴和你一起学习，与你一问一答，让你在枯燥的学习中收获乐趣，更学到知识。
+Viki正是为此而诞生。她知晓《和外教聊天记单词-日常交流1000词》中所有的对话、例句、翻译、重点单词及解释，以及正确朗读发音。 跟着Viki学日常会话英语，通过场景记单词，你能学得更快，记得更牢，掌握得更好！', N'女', N'20', N'日常英语', N'America', N'1', N'1', N'~/Resource/Image/NFZv83tPZg.jpg')
 GO
 GO
-INSERT INTO [dbo].[TeacherInfo] ([Tea_ID], [Tea_Name], [Tea_Nickname], [Tea_Image], [Tea_Describe], [Tea_Sex], [Tea_Age], [Tea_Skill], [Tea_Nation], [Tea_About], [Tea_Suitable], [Tea_SImage]) VALUES (N'26', N'Olivia', N'四六级英语外教', N'2', N'Olivia是著名的英语单词记忆教材：《和外教聊天记单词-四六级必考1000词》的配套学习伴侣。
-她知晓《和外教聊天记单词-四六级必考1000词》中所有的对话、例句、翻译、重点单词及解释，以及正确朗读发音。 跟着Olivia学四六级，通过场景记单词，让您在一对一的情景对话交流中，熟悉并掌握四六级考试中可能会出现的语言，轻松战胜四六级。', N'女', N'22', N'四六级英语', N'澳大利亚', N'2', N'2', N'2')
+INSERT INTO [dbo].[TeacherInfo] ([Tea_ID], [Tea_Name], [Tea_Nickname], [Tea_Image], [Tea_Describe], [Tea_Sex], [Tea_Age], [Tea_Skill], [Tea_Nation], [Tea_About], [Tea_Suitable], [Tea_SImage]) VALUES (N'26', N'Olivia', N'四六级英语外教', N'~/Resource/Image/Rhrqz3lQXO.jpg', N'Olivia是著名的英语单词记忆教材：《和外教聊天记单词-四六级必考1000词》的配套学习伴侣。
+她知晓《和外教聊天记单词-四六级必考1000词》中所有的对话、例句、翻译、重点单词及解释，以及正确朗读发音。 跟着Olivia学四六级，通过场景记单词，让您在一对一的情景对话交流中，熟悉并掌握四六级考试中可能会出现的语言，轻松战胜四六级。', N'女', N'22', N'日常英语', N'America', N'2', N'2', N'~/Resource/Image/Rhrqz3lQXO.jpg')
 GO
 GO
-INSERT INTO [dbo].[TeacherInfo] ([Tea_ID], [Tea_Name], [Tea_Nickname], [Tea_Image], [Tea_Describe], [Tea_Sex], [Tea_Age], [Tea_Skill], [Tea_Nation], [Tea_About], [Tea_Suitable], [Tea_SImage]) VALUES (N'27', N'Stephanie', N'托福英语外教', N'3', N'无论是打算去美国留学，畅享启发式教学的独特魅力；还是打算赴美工作，感受美国多元化的文化与升华；还是想在美国定居，完成自我理想——新托福考试，都是你面临的第一关“挑战”！想要成功应对托福考试，却并没有那么容易。
-Stephanie作为《和外教聊天记单词-托福必考1000词》的配套学习伴侣，知晓《和外教聊天记单词-托福必考1000词》中所有的对话、例句、翻译、重点单词及解释，以及正确朗读发音。 跟着Stephanie学托福英语，能够有效帮助攻克新托福中最至关重要的听力和口语两关，Stephanie会用最纯正的美式思维让你抛开解题与技巧，真正地置身“美国”，体验“与人交流”的乐趣，从中收获重要的英语知识和技能。', N'女', N'28', N'托福英语', N'美国', N'3', N'3', N'3')
+INSERT INTO [dbo].[TeacherInfo] ([Tea_ID], [Tea_Name], [Tea_Nickname], [Tea_Image], [Tea_Describe], [Tea_Sex], [Tea_Age], [Tea_Skill], [Tea_Nation], [Tea_About], [Tea_Suitable], [Tea_SImage]) VALUES (N'27', N'Stephanie', N'托福英语外教', N'~/Resource/Image/hiNT4dyYwE.jpg', N'无论是打算去美国留学，畅享启发式教学的独特魅力；还是打算赴美工作，感受美国多元化的文化与升华；还是想在美国定居，完成自我理想——新托福考试，都是你面临的第一关“挑战”！想要成功应对托福考试，却并没有那么容易。
+Stephanie作为《和外教聊天记单词-托福必考1000词》的配套学习伴侣，知晓《和外教聊天记单词-托福必考1000词》中所有的对话、例句、翻译、重点单词及解释，以及正确朗读发音。 跟着Stephanie学托福英语，能够有效帮助攻克新托福中最至关重要的听力和口语两关，Stephanie会用最纯正的美式思维让你抛开解题与技巧，真正地置身“美国”，体验“与人交流”的乐趣，从中收获重要的英语知识和技能。', N'女', N'28', N'日常英语', N'America', N'3', N'3', N'~/Resource/Image/hiNT4dyYwE.jpg')
 GO
 GO
-INSERT INTO [dbo].[TeacherInfo] ([Tea_ID], [Tea_Name], [Tea_Nickname], [Tea_Image], [Tea_Describe], [Tea_Sex], [Tea_Age], [Tea_Skill], [Tea_Nation], [Tea_About], [Tea_Suitable], [Tea_SImage]) VALUES (N'28', N'peter', N'商务英语外教', N'4', N'商务英语是以适应职场生活的语言要求为目的，内容涉及到商务活动的方方面面。商务英语课程不只是简单地对学员的英文水平、能力的提高，它更多地是向学员传授一种西方的观念理念，包括如何和外国人打交道，如何和他们合作、工作的方式方法，以及他们的生活习惯等。
-Peter对此十分熟知。他知晓《和外教聊天记单词-商务必备1000词》中所有的对话、例句、翻译、重点单词及解释，以及正确朗读发音。 国外原汁原味的商务英语对话，让你自如应对工作挑战。', N'男', N'30', N'商务英语', N'英国', N'4', N'4', N'4')
+INSERT INTO [dbo].[TeacherInfo] ([Tea_ID], [Tea_Name], [Tea_Nickname], [Tea_Image], [Tea_Describe], [Tea_Sex], [Tea_Age], [Tea_Skill], [Tea_Nation], [Tea_About], [Tea_Suitable], [Tea_SImage]) VALUES (N'28', N'peter', N'商务英语外教', N'~/Resource/Image/rpRaDp8dl9.jpg', N'商务英语是以适应职场生活的语言要求为目的，内容涉及到商务活动的方方面面。商务英语课程不只是简单地对学员的英文水平、能力的提高，它更多地是向学员传授一种西方的观念理念，包括如何和外国人打交道，如何和他们合作、工作的方式方法，以及他们的生活习惯等。
+Peter对此十分熟知。他知晓《和外教聊天记单词-商务必备1000词》中所有的对话、例句、翻译、重点单词及解释，以及正确朗读发音。 国外原汁原味的商务英语对话，让你自如应对工作挑战。', N'男', N'30', N'商务英语', N'America', N'4', N'4', N'~/Resource/Image/N63ARojfk3.jpg')
 GO
 GO
-INSERT INTO [dbo].[TeacherInfo] ([Tea_ID], [Tea_Name], [Tea_Nickname], [Tea_Image], [Tea_Describe], [Tea_Sex], [Tea_Age], [Tea_Skill], [Tea_Nation], [Tea_About], [Tea_Suitable], [Tea_SImage]) VALUES (N'29', N'Daniel', N'高考英语外教', N'5', N'Daniel作为《和外教聊天记单词-高考必考1000词》的配套学习伴侣，知晓《和外教聊天记单词-高考必考1000词》中所有的对话、例句、翻译、重点单词及解释，以及正确朗读发音。他了解高考英语要求学生所掌握的3000-4000的词汇量以及一些中高级词汇，熟悉高考常见单词和词组的正确用法，书面使用技巧和一定会话能力，涉及听、说、读、写多个方面。
-跟着Daniel学高考英语，通过场景记单词，让您在一对一的情景对话交流中，熟悉并掌握高考英语中可能会出现的单词、词组和句法，轻松战胜高考英语', N'男', N'40', N'高考英语', N'美国', N'5', N'5', N'5')
+INSERT INTO [dbo].[TeacherInfo] ([Tea_ID], [Tea_Name], [Tea_Nickname], [Tea_Image], [Tea_Describe], [Tea_Sex], [Tea_Age], [Tea_Skill], [Tea_Nation], [Tea_About], [Tea_Suitable], [Tea_SImage]) VALUES (N'29', N'Daniel', N'高考英语外教', N'~/Resource/Image/iueaw0fzt3.jpg', N'Daniel作为《和外教聊天记单词-高考必考1000词》的配套学习伴侣，知晓《和外教聊天记单词-高考必考1000词》中所有的对话、例句、翻译、重点单词及解释，以及正确朗读发音。他了解高考英语要求学生所掌握的3000-4000的词汇量以及一些中高级词汇，熟悉高考常见单词和词组的正确用法，书面使用技巧和一定会话能力，涉及听、说、读、写多个方面。
+跟着Daniel学高考英语，通过场景记单词，让您在一对一的情景对话交流中，熟悉并掌握高考英语中可能会出现的单词、词组和句法，轻松战胜高考英语', N'男', N'40', N'高考英语', N'America', N'5', N'5', N'~/Resource/Image/8TIni7Y5kA.jpg')
 GO
 GO
-INSERT INTO [dbo].[TeacherInfo] ([Tea_ID], [Tea_Name], [Tea_Nickname], [Tea_Image], [Tea_Describe], [Tea_Sex], [Tea_Age], [Tea_Skill], [Tea_Nation], [Tea_About], [Tea_Suitable], [Tea_SImage]) VALUES (N'30', N'Albert', N'雅思英语外教', N'6', N'全球超过7,000所机构认可雅思成绩，无论你想留学、移民、就业，还是检测英语水平；无论你想去英国，澳大利亚，新西兰，美国，加拿大，还是荷兰，法国，德国，瑞士，瑞典，新加坡，香港，马来西亚，日本，南非等；你只需要一项英语考试－－雅思考试。
-Albert作为《和外教聊天记单词-雅思必考1000词》的配套学习伴侣，知晓《和外教聊天记单词-雅思必考1000词》中所有的对话、例句、翻译、重点单词及解释，以及正确朗读发音。 跟着Albert学雅思英语，能够有效帮助攻克雅思考试中最至关重要的听力和口语两关，Albert会用最纯正的欧美思维让你抛开解题与技巧，真正地置身“异国”，体验“与人交流”的乐趣，从中收获重要的英语知识和技能。', N'男', N'29', N'雅思英语', N'英国', N'6', N'6', N'6')
+INSERT INTO [dbo].[TeacherInfo] ([Tea_ID], [Tea_Name], [Tea_Nickname], [Tea_Image], [Tea_Describe], [Tea_Sex], [Tea_Age], [Tea_Skill], [Tea_Nation], [Tea_About], [Tea_Suitable], [Tea_SImage]) VALUES (N'30', N'Albert', N'雅思英语外教', N'~/Resource/Image/Mx6iNNYrjX.jpg', N'全球超过7,000所机构认可雅思成绩，无论你想留学、移民、就业，还是检测英语水平；无论你想去英国，澳大利亚，新西兰，美国，加拿大，还是荷兰，法国，德国，瑞士，瑞典，新加坡，香港，马来西亚，日本，南非等；你只需要一项英语考试－－雅思考试。
+Albert作为《和外教聊天记单词-雅思必考1000词》的配套学习伴侣，知晓《和外教聊天记单词-雅思必考1000词》中所有的对话、例句、翻译、重点单词及解释，以及正确朗读发音。 跟着Albert学雅思英语，能够有效帮助攻克雅思考试中最至关重要的听力和口语两关，Albert会用最纯正的欧美思维让你抛开解题与技巧，真正地置身“异国”，体验“与人交流”的乐趣，从中收获重要的英语知识和技能。', N'男', N'29', N'日常英语', N'America', N'6', N'6', N'~/Resource/Image/Mx6iNNYrjX.jpg')
 GO
 GO
 SET IDENTITY_INSERT [dbo].[TeacherInfo] OFF
