@@ -12,16 +12,22 @@ namespace BLL
 
         void IBLL.ITest.Add(TestInfo student)
         {
+            if(student == null)
+                    throw new Exception();
             dal.Add(student);
         }
 
         void IBLL.ITest.Remove(TestInfo student)
         {
+            if (student == null)
+                throw new Exception();
             dal.Remove(student);
         }
 
         void IBLL.ITest.Modify(TestInfo student)
         {
+            if (student == null)
+                throw new Exception();
             dal.Modify(student);
         }
 

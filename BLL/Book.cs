@@ -14,16 +14,22 @@ namespace BLL
 
         void IBLL.IBook.Add(BookInfo book)
         {
+            if(book == null)
+                throw new Exception();
             dal.Add(book);
         }
 
         void IBLL.IBook.Remove(BookInfo book)
         {
+            if(book == null)
+                throw new Exception();
             dal.Remove(book);
         }
 
         void IBLL.IBook.Modify(BookInfo book)
         {
+            if(book == null)
+                throw new Exception();
             dal.Modify(book);
         }
 

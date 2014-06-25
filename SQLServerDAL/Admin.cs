@@ -17,55 +17,85 @@ namespace SQLServerDAL
 
         void IDAL.IAdmin.Add(AdminInfo admin)
         {
-            DataContext ctx = new DataContext(connection);
-            ITable admins = ctx.GetTable<AdminInfo>();
-            admins.InsertOnSubmit(admin);
-            ctx.SubmitChanges();
+            try
+            {
+                DataContext ctx = new DataContext(connection);
+                ITable admins = ctx.GetTable<AdminInfo>();
+                admins.InsertOnSubmit(admin);
+                ctx.SubmitChanges();
+            }
+            finally
+            {
+            }
         }
 
         void IDAL.IAdmin.Remove(AdminInfo admin)
         {
-            DataContext ctx = new DataContext(connection);
-            ITable admins = ctx.GetTable<AdminInfo>();
-            admins.Attach(admin);
-            admins.DeleteOnSubmit(admin);
-            ctx.SubmitChanges();
+            try
+            {
+                DataContext ctx = new DataContext(connection);
+                ITable admins = ctx.GetTable<AdminInfo>();
+                admins.Attach(admin);
+                admins.DeleteOnSubmit(admin);
+                ctx.SubmitChanges();
+            }
+            finally
+            {
+            }
         }
 
         void IDAL.IAdmin.Modify(AdminInfo admin)
         {
-            DataContext ctx = new DataContext(connection);
-            ITable<AdminInfo> admins = ctx.GetTable<AdminInfo>();
-            IQueryable<AdminInfo> query = from o in admins
-                                          where o.Adm_ID == admin.Adm_ID
-                                          select o;
-            foreach (AdminInfo o in query)
+            try
             {
-                o.Adm_LastLogin = admin.Adm_LastLogin;
-                o.Adm_Email = admin.Adm_Email;
-                o.Adm_Password = admin.Adm_Password;
-                o.Adm_UserName = admin.Adm_UserName;
+                DataContext ctx = new DataContext(connection);
+                ITable<AdminInfo> admins = ctx.GetTable<AdminInfo>();
+                IQueryable<AdminInfo> query = from o in admins
+                                              where o.Adm_ID == admin.Adm_ID
+                                              select o;
+                foreach (AdminInfo o in query)
+                {
+                    o.Adm_LastLogin = admin.Adm_LastLogin;
+                    o.Adm_Email = admin.Adm_Email;
+                    o.Adm_Password = admin.Adm_Password;
+                    o.Adm_UserName = admin.Adm_UserName;
+                }
+                ctx.SubmitChanges();
             }
-            ctx.SubmitChanges();
+            finally
+            {
+            }
         }
 
         IList<AdminInfo> IDAL.IAdmin.GetAll()
         {
-            DataContext ctx = new DataContext(connection);
-            ITable<AdminInfo> admins = ctx.GetTable<AdminInfo>();
-            return admins.ToList<AdminInfo>();
+            try
+            {
+                DataContext ctx = new DataContext(connection);
+                ITable<AdminInfo> admins = ctx.GetTable<AdminInfo>();
+                return admins.ToList<AdminInfo>();
+            }
+            finally
+            {
+            }
         }
 
 
 
         AdminInfo IDAL.IAdmin.Get(int id)
         {
-            DataContext ctx = new DataContext(connection);
-            ITable<AdminInfo> admins = ctx.GetTable<AdminInfo>();
-            IQueryable<AdminInfo> query = from a in admins
-                                          where a.Adm_ID == id
-                                          select a;
-            return query.FirstOrDefault<AdminInfo>();
+            try
+            {
+                DataContext ctx = new DataContext(connection);
+                ITable<AdminInfo> admins = ctx.GetTable<AdminInfo>();
+                IQueryable<AdminInfo> query = from a in admins
+                                              where a.Adm_ID == id
+                                              select a;
+                return query.FirstOrDefault<AdminInfo>();
+            }
+            finally
+            {
+            }
         }
 
 
@@ -89,25 +119,40 @@ namespace SQLServerDAL
 
         System.Data.DataSet IDAL.IAdmin.getAdminList()
         {
-            SqlConnection sqlcon = new SqlConnection(connection);
-            string sqlstr = "SELECT * FROM      AdminInfo";
-            SqlDataAdapter myda = new SqlDataAdapter(sqlstr, sqlcon);
-            DataSet myds = new DataSet();
-            sqlcon.Open();
-            myda.Fill(myds);
-            sqlcon.Close();
-            return myds;
+            SqlConnection sqlcon = null;
+            try
+            {
+                sqlcon = new SqlConnection(connection);
+                string sqlstr = "SELECT * FROM      AdminInfo";
+                SqlDataAdapter myda = new SqlDataAdapter(sqlstr, sqlcon);
+                DataSet myds = new DataSet();
+                sqlcon.Open();
+                myda.Fill(myds);
+                sqlcon.Close();
+                return myds;
+            }
+            finally
+            {
+                if (sqlcon != null)
+                    sqlcon.Close();
+            }
         }
 
 
         IList<AdminInfo> IDAL.IAdmin.GetNotAdmin()
         {
-            DataContext ctx = new DataContext(connection);
-            ITable<AdminInfo> admins = ctx.GetTable<AdminInfo>();
-            IQueryable<AdminInfo> query = from a in admins
-                                          where a.Adm_Role != "admin"
-                                          select a;
-            return query.ToList<AdminInfo>();
+            try
+            {
+                DataContext ctx = new DataContext(connection);
+                ITable<AdminInfo> admins = ctx.GetTable<AdminInfo>();
+                IQueryable<AdminInfo> query = from a in admins
+                                              where a.Adm_Role != "admin"
+                                              select a;
+                return query.ToList<AdminInfo>();
+            }
+            finally
+            {
+            }
         }
     }
 }

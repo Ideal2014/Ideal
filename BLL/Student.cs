@@ -12,22 +12,30 @@ namespace BLL{
         //加密用户密码后保存信息
         void IBLL.IStudent.Add(StudentInfo student)
         {
+            if (student == null)
+                throw new Exception();
            student.Stu_Password = BLLSupport.Md5Support.GetMd5String(student.Stu_Password);
             dal.Add(student);
         }
 
         string IBLL.IStudent.GetMd5(String  key)
         {
+            if (key == null || key.Equals(String.Empty))
+                throw new Exception();
             return BLLSupport.Md5Support.GetMd5String(key);
         }
 
         void IBLL.IStudent.Remove(StudentInfo student)
         {
+            if (student == null)
+                throw new Exception();
             dal.Remove(student);
         }
 
         void IBLL.IStudent.Modify(StudentInfo student)
         {
+            if (student == null)
+                throw new Exception();
             dal.Modify(student);
         }
 
@@ -44,6 +52,8 @@ namespace BLL{
 
         StudentInfo IBLL.IStudent.GetByName(string name)
         {
+            if (name == null || name.Equals(String.Empty))
+                throw new Exception();
             return dal.GetByName(name);
         }
 

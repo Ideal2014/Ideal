@@ -15,62 +15,91 @@ namespace SQLServerDAL
 
         void IDAL.IBook.Add(BookInfo book)
         {
-            DataContext ctx = new DataContext(connection);
+            try
+            {
+                DataContext ctx = new DataContext(connection);
 
 
-            ITable books = ctx.GetTable<BookInfo>();
-            books.InsertOnSubmit(book);
-            ctx.SubmitChanges();
+                ITable books = ctx.GetTable<BookInfo>();
+                books.InsertOnSubmit(book);
+                ctx.SubmitChanges();
+            }
+            finally
+            {
+            }
         }
 
         void IDAL.IBook.Remove(BookInfo book)
         {
+            try
+            {
+                DataContext ctx = new DataContext(connection);
 
-            DataContext ctx = new DataContext(connection);
-            
-            ITable books = ctx.GetTable<BookInfo>();
-            books.Attach(book);
-            books.DeleteOnSubmit(book);
-            ctx.SubmitChanges();
+                ITable books = ctx.GetTable<BookInfo>();
+                books.Attach(book);
+                books.DeleteOnSubmit(book);
+                ctx.SubmitChanges();
+            }
+            finally
+            {
+            }
         }
 
         void IDAL.IBook.Modify(BookInfo book)
         {
-            DataContext ctx = new DataContext(connection);
-            ITable<BookInfo> books = ctx.GetTable<BookInfo>();
-            IQueryable<BookInfo> query = from o in books
-                                         where o.Boo_ID == book.Boo_ID
-                                            select o;
-            foreach (BookInfo o in query)
+            try
             {
-                o.Boo_Name = book.Boo_Name;
-                o.Boo_Desribe = book.Boo_Desribe;
-                o.Boo_Image = book.Boo_Image;
-                o.Boo_Preview = book.Boo_Preview;
-                o.Boo_RegisterDate = book.Boo_RegisterDate;
-                o.Boo_View = book.Boo_View;
-                o.Tea_ID = book.Tea_ID;
+                DataContext ctx = new DataContext(connection);
+                ITable<BookInfo> books = ctx.GetTable<BookInfo>();
+                IQueryable<BookInfo> query = from o in books
+                                             where o.Boo_ID == book.Boo_ID
+                                             select o;
+                foreach (BookInfo o in query)
+                {
+                    o.Boo_Name = book.Boo_Name;
+                    o.Boo_Desribe = book.Boo_Desribe;
+                    o.Boo_Image = book.Boo_Image;
+                    o.Boo_Preview = book.Boo_Preview;
+                    o.Boo_RegisterDate = book.Boo_RegisterDate;
+                    o.Boo_View = book.Boo_View;
+                    o.Tea_ID = book.Tea_ID;
+                }
+                ctx.SubmitChanges();
             }
-            ctx.SubmitChanges();
+            finally
+            {
+            }
         }
 
         IList<BookInfo> IDAL.IBook.GetAll()
         {
-            DataContext ctx = new DataContext(connection);
-            ITable<BookInfo> books = ctx.GetTable<BookInfo>();
-            return books.ToList<BookInfo>(); ;
+            try
+            {
+                DataContext ctx = new DataContext(connection);
+                ITable<BookInfo> books = ctx.GetTable<BookInfo>();
+                return books.ToList<BookInfo>(); ;
+            }
+            finally
+            {
+            }
         }
 
 
 
         BookInfo IDAL.IBook.Get(int id)
         {
-            DataContext ctx = new DataContext(connection);
-            ITable<BookInfo> books = ctx.GetTable<BookInfo>();
-            IQueryable<BookInfo> query = from o in books
-                                            where o.Boo_ID == id
-                                            select o;
-            return query.FirstOrDefault<BookInfo>();
+            try
+            {
+                DataContext ctx = new DataContext(connection);
+                ITable<BookInfo> books = ctx.GetTable<BookInfo>();
+                IQueryable<BookInfo> query = from o in books
+                                             where o.Boo_ID == id
+                                             select o;
+                return query.FirstOrDefault<BookInfo>();
+            }
+            finally
+            {
+            }
         }
 
         DataSet IDAL.IBook.GetBookList()

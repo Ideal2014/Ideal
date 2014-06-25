@@ -23,58 +23,87 @@ namespace SQLServerDAL
 
         void IDAL.IBalance.Remove(BalanceInfo balance)
         {
+            try
+            {
+                DataContext ctx = new DataContext(connection);
 
-            DataContext ctx = new DataContext(connection);
-
-            ITable balances = ctx.GetTable<BalanceInfo>();
-            balances.Attach(balance);
-            balances.DeleteOnSubmit(balance);
-            ctx.SubmitChanges();
+                ITable balances = ctx.GetTable<BalanceInfo>();
+                balances.Attach(balance);
+                balances.DeleteOnSubmit(balance);
+                ctx.SubmitChanges();
+            }
+            finally
+            {
+            }
         }
 
         void IDAL.IBalance.Modify(BalanceInfo balance)
         {
-            DataContext ctx = new DataContext(connection);
-            ITable<BalanceInfo> balances = ctx.GetTable<BalanceInfo>();
-            IQueryable<BalanceInfo> query = from o in balances
-                                            where o.Bal_ID == balance.Bal_ID
-                                            select o;
-            foreach (BalanceInfo o in query)
+            try
             {
-                o.Bal_Time = balance.Bal_Time;
-                o.Stu_ID = balance.Stu_ID;
-                o.Tea_ID = balance.Tea_ID;
+                DataContext ctx = new DataContext(connection);
+                ITable<BalanceInfo> balances = ctx.GetTable<BalanceInfo>();
+                IQueryable<BalanceInfo> query = from o in balances
+                                                where o.Bal_ID == balance.Bal_ID
+                                                select o;
+                foreach (BalanceInfo o in query)
+                {
+                    o.Bal_Time = balance.Bal_Time;
+                    o.Stu_ID = balance.Stu_ID;
+                    o.Tea_ID = balance.Tea_ID;
+                }
+                ctx.SubmitChanges();
             }
-            ctx.SubmitChanges();
+            finally
+            {
+            }
         }
 
         IList<BalanceInfo> IDAL.IBalance.GetAll()
         {
-            DataContext ctx = new DataContext(connection);
-            ITable<BalanceInfo> balances = ctx.GetTable<BalanceInfo>();
-            return balances.ToList<BalanceInfo>(); ;
+            try
+            {
+                DataContext ctx = new DataContext(connection);
+                ITable<BalanceInfo> balances = ctx.GetTable<BalanceInfo>();
+                return balances.ToList<BalanceInfo>(); ;
+            }
+            finally
+            {
+            }
         }
 
 
 
         BalanceInfo IDAL.IBalance.Get(int id)
         {
-            DataContext ctx = new DataContext(connection);
-            ITable<BalanceInfo> balances = ctx.GetTable<BalanceInfo>();
-            IQueryable<BalanceInfo> query = from o in balances
-                                            where o.Bal_ID == id
-                                            select o;
-            return query.FirstOrDefault<BalanceInfo>();
+            try
+            {
+                DataContext ctx = new DataContext(connection);
+                ITable<BalanceInfo> balances = ctx.GetTable<BalanceInfo>();
+                IQueryable<BalanceInfo> query = from o in balances
+                                                where o.Bal_ID == id
+                                                select o;
+                return query.FirstOrDefault<BalanceInfo>();
+            }
+            finally
+            {
+            }
         }
 
         BalanceInfo IDAL.IBalance.GetbyTidSid(int tid, int sid)
         {
-            DataContext ctx = new DataContext(connection);
-            ITable<BalanceInfo> balances = ctx.GetTable<BalanceInfo>();
-            IQueryable<BalanceInfo> query = from o in balances
-                                            where o.Tea_ID == tid && o.Stu_ID == sid
-                                            select o;
-            return query.FirstOrDefault<BalanceInfo>();
+            try
+            {
+                DataContext ctx = new DataContext(connection);
+                ITable<BalanceInfo> balances = ctx.GetTable<BalanceInfo>();
+                IQueryable<BalanceInfo> query = from o in balances
+                                                where o.Tea_ID == tid && o.Stu_ID == sid
+                                                select o;
+                return query.FirstOrDefault<BalanceInfo>();
+            }
+            finally
+            {
+            }
         }
         
         DataSet IDAL.IBalance.GetBalanceWithTea(int id)

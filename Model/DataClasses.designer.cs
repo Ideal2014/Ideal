@@ -582,8 +582,6 @@ namespace Model
 		
 		private System.DateTime _Bal_Time;
 		
-		private EntityRef<StudentInfo> _StudentInfo;
-		
     #region 可扩展性方法定义
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -600,7 +598,6 @@ namespace Model
 		
 		public BalanceInfo()
 		{
-			this._StudentInfo = default(EntityRef<StudentInfo>);
 			OnCreated();
 		}
 		
@@ -635,10 +632,6 @@ namespace Model
 			{
 				if ((this._Stu_ID != value))
 				{
-					if (this._StudentInfo.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
 					this.OnStu_IDChanging(value);
 					this.SendPropertyChanging();
 					this._Stu_ID = value;
@@ -688,40 +681,6 @@ namespace Model
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="StudentInfo_BalanceInfo", Storage="_StudentInfo", ThisKey="Stu_ID", OtherKey="Stu_ID", IsForeignKey=true)]
-		public StudentInfo StudentInfo
-		{
-			get
-			{
-				return this._StudentInfo.Entity;
-			}
-			set
-			{
-				StudentInfo previousValue = this._StudentInfo.Entity;
-				if (((previousValue != value) 
-							|| (this._StudentInfo.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._StudentInfo.Entity = null;
-						previousValue.BalanceInfo.Remove(this);
-					}
-					this._StudentInfo.Entity = value;
-					if ((value != null))
-					{
-						value.BalanceInfo.Add(this);
-						this._Stu_ID = value.Stu_ID;
-					}
-					else
-					{
-						this._Stu_ID = default(int);
-					}
-					this.SendPropertyChanged("StudentInfo");
-				}
-			}
-		}
-		
 		public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -765,8 +724,6 @@ namespace Model
 		
 		private string _Boo_Name;
 		
-		private EntityRef<TeacherInfo> _TeacherInfo;
-		
     #region 可扩展性方法定义
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -791,7 +748,6 @@ namespace Model
 		
 		public BookInfo()
 		{
-			this._TeacherInfo = default(EntityRef<TeacherInfo>);
 			OnCreated();
 		}
 		
@@ -826,10 +782,6 @@ namespace Model
 			{
 				if ((this._Tea_ID != value))
 				{
-					if (this._TeacherInfo.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
 					this.OnTea_IDChanging(value);
 					this.SendPropertyChanging();
 					this._Tea_ID = value;
@@ -959,40 +911,6 @@ namespace Model
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TeacherInfo_BookInfo", Storage="_TeacherInfo", ThisKey="Tea_ID", OtherKey="Tea_ID", IsForeignKey=true)]
-		public TeacherInfo TeacherInfo
-		{
-			get
-			{
-				return this._TeacherInfo.Entity;
-			}
-			set
-			{
-				TeacherInfo previousValue = this._TeacherInfo.Entity;
-				if (((previousValue != value) 
-							|| (this._TeacherInfo.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._TeacherInfo.Entity = null;
-						previousValue.BookInfo.Remove(this);
-					}
-					this._TeacherInfo.Entity = value;
-					if ((value != null))
-					{
-						value.BookInfo.Add(this);
-						this._Tea_ID = value.Tea_ID;
-					}
-					else
-					{
-						this._Tea_ID = default(int);
-					}
-					this.SendPropertyChanged("TeacherInfo");
-				}
-			}
-		}
-		
 		public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -1030,8 +948,6 @@ namespace Model
 		
 		private System.DateTime _Cla_EndTime;
 		
-		private EntityRef<StudentInfo> _StudentInfo;
-		
     #region 可扩展性方法定义
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -1050,7 +966,6 @@ namespace Model
 		
 		public ClassRecordInfo()
 		{
-			this._StudentInfo = default(EntityRef<StudentInfo>);
 			OnCreated();
 		}
 		
@@ -1085,10 +1000,6 @@ namespace Model
 			{
 				if ((this._Stu_ID != value))
 				{
-					if (this._StudentInfo.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
 					this.OnStu_IDChanging(value);
 					this.SendPropertyChanging();
 					this._Stu_ID = value;
@@ -1158,40 +1069,6 @@ namespace Model
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="StudentInfo_ClassRecordInfo", Storage="_StudentInfo", ThisKey="Stu_ID", OtherKey="Stu_ID", IsForeignKey=true)]
-		public StudentInfo StudentInfo
-		{
-			get
-			{
-				return this._StudentInfo.Entity;
-			}
-			set
-			{
-				StudentInfo previousValue = this._StudentInfo.Entity;
-				if (((previousValue != value) 
-							|| (this._StudentInfo.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._StudentInfo.Entity = null;
-						previousValue.ClassRecordInfo.Remove(this);
-					}
-					this._StudentInfo.Entity = value;
-					if ((value != null))
-					{
-						value.ClassRecordInfo.Add(this);
-						this._Stu_ID = value.Stu_ID;
-					}
-					else
-					{
-						this._Stu_ID = default(int);
-					}
-					this.SendPropertyChanged("StudentInfo");
-				}
-			}
-		}
-		
 		public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -1231,8 +1108,6 @@ namespace Model
 		
 		private char _Fee_Level;
 		
-		private EntityRef<StudentInfo> _StudentInfo;
-		
     #region 可扩展性方法定义
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -1253,7 +1128,6 @@ namespace Model
 		
 		public FeedbackInfo()
 		{
-			this._StudentInfo = default(EntityRef<StudentInfo>);
 			OnCreated();
 		}
 		
@@ -1288,10 +1162,6 @@ namespace Model
 			{
 				if ((this._Stu_ID != value))
 				{
-					if (this._StudentInfo.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
 					this.OnStu_IDChanging(value);
 					this.SendPropertyChanging();
 					this._Stu_ID = value;
@@ -1381,40 +1251,6 @@ namespace Model
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="StudentInfo_FeedbackInfo", Storage="_StudentInfo", ThisKey="Stu_ID", OtherKey="Stu_ID", IsForeignKey=true)]
-		public StudentInfo StudentInfo
-		{
-			get
-			{
-				return this._StudentInfo.Entity;
-			}
-			set
-			{
-				StudentInfo previousValue = this._StudentInfo.Entity;
-				if (((previousValue != value) 
-							|| (this._StudentInfo.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._StudentInfo.Entity = null;
-						previousValue.FeedbackInfo.Remove(this);
-					}
-					this._StudentInfo.Entity = value;
-					if ((value != null))
-					{
-						value.FeedbackInfo.Add(this);
-						this._Stu_ID = value.Stu_ID;
-					}
-					else
-					{
-						this._Stu_ID = default(int);
-					}
-					this.SendPropertyChanged("StudentInfo");
-				}
-			}
-		}
-		
 		public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -1454,8 +1290,6 @@ namespace Model
 		
 		private int _Ord_Num;
 		
-		private EntityRef<StudentInfo> _StudentInfo;
-		
     #region 可扩展性方法定义
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -1476,7 +1310,6 @@ namespace Model
 		
 		public OrderRecordInfo()
 		{
-			this._StudentInfo = default(EntityRef<StudentInfo>);
 			OnCreated();
 		}
 		
@@ -1511,10 +1344,6 @@ namespace Model
 			{
 				if ((this._Stu_ID != value))
 				{
-					if (this._StudentInfo.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
 					this.OnStu_IDChanging(value);
 					this.SendPropertyChanging();
 					this._Stu_ID = value;
@@ -1604,40 +1433,6 @@ namespace Model
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="StudentInfo_OrderRecordInfo", Storage="_StudentInfo", ThisKey="Stu_ID", OtherKey="Stu_ID", IsForeignKey=true)]
-		public StudentInfo StudentInfo
-		{
-			get
-			{
-				return this._StudentInfo.Entity;
-			}
-			set
-			{
-				StudentInfo previousValue = this._StudentInfo.Entity;
-				if (((previousValue != value) 
-							|| (this._StudentInfo.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._StudentInfo.Entity = null;
-						previousValue.OrderRecordInfo.Remove(this);
-					}
-					this._StudentInfo.Entity = value;
-					if ((value != null))
-					{
-						value.OrderRecordInfo.Add(this);
-						this._Stu_ID = value.Stu_ID;
-					}
-					else
-					{
-						this._Stu_ID = default(int);
-					}
-					this.SendPropertyChanged("StudentInfo");
-				}
-			}
-		}
-		
 		public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -1685,8 +1480,6 @@ namespace Model
 		
 		private string _Tea_SImage;
 		
-		private EntitySet<BookInfo> _BookInfo;
-		
     #region 可扩展性方法定义
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -1715,7 +1508,6 @@ namespace Model
 		
 		public TeacherInfo()
 		{
-			this._BookInfo = new EntitySet<BookInfo>(new Action<BookInfo>(this.attach_BookInfo), new Action<BookInfo>(this.detach_BookInfo));
 			OnCreated();
 		}
 		
@@ -1919,19 +1711,6 @@ namespace Model
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TeacherInfo_BookInfo", Storage="_BookInfo", ThisKey="Tea_ID", OtherKey="Tea_ID")]
-		public EntitySet<BookInfo> BookInfo
-		{
-			get
-			{
-				return this._BookInfo;
-			}
-			set
-			{
-				this._BookInfo.Assign(value);
-			}
-		}
-		
 		public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -1950,18 +1729,6 @@ namespace Model
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
-		}
-		
-		private void attach_BookInfo(BookInfo entity)
-		{
-			this.SendPropertyChanging();
-			entity.TeacherInfo = this;
-		}
-		
-		private void detach_BookInfo(BookInfo entity)
-		{
-			this.SendPropertyChanging();
-			entity.TeacherInfo = null;
 		}
 	}
 	
@@ -1991,14 +1758,6 @@ namespace Model
 		
 		private string _Stu_Validation;
 		
-		private EntitySet<BalanceInfo> _BalanceInfo;
-		
-		private EntitySet<ClassRecordInfo> _ClassRecordInfo;
-		
-		private EntitySet<FeedbackInfo> _FeedbackInfo;
-		
-		private EntitySet<OrderRecordInfo> _OrderRecordInfo;
-		
     #region 可扩展性方法定义
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -2027,10 +1786,6 @@ namespace Model
 		
 		public StudentInfo()
 		{
-			this._BalanceInfo = new EntitySet<BalanceInfo>(new Action<BalanceInfo>(this.attach_BalanceInfo), new Action<BalanceInfo>(this.detach_BalanceInfo));
-			this._ClassRecordInfo = new EntitySet<ClassRecordInfo>(new Action<ClassRecordInfo>(this.attach_ClassRecordInfo), new Action<ClassRecordInfo>(this.detach_ClassRecordInfo));
-			this._FeedbackInfo = new EntitySet<FeedbackInfo>(new Action<FeedbackInfo>(this.attach_FeedbackInfo), new Action<FeedbackInfo>(this.detach_FeedbackInfo));
-			this._OrderRecordInfo = new EntitySet<OrderRecordInfo>(new Action<OrderRecordInfo>(this.attach_OrderRecordInfo), new Action<OrderRecordInfo>(this.detach_OrderRecordInfo));
 			OnCreated();
 		}
 		
@@ -2234,58 +1989,6 @@ namespace Model
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="StudentInfo_BalanceInfo", Storage="_BalanceInfo", ThisKey="Stu_ID", OtherKey="Stu_ID")]
-		public EntitySet<BalanceInfo> BalanceInfo
-		{
-			get
-			{
-				return this._BalanceInfo;
-			}
-			set
-			{
-				this._BalanceInfo.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="StudentInfo_ClassRecordInfo", Storage="_ClassRecordInfo", ThisKey="Stu_ID", OtherKey="Stu_ID")]
-		public EntitySet<ClassRecordInfo> ClassRecordInfo
-		{
-			get
-			{
-				return this._ClassRecordInfo;
-			}
-			set
-			{
-				this._ClassRecordInfo.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="StudentInfo_FeedbackInfo", Storage="_FeedbackInfo", ThisKey="Stu_ID", OtherKey="Stu_ID")]
-		public EntitySet<FeedbackInfo> FeedbackInfo
-		{
-			get
-			{
-				return this._FeedbackInfo;
-			}
-			set
-			{
-				this._FeedbackInfo.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="StudentInfo_OrderRecordInfo", Storage="_OrderRecordInfo", ThisKey="Stu_ID", OtherKey="Stu_ID")]
-		public EntitySet<OrderRecordInfo> OrderRecordInfo
-		{
-			get
-			{
-				return this._OrderRecordInfo;
-			}
-			set
-			{
-				this._OrderRecordInfo.Assign(value);
-			}
-		}
-		
 		public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -2304,54 +2007,6 @@ namespace Model
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
-		}
-		
-		private void attach_BalanceInfo(BalanceInfo entity)
-		{
-			this.SendPropertyChanging();
-			entity.StudentInfo = this;
-		}
-		
-		private void detach_BalanceInfo(BalanceInfo entity)
-		{
-			this.SendPropertyChanging();
-			entity.StudentInfo = null;
-		}
-		
-		private void attach_ClassRecordInfo(ClassRecordInfo entity)
-		{
-			this.SendPropertyChanging();
-			entity.StudentInfo = this;
-		}
-		
-		private void detach_ClassRecordInfo(ClassRecordInfo entity)
-		{
-			this.SendPropertyChanging();
-			entity.StudentInfo = null;
-		}
-		
-		private void attach_FeedbackInfo(FeedbackInfo entity)
-		{
-			this.SendPropertyChanging();
-			entity.StudentInfo = this;
-		}
-		
-		private void detach_FeedbackInfo(FeedbackInfo entity)
-		{
-			this.SendPropertyChanging();
-			entity.StudentInfo = null;
-		}
-		
-		private void attach_OrderRecordInfo(OrderRecordInfo entity)
-		{
-			this.SendPropertyChanging();
-			entity.StudentInfo = this;
-		}
-		
-		private void detach_OrderRecordInfo(OrderRecordInfo entity)
-		{
-			this.SendPropertyChanging();
-			entity.StudentInfo = null;
 		}
 	}
 }

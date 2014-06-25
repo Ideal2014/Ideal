@@ -16,95 +16,146 @@ namespace SQLServerDAL
 
         void IDAL.IStudent.Add(StudentInfo student)
         {
-            DataContext ctx = new DataContext(connection);
-            ITable students = ctx.GetTable<StudentInfo>();
-            students.InsertOnSubmit(student);
-            ctx.SubmitChanges();
+            try
+            {
+                DataContext ctx = new DataContext(connection);
+                ITable students = ctx.GetTable<StudentInfo>();
+                students.InsertOnSubmit(student);
+                ctx.SubmitChanges();
+            }
+            finally
+            {
+            }
         }
 
         void IDAL.IStudent.Remove(StudentInfo student)
         {
+            try
+            {
+                DataContext ctx = new DataContext(connection);
 
-            DataContext ctx = new DataContext(connection);
-
-            ITable students = ctx.GetTable<StudentInfo>();
-            students.Attach(student);
-            students.DeleteOnSubmit(student);
-            ctx.SubmitChanges();
+                ITable students = ctx.GetTable<StudentInfo>();
+                students.Attach(student);
+                students.DeleteOnSubmit(student);
+                ctx.SubmitChanges();
+            }
+            finally
+            {
+            }
         }
 
         void IDAL.IStudent.Modify(StudentInfo student)
         {
-            DataContext ctx = new DataContext(connection);
-            ITable<StudentInfo> students = ctx.GetTable<StudentInfo>();
-            IQueryable<StudentInfo> query = from o in students
-                                            where o.Stu_ID == student.Stu_ID
-                                            select o;
-            foreach (StudentInfo o in query)
+            try
             {
-                o.Stu_Email = student.Stu_Email;
-                o.Stu_Image = student.Stu_Image;
-                o.Stu_Password = student.Stu_Password;
-                o.Stu_UserName = student.Stu_UserName;
-                o.Stu_Sex = student.Stu_Sex;
-                o.Stu_Tel = student.Stu_Tel;
-                o.Stu_LastLogin = student.Stu_LastLogin;
-                o.Stu_Validation = student.Stu_Validation;
+                DataContext ctx = new DataContext(connection);
+                ITable<StudentInfo> students = ctx.GetTable<StudentInfo>();
+                IQueryable<StudentInfo> query = from o in students
+                                                where o.Stu_ID == student.Stu_ID
+                                                select o;
+                foreach (StudentInfo o in query)
+                {
+                    o.Stu_Email = student.Stu_Email;
+                    o.Stu_Image = student.Stu_Image;
+                    o.Stu_Password = student.Stu_Password;
+                    o.Stu_UserName = student.Stu_UserName;
+                    o.Stu_Sex = student.Stu_Sex;
+                    o.Stu_Tel = student.Stu_Tel;
+                    o.Stu_LastLogin = student.Stu_LastLogin;
+                    o.Stu_Validation = student.Stu_Validation;
+                }
+                ctx.SubmitChanges();
             }
-            ctx.SubmitChanges();
+            finally
+            {
+            }
         }
 
         IList<StudentInfo> IDAL.IStudent.GetAll()
         {
-            DataContext ctx = new DataContext(connection);
-            ITable<StudentInfo> students = ctx.GetTable<StudentInfo>();
-            return students.ToList<StudentInfo>(); ;
+            try
+            {
+                DataContext ctx = new DataContext(connection);
+                ITable<StudentInfo> students = ctx.GetTable<StudentInfo>();
+                return students.ToList<StudentInfo>(); ;
+            }
+            finally
+            {
+            }
         }
 
 
 
         StudentInfo IDAL.IStudent.Get(int id)
         {
-            DataContext ctx = new DataContext(connection);
-            ITable<StudentInfo> students = ctx.GetTable<StudentInfo>();
-            IQueryable<StudentInfo> query = from s in students
-                                            where s.Stu_ID == id
-                                            select s;
-            return query.FirstOrDefault<StudentInfo>();
-        }
+            try
+            {
+                DataContext ctx = new DataContext(connection);
+                ITable<StudentInfo> students = ctx.GetTable<StudentInfo>();
+                IQueryable<StudentInfo> query = from s in students
+                                                where s.Stu_ID == id
+                                                select s;
+                return query.FirstOrDefault<StudentInfo>();
+            }
+            finally
+            {
+            }
+            }
 
 
         StudentInfo IDAL.IStudent.GetByName(string name)
         {
-            DataContext ctx = new DataContext(connection);
-            ITable<StudentInfo> students = ctx.GetTable<StudentInfo>();
-            IQueryable<StudentInfo> query = from s in students
-                                            where s.Stu_UserName == name
-                                            select s;
-            return query.FirstOrDefault<StudentInfo>();
+            try
+            {
+                DataContext ctx = new DataContext(connection);
+                ITable<StudentInfo> students = ctx.GetTable<StudentInfo>();
+                IQueryable<StudentInfo> query = from s in students
+                                                where s.Stu_UserName == name
+                                                select s;
+                return query.FirstOrDefault<StudentInfo>();
+            }
+            finally
+            {
+            }
         }
 
         IList<StudentInfo> IDAL.IStudent.GetStudentsByDate(DateTime dateTime)
         {
-            DataContext ctx = new DataContext(connection);
-            ITable<StudentInfo> students = ctx.GetTable<StudentInfo>();
-            IQueryable<StudentInfo> query = from s in students
-                                            where s.Stu_RegisteTime.Date == dateTime.Date
-                                            select s;
-            return query.ToList<StudentInfo>();
+            try
+            {
+                DataContext ctx = new DataContext(connection);
+                ITable<StudentInfo> students = ctx.GetTable<StudentInfo>();
+                IQueryable<StudentInfo> query = from s in students
+                                                where s.Stu_RegisteTime.Date == dateTime.Date
+                                                select s;
+                return query.ToList<StudentInfo>();
+            }
+            finally
+            {
+            }
         }
 
 
         System.Data.DataSet IDAL.IStudent.getStudentList()
         {
-            SqlConnection sqlcon = new SqlConnection(connection);
-            string sqlstr = "SELECT   Stu_ID, Stu_UserName, Stu_RegisteTime FROM      StudentInfo";
-            SqlDataAdapter myda = new SqlDataAdapter(sqlstr, sqlcon);
-            DataSet myds = new DataSet();
-            sqlcon.Open();
-            myda.Fill(myds);
-            sqlcon.Close();
-            return myds;
+            SqlConnection sqlcon = null;
+            try
+            {
+                
+                sqlcon = new SqlConnection(connection);
+                string sqlstr = "SELECT   Stu_ID, Stu_UserName, Stu_RegisteTime FROM      StudentInfo";
+                SqlDataAdapter myda = new SqlDataAdapter(sqlstr, sqlcon);
+                DataSet myds = new DataSet();
+                sqlcon.Open();
+                myda.Fill(myds);
+                sqlcon.Close();
+                return myds;
+            }
+            finally
+            {
+                if (sqlcon != null)
+                    sqlcon.Close();
+            }
         }
     }
 }

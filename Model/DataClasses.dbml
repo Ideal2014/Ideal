@@ -27,7 +27,6 @@
       <Column Name="Stu_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="Tea_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="Bal_Time" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
-      <Association Name="StudentInfo_BalanceInfo" Member="StudentInfo" ThisKey="Stu_ID" OtherKey="Stu_ID" Type="StudentInfo" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.BookInfo" Member="BookInfo">
@@ -40,7 +39,6 @@
       <Column Name="Boo_Preview" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="Boo_View" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="Boo_Name" Type="System.String" DbType="VarChar(80)" CanBeNull="true" />
-      <Association Name="TeacherInfo_BookInfo" Member="TeacherInfo" ThisKey="Tea_ID" OtherKey="Tea_ID" Type="TeacherInfo" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.ClassRecordInfo" Member="ClassRecordInfo">
@@ -50,7 +48,6 @@
       <Column Name="Tea_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="Cla_StartTime" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
       <Column Name="Cla_EndTime" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
-      <Association Name="StudentInfo_ClassRecordInfo" Member="StudentInfo" ThisKey="Stu_ID" OtherKey="Stu_ID" Type="StudentInfo" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.FeedbackInfo" Member="FeedbackInfo">
@@ -61,7 +58,6 @@
       <Column Name="Fee_Detail" Type="System.String" DbType="VarChar(MAX) NOT NULL" CanBeNull="false" />
       <Column Name="Fee_Time" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
       <Column Name="Fee_Level" Type="System.Char" DbType="Char(1) NOT NULL" CanBeNull="false" />
-      <Association Name="StudentInfo_FeedbackInfo" Member="StudentInfo" ThisKey="Stu_ID" OtherKey="Stu_ID" Type="StudentInfo" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.OrderRecordInfo" Member="OrderRecordInfo">
@@ -72,7 +68,6 @@
       <Column Name="Ord_Time" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
       <Column Name="Ord_Plan" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="Ord_Num" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Association Name="StudentInfo_OrderRecordInfo" Member="StudentInfo" ThisKey="Stu_ID" OtherKey="Stu_ID" Type="StudentInfo" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.TeacherInfo" Member="TeacherInfo">
@@ -87,7 +82,6 @@
       <Column Name="Tea_Skill" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="Tea_Nation" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
       <Column Name="Tea_SImage" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Association Name="TeacherInfo_BookInfo" Member="BookInfo" ThisKey="Tea_ID" OtherKey="Tea_ID" Type="BookInfo" />
     </Type>
   </Table>
   <Table Name="dbo.StudentInfo" Member="StudentInfo">
@@ -102,10 +96,6 @@
       <Column Name="Stu_Sex" Type="System.String" DbType="Char(10)" CanBeNull="true" />
       <Column Name="Stu_Tel" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
       <Column Name="Stu_Validation" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Association Name="StudentInfo_BalanceInfo" Member="BalanceInfo" ThisKey="Stu_ID" OtherKey="Stu_ID" Type="BalanceInfo" />
-      <Association Name="StudentInfo_ClassRecordInfo" Member="ClassRecordInfo" ThisKey="Stu_ID" OtherKey="Stu_ID" Type="ClassRecordInfo" />
-      <Association Name="StudentInfo_FeedbackInfo" Member="FeedbackInfo" ThisKey="Stu_ID" OtherKey="Stu_ID" Type="FeedbackInfo" />
-      <Association Name="StudentInfo_OrderRecordInfo" Member="OrderRecordInfo" ThisKey="Stu_ID" OtherKey="Stu_ID" Type="OrderRecordInfo" />
     </Type>
   </Table>
 </Database>

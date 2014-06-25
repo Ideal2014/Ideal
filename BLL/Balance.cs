@@ -13,16 +13,22 @@ namespace BLL
 
         void IBLL.IBalance.Add(BalanceInfo balance)
         {
+            if(balance == null)
+                throw new Exception();
             dal.Add(balance);
         }
 
         void IBLL.IBalance.Remove(BalanceInfo balance)
         {
+            if(balance == null)
+                throw new Exception();
             dal.Remove(balance);
         }
 
         void IBLL.IBalance.Modify(BalanceInfo balance)
         {
+            if(balance == null)
+                throw new Exception();
             dal.Modify(balance);
         }
 

@@ -12,16 +12,22 @@ namespace BLL
 
         void IBLL.ITeacher.Add(TeacherInfo teacher)
         {
+            if(teacher == null)
+                throw new Exception();
             dal.Add(teacher);
         }
 
         void IBLL.ITeacher.Remove(TeacherInfo teacher)
         {
+            if (teacher == null)
+                throw new Exception();
             dal.Remove(teacher);
         }
 
         void IBLL.ITeacher.Modify(TeacherInfo teacher)
         {
+            if (teacher == null)
+                throw new Exception();
             dal.Modify(teacher);
         }
 

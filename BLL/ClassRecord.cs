@@ -13,16 +13,22 @@ namespace BLL
 
         void IBLL.IClassRecord.Add(ClassRecordInfo classRecord)
         {
+            if(classRecord == null)
+                throw new Exception();
             dal.Add(classRecord);
         }
 
         void IBLL.IClassRecord.Remove(ClassRecordInfo classRecord)
         {
+            if (classRecord == null)
+                throw new Exception();
             dal.Remove(classRecord);
         }
 
         void IBLL.IClassRecord.Modify(ClassRecordInfo classRecord)
         {
+            if (classRecord == null)
+                throw new Exception();
             dal.Modify(classRecord);
         }
 

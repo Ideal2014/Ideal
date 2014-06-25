@@ -13,16 +13,22 @@ namespace BLL
 
         void IBLL.IOrderRecord.Add(OrderRecordInfo orderRecord)
         {
+            if (orderRecord == null)
+                throw new Exception();
             dal.Add(orderRecord);
         }
 
         void IBLL.IOrderRecord.Remove(OrderRecordInfo orderRecord)
         {
+            if (orderRecord == null)
+                throw new Exception();
             dal.Remove(orderRecord);
         }
 
         void IBLL.IOrderRecord.Modify(OrderRecordInfo orderRecord)
         {
+            if (orderRecord == null)
+                throw new Exception();
             dal.Modify(orderRecord);
         }
 

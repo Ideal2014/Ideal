@@ -123,24 +123,36 @@ namespace SQLServerDAL
 
         IList<FeedbackInfo> IDAL.IFeedback.GetFeedBackByDate(DateTime dateTime)
         {
-            DataContext ctx = new DataContext(connection);
-            ITable<FeedbackInfo> feedbacks = ctx.GetTable<FeedbackInfo>();
-            IQueryable<FeedbackInfo> query = from o in feedbacks
-                                             where o.Fee_Time.Date==dateTime.Date
-                                             select o;
-            return query.ToList<FeedbackInfo>();
+            try
+            {
+                DataContext ctx = new DataContext(connection);
+                ITable<FeedbackInfo> feedbacks = ctx.GetTable<FeedbackInfo>();
+                IQueryable<FeedbackInfo> query = from o in feedbacks
+                                                 where o.Fee_Time.Date == dateTime.Date
+                                                 select o;
+                return query.ToList<FeedbackInfo>();
+            }
+            finally
+            {
+            }
         }
 
 
         IList<FeedbackInfo> IDAL.IFeedback.GetFeedBackByLevelTop6()
         {
-            DataContext ctx = new DataContext(connection);
-            ITable<FeedbackInfo> feedbacks = ctx.GetTable<FeedbackInfo>();
-            IQueryable<FeedbackInfo> query = (from o in feedbacks
-                                              where o.Fee_Level == 's'
-                                             orderby o.Fee_Time descending
-                                             select o).Take(6);
-            return query.ToList<FeedbackInfo>();
+            try
+            {
+                DataContext ctx = new DataContext(connection);
+                ITable<FeedbackInfo> feedbacks = ctx.GetTable<FeedbackInfo>();
+                IQueryable<FeedbackInfo> query = (from o in feedbacks
+                                                  where o.Fee_Level == 's'
+                                                  orderby o.Fee_Time descending
+                                                  select o).Take(6);
+                return query.ToList<FeedbackInfo>();
+            }
+            finally
+            {
+            }
         }
 
         //获得s状态的反馈表，也就是名人堂的信息

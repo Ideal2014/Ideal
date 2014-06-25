@@ -12,16 +12,22 @@ namespace BLL
 
         void IBLL.IFeedback.Add(FeedbackInfo student)
         {
+            if(student == null)
+                    throw new Exception();
             dal.Add(student);
         }
 
         void IBLL.IFeedback.Remove(FeedbackInfo student)
         {
+            if (student == null)
+                throw new Exception();
             dal.Remove(student);
         }
 
         void IBLL.IFeedback.Modify(FeedbackInfo student)
         {
+            if (student == null)
+                throw new Exception();
             dal.Modify(student);
         }
 
