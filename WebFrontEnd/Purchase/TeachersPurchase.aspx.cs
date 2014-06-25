@@ -90,38 +90,67 @@ public partial class Purchase_TeachersPurchase : System.Web.UI.Page
     protected void BtnAlipay_Click(int tid, int plan)
     {
         IBLL.ITeacher tea = BLLFactory.DataAccess.CreateTeacher();
+        IBLL.IBalance balance = BLLFactory.DataAccess.CreateBalance();
+        Model.BalanceInfo bal = balance.GetbyTidSid(tid, stdID);
+        
         String tNick = tea.Get(tid).Tea_Nickname;
         String planName = "";
         String discribe = "";
         String ord_NUM = Convert.ToString(GenerateRandom(9));
         double pri= 0;
+        DateTime balTime = bal.Bal_Time;
+        Boolean exist = true;
+        if (null != bal)
+        {
+            if (System.DateTime.Now.CompareTo(balTime) >= 0)
+            {
+                balTime = System.DateTime.Now;
+            }
+        }
+        else
+        {
+            exist = false;
+            bal = new BalanceInfo();
+            balTime = System.DateTime.Now;
+            bal.Stu_ID = stdID;
+            bal.Tea_ID = tid;
+        }
+        
         switch (plan)                                                   //判断购买类型
         {
             case 1:
                 planName = "普通版";
                 pri = 299;
                 discribe = "可与智能外教交流1个月";
+                balTime.AddMonths(1);
                 break;
             case 2:
                 planName = "高级版";
                 pri = 499;
                 discribe = "可与智能外教交流2个月";
+                balTime.AddMonths(2);
                 break;
             case 3:
                 planName = "专业版";
                 pri = 899;
                 discribe = "可与智能外教交流半年";
+                balTime.AddMonths(6);
                 break;
             case 4:
                 planName = "旗舰版";
                 pri = 1699;
                 discribe = "可与智能外教交流一年";
+                balTime.AddMonths(12);
                 break;
 
         }
 
 
-
+        bal.Bal_Time = balTime;
+        if (exist)
+            balance.Modify(bal);
+        else
+            balance.Add(bal);
 
         IBLL.IOrderRecord order = BLLFactory.DataAccess.CreateOrderRecord();
         Model.OrderRecordInfo ord = new Model.OrderRecordInfo();
