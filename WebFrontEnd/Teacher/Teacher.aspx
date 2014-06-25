@@ -45,11 +45,13 @@
                 <div class="divider"></div>
 
                 <!-- 2 Column Testimonials -->
-                <asp:Repeater runat="server" ID="TeacherList">
-                    <ItemTemplate>
-                        <asp:Label ID="Index" runat="server" Text="<%#Container.ItemIndex+1%>" Visible="false"></asp:Label>
+                <div class="row">
+                    <asp:Repeater runat="server" ID="TeacherList">
+                        <ItemTemplate>
 
-                        <div class="row">
+                            <asp:Label ID="Index" runat="server" Text="<%#Container.ItemIndex+1%>" Visible="false"></asp:Label>
+
+
                             <div class='col-lg-5 col-md-5 col-sm-5 col-xs-5'>
                                 <div class='testimonial item'>
                                     <p>
@@ -64,13 +66,13 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
 
-                    </ItemTemplate>
-                </asp:Repeater>
+
+                        </ItemTemplate>
+                    </asp:Repeater>
+                </div>
+                <!-- 2 Column Testimonials End-->
             </div>
-            <!-- 2 Column Testimonials End-->
-
         </div>
         <!-- Main Content end-->
     </div>

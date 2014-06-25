@@ -98,10 +98,11 @@ public partial class Purchase_TeachersPurchase : System.Web.UI.Page
         String discribe = "";
         String ord_NUM = Convert.ToString(GenerateRandom(9));
         double pri= 0;
-        DateTime balTime = bal.Bal_Time;
+        DateTime balTime;
         Boolean exist = true;
         if (null != bal)
         {
+            balTime=bal.Bal_Time;
             if (System.DateTime.Now.CompareTo(balTime) >= 0)
             {
                 balTime = System.DateTime.Now;
