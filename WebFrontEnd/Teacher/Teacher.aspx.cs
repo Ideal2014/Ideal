@@ -19,6 +19,9 @@ public partial class Teacher_Teacher : System.Web.UI.Page
             TeacherList.DataSource = bllTeacher.GetAll();
             TeacherList.DataBind();
         }
-       
+
     }
+
+    protected string start;
+    protected string end;
 }
