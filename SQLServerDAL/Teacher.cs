@@ -11,7 +11,7 @@ namespace SQLServerDAL
 {
     public class Teacher : IDAL.ITeacher
     {
-        private  string connection = System.Configuration.ConfigurationManager.AppSettings["ConnectionString"];
+        private string connection = System.Configuration.ConfigurationManager.AppSettings["ConnectionString"];
 
         void IDAL.ITeacher.Add(TeacherInfo teacher)
         {
@@ -41,7 +41,7 @@ namespace SQLServerDAL
                                             select o;
             foreach (TeacherInfo o in query)
             {
-             
+
                 o.Tea_Age = teacher.Tea_Age;
                 o.Tea_Describe = teacher.Tea_Describe;
                 o.Tea_Image = teacher.Tea_Image;
@@ -59,7 +59,7 @@ namespace SQLServerDAL
         {
             DataContext ctx = new DataContext(connection);
             ITable<TeacherInfo> teachers = ctx.GetTable<TeacherInfo>();
-            return teachers.ToList<TeacherInfo>(); 
+            return teachers.ToList<TeacherInfo>();
         }
 
 
@@ -91,5 +91,16 @@ namespace SQLServerDAL
         }
 
 
+
+
+        IList<TeacherInfo> IDAL.ITeacher.GetLimit(int s, int t)
+        {
+            DataContext ctx = new DataContext(connection);
+            ITable<TeacherInfo> teachers = ctx.GetTable<TeacherInfo>();
+            IQueryable<TeacherInfo> query = from o in teachers
+                                            .Skip(s).Take(t)
+                                            select o;
+            return query.ToList<TeacherInfo>();
+        }
     }
 }

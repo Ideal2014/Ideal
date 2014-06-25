@@ -24,7 +24,12 @@ public partial class Home_Home : System.Web.UI.Page
                 LoginContent.Visible = false;
 
             }
-            teacherList = bllTeacher.GetAll();
+            TeacherActive.DataSource = bllTeacher.GetLimit(0,3);
+            TeacherActive.DataBind();
+            TeacherNotActive.DataSource = bllTeacher.GetLimit(3, 3);
+            TeacherNotActive.DataBind();
+            BookActive.DataSource = bllBook.GetAll();
+            BookActive.DataBind();
             LoadImage();
         }
 

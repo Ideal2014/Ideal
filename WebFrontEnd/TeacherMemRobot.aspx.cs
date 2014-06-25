@@ -12,8 +12,10 @@ using Model;
 
 public partial class TeacherMemRobot : System.Web.UI.Page
 {
-    private static readonly IBLL.ITeacher bllTeacher = BLLFactory.DataAccess.CreateTeacher();
-    private static readonly IBLL.IBalance bllBalance = BLLFactory.DataAccess.CreateBalance();
+    private IBLL.ITeacher bllTeacher = BLLFactory.DataAccess.CreateTeacher();
+    private IBLL.IBalance bllBalance = BLLFactory.DataAccess.CreateBalance();
+    private IBLL.IClassRecord bllClass = BLLFactory.DataAccess.CreateClassRecord();
+
     private string teaid;
     private TeacherInfo teacher;
 
@@ -21,7 +23,7 @@ public partial class TeacherMemRobot : System.Web.UI.Page
     {
         if (!IsPostBack)
         {
-            
+
             teaid = Request.QueryString["tid"];
 
             teacher = bllTeacher.Get(Convert.ToInt32(teaid));
@@ -34,6 +36,14 @@ public partial class TeacherMemRobot : System.Web.UI.Page
             {
                 Check();
             }
+            HttpCookie cookie = Request.Cookies["usr"];
+            int stdID = Convert.ToInt32(cookie.Values["ID"]);
+            var classRecord = new ClassRecordInfo();
+            classRecord.Cla_StartTime = DateTime.Now;
+            classRecord.Cla_EndTime = DateTime.Now;
+            classRecord.Stu_ID = stdID;
+            classRecord.Tea_ID = Convert.ToInt32(teaid);
+            bllClass.Add(classRecord);
         }
     }
 
@@ -47,12 +57,9 @@ public partial class TeacherMemRobot : System.Web.UI.Page
         if (System.DateTime.Now > balance.Bal_Time)
         {
             string strMsg = "余额不足，请购买时长";
- //           string strUrl_Yes = "~/Purchase/TeachersPurchase.aspx", strUrl_No = "~/Teacher/TeacherMemTeaChoose.aspx";
-//            Response.Write("<Script Language='JavaScript'>if ( window.confirm('" + strMsg + "')) { window.location.href='" + strUrl_Yes +
-//"' } else {window.location.href='" + strUrl_No + "' };</script>"); 
-
             Response.Write(strMsg);
         }
+
         Response.End();
     }
 }

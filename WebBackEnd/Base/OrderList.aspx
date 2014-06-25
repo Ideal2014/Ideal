@@ -25,7 +25,7 @@
 
                 <asp:GridView ID="OrderGrid" runat="server" CssClass="table table-striped table-bordered bootstrap-datatable datatable" AutoGenerateColumns="false">
                     <Columns>
-                        <asp:BoundField DataField="Ord_ID" HeaderText="订单号" ItemStyle-CssClass="center" />
+                        <asp:BoundField DataField="Ord_Num" HeaderText="订单号" ItemStyle-CssClass="center" />
                         <asp:BoundField DataField="Ord_Time" HeaderText="购买时间" ItemStyle-CssClass="center" />
                         <asp:BoundField DataField="Stu_UserName" HeaderText="购买用户" ItemStyle-CssClass="center" />
                         <asp:TemplateField HeaderText="购买套餐" ItemStyle-CssClass="center">

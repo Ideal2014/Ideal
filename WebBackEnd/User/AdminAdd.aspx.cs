@@ -29,15 +29,15 @@ public partial class User_AdminAdd : System.Web.UI.Page
     }
     protected void Submit_Click(object sender, EventArgs e)
     {
-        if (!Regex.IsMatch(AdminNickName.Text.ToString(), @"^\S{1,5}$"))
+        if (!Regex.IsMatch(AdminNickName.Text.ToString(), @"^.{2,10}$"))
             throw new Exception();
-        if (!Regex.IsMatch(AdminNickName.Text.ToString(), @"^\S[^\^]+$"))
+        if (!Regex.IsMatch(AdminNickName.Text.ToString(), @"^\S*$"))
             throw new Exception();
         if (!Regex.IsMatch(AdminEmail.Text.ToString(), @"^([a-zA-Z0-9]+[_|_|\.]?)*[a-zA-Z0-9]+@([a-zA-Z0-9]+[_|_|\.]?)*[a-zA-Z0-9]+\.[a-zA-Z]{2,3}$"))
             throw new Exception();
-        if (!Regex.IsMatch(AdminPassword.Text.ToString(), @"^\S{1,10}$"))
+        if (!Regex.IsMatch(AdminPassword.Text.ToString(), @"^.{6,10}$"))
             throw new Exception();
-        if (!Regex.IsMatch(AdminPassword.Text.ToString(), @"^\S[^\^]+$"))
+        if (!Regex.IsMatch(AdminPassword.Text.ToString(), @"^[^\^]+$"))
             throw new Exception();
 
         AdminInfo admin = new AdminInfo();
@@ -45,7 +45,8 @@ public partial class User_AdminAdd : System.Web.UI.Page
         admin.Adm_UserName = AdminNickName.Text.ToString();
         admin.Adm_Email = AdminEmail.Text.ToString();
         admin.Adm_Password = AdminPassword.Text.ToString();
-
+        admin.Adm_Role = "nomal";
+        admin.Adm_LastLogin = DateTime.Now;
         bllAdmin.Add(admin);
 
         Response.Redirect("~/User/UserList.aspx");

@@ -32,11 +32,7 @@ public partial class Test_Default : System.Web.UI.Page
         TestGrid.DataSource = bllTest.GetTestList();
         TestGrid.DataBind();
     }
-   
-    protected void Modify_Click(object sender, EventArgs e)
-    {
 
-    }
     protected void Delete_Click(object sender, EventArgs e)
     {
         var button = sender as Button;

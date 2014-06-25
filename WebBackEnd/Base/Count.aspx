@@ -21,7 +21,7 @@
         </ul>
     </div>
     <div class="sortable row-fluid">
-        <a data-rel="tooltip" title="6名新学员" class="well span3 top-block" href="user-list.html">
+        <a data-rel="tooltip" title="" class="well span3 top-block" href="#">
             <span class="icon32 icon-red icon-user"></span>
             <div>总学员数</div>
             <div>
@@ -31,7 +31,7 @@
                 <asp:Label ID="NewStudentNum" runat="server"></asp:Label></span>
         </a>
 
-        <a data-rel="tooltip" title="4个新订单" class="well span3 top-block" href="#">
+        <a data-rel="tooltip" title="" class="well span3 top-block" href="#">
             <span class="icon32 icon-color icon-star-on"></span>
             <div>购买量</div>
             <div>
@@ -41,7 +41,7 @@
                 <asp:Label ID="NewOrderNum" runat="server" /></span>
         </a>
 
-        <a data-rel="tooltip" title="234新增机器人访问量" class="well span3 top-block" href="#">
+        <a data-rel="tooltip" title="" class="well span3 top-block" href="#">
             <span class="icon32 icon-color icon-web"></span>
             <div>机器人的总访问量</div>
             <div>
@@ -51,7 +51,7 @@
                 <asp:Label ID="NewClassNum" runat="server" /></span>
         </a>
 
-        <a data-rel="tooltip" title="12条新的反馈信息" class="well span3 top-block" href="celebrity-list.html">
+        <a data-rel="tooltip" title="" class="well span3 top-block" href="#">
             <span class="icon32 icon-color icon-envelope-closed"></span>
             <div>反馈信息</div>
             <div>
@@ -123,9 +123,9 @@
             var class_number = eval($("#HiddenClassNumber").val());
 
             var order_number = eval($("#HiddenOrderNumber").val());
- 
+
             var class_percent = eval($("#HiddenClassPercent").val());
-           
+
             var order_percent = eval($("#HiddenOrderPercent").val());
 
             stackchart_display($("#stackchart-class"), class_number);

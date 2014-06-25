@@ -53,5 +53,11 @@ namespace BLL
         {
             return dal.getAdminList();
         }
+
+
+        IList<AdminInfo> IBLL.IAdmin.GetNotAdmin()
+        {
+            return dal.GetNotAdmin();
+        }
     }
 }

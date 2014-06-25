@@ -150,7 +150,7 @@ namespace SQLServerDAL
             try
             {
                 sqlcon = new SqlConnection(connection);
-                string sqlstr = "SELECT   FeedbackInfo.*, StudentInfo.Stu_UserName, StudentInfo.Stu_Image FROM FeedbackInfo INNER JOIN StudentInfo ON FeedbackInfo.Stu_ID = StudentInfo.Stu_ID";
+                string sqlstr = "SELECT   FeedbackInfo.*, StudentInfo.Stu_UserName, StudentInfo.Stu_Image FROM FeedbackInfo INNER JOIN StudentInfo ON FeedbackInfo.Stu_ID = StudentInfo.Stu_ID where FeedbackInfo.Fee_Level = 's'";
                 SqlDataAdapter myda = new SqlDataAdapter(sqlstr, sqlcon);
                 DataSet myds = new DataSet();
                 sqlcon.Open();

@@ -46,7 +46,7 @@ public partial class Book_Book : System.Web.UI.Page
         Response.Charset = " ";
         Response.ContentEncoding = System.Text.Encoding.UTF8;
         Response.Flush();
-        Response.WriteFile(Convert.ToString(e.CommandArgument)); 
+        Response.WriteFile(Convert.ToString(e.CommandArgument));
     }
 
     //下载完整版 点击事件
@@ -61,7 +61,7 @@ public partial class Book_Book : System.Web.UI.Page
         {
             stuId = cookie.Values["ID"];
         }
-        else               
+        else
         {
             Response.Redirect("~/Student/Login.aspx");      //未登录时点击，跳转带登录页面
         }
@@ -72,18 +72,20 @@ public partial class Book_Book : System.Web.UI.Page
             {
                 StudentInfo stuInfo = bllStudent.Get(Convert.ToInt32(stuId));
             }
-            catch {
+            catch
+            {
                 Response.Redirect("~/Student/Login.aspx");  //未找到该学生id时，跳转到登录界面
             }
         }
 
         //余额不足时，跳转到购买界面
-        if (System.DateTime.Now > balance.Bal_Time)
+        if (null == balance || System.DateTime.Now > balance.Bal_Time)
         {
-            Response.Redirect(String.Format("../Purchase/TeachersPurchase.aspx?tid={0}",teaId));
+            Response.Redirect(String.Format("../Purchase/TeachersPurchase.aspx?tid={0}", teaId));
         }
         //有余额时，下载完整版
-        else {
+        else
+        {
             string filename = MapPath(viewUrl);
             Response.Clear();
             Response.ContentType = "application/octet-stream ";
@@ -91,7 +93,7 @@ public partial class Book_Book : System.Web.UI.Page
             Response.Charset = " ";
             Response.ContentEncoding = System.Text.Encoding.UTF8;
             Response.Flush();
-            Response.WriteFile(viewUrl); 
+            Response.WriteFile(viewUrl);
         }
     }
 }

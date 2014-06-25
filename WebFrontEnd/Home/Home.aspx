@@ -270,11 +270,40 @@
                         <div id="portfolio-carousel" class="portfolio-carousel slide">
                             <div class="carousel-inner">
                                 <div class="item active">
-                                    <%foreach (Model.TeacherInfo t in bllTeacher.GetAll())
-                                      {
-                                          Response.Write("<div class='col-lg-4 col-md-4 col-sm-4 col-xs-12 item animate_afc d3'><div class='portfolio-item'><a href='../img/teacher/teacher-2@2x.png' class='portfolio-item-link' data-rel='prettyPhoto'><span class='portfolio-item-hover'></span><span class='fullscreen'><i class='icon-search'></i></span><img src='../img/teacher/teacher-2@2x.png' alt=' ' /></a><div class='portfolio-item-title'><a href='teachers.html'><font style='color: blue'>Olivia</font></a><p><font face='华文新魏' style='font-style: normal' size='2'>女，22岁，澳大利亚</font></p></div><div class='clearfix'></div></div></div>");
-                                      }%>
+                                    <asp:Repeater runat="server" ID="TeacherActive">
+                                        <ItemTemplate>
+                                            <div class='col-lg-4 col-md-4 col-sm-4 col-xs-12 item animate_afc d3'>
+                                                <div class='portfolio-item'>
+                                                    <a href='<%#Eval("Tea_SImage") %>' class='portfolio-item-link' data-rel='prettyPhoto'><span class='portfolio-item-hover'></span><span class='fullscreen'><i class='icon-search'></i></span>
+                                                        <img src=<%#Eval("Tea_SImage") %> /></a><div class='portfolio-item-title'>
+                                                            <a><font style='color: blue'><%#Eval("Tea_Name") %></font></a>
+                                                            <p><font face='华文新魏' style='font-style: normal' size='2'><%#Eval("Tea_Sex") %>,<%#Eval("Tea_Nation") %></font></p>
+                                                        </div>
+                                                    <div class='clearfix'></div>
+                                                </div>
+                                            </div>
+                                        </ItemTemplate>
+                                    </asp:Repeater>
+
                                 </div>
+                                <div class="item">
+                                    <asp:Repeater runat="server" ID="TeacherNotActive">
+                                        <ItemTemplate>
+                                            <div class='col-lg-4 col-md-4 col-sm-4 col-xs-12 item animate_afc d3'>
+                                                <div class='portfolio-item'>
+                                                    <a href='<%#Eval("Tea_SImage") %>' class='portfolio-item-link' data-rel='prettyPhoto'><span class='portfolio-item-hover'></span><span class='fullscreen'><i class='icon-search'></i></span>
+                                                        <img src=<%#Eval("Tea_SImage") %> /></a><div class='portfolio-item-title'>
+                                                            <a><font style='color: blue'><%#Eval("Tea_Name") %></font></a>
+                                                            <p><font face='华文新魏' style='font-style: normal' size='2'><%#Eval("Tea_Sex") %>,<%#Eval("Tea_Nation") %></font></p>
+                                                        </div>
+                                                    <div class='clearfix'></div>
+                                                </div>
+                                            </div>
+                                        </ItemTemplate>
+                                    </asp:Repeater>
+
+                                </div>
+
                             </div>
                         </div>
                         <div class="clearfix"></div>
@@ -305,12 +334,18 @@
                                 <div id="client-carousel" class="client-carousel slide">
                                     <div class="carousel-inner">
                                         <div class="item active">
+                                            <asp:Repeater ID="BookActive" runat="server">
+                                                <ItemTemplate>
+                                                    <div class='col-lg-3 col-md-3 col-sm-3 col-xs-6 item animate_afc d1'>
+                                                        <div class='item-inner'>
+                                                            <a href='#'>
+                                                                <img src='<%#Eval("Boo_Image") %>' /></a>
+                                                        </div>
+                                                    </div>
+                                                </ItemTemplate>
+                                            </asp:Repeater>
 
-                                            <%foreach (Model.BookInfo t in bllBook.GetAll())
-                                              {
-                                                  string content = "<div class='col-lg-3 col-md-3 col-sm-3 col-xs-6 item animate_afc d1'><div class='item-inner'><a href='#'><img alt='Upportdash' src='../img/books/cover-orange.png' /></a></div></div>";
-                                                  Response.Write(content);
-                                              }%>
+
                                         </div>
 
                                     </div>

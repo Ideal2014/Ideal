@@ -46,9 +46,9 @@
                         data-target=".top-nav.nav-collapse,.sidebar-nav.nav-collapse">
                         <span class="icon-bar"></span><span class="icon-bar"></span><span
                             class="icon-bar"></span>
-                    </a><a class="brand" href="index.html">
+                    </a><a class="brand" href="">
                         <img alt="VikiChat Logo"
-                            src="img/logo20.png" />
+                            src="../img/logo20.png" />
                         <span>VikiChat</span></a>
                     <!-- user dropdown starts -->
                     <div class="btn-group pull-right">

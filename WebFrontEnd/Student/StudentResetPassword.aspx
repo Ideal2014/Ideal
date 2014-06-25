@@ -107,7 +107,7 @@
                             <div class="input-group input-type">
                                 <span class="input-group-addon">验证邮箱</span>
                                 <div class="input-group-lg">
-                                    <asp:TextBox ID="Mailbox" class="form-control" runat="server" />
+                                    <asp:TextBox ID="Mailbox" class="form-control" runat="server" ReadOnly="true" />
                                 </div>
                             </div>
                             <div class="input-group input-type">

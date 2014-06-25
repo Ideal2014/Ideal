@@ -41,7 +41,7 @@
                             <div class="controls">
                                 <asp:TextBox runat="server" CssClass="input-xlarge focused" SkinID="focusedInput" ID="AdminNickName"></asp:TextBox>
                                 <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="AdminNickName" ErrorMessage="昵称不可为空" Display="Dynamic"></asp:RequiredFieldValidator>
-                                <asp:RegularExpressionValidator runat="server" ControlToValidate="AdminNickName" ValidationExpression="^.{1,5}$" ErrorMessage="昵称长度应为1~5位"></asp:RegularExpressionValidator>
+                                <asp:RegularExpressionValidator runat="server" ControlToValidate="AdminNickName" ValidationExpression="^.{2,10}$" ErrorMessage="昵称长度应为2~10位"></asp:RegularExpressionValidator>
                                 <asp:RegularExpressionValidator runat="server" ControlToValidate="AdminNickName" ValidationExpression="^\S*$" ErrorMessage="不能含有空格"></asp:RegularExpressionValidator>
                                 <asp:RegularExpressionValidator runat="server" ControlToValidate="AdminNickName" ValidationExpression="^[^\^]+$" ErrorMessage="不能含有非法字符^"></asp:RegularExpressionValidator>
                             </div>
@@ -61,7 +61,7 @@
                             <div class="controls">
                                 <asp:TextBox runat="server" CssClass="input-xlarge focused" SkinID="focusedInput" ID="AdminPassword" TextMode="Password"></asp:TextBox>
                                 <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="AdminPassword" ErrorMessage="密码不可为空" Display="Dynamic"></asp:RequiredFieldValidator>
-                                <asp:RegularExpressionValidator ID="RegularExpressionValidator4" runat="server" ControlToValidate="AdminPassword" ValidationExpression="^.{1,10}$" ErrorMessage="密码应为1~10位" Display="Dynamic"></asp:RegularExpressionValidator>
+                                <asp:RegularExpressionValidator ID="RegularExpressionValidator4" runat="server" ControlToValidate="AdminPassword" ValidationExpression="^.{6,10}$" ErrorMessage="密码应为6~10位" Display="Dynamic"></asp:RegularExpressionValidator>
                                 <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ControlToValidate="AdminPassword" ValidationExpression="^\S*$" ErrorMessage="不能含有空格"></asp:RegularExpressionValidator>
                                 <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="AdminPassword" ValidationExpression="^[^\^]+$" ErrorMessage="不能含有非法字符^"></asp:RegularExpressionValidator>
                             </div>

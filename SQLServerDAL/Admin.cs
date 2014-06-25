@@ -12,7 +12,7 @@ namespace SQLServerDAL
 {
     public class Admin : IDAL.IAdmin
     {
-        private  string connection = System.Configuration.ConfigurationManager.AppSettings["ConnectionString"];
+        private string connection = System.Configuration.ConfigurationManager.AppSettings["ConnectionString"];
 
 
         void IDAL.IAdmin.Add(AdminInfo admin)
@@ -53,7 +53,7 @@ namespace SQLServerDAL
         {
             DataContext ctx = new DataContext(connection);
             ITable<AdminInfo> admins = ctx.GetTable<AdminInfo>();
-            return admins.ToList<AdminInfo>(); ;
+            return admins.ToList<AdminInfo>();
         }
 
 
@@ -97,6 +97,17 @@ namespace SQLServerDAL
             myda.Fill(myds);
             sqlcon.Close();
             return myds;
+        }
+
+
+        IList<AdminInfo> IDAL.IAdmin.GetNotAdmin()
+        {
+            DataContext ctx = new DataContext(connection);
+            ITable<AdminInfo> admins = ctx.GetTable<AdminInfo>();
+            IQueryable<AdminInfo> query = from a in admins
+                                          where a.Adm_Role != "admin"
+                                          select a;
+            return query.ToList<AdminInfo>();
         }
     }
 }

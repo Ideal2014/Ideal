@@ -37,7 +37,7 @@ public partial class Teacher_TeacherMemTeaChoose : System.Web.UI.Page
                 Response.Redirect("~/Student/Login.aspx");
             }
         }
-            //未登录
+        //未登录
         else
             Response.Redirect("~/Student/Login.aspx");
     }
@@ -53,7 +53,7 @@ public partial class Teacher_TeacherMemTeaChoose : System.Web.UI.Page
     {
         BalanceInfo balance = bllBalance.GetbyTidSid(Convert.ToInt32(e.CommandArgument), Convert.ToInt32(stdID));
 
-        if (balance==null||System.DateTime.Now > balance.Bal_Time)  //对应该老师没有余额，则跳到购买界面
+        if (balance == null || System.DateTime.Now > balance.Bal_Time)  //对应该老师没有余额，则跳到购买界面
         {
             Response.Redirect(String.Format("../Purchase/TeachersPurchase.aspx?tid={0}", e.CommandArgument));
         }
@@ -61,6 +61,6 @@ public partial class Teacher_TeacherMemTeaChoose : System.Web.UI.Page
         {
             Response.Redirect(String.Format("~/TeacherMemRobot.aspx?tid={0}", e.CommandArgument));
         }
-        
+
     }
 }

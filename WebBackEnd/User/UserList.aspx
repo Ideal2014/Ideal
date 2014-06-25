@@ -28,12 +28,12 @@
                 <asp:GridView ID="StudentList" runat="server" CssClass="table table-striped table-bordered bootstrap-datatable datatable" AutoGenerateColumns="false">
                     <Columns>
 
-                        <asp:BoundField DataField="Stu_UserName" HeaderText="用户" />
-                        <asp:BoundField DataField="Stu_RegisteTime" HeaderText="添加时间" ItemStyle-CssClass="center" />
+                        <asp:BoundField DataField="Stu_UserName" HeaderText="用户" ItemStyle-CssClass="center"/>
+                        <asp:BoundField DataField="Stu_RegisteTime" HeaderText="上次登录时间" ItemStyle-CssClass="center" />
                         <asp:TemplateField HeaderText="操作" ItemStyle-CssClass="center">
                             <ItemTemplate>
                                 <asp:Label ID="StudentID" runat="server" Text='<%# Bind("Stu_ID") %>' Visible="false"></asp:Label>
-                                <asp:LinkButton ID="Modify" runat="server" CssClass="btn btn-info" OnClick="Modify_Click">
+                                <asp:LinkButton ID="StudentModify" runat="server" CssClass="btn btn-info" OnClick="StudentModify_Click">
                                      <i class="icon-edit icon-white"></i>修改
                                 </asp:LinkButton>
                                 <a class="btn btn-danger" href="#myModal<%# Eval("Stu_ID") %>" data-toggle="modal">
@@ -52,7 +52,7 @@
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-                                                <asp:Button ID="Button1" runat="server" class="btn btn-primary" OnClick="Delete_Click" Text="删除" />
+                                                <asp:Button ID="StudentDelete" runat="server" class="btn btn-primary" OnClick="StudentDelete_Click" Text="删除" />
 
                                             </div>
                                         </div>
@@ -86,13 +86,13 @@
                 <asp:GridView ID="AdminList" runat="server" CssClass="table table-striped table-bordered bootstrap-datatable datatable" AutoGenerateColumns="false">
                     <Columns>
 
-                        <asp:BoundField DataField="Adm_UserName" HeaderText="管理员" />
+                        <asp:BoundField DataField="Adm_UserName" HeaderText="管理员" ItemStyle-CssClass="center" />
                         <asp:BoundField DataField="Adm_LastLogin" HeaderText="上次登录时间" ItemStyle-CssClass="center" />
                         <asp:TemplateField HeaderText="操作" ItemStyle-CssClass="center">
                             <ItemTemplate>
                                 <asp:Label ID="AdminId" runat="server" Text='<%# Bind("Adm_ID") %>' Visible="false"></asp:Label>
-                                <asp:LinkButton ID="Modify" runat="server" CssClass="btn btn-info" OnClick="Modify_Click">
-                                     <i class="icon-edit icon-white"></i>修改
+                                <asp:LinkButton ID="AdminModify" runat="server" CssClass="btn btn-info" OnClick="AdminModify_Click">
+                                     <i class="icon-edit icon-white"></i>查看
                                 </asp:LinkButton>
                                 <a class="btn btn-danger" href="#myModal<%# Eval("Adm_ID") %>" data-toggle="modal">
                                     <i class="icon-trash icon-white"></i>删除
@@ -110,7 +110,7 @@
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-                                                <asp:Button ID="Button1" runat="server" class="btn btn-primary" OnClick="Button1_Click" Text="删除" />
+                                                <asp:Button ID="AdminDelete" runat="server" class="btn btn-primary" OnClick="AdminDelete_Click" Text="删除" />
 
                                             </div>
                                         </div>

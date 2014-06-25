@@ -19,5 +19,6 @@ namespace IBLL
 
         IList<StudentInfo> GetStudentsByDate(DateTime dateTime);
         DataSet getStudentList();
+        string GetMd5(string key);
     }
 }

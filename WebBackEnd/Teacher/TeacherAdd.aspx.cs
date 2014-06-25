@@ -20,11 +20,11 @@ public partial class Teacher_TeacherAdd : System.Web.UI.Page
 
     protected void Submit_Click(object sender, EventArgs e)
     {
-        if (!Regex.IsMatch(TeacherName.Text.ToString(), @"^[^\^]+$"))
+        if (!Regex.IsMatch(TeacherName.Text.ToString(), @"^.{2,10}$"))
             throw new Exception();
-        if (!Regex.IsMatch(TeacherNickName.Text.ToString(), @"^[^\^]+$"))
+        if (!Regex.IsMatch(TeacherNickName.Text.ToString(), @"^\S*$"))
             throw new Exception();
-        if (!Regex.IsMatch(TeacherSex.SelectedValue, @"^f|m$"))
+        if (!Regex.IsMatch(TeacherSex.SelectedValue, @"^\S*$"))
             throw new Exception();
         if (!Regex.IsMatch(TeacherAge.Text.ToString(), @"^\d{1,2}$"))
             throw new Exception();
@@ -32,7 +32,6 @@ public partial class Teacher_TeacherAdd : System.Web.UI.Page
             throw new Exception();
         if (!Regex.IsMatch(TeacherSkill.Text.ToString(), @"^[^\^]+$"))
             throw new Exception();
-   
         if (!Regex.IsMatch(TeacherDescribe.Text.ToString(), @"^[^\^]+$"))
             throw new Exception();
 
@@ -44,7 +43,7 @@ public partial class Teacher_TeacherAdd : System.Web.UI.Page
             return;
         string imageSName = UploadSupport.GenerateRandom(10) + ".jpg";
         string errorS;
-        if (!UploadSupport.SaveImage(FileSUpload, server, imageName, out errorS))
+        if (!UploadSupport.SaveImage(FileSUpload, server, imageSName, out errorS))
             return;
 
         TeacherInfo teacher = new TeacherInfo();

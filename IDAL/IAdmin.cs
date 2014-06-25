@@ -17,5 +17,7 @@ namespace IDAL
         AdminInfo FindByName(string name);
 
         System.Data.DataSet getAdminList();
+
+        IList<AdminInfo> GetNotAdmin();
     }
 }

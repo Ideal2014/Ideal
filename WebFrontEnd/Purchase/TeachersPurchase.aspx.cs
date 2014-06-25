@@ -232,6 +232,4 @@ public partial class Purchase_TeachersPurchase : System.Web.UI.Page
         Response.Write(sHtmlText);                                  //发送购买请求，支付宝api
 
     }
-
-
 }

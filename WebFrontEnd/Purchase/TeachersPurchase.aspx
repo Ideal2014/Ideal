@@ -1,8 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="TeachersPurchase.aspx.cs" Inherits="Purchase_TeachersPurchase" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="css" runat="Server">
-          <link rel="stylesheet" href="../css/pricing-table.css">
-
+    <link rel="stylesheet" href="../css/pricing-table.css">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="main" runat="Server">
     <!-- Title, Breadcrumb Start-->
@@ -108,7 +107,7 @@
                                 <li class="row_style_1 align_center"><span>免费与智能外教交流</span></li>
                                 <!-- column footer -->
                                 <li class="footer_row">
-                                    <asp:Button ID="button4" Text="购买" class="sign_up btn-color btn-small" runat="server" Height="21px" OnClick="button4_Click" /></li>
+                                    <asp:Button ID="button4" Text="购买" class="sign_up btn-color btn-small" runat="server" OnClick="button4_Click" /></li>
                             </ul>
                         </div>
                     </div>

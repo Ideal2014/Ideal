@@ -12,9 +12,13 @@ namespace BLL{
         //加密用户密码后保存信息
         void IBLL.IStudent.Add(StudentInfo student)
         {
-
            student.Stu_Password = BLLSupport.Md5Support.GetMd5String(student.Stu_Password);
             dal.Add(student);
+        }
+
+        string IBLL.IStudent.GetMd5(String  key)
+        {
+            return BLLSupport.Md5Support.GetMd5String(key);
         }
 
         void IBLL.IStudent.Remove(StudentInfo student)

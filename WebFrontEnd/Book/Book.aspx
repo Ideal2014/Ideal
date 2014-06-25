@@ -36,7 +36,7 @@
                                 <asp:TemplateField ItemStyle-CssClass="center" ItemStyle-Width="12%">
                                         <ItemTemplate>
                                             <span style="border:none">
-                                                <asp:Image ID="ImageT" runat="server" ImageUrl='<%#Bind("Boo_Image") %>' />
+                                                <asp:Image runat="server" ID="BooImage" ImageUrl='<%#Bind("Boo_Image") %>' />
                                             </span>
                                         </ItemTemplate>
                                 </asp:TemplateField>

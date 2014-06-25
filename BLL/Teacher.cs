@@ -43,5 +43,11 @@ namespace BLL
         }
 
 
+
+
+        IList<TeacherInfo> IBLL.ITeacher.GetLimit(int from, int to)
+        {
+            return dal.GetLimit(from,to);
+        }
     }
 }

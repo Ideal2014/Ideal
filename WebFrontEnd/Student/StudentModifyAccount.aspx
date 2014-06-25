@@ -102,7 +102,7 @@
                         <div class="input-group input-type">
                             <span class="input-group-addon">用户名</span>
                             <div class="input-group-lg">
-                                <asp:TextBox ID="Name" class="form-control" runat="server" />
+                                <asp:TextBox ID="Name" class="form-control" runat="server"  ReadOnly="true"/>
                                 <asp:RequiredFieldValidator ID="NameValidator1" runat="server" class="form-control" ValidationGroup="modify"
                                     ErrorMessage="用户名不能为空" ControlToValidate="Name" Display="Dynamic"
                                     Font-Size="15px" ForeColor="Red"></asp:RequiredFieldValidator>
@@ -115,7 +115,7 @@
                         <div class="input-group input-type">
                             <span class="input-group-addon">邮&nbsp;&nbsp;&nbsp;箱</span>
                             <div class="input-group-lg">
-                                <asp:TextBox ID="Mailbox" class="form-control" runat="server" />
+                                <asp:TextBox ID="Mailbox" class="form-control" runat="server" ReadOnly="true" />
                                 <asp:RequiredFieldValidator ID="MailValidator1" runat="server" class="form-control" ValidationGroup="modify"
                                     ControlToValidate="MailBox" Display="Dynamic" ErrorMessage="不能为空"
                                     Font-Size="15px" ForeColor="Red"></asp:RequiredFieldValidator>

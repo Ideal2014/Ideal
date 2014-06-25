@@ -18,5 +18,7 @@ namespace IBLL
          AdminInfo FindByName(string name);
 
          DataSet getAdminList();
+
+         IList<AdminInfo> GetNotAdmin();
     }
 }

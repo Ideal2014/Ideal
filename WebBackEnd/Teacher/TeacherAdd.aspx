@@ -32,11 +32,11 @@
 
                 <fieldset>
                     <div class="control-group">
-                        <label class="control-label" for="focusedInput">昵称 </label>
+                        <label class="control-label" for="focusedInput">姓名 </label>
                         <div class="controls">
                             <asp:TextBox runat="server" ID="TeacherName" CssClass="input-xlarge focused"></asp:TextBox>
-                            <asp:RequiredFieldValidator runat="server" ControlToValidate="TeacherName" ErrorMessage="昵称不可为空" Display="Dynamic"></asp:RequiredFieldValidator>
-                            <asp:RegularExpressionValidator runat="server" ControlToValidate="TeacherName" ValidationExpression="^.{1,5}$" ErrorMessage="昵称长度应为1~5位"></asp:RegularExpressionValidator>
+                            <asp:RequiredFieldValidator runat="server" ControlToValidate="TeacherName" ErrorMessage="姓名不可为空" Display="Dynamic"></asp:RequiredFieldValidator>
+                            <asp:RegularExpressionValidator runat="server" ControlToValidate="TeacherName" ValidationExpression="^.{2,10}" ErrorMessage="昵称长度应为2~10位"></asp:RegularExpressionValidator>
                             <asp:RegularExpressionValidator runat="server" ControlToValidate="TeacherName" ValidationExpression="^\S*$" ErrorMessage="不能含有空格"></asp:RegularExpressionValidator>
                             <asp:RegularExpressionValidator runat="server" ControlToValidate="TeacherName" ValidationExpression="^[^\^]+$" ErrorMessage="不能含有非法字符^"></asp:RegularExpressionValidator>
                         </div>
@@ -69,8 +69,8 @@
                         <label class="control-label">性别</label>
                         <div class="controls">
                             <asp:DropDownList ID="TeacherSex" runat="server" CssClass="input-xlarge focused">
-                                <asp:ListItem Text="男" Value="m"></asp:ListItem>
-                                <asp:ListItem Text="女" Value="f"></asp:ListItem>
+                                <asp:ListItem Text="男" Value="男"></asp:ListItem>
+                                <asp:ListItem Text="女" Value="女"></asp:ListItem>
                             </asp:DropDownList>
                         </div>
                     </div>
@@ -107,7 +107,7 @@
                         </div>
                     </div>
 
-                   
+
 
                     <div class="control-group">
                         <label class="control-label" for="focusedInput">简介 </label>

@@ -6,6 +6,7 @@ using System.Text.RegularExpressions;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using WebSupport;
 
 public partial class Teacher_TeacherEdit : System.Web.UI.Page
 {
@@ -15,15 +16,7 @@ public partial class Teacher_TeacherEdit : System.Web.UI.Page
     {
         if (!IsPostBack)
         {
-            if (Request.Cookies["admin"] != null)
-            {
-                string id = Request.Cookies["admin"]["id"];
-                LoadInfo();
-            }
-            else
-            {
-                Response.Redirect("~/Login/Login.aspx");
-            }
+            LoadInfo();
         }
 
     }
@@ -43,35 +36,42 @@ public partial class Teacher_TeacherEdit : System.Web.UI.Page
 
     protected void Submit_Click(object sender, EventArgs e)
     {
-        if (!Regex.IsMatch(TeacherName.Text.ToString(), @"^\S[^\^]{1,5}$"))
+        if (!Regex.IsMatch(TeacherName.Text.ToString(), @"^.{2,10}$"))
             throw new Exception();
-        if (!Regex.IsMatch(TeacherNickName.Text.ToString(), @"^\S[^\^]+$"))
+        if (!Regex.IsMatch(TeacherNickName.Text.ToString(), @"^\S*$"))
             throw new Exception();
-        if (!Regex.IsMatch(TeacherSex.SelectedValue, @"^f|m$"))
+        if (!Regex.IsMatch(TeacherSex.SelectedValue, @"^\S*$"))
             throw new Exception();
         if (!Regex.IsMatch(TeacherAge.Text.ToString(), @"^\d{1,2}$"))
             throw new Exception();
         if (!Regex.IsMatch(TeacherNation.Text.ToString(), @"^America|England|Australia$"))
             throw new Exception();
-        if (!Regex.IsMatch(TeacherSkill.Text.ToString(), @"^\S{1,}$"))
+        if (!Regex.IsMatch(TeacherSkill.Text.ToString(), @"^[^\^]+$"))
             throw new Exception();
-        if (!Regex.IsMatch(TeacherSuitable.Text.ToString(), @"^\S*$"))
+        if (!Regex.IsMatch(TeacherDescribe.Text.ToString(), @"^[^\^]+$"))
             throw new Exception();
-        if (!Regex.IsMatch(TeacherAbout.Text.ToString(), @"^\S*$"))
-            throw new Exception();
-        if (!Regex.IsMatch(TeacherDescribe.Text.ToString(), @"^\S*$"))
-            throw new Exception();
+        string server = Server.MapPath("~/");
+        string imageName = UploadSupport.GenerateRandom(10) + ".jpg";
+        string error;
 
-        TeacherInfo teacher = new TeacherInfo();
-        teacher.Tea_ID = Int32.Parse(TeacherNo.Value);
+        if (!UploadSupport.SaveImage(FileUpload, server, imageName, out error))
+            return;
+
+        string imageSName = UploadSupport.GenerateRandom(10) + ".jpg";
+        string errorS;
+        if (!UploadSupport.SaveImage(FileSUpload, server, imageSName, out errorS))
+            return;
+
+        TeacherInfo teacher = bllTeacher.Get(Int32.Parse(TeacherNo.Value));
         teacher.Tea_Name = TeacherName.Text.ToString();
         teacher.Tea_Nickname = TeacherNickName.Text.ToString();
-        //teacher.Tea_Image = TeacherImage.r
         teacher.Tea_Sex = TeacherSex.SelectedValue.ToString();
         teacher.Tea_Age = Int32.Parse(TeacherAge.Text.ToString());
         teacher.Tea_Nation = TeacherNation.Text.ToString();
         teacher.Tea_Skill = TeacherSkill.Text.ToString();
         teacher.Tea_Describe = TeacherDescribe.Text.ToString();
+        teacher.Tea_Image = UploadSupport.Image(imageName);
+        teacher.Tea_SImage = UploadSupport.Image(imageSName);
 
         bllTeacher.Modify(teacher);
 

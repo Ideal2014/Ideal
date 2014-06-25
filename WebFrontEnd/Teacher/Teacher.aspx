@@ -50,14 +50,14 @@
                             <div class='col-lg-5 col-md-5 col-sm-5 col-xs-5'>
                                 <div class='testimonial item'>
                                     <p>
-                                        <img src='<%#Eval("Tea_Image")%>'></br><label><%#Eval("Tea_Describe")%><label>
+                                        <asp:Image runat="server" ID="TeaImage" ImageUrl='<%#Bind("Tea_Image")%>' /></br><label><%#Eval("Tea_Describe")%><label>
                                     </p>
                                     <div class='testimonials-arrow'></div>
                                     <div class='author'>
                                         <div class='testimonial-image '>
-                                            <img src='<%#Eval("Tea_SImage")%>' />
+                                            <asp:Image runat="server" ID="Tea_SImage" ImageUrl='<%#Bind("Tea_SImage")%>' />
                                         </div>
-                                        <div class='testimonial-author-info'><span class='color'><a href='../Teacher/TeacherMemTeaInfo.aspx?TeaID=" + t.Tea_ID + "'><%#Eval("Tea_Name")%></a></span></div>
+                                        <div class='testimonial-author-info'><span class='color'><a href='../Teacher/TeacherMemTeaInfo.aspx?TeaID=<%#Eval("Tea_ID")%>'><%#Eval("Tea_Name")%></a></span></div>
                                     </div>
                                 </div>
                             </div>

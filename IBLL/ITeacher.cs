@@ -17,5 +17,7 @@ namespace IBLL
 
         DataSet getTeacherList();
 
+
+        IList<TeacherInfo> GetLimit(int s, int t);
     }
 }

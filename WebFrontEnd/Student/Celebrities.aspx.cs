@@ -19,7 +19,7 @@ public partial class Student_Celebrities : System.Web.UI.Page
     {
         if (!IsPostBack)
         {
-            Information.DataSource = bllFeedBack.GetSuperFeedbackList();
+            Information.DataSource = bllFeedBack.GetFeedBackByLevelTop6();
             Information.DataBind();
             
             

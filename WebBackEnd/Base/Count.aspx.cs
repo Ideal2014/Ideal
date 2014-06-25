@@ -70,11 +70,11 @@ public partial class Base_Count : System.Web.UI.Page
         for (int i = 0; i < orders.Count; i++)
         {
             OrderRecordInfo o = orders[i];
-            int off = DateTime.Now.Day.CompareTo(o.Ord_Time.Day);
+
+            int off = DateTime.Now.Day - o.Ord_Time.Day;
             if (off >= 10 | off == 0)
                 continue;
-            //DateTime.
-            result.SetValue(result.GetValue(i, off - 1), off - 1, 1);
+            result.SetValue(Int32.Parse(result.GetValue(off - 1, 1).ToString()) + 1, off - 1, 1);
         }
         System.Text.StringBuilder str = new System.Text.StringBuilder("[");
         for (int i = 0; i < 10; i++)
@@ -100,10 +100,10 @@ public partial class Base_Count : System.Web.UI.Page
         for (int i = 0; i < classes.Count; i++)
         {
             ClassRecordInfo o = classes[i];
-            int off = DateTime.Now.Day.CompareTo(o.Cla_StartTime.Day);
+            int off = DateTime.Now.Day - o.Cla_StartTime.Day;
             if (off >= 10 | off == 0)
                 continue;
-            result.SetValue(result.GetValue(i, off - 1), off - 1, 1);
+            result.SetValue(Int32.Parse(result.GetValue(off - 1, 1).ToString()) + 1, off - 1, 1);
         }
         System.Text.StringBuilder str = new System.Text.StringBuilder("[");
         for (int i = 0; i < 10; i++)

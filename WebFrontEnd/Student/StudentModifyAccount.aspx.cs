@@ -51,8 +51,8 @@ public partial class Student_Student_Modify_Account : System.Web.UI.Page
     {
         HttpCookie cookie = Request.Cookies["usr"];
         StudentInfo student = bllStudent.Get(Convert.ToInt32(cookie.Values["ID"]));
-        student.Stu_UserName = Name.Text.ToString();
-        student.Stu_Email = Mailbox.Text.ToString();
+        //student.Stu_UserName = Name.Text.ToString();
+        //student.Stu_Email = Mailbox.Text.ToString();
         student.Stu_Tel = Telephone.Text.ToString();
         if(Radio.SelectedItem!=null)
             student.Stu_Sex = Radio.SelectedItem.Value;

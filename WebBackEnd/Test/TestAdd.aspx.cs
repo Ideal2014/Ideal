@@ -8,12 +8,12 @@ using Model;
 
 public partial class Test_TestADD : System.Web.UI.Page
 {
-    private  IBLL.ITest bllTest = BLLFactory.DataAccess.CreateTest();
+    private IBLL.ITest bllTest = BLLFactory.DataAccess.CreateTest();
     protected void Page_Load(object sender, EventArgs e)
     {
 
     }
-  
+
     protected void Add_Click(object sender, EventArgs e)
     {
         TestInfo test = new TestInfo();
@@ -25,10 +25,9 @@ public partial class Test_TestADD : System.Web.UI.Page
         test.Tes_B = AnswerB.Text.ToString();
         test.Tes_C = AnswerC.Text.ToString();
         test.Tes_D = AnswerD.Text.ToString();
-        test.Tes_Answer = Convert.ToInt32(TestAnswer.Text.ToString());
-
-
+        test.Tes_Answer = Convert.ToInt32(TestAnswer.SelectedValue.ToString());
 
         bllTest.Add(test);
+        Response.Redirect("~/Test/TestList.aspx");
     }
 }

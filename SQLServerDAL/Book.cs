@@ -79,7 +79,7 @@ namespace SQLServerDAL
             try
             {
                 sqlcon = new SqlConnection(connection);
-                string sqlstr = string.Format("SELECT BookInfo.Boo_ID, BookInfo.Boo_Image, BookInfo.Boo_Desribe, BookInfo.Boo_Desribe, BookInfo.Boo_RegisterDate, BookInfo.Boo_Preview, BookInfo.Boo_View, BookInfo.Boo_Name, TeacherInfo.Tea_Name FROM BookInfo INNER JOIN TeacherInfo ON BookInfo.Tea_ID = TeacherInfo.Tea_ID ");
+                string sqlstr = string.Format("SELECT BookInfo.*, TeacherInfo.Tea_Name FROM BookInfo INNER JOIN TeacherInfo ON BookInfo.Tea_ID = TeacherInfo.Tea_ID ");
                 SqlDataAdapter myda = new SqlDataAdapter(sqlstr, sqlcon);
                 DataSet myds = new DataSet();
                 sqlcon.Open();

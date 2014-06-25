@@ -13,7 +13,7 @@ using Model;
 
 public partial class Teacher_TeacherMemTeaInfo : System.Web.UI.Page
 {
-    private  IBLL.ITeacher bllTeacher = BLLFactory.DataAccess.CreateTeacher();
+    private IBLL.ITeacher bllTeacher = BLLFactory.DataAccess.CreateTeacher();
 
     IBLL.IStudent stu = BLLFactory.DataAccess.CreateStudent();
     int stdID = -1;
@@ -29,11 +29,12 @@ public partial class Teacher_TeacherMemTeaInfo : System.Web.UI.Page
                 StudentInfo student = stu.Get(stdID);
                 Image7.ImageUrl = student.Stu_Image;
                 Std_Name.Text = student.Stu_UserName;
-                Std_ID.Text = Convert.ToString(student.Stu_ID);
+                Std_ID.Text = student.Stu_ID.ToString();
 
                 string teaid = Request.QueryString["TeaID"];
                 TeacherInfo teacher = bllTeacher.Get(Convert.ToInt32(teaid));
                 ImageT.ImageUrl = teacher.Tea_SImage;
+                LabelID.Text = teacher.Tea_ID.ToString();
                 LabelName.Text = teacher.Tea_Name;
                 LabelSkill.Text = teacher.Tea_Skill;
                 LabelNation.Text = teacher.Tea_Nation;
@@ -48,4 +49,10 @@ public partial class Teacher_TeacherMemTeaInfo : System.Web.UI.Page
             Response.Redirect("~/Student/Login.aspx");
     }
 
+    protected void BuyButton_Click(object sender, EventArgs e)
+    {
+        var button = sender as Button;
+        var lab = button.Parent.FindControl("LabelID") as Label;
+        Response.Redirect(String.Format("../Purchase/TeachersPurchase.aspx?tid={0}", lab.Text));
+    }
 }

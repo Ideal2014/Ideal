@@ -15,5 +15,7 @@ namespace IDAL
         TeacherInfo Get(int id);
         System.Data.DataSet getTeacherList();
 
+
+        IList<TeacherInfo> GetLimit(int s, int t);
     }
 }

@@ -9,7 +9,7 @@ using System.Web.UI.WebControls;
 
 public partial class User_StudentEdit : System.Web.UI.Page
 {
-    private  IBLL.IStudent bllStudent = BLLFactory.DataAccess.CreateStudent();
+    private IBLL.IStudent bllStudent = BLLFactory.DataAccess.CreateStudent();
 
     protected void Page_Load(object sender, EventArgs e)
     {
@@ -58,16 +58,21 @@ public partial class User_StudentEdit : System.Web.UI.Page
         if (!Regex.IsMatch(StuPassword.Text.ToString(), @"^\d+$"))
             throw new Exception();
 
-        StudentInfo student = new StudentInfo();
+        if (Request.QueryString["id"] != null)
+            StuNo.Value = Request.QueryString["id"].ToString();
+        else
+            return;
+        StudentInfo student = bllStudent.Get(Int32.Parse(StuNo.Value));
 
         student.Stu_UserName = StuNickName.Text.ToString();
         student.Stu_Email = StuEmail.Text.ToString();
         student.Stu_Password = StuPassword.Text.ToString();
+        student.Stu_LastLogin = DateTime.Now;
+        student.Stu_RegisteTime = DateTime.Now;
         //头像
         //时长
-        //student.Stu_RegisteTime = StuDuration.Text;
 
-        bllStudent.Add(student);
+        bllStudent.Modify(student);
 
         Response.Redirect("~/User/StudentList.aspx");
     }
