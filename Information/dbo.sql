@@ -11,7 +11,7 @@ Target Server Type    : SQL Server
 Target Server Version : 105000
 File Encoding         : 65001
 
-Date: 2014-06-13 19:36:16
+Date: 2014-06-25 09:20:43
 */
 
 
@@ -31,7 +31,7 @@ CREATE TABLE [dbo].[AdminInfo] (
 
 
 GO
-DBCC CHECKIDENT(N'[dbo].[AdminInfo]', RESEED, 2)
+DBCC CHECKIDENT(N'[dbo].[AdminInfo]', RESEED, 7)
 GO
 
 -- ----------------------------
@@ -102,6 +102,8 @@ CREATE TABLE [dbo].[FeedbackInfo] (
 
 
 GO
+DBCC CHECKIDENT(N'[dbo].[FeedbackInfo]', RESEED, 11)
+GO
 
 -- ----------------------------
 -- Table structure for OrderRecordInfo
@@ -113,7 +115,8 @@ CREATE TABLE [dbo].[OrderRecordInfo] (
 [Stu_ID] int NOT NULL ,
 [Tea_ID] int NOT NULL ,
 [Ord_Time] datetime NOT NULL ,
-[Ord_Plan] int NOT NULL 
+[Ord_Plan] int NOT NULL ,
+[Ord_Num] int NOT NULL 
 )
 
 
@@ -141,7 +144,7 @@ CREATE TABLE [dbo].[StudentInfo] (
 
 
 GO
-DBCC CHECKIDENT(N'[dbo].[StudentInfo]', RESEED, 2)
+DBCC CHECKIDENT(N'[dbo].[StudentInfo]', RESEED, 15)
 GO
 
 -- ----------------------------
@@ -166,7 +169,7 @@ CREATE TABLE [dbo].[TeacherInfo] (
 
 
 GO
-DBCC CHECKIDENT(N'[dbo].[TeacherInfo]', RESEED, 15)
+DBCC CHECKIDENT(N'[dbo].[TeacherInfo]', RESEED, 19)
 GO
 
 -- ----------------------------

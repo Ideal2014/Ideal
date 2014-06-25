@@ -55,7 +55,6 @@ public partial class Feedback_FeedbackPage : System.Web.UI.Page
                 feedback.Fee_Time = System.DateTime.Now;
                 feedback.Fee_Topic = title;
                 feedback.Fee_Detail = content;
-                t.Text = "sss";
                 feed.Add(feedback);                                             //写入反馈信息
 
             }
